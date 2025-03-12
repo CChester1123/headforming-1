@@ -323,7 +323,7 @@ WHERE id = '$checklistId';
 	   	}
 	
 		public function GetCheckList(){
-  		 	$result = mysqli_query($this->dbh,"SELECT id, workorder,product, status, status_maintenance, status_TL, count ,type,InspectedBY,date FROM headforming.tbl_checklist WHERE status != '0' OR status is null ORDER BY id DESC");
+  		 	$result = mysqli_query($this->dbh,"SELECT id, workorder,product, status, status_maintenance, status_TL, type,InspectedBY,date FROM headforming.tbl_checklist WHERE status != '0' OR status is null ORDER BY id DESC");
 			return $result;			
 		}
 
