@@ -45,7 +45,6 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	echo $sql = $insertdata->createAdminAccount($emp_id, $name, $account, $password);
 } else if ($pick == 6 || $pick == "6" || $pick == '6') {
 
-
 	$product = htmlentities(htmlspecialchars(urldecode($_POST['product'])));
 	$productDesc = htmlentities(htmlspecialchars(urldecode($_POST['productDesc'])));
 	$handle = htmlentities(htmlspecialchars(urldecode($_POST['handle'])));
@@ -53,79 +52,43 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	$pulltestdesc = htmlentities(htmlspecialchars(urldecode($_POST['pulltestdesc'])));
 	$status = htmlentities(htmlspecialchars(urldecode($_POST['status'])));
 
-	$arrcuttingforce = htmlentities(htmlspecialchars(urldecode($_POST['arrcuttingforce'])));
-	$arrsealingtime = htmlentities(htmlspecialchars(urldecode($_POST['arrsealingtime'])));
-	$arrcuttingspeed = htmlentities(htmlspecialchars(urldecode($_POST['arrcuttingspeed'])));
-	$arrapproachingposition = htmlentities(htmlspecialchars(urldecode($_POST['arrapproachingposition'])));
-	$arrsealingpositionspeed = htmlentities(htmlspecialchars(urldecode($_POST['arrsealingpositionspeed'])));
-	$arrsealingposition = htmlentities(htmlspecialchars(urldecode($_POST['arrsealingposition'])));
-	$arrCheckbox = htmlentities(htmlspecialchars(urldecode($_POST['arrCheckbox'])));
-	$moldopenspeed = htmlentities(htmlspecialchars(urldecode($_POST['moldopenspeed'])));
-	$arrwatertemp = htmlentities(htmlspecialchars(urldecode($_POST['arrwatertemp'])));
-	$arrairpressure = htmlentities(htmlspecialchars(urldecode($_POST['arrairpressure'])));
-	$arrupperheatertemp = htmlentities(htmlspecialchars(urldecode($_POST['arrupperheatertemp'])));
-	$arrlowerheatertemp = htmlentities(htmlspecialchars(urldecode($_POST['arrlowerheatertemp'])));
-	$arruppermoldtemp = htmlentities(htmlspecialchars(urldecode($_POST['arruppermoldtemp'])));
-	$arrlowermoldtemp = htmlentities(htmlspecialchars(urldecode($_POST['arrlowermoldtemp'])));
 
-	$arrtotalLength = htmlentities(htmlspecialchars(urldecode($_POST['arrtotalLength'])));
-	$arrswabheadlength = htmlentities(htmlspecialchars(urldecode($_POST['arrswabheadlength'])));
-	$arrswabheadwidth = htmlentities(htmlspecialchars(urldecode($_POST['arrswabheadwidth'])));
-	$arrswabheadthickness = htmlentities(htmlspecialchars(urldecode($_POST['arrswabheadthickness'])));
-	$arrswabhandlewidth = htmlentities(htmlspecialchars(urldecode($_POST['arrswabhandlewidth'])));
-	$arrswabhandlethickness = htmlentities(htmlspecialchars(urldecode($_POST['arrswabhandlethickness'])));
-	$arrswabhandlediameter = htmlentities(htmlspecialchars(urldecode($_POST['arrswabhandlediameter'])));
+
+	// $arrcuttingforce = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrcuttingforce']))));
+	$arrcuttingforce = htmlentities(htmlspecialchars(urldecode($_POST['arrcuttingforce'])));
+
+	$arrsealingtime = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrsealingtime']))));
+	$arrcuttingspeed = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrcuttingspeed']))));
+	$arrapproachingposition = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrapproachingposition']))));
+	$arrsealingpositionspeed = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrsealingpositionspeed']))));
+	$arrsealingposition = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrsealingposition']))));
+	$arruppermoldtemp = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arruppermoldtemp']))));
+	$arrlowermoldtemp = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrlowermoldtemp']))));
+	$arrtotalLength = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrtotalLength']))));
+	$arrswabheadlength = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrswabheadlength']))));
+	$arrswabheadwidth = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrswabheadwidth']))));
+	$arrswabheadthickness = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrswabheadthickness']))));
+	$arrswabhandlewidth = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrswabhandlewidth']))));
+	$arrswabhandlethickness = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrswabhandlethickness']))));
+	$arrswabhandlediameter = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrswabhandlediameter']))));
+	$arrpulltest = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrpulltest']))));
+	$arrswabheadpulling = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrswabheadpulling']))));
+	$arrswabheadpopping = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['arrswabheadpopping']))));
+	$substrateDimensionforce = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['substrateDimensionforce']))));
+	$pullSeatTestforce = explode(",", htmlentities(htmlspecialchars(urldecode($_POST['pullSeatTestforce']))));
+
+
 
 	$noHandleperHT = htmlentities(htmlspecialchars(urldecode($_POST['noHandleperHT'])));
-	$arrpulltest = htmlentities(htmlspecialchars(urldecode($_POST['arrpulltest'])));
-	$arrswabheadpulling = htmlentities(htmlspecialchars(urldecode($_POST['arrswabheadpulling'])));
-	$arrswabheadpopping = htmlentities(htmlspecialchars(urldecode($_POST['arrswabheadpopping'])));
-
-	$pulltestdesc = htmlentities(htmlspecialchars(urldecode($_POST['pulltestdesc'])));
-
-	$substrateDimensionforce = htmlentities(htmlspecialchars(urldecode($_POST['substrateDimensionforce'])));
-	$pullSeatTestforce = htmlentities(htmlspecialchars(urldecode($_POST['pullSeatTestforce'])));
-
-
 	$handleColor = htmlentities(htmlspecialchars(urldecode($_POST['handleColor'])));
 	$substrateLotNum = htmlentities(htmlspecialchars(urldecode($_POST['substrateLotNum'])));
 	$handleTreeMaterialNum = htmlentities(htmlspecialchars(urldecode($_POST['handleTreeMaterialNum'])));
 	$machineTreeMatType = htmlentities(htmlspecialchars(urldecode($_POST['machineTreeMatType'])));
 	$substrateType = htmlentities(htmlspecialchars(urldecode($_POST['substrateType'])));
 
-	$cuttingforces = explode(",", $arrcuttingforce);
-	$sealingtime = explode(",", $arrsealingtime);
-	$cuttingspeed = explode(",", $arrcuttingspeed);
-	$approachingposition = explode(",", $arrapproachingposition);
-	$sealingpositionspeed = explode(",", $arrsealingpositionspeed);
-	$sealingposition = explode(",", $arrsealingposition);
+	echo $sql = $insertdata->createProduct2($arrcuttingforce);
 
-	$Checkbox = explode(",", $arrCheckbox);
-
-	$watertemp = explode(",", $arrwatertemp);
-	$airpressure = explode(",", $arrairpressure);
-	$upperheatertemp = explode(",", $arrupperheatertemp);
-	$lowerheatertemp = explode(",", $arrlowerheatertemp);
-
-	$uppermoldtemp = explode(",", $arruppermoldtemp);
-	$lowerheatertemp = explode(",", $arrlowerheatertemp);
-	$lowermoldtemp = explode(",", $arrlowermoldtemp);
-	$totalLength = explode(",", $arrtotalLength);
-	$swabheadlength = explode(",", $arrswabheadlength);
-	$swabheadwidth = explode(",", $arrswabheadwidth);
-
-	$swabheadthickness = explode(",", $arrswabheadthickness);
-	$swabhandlewidth = explode(",", $arrswabhandlewidth);
-	$swabhandlethickness = explode(",", $arrswabhandlethickness);
-	$swabhandlediameter = explode(",", $arrswabhandlediameter);
-
-	$pulltest = explode(",", $arrpulltest);
-	$swabheadpulling = explode(",", $arrswabheadpulling);
-	$swabheadpopping = explode(",", $arrswabheadpopping);
-	$substrateDimensionforce = explode(",", $substrateDimensionforce);
-	$pullSeatTestforce = explode(",", $pullSeatTestforce);
-
-	echo $sql = $insertdata->createProduct($product, $productDesc, $handle, $subtrate, $status, $arrcuttingforce, $arrsealingtime, $arrcuttingspeed, $arrapproachingposition, $arrsealingpositionspeed, $arrsealingposition, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arruppermoldtemp, $arrlowermoldtemp, $arrtotalLength, $arrswabheadlength, $arrswabheadwidth, $arrswabheadthickness, $arrswabhandlewidth, $arrswabhandlethickness, $arrswabhandlediameter, $noHandleperHT, $arrpulltest, $arrswabheadpulling, $arrswabheadpopping, $pulltestdesc, $substrateDimensionforce, $pullSeatTestforce, $handleColor, $substrateLotNum, $handleTreeMaterialNum, $machineTreeMatType, $substrateType);
+	// echo $sql = $insertdata->createProduct($product,$productDesc,$handle,$subtrate,$pulltestdesc,$status,$arrcuttingforce,$arrsealingtime,$arrcuttingspeed,$arrapproachingposition,$arrsealingpositionspeed,$arrsealingposition,$arruppermoldtemp,$arrlowermoldtemp,$arrtotalLength,$arrswabheadlength,$arrswabheadwidth,$arrswabheadthickness,$arrswabhandlewidth,$arrswabhandlethickness,$arrswabhandlediameter,$arrpulltest,$arrswabheadpulling,$arrswabheadpopping,$substrateDimensionforce,$pullSeatTestforce,$noHandleperHT,$handleColor,$substrateLotNum,$handleTreeMaterialNum,$machineTreeMatType,$substrateType);
 } else if ($pick == 7 || $pick == "7" || $pick == '7') {
 	$prod_id = htmlentities(htmlspecialchars(urldecode($_POST['prod_id'])));
 	$product = htmlentities(htmlspecialchars(urldecode($_POST['product'])));

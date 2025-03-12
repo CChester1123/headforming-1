@@ -1206,23 +1206,11 @@
       substrateDimensionforce.push(textbox.value);
     });
 
-
-
     let pullSeatTestText = document.querySelectorAll('input[id="pullSeatTest"]');
     let pullSeatTestforce = [];
     pullSeatTestText.forEach((textbox) => {
       pullSeatTestforce.push(textbox.value);
     });
-
-
-
-
-
-
-
-
-
-
 
     var handleColor = $.trim(encodeURI($("#handleColor").val()));
     var substrateLotNum = $.trim(encodeURI($("#substrateLotNum").val()));
