@@ -132,14 +132,6 @@ class admin_creation
 		return $result;
 	}
 
-	public function createProduct2(
-		$arrcuttingforce
-	) {
-
-		$result = mysqli_query($this->dbh, "INSERT INTO `headforming`.`tbl_products2` (`id`, `productname`) VALUES (20, '$arrcuttingforce');");
-		return $result;
-	}
-
 
 	public function createProduct(
 		$product,
@@ -211,7 +203,7 @@ class admin_creation
   `pulltestdesc`
 )
 VALUES (
-  1, -- The ID value
+  91, -- The ID value
   '$product', 
   '$productDesc', 
   '$status', 
