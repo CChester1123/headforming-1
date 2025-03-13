@@ -124,7 +124,9 @@ $deptType = $_GET['deptType'];
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <div class="card">
+          <?php
+          if ($deptType == "Head Forming") {
+            echo '<div class="card">
             <div class="card-header" style="background-color: #111E6C; color: white;">
               <h3 class="card-title">STANDARD PARAMETER </h3>
             </div>
@@ -572,12 +574,7 @@ $deptType = $_GET['deptType'];
             </div>
 
 
-          </div>
-
-
-          <?php
-          if ($deptType == "Head Forming") {
-            // echo '<h3 class="card-title">HEADDD</h3>';
+          </div>';
           } else {
             echo '<div class="card">
             <div class="card-header" style="background-color: #111E6C; color: white;">
