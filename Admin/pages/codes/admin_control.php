@@ -96,10 +96,11 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	$arrheaterTempUpnLow = htmlentities(htmlspecialchars(urldecode($_POST['arrheaterTempUpnLow'])));
 	$arrheaterSwabHandleFixture = htmlentities(htmlspecialchars(urldecode($_POST['arrheaterSwabHandleFixture'])));
 	$arrfixtureClosingTime = htmlentities(htmlspecialchars(urldecode($_POST['arrfixtureClosingTime'])));
+	$department = htmlentities(htmlspecialchars(urldecode($_POST['department'])));
 
 	
 
-	echo $sql = $insertdata->createProduct($product,$productDesc,$handle,$subtrate,$pulltestdesc,$status,$arrcuttingforce,$arrsealingtime,$arrcuttingspeed,$arrapproachingposition,$arrsealingpositionspeed,$arrsealingposition,$arruppermoldtemp,$arrlowermoldtemp,$arrtotalLength,$arrswabheadlength,$arrswabheadwidth,$arrswabheadthickness,$arrswabhandlewidth,$arrswabhandlethickness,$arrswabhandlediameter,$arrpulltest,$arrswabheadpulling,$arrswabheadpopping,$substrateDimensionforce,$pullSeatTestforce,$noHandleperHT,$handleColor,$substrateLotNum,$handleTreeMaterialNum,$machineTreeMatType,$substrateType, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arrheaterTempUpnLow, $arrheaterSwabHandleFixture, $arrfixtureClosingTime);
+	echo $sql = $insertdata->createProduct($product,$productDesc,$handle,$subtrate,$pulltestdesc,$status,$arrcuttingforce,$arrsealingtime,$arrcuttingspeed,$arrapproachingposition,$arrsealingpositionspeed,$arrsealingposition,$arruppermoldtemp,$arrlowermoldtemp,$arrtotalLength,$arrswabheadlength,$arrswabheadwidth,$arrswabheadthickness,$arrswabhandlewidth,$arrswabhandlethickness,$arrswabhandlediameter,$arrpulltest,$arrswabheadpulling,$arrswabheadpopping,$substrateDimensionforce,$pullSeatTestforce,$noHandleperHT,$handleColor,$substrateLotNum,$handleTreeMaterialNum,$machineTreeMatType,$substrateType, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arrheaterTempUpnLow, $arrheaterSwabHandleFixture, $arrfixtureClosingTime, $department);
 } else if ($pick == 7 || $pick == "7" || $pick == '7') {
 	$prod_id = htmlentities(htmlspecialchars(urldecode($_POST['prod_id'])));
 	$product = htmlentities(htmlspecialchars(urldecode($_POST['product'])));

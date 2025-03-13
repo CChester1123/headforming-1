@@ -36,6 +36,7 @@ $deptType = $_GET['deptType'];
                   <div class="col-sm">
                     <label>Product Name</label>
                     <input type="text" class="form-control" id="product" placeholder="Enter Product Name">
+                    <input type="text" class="form-control" id="deptType" value="<?php echo htmlspecialchars($deptType); ?>" disabled hidden>
                   </div>
                   <div class="col-sm">
                     <label>Product Description</label>
@@ -1214,6 +1215,14 @@ $deptType = $_GET['deptType'];
     var pulltestdesc = $.trim(encodeURI($("#pulltestdesc").val()));
     var status = "Active";
 
+    var department = $.trim($("#deptType").val()); // Use only $.trim, no need for encodeURI
+    if (department === "Head Forming") {
+      department = "Head Forming";
+    } else {
+      department = "Thermal Bonding";
+    }
+    console.log("asd "+department);
+
     let cuttingforceText = document.querySelectorAll('input[id="cuttingforce"]');
     let arrcuttingforce = [];
     cuttingforceText.forEach((textbox) => {
@@ -1415,6 +1424,9 @@ $deptType = $_GET['deptType'];
     fd.append('arrheaterTempUpnLow', arrheaterTempUpnLow);
     fd.append('arrheaterSwabHandleFixture', arrheaterSwabHandleFixture);
     fd.append('arrfixtureClosingTime', arrfixtureClosingTime);
+    fd.append('department', department);
+
+
 
 
 
