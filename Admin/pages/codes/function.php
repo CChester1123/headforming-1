@@ -174,84 +174,15 @@ class admin_creation
 		$arrlowerheatertemp
 	) {
 
-		// $confirm = mysqli_query($this->dbh, "SELECT * FROM headforming.tbl_products2 WHERE productname = '$product'");
-		// $count_row = $confirm->num_rows;
+		$confirm = mysqli_query($this->dbh, "SELECT * FROM headforming.tbl_products2 WHERE productname = '$product'");
+		$count_row = $confirm->num_rows;
 
-		// if ($count_row >= 1) {
-		// 	return "Product Code Already Exist";
-		// } else {
-
-		$result = mysqli_query($this->dbh, "INSERT INTO `headforming`.`tbl_products2`
-(`id`,
-`productname`,
-`productDesc`,
-`status`,
-`handle`,
-`substrate`,
-`cuttingforceRange`,
-`sealingtimeRange`,
-`cuttingspeedRange`,
-`approachingpositionRange`,
-`sealingpositionspeedRange`,
-`sealingpositionRange`,
-`mode`,
-`moldopenspeedRange`,
-`watertempRange`,
-`airpressureRange`,
-`upperheattempRange`,
-`lowerheattempRange`,
-`uppermoldtempRange`,
-`lowermoldtempRange`,
-`totallengthRange`,
-`swabheadlengthRange`,
-`swabheadwidthRange`,
-`swabheadthicknessRange`,
-`swabhandlewidthRange`,
-`swabhandlethicknessRange`,
-`swabheaddiameterRange`,
-`noofsample`,
-`pullTest`,
-`swabheadpullingRange`,
-`swabheadpoppingRange`,
-`pulltestdesc`)
-VALUES
-( 6,
-'$product',
-'$productDesc',
-'$status',
-'$handle',
-'$subtrate',
-'$arrcuttingforce',
-'$arrsealingtime',
-'$arrcuttingspeed',
-'$arrapproachingposition',
-'$arrsealingpositionspeed',
-'$arrsealingposition',
-'$arrCheckbox',
-'$moldopenspeed',
-'$arrwatertemp',
-'$arrairpressure',
-'$arrupperheatertemp',
-'$arrlowerheatertemp',
-'$arruppermoldtemp',
-'$arrlowermoldtemp',
-'$arrtotalLength',
-'$arrswabheadlength',
-'$arrswabheadwidth',
-'$arrswabheadthickness',
-'$arrswabhandlewidth',
-'$arrswabhandlethickness',
-'$arrswabhandlediameter',
-'$noHandleperHT',
-'$arrpulltest',
-'$arrswabheadpulling',
-'$arrswabheadpopping',
-'$pulltestdesc');
-
-
-");
+		if ($count_row >= 1) {
+			return "Product Code Already Exist";
+		} else {
+			$result = mysqli_query($this->dbh, "INSERT INTO `headforming`.`tbl_products2` ( `productname`, `productDesc`, `status`, `handle`, `substrate`, `cuttingforceRange`, `sealingtimeRange`, `cuttingspeedRange`, `approachingpositionRange`, `sealingpositionspeedRange`, `sealingpositionRange`, `mode`, `moldopenspeedRange`, `watertempRange`, `airpressureRange`, `upperheattempRange`, `lowerheattempRange`, `uppermoldtempRange`, `lowermoldtempRange`, `totallengthRange`, `swabheadlengthRange`, `swabheadwidthRange`, `swabheadthicknessRange`, `swabhandlewidthRange`, `swabhandlethicknessRange`, `swabheaddiameterRange`, `noofsample`, `pullTest`, `swabheadpullingRange`, `swabheadpoppingRange`, `pulltestdesc`) VALUES ( '$product', '$productDesc', '$status', '$handle', '$subtrate', '$arrcuttingforce', '$arrsealingtime', '$arrcuttingspeed', '$arrapproachingposition', '$arrsealingpositionspeed', '$arrsealingposition', '$arrCheckbox', '$moldopenspeed', '$arrwatertemp', '$arrairpressure', '$arrupperheatertemp', '$arrlowerheatertemp', '$arruppermoldtemp', '$arrlowermoldtemp', '$arrtotalLength', '$arrswabheadlength', '$arrswabheadwidth', '$arrswabheadthickness', '$arrswabhandlewidth', '$arrswabhandlethickness', '$arrswabhandlediameter', '$noHandleperHT', '$arrpulltest', '$arrswabheadpulling', '$arrswabheadpopping', '$pulltestdesc'); ");
 		return $result;
-		// }
+		}
 	}
 
 	
