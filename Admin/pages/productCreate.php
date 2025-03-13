@@ -1212,10 +1212,12 @@
       pullSeatTestforce.push(textbox.value);
     });
 
-    let checkbox = document.querySelectorAll('input[id="checkbox"]');
+    let checkboxes = document.querySelectorAll('input[type="checkbox"]');
     let arrCheckbox = [];
-    checkbox.forEach((textbox) => {
-      arrCheckbox.push(textbox.value);
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        arrCheckbox.push(checkbox.value);
+      }
     });
 
     let watertemp = document.querySelectorAll('input[id="watertemp"]');
