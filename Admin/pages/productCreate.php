@@ -3,7 +3,13 @@
 
 $deptType = $_GET['deptType'];
 
+
+
+
 ?>
+
+
+
 
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -569,14 +575,18 @@ $deptType = $_GET['deptType'];
           </div>
 
 
-          <div class="card">
+          <?php
+          if ($deptType == "Head Forming") {
+            // echo '<h3 class="card-title">HEADDD</h3>';
+          } else {
+            echo '<div class="card">
             <div class="card-header" style="background-color: #111E6C; color: white;">
               <h3 class="card-title">STANDARD PARAMETER </h3>
             </div>
 
             <div class="card-body">
               <div class="form-group">
-                <label style="color: #111E6C;">HEADFORMING MACHINE</label>
+                <label style="color: #111E6C;">Thermal MACHINE</label>
               </div>
 
               <div class="form-group">
@@ -642,11 +652,14 @@ $deptType = $_GET['deptType'];
                   </div>
                 </div>
               </div> -->
-              
+
             </div>
 
 
-          </div>
+          </div>';
+          }
+          ?>
+
         </div>
       </div>
     </div>
