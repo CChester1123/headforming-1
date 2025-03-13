@@ -1,5 +1,9 @@
 <title>Add Product</title>
-<?php include 'includes/header.php'; ?>
+<?php include 'includes/header.php';
+
+$deptType = $_GET['deptType'];
+
+?>
 
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -316,184 +320,184 @@
                 </div>
               </div>
 
-                             <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm">
-                           <label style="margin-left: 20px;">Mode</label>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm">
+                    <label style="margin-left: 20px;">Mode</label>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-5">
+                          Position
                         </div>
-                        <div class="col-sm">
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-sm-5">
-                                 Position
-                                </div>
-                                <div class="col-sm-5">
-                                    <input type="checkbox" value="Position" class="form-control">
-                                </div>
-                              </div>
-                            </div>
+                        <div class="col-sm-5">
+                          <input type="checkbox" value="Position" class="form-control">
                         </div>
-                        <div class="col-sm">
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-sm-5">
-                                 Pressure
-                                </div>
-                                <div class="col-sm-5">
-                                    <input type="checkbox" value = "Pressure" class="form-control"> 
-                                </div>
-                              </div>
-                            </div>
-                        </div>
+                      </div>
                     </div>
-                </div> 
-
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm">
-                           <label style="margin-left: 20px;">Mold Open Speed (mm/s)</label>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-5">
+                          Pressure
                         </div>
-                        <div class="col-sm-8">
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-sm">
-                               
-                                 <input type="text" class="form-control" id="moldopenspeed" placeholder="Enter Mold Open Speed (mm/s)" >
-                                </div>
-                              </div>
-                            </div>
+                        <div class="col-sm-5">
+                          <input type="checkbox" value="Pressure" class="form-control">
                         </div>
-
+                      </div>
                     </div>
-                </div> 
+                  </div>
+                </div>
+              </div>
 
-                <div class="form-group">
-                    <div class="row">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm">
+                    <label style="margin-left: 20px;">Mold Open Speed (mm/s)</label>
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="container">
+                      <div class="row">
                         <div class="col-sm">
-                           <label style="margin-left: 20px;">Water Temperature (°C)</label>
-                        </div>
-                        <div class="col-sm">
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-sm-2">
-                                 Min
-                                </div>
-                                <div class="col-sm-9">
-                                 <input type="text" class="form-control" id="watertemp" placeholder="Enter Minimum" >
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-sm-2">
-                                 Max
-                                </div>
-                                <div class="col-sm-9">
-                                 <input type="text" class="form-control" id="watertemp" placeholder="Enter Maximum" >
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm">
-                           <label style="margin-left: 20px;">Air Pressure (psi)</label>
+                          <input type="text" class="form-control" id="moldopenspeed" placeholder="Enter Mold Open Speed (mm/s)">
                         </div>
-                        <div class="col-sm">
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-sm-2">
-                                 Min
-                                </div>
-                                <div class="col-sm-9">
-                                 <input type="text" class="form-control" id="airpressure" placeholder="Enter Minimum" >
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-sm-2">
-                                 Max
-                                </div>
-                                <div class="col-sm-9">
-                                 <input type="text" class="form-control" id="airpressure" placeholder="Enter Maximum" >
-                                </div>
-                              </div>
-                            </div>
-                        </div>
+                      </div>
                     </div>
-                </div> 
+                  </div>
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm">
-                           <label style="margin-left: 20px;">Upper Heater Temperature (°C)</label>
-                        </div>
-                        <div class="col-sm">
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-sm-2">
-                                 Min
-                                </div>
-                                <div class="col-sm-9">
-                                 <input type="text" class="form-control" id="upperheatertemp" placeholder="Enter Minimum" >
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="col-sm">
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-sm-2">
-                                 Max
-                                </div>
-                                <div class="col-sm-9">
-                                 <input type="text" class="form-control" id="upperheatertemp" placeholder="Enter Maximum" >
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
+                </div>
+              </div>
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm">
-                           <label style="margin-left: 20px;">Lower Heater Temperature (°C)</label>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm">
+                    <label style="margin-left: 20px;">Water Temperature (°C)</label>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Min
                         </div>
-                        <div class="col-sm">
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-sm-2">
-                                 Min
-                                </div>
-                                <div class="col-sm-9">
-                                 <input type="text" class="form-control" id="lowerheatertemp" placeholder="Enter Minimum" >
-                                </div>
-                              </div>
-                            </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="watertemp" placeholder="Enter Minimum">
                         </div>
-                        <div class="col-sm">
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-sm-2">
-                                 Max
-                                </div>
-                                <div class="col-sm-9">
-                                 <input type="text" class="form-control" id="lowerheatertemp" placeholder="Enter Maximum" >
-                                </div>
-                              </div>
-                            </div>
-                        </div>
+                      </div>
                     </div>
-                </div> 
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Max
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="watertemp" placeholder="Enter Maximum">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm">
+                    <label style="margin-left: 20px;">Air Pressure (psi)</label>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Min
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="airpressure" placeholder="Enter Minimum">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Max
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="airpressure" placeholder="Enter Maximum">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm">
+                    <label style="margin-left: 20px;">Upper Heater Temperature (°C)</label>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Min
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="upperheatertemp" placeholder="Enter Minimum">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Max
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="upperheatertemp" placeholder="Enter Maximum">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm">
+                    <label style="margin-left: 20px;">Lower Heater Temperature (°C)</label>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Min
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="lowerheatertemp" placeholder="Enter Minimum">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Max
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="lowerheatertemp" placeholder="Enter Maximum">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div class="form-group">
                 <div class="row">
@@ -560,6 +564,88 @@
               </div>
 
             </div>
+
+
+          </div>
+
+
+          <div class="card">
+            <div class="card-header" style="background-color: #111E6C; color: white;">
+              <h3 class="card-title">STANDARD PARAMETER </h3>
+            </div>
+
+            <div class="card-body">
+              <div class="form-group">
+                <label style="color: #111E6C;">HEADFORMING MACHINE</label>
+              </div>
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm">
+                    <label style="margin-left: 20px;">Cutting Force (ton)</label>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Min
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="cuttingforce" placeholder="Enter Minimum">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Max
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="cuttingforce" placeholder="Enter Maximum">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="form-group">
+                <div class="row">
+                  <div class="col-sm">
+                    <label style="margin-left: 20px;">Sealing Time (sec)</label>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Min
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="sealingtime" placeholder="Enter Minimum">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Max
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="sealingtime" placeholder="Enter Maximum">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              
+            </div>
+
+
           </div>
         </div>
       </div>
@@ -1244,7 +1330,7 @@
       arrlowerheatertemp.push(textbox.value);
     });
 
-    
+
 
     var moldopenspeed = $.trim(encodeURI($("#moldopenspeed").val()));
 
@@ -1270,10 +1356,10 @@
     fd.append('arrupperheatertemp', arrupperheatertemp);
     fd.append('arrlowerheatertemp', arrlowerheatertemp);
 
-    
-    
 
-    fd.append('product', product); 
+
+
+    fd.append('product', product);
     fd.append('productDesc', productDesc);
     fd.append('handle', handle);
     fd.append('subtrate', subtrate);

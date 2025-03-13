@@ -126,10 +126,9 @@
     var deptType = $.trim($("#deptType").val());
 
     if (deptType === "Head Forming") {
-        location.href = "productCreate";
+      location.href = "productCreate?deptType=" + deptType;
     } else {
-        console.log("Other department selected");
+      location.href = "productCreate?deptType=" + deptType;
     }
-});
-
+  });
 </script>
