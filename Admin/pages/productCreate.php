@@ -128,12 +128,12 @@ $deptType = $_GET['deptType'];
           if ($deptType == "Head Forming") {
             echo '<div class="card">
             <div class="card-header" style="background-color: #111E6C; color: white;">
-              <h3 class="card-title">STANDARD PARAMETER </h3>
+              <h3 class="card-title">STANDARD PARAMETER</h3>
             </div>
 
             <div class="card-body">
               <div class="form-group">
-                <label style="color: #111E6C;">HEADFORMING MACHINE</label>
+                <label style="color: #111E6C;">HEAD FORMING MACHINE</label>
               </div>
 
               <div class="form-group">
@@ -583,13 +583,13 @@ $deptType = $_GET['deptType'];
 
             <div class="card-body">
               <div class="form-group">
-                <label style="color: #111E6C;">Thermal MACHINE</label>
+                <label style="color: #111E6C;">THERMAL BONDING MACHINE</label>
               </div>
 
               <div class="form-group">
                 <div class="row">
                   <div class="col-sm">
-                    <label style="margin-left: 20px;">Cutting Force (ton)</label>
+                    <label style="margin-left: 20px;">Heater Temperature Upper and Lower</label>
                   </div>
                   <div class="col-sm">
                     <div class="container">
@@ -598,7 +598,7 @@ $deptType = $_GET['deptType'];
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="cuttingforce" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="heaterTempUpnLow" placeholder="Enter Minimum">
                         </div>
                       </div>
                     </div>
@@ -610,7 +610,7 @@ $deptType = $_GET['deptType'];
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="cuttingforce" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="heaterTempUpnLow" placeholder="Enter Maximum">
                         </div>
                       </div>
                     </div>
@@ -618,10 +618,10 @@ $deptType = $_GET['deptType'];
                 </div>
               </div>
 
-              <!-- <div class="form-group">
+              <div class="form-group">
                 <div class="row">
                   <div class="col-sm">
-                    <label style="margin-left: 20px;">Sealing Time (sec)</label>
+                    <label style="margin-left: 20px;">Heater Open And Swab Handle Fixture Closing</label>
                   </div>
                   <div class="col-sm">
                     <div class="container">
@@ -630,7 +630,7 @@ $deptType = $_GET['deptType'];
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="sealingtime" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="heaterSwabHandleFixture" placeholder="Enter Minimum">
                         </div>
                       </div>
                     </div>
@@ -642,13 +642,45 @@ $deptType = $_GET['deptType'];
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="sealingtime" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="heaterSwabHandleFixture" placeholder="Enter Maximum">
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div> -->
+              </div>
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm">
+                    <label style="margin-left: 20px;">Fixture Closing Time</label>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Min
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="fixtureClosingTime" placeholder="Enter Minimum">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Max
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="fixtureClosingTime" placeholder="Enter Maximum">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> 
 
             </div>
 
@@ -1340,11 +1372,25 @@ $deptType = $_GET['deptType'];
       arrlowerheatertemp.push(textbox.value);
     });
 
+    let heaterTempUpnLow = document.querySelectorAll('input[id="heaterTempUpnLow"]');
+    let arrheaterTempUpnLow = [];
+    heaterTempUpnLow.forEach((textbox) => {
+      arrheaterTempUpnLow.push(textbox.value);
+    });
 
+    let heaterSwabHandleFixture = document.querySelectorAll('input[id="heaterSwabHandleFixture"]');
+    let arrheaterSwabHandleFixture = [];
+    heaterSwabHandleFixture.forEach((textbox) => {
+      arrheaterSwabHandleFixture.push(textbox.value);
+    });
+
+    let fixtureClosingTime = document.querySelectorAll('input[id="fixtureClosingTime"]');
+    let arrfixtureClosingTime = [];
+    fixtureClosingTime.forEach((textbox) => {
+      arrfixtureClosingTime.push(textbox.value);
+    });
 
     var moldopenspeed = $.trim(encodeURI($("#moldopenspeed").val()));
-
-
     var handleColor = $.trim(encodeURI($("#handleColor").val()));
     var substrateLotNum = $.trim(encodeURI($("#substrateLotNum").val()));
     var handleTreeMaterialNum = $.trim(encodeURI($("#handleTreeMaterialNum").val()));
@@ -1365,6 +1411,10 @@ $deptType = $_GET['deptType'];
     fd.append('arrairpressure', arrairpressure);
     fd.append('arrupperheatertemp', arrupperheatertemp);
     fd.append('arrlowerheatertemp', arrlowerheatertemp);
+
+    fd.append('arrheaterTempUpnLow', arrheaterTempUpnLow);
+    fd.append('arrheaterSwabHandleFixture', arrheaterSwabHandleFixture);
+    fd.append('arrfixtureClosingTime', arrfixtureClosingTime);
 
 
 
