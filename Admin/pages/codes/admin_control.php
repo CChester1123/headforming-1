@@ -77,7 +77,6 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 
 
 
-
 	$noHandleperHT = htmlentities(htmlspecialchars(urldecode($_POST['noHandleperHT'])));
 	$handleColor = htmlentities(htmlspecialchars(urldecode($_POST['handleColor'])));
 	$substrateLotNum = htmlentities(htmlspecialchars(urldecode($_POST['substrateLotNum'])));
@@ -85,7 +84,17 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	$machineTreeMatType = htmlentities(htmlspecialchars(urldecode($_POST['machineTreeMatType'])));
 	$substrateType = htmlentities(htmlspecialchars(urldecode($_POST['substrateType'])));
 
-	echo $sql = $insertdata->createProduct($product,$productDesc,$handle,$subtrate,$pulltestdesc,$status,$arrcuttingforce,$arrsealingtime,$arrcuttingspeed,$arrapproachingposition,$arrsealingpositionspeed,$arrsealingposition,$arruppermoldtemp,$arrlowermoldtemp,$arrtotalLength,$arrswabheadlength,$arrswabheadwidth,$arrswabheadthickness,$arrswabhandlewidth,$arrswabhandlethickness,$arrswabhandlediameter,$arrpulltest,$arrswabheadpulling,$arrswabheadpopping,$substrateDimensionforce,$pullSeatTestforce,$noHandleperHT,$handleColor,$substrateLotNum,$handleTreeMaterialNum,$machineTreeMatType,$substrateType);
+
+	$arrCheckbox = htmlentities(htmlspecialchars(urldecode($_POST['arrCheckbox'])));
+	$moldopenspeed = htmlentities(htmlspecialchars(urldecode($_POST['moldopenspeed'])));
+	$arrwatertemp = htmlentities(htmlspecialchars(urldecode($_POST['arrwatertemp'])));
+	$arrairpressure = htmlentities(htmlspecialchars(urldecode($_POST['arrairpressure'])));
+	$arrupperheatertemp = htmlentities(htmlspecialchars(urldecode($_POST['arrupperheatertemp'])));
+	$arrlowerheatertemp = htmlentities(htmlspecialchars(urldecode($_POST['arrlowerheatertemp'])));
+
+	
+
+	echo $sql = $insertdata->createProduct($product,$productDesc,$handle,$subtrate,$pulltestdesc,$status,$arrcuttingforce,$arrsealingtime,$arrcuttingspeed,$arrapproachingposition,$arrsealingpositionspeed,$arrsealingposition,$arruppermoldtemp,$arrlowermoldtemp,$arrtotalLength,$arrswabheadlength,$arrswabheadwidth,$arrswabheadthickness,$arrswabhandlewidth,$arrswabhandlethickness,$arrswabhandlediameter,$arrpulltest,$arrswabheadpulling,$arrswabheadpopping,$substrateDimensionforce,$pullSeatTestforce,$noHandleperHT,$handleColor,$substrateLotNum,$handleTreeMaterialNum,$machineTreeMatType,$substrateType, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp);
 } else if ($pick == 7 || $pick == "7" || $pick == '7') {
 	$prod_id = htmlentities(htmlspecialchars(urldecode($_POST['prod_id'])));
 	$product = htmlentities(htmlspecialchars(urldecode($_POST['product'])));

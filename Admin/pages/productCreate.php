@@ -316,7 +316,7 @@
                 </div>
               </div>
 
-              <!--                <div class="form-group">
+                             <div class="form-group">
                     <div class="row">
                         <div class="col-sm">
                            <label style="margin-left: 20px;">Mode</label>
@@ -493,7 +493,7 @@
                             </div>
                         </div>
                     </div>
-                </div>  -->
+                </div> 
 
               <div class="form-group">
                 <div class="row">
@@ -1212,6 +1212,41 @@
       pullSeatTestforce.push(textbox.value);
     });
 
+    let checkbox = document.querySelectorAll('input[id="checkbox"]');
+    let arrCheckbox = [];
+    checkbox.forEach((textbox) => {
+      arrCheckbox.push(textbox.value);
+    });
+
+    let watertemp = document.querySelectorAll('input[id="watertemp"]');
+    let arrwatertemp = [];
+    watertemp.forEach((textbox) => {
+      arrwatertemp.push(textbox.value);
+    });
+
+    let airpressure = document.querySelectorAll('input[id="airpressure"]');
+    let arrairpressure = [];
+    airpressure.forEach((textbox) => {
+      arrairpressure.push(textbox.value);
+    });
+
+    let upperheatertemp = document.querySelectorAll('input[id="upperheatertemp"]');
+    let arrupperheatertemp = [];
+    upperheatertemp.forEach((textbox) => {
+      arrupperheatertemp.push(textbox.value);
+    });
+
+    let lowerheatertemp = document.querySelectorAll('input[id="lowerheatertemp"]');
+    let arrlowerheatertemp = [];
+    lowerheatertemp.forEach((textbox) => {
+      arrlowerheatertemp.push(textbox.value);
+    });
+
+    
+
+    var moldopenspeed = $.trim(encodeURI($("#moldopenspeed").val()));
+
+
     var handleColor = $.trim(encodeURI($("#handleColor").val()));
     var substrateLotNum = $.trim(encodeURI($("#substrateLotNum").val()));
     var handleTreeMaterialNum = $.trim(encodeURI($("#handleTreeMaterialNum").val()));
@@ -1226,7 +1261,17 @@
     var fd = new FormData();
     fd.append('pick', pick);
 
-    fd.append('product', product);
+    fd.append('arrCheckbox', arrCheckbox);
+    fd.append('moldopenspeed', moldopenspeed);
+    fd.append('arrwatertemp', arrwatertemp);
+    fd.append('arrairpressure', arrairpressure);
+    fd.append('arrupperheatertemp', arrupperheatertemp);
+    fd.append('arrlowerheatertemp', arrlowerheatertemp);
+
+    
+    
+
+    fd.append('product', product); 
     fd.append('productDesc', productDesc);
     fd.append('handle', handle);
     fd.append('subtrate', subtrate);
