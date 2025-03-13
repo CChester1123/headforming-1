@@ -110,6 +110,7 @@
 
   $(document).on('click', '.btnView', function() {
     id = $(this).attr("id");
+    
     location.href = "productView?id=" + id;
   });
 

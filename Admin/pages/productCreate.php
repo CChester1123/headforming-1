@@ -36,7 +36,7 @@ $deptType = $_GET['deptType'];
                   <div class="col-sm">
                     <label>Product Name</label>
                     <input type="text" class="form-control" id="product" placeholder="Enter Product Name">
-                    <input type="text" class="form-control" id="deptType" value="<?php echo htmlspecialchars($deptType); ?>" disabled hidden>
+                    <input type="text" class="form-control" id="deptType" value="<?php echo htmlspecialchars($deptType); ?>" readonly hidden>
                   </div>
                   <div class="col-sm">
                     <label>Product Description</label>
