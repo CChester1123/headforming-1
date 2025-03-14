@@ -144,7 +144,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="cuttingforce" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="cuttingforce" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1Actual($row['cuttingforceRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -156,7 +156,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="cuttingforce" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="cuttingforce" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2Actual($row['cuttingforceRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -176,7 +176,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="sealingtime" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="sealingtime" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1Actual($row['sealingtimeRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -188,7 +188,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="sealingtime" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="sealingtime" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['sealingtimeRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -208,7 +208,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="cuttingspeed" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="cuttingspeed" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1Actual($row['cuttingspeedRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -220,7 +220,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="cuttingspeed" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="cuttingspeed" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2Actual($row['cuttingspeedRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -240,7 +240,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="approachingposition" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="approachingposition" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1Actual($row['approachingpositionRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -252,7 +252,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="approachingposition" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="approachingposition" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2Actual($row['approachingpositionRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -272,7 +272,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="sealingpositionspeed" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="sealingpositionspeed" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['sealingpositionspeedRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -284,7 +284,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="sealingpositionspeed" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="sealingpositionspeed" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['sealingpositionspeedRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -304,7 +304,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="sealingposition" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="sealingposition" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['sealingpositionRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -316,7 +316,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="sealingposition" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="sealingposition" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['sealingpositionRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
