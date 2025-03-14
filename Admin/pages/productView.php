@@ -70,7 +70,7 @@ while ($row = mysqli_fetch_array($sql)) {
                     </div>
                     <div class="col-sm">
                       <label>Substrate</label>
-                      <input type="text" class="form-control" id="subtrate" placeholder="Enter Substrate" value="<?php echo $row['subtrate']; ?>" readonly>
+                      <input type="text" class="form-control" id="subtrate" placeholder="Enter Substrate" value="<?php echo $row['substrate']; ?>" readonly>
                     </div>
                   </div>
                 </div>
@@ -80,16 +80,16 @@ while ($row = mysqli_fetch_array($sql)) {
                   <div class="row">
                     <div class="col-sm">
                       <label>Handle Tree Color</label>
-                      <input type="text" class="form-control" id="handleColor" placeholder="Enter Handle Color" value="<?php echo $row['handleColor']; ?>" readonly>
+                      <input type="text" class="form-control" id="handleColor" placeholder="Enter Handle Color" value="<?php echo $row['handleTreeColor']; ?>" readonly>
                     </div>
 
                     <div class="col-sm">
                       <label>Substrate Material Lot Number</label>
-                      <input type="text" class="form-control" id="substrateLotNum" placeholder="Enter Substrate Material Lot Number" value="<?php echo $row['substrateLotNum']; ?>" readonly>
+                      <input type="text" class="form-control" id="substrateLotNum" placeholder="Enter Substrate Material Lot Number" value="<?php echo $row['substrateMatLotNum']; ?>" readonly>
                     </div>
                     <div class="col-sm">
                       <label>Handle Tree Material Lot Number</label>
-                      <input type="text" class="form-control" id="handleTreeMaterialNum" placeholder="Enter Tree Material Number" value="<?php echo $row['handleTreeMaterialNum']; ?>" readonly>
+                      <input type="text" class="form-control" id="handleTreeMaterialNum" placeholder="Enter Tree Material Number" value="<?php echo $row['handleTreeMatLotNum']; ?>" readonly>
                     </div>
 
                   </div>
@@ -99,12 +99,12 @@ while ($row = mysqli_fetch_array($sql)) {
                   <div class="row">
                     <div class="col-sm">
                       <label>Handle Tree Material Type</label>
-                      <input type="text" class="form-control" id="machineTreeMatType" placeholder="Enter Handle Tree Material Type" value="<?php echo $row['machineTreeMatType']; ?>" readonly>
+                      <input type="text" class="form-control" id="machineTreeMatType" placeholder="Enter Handle Tree Material Type" value="<?php echo $row['handleTreeMatType']; ?>" readonly>
                     </div>
 
                     <div class="col-sm">
                       <label>Substrate Material Type</label>
-                      <input type="text" class="form-control" id="substrateType" placeholder="Enter Handle Material Type" value="<?php echo $row['substrateType']; ?>" readonly>
+                      <input type="text" class="form-control" id="substrateType" placeholder="Enter Handle Material Type" value="<?php echo $row['substrateMatType']; ?>" readonly>
                     </div>
                   </div>
                 </div>
@@ -366,7 +366,7 @@ while ($row = mysqli_fetch_array($sql)) {
                       <div class="row">
                         <div class="col-sm">
 
-                          <input type="text" class="form-control" id="moldopenspeed" placeholder="Enter Mold Open Speed (mm/s)">
+                          <input type="text" class="form-control" id="moldopenspeed" placeholder="Enter Mold Open Speed (mm/s)" value="' . htmlspecialchars($user->value1actual($row['moldopenspeedRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -387,7 +387,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="watertemp" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="watertemp" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['watertempRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -399,7 +399,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="watertemp" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="watertemp" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['watertempRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -419,7 +419,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="airpressure" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="airpressure" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['airpressureRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -431,7 +431,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="airpressure" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="airpressure" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['airpressureRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -451,7 +451,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="upperheatertemp" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="upperheatertemp" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['upperheattempRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -463,7 +463,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="upperheatertemp" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="upperheatertemp" placeholder="Enter Maximum"  value="' . htmlspecialchars($user->value2actual($row['upperheattempRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -483,7 +483,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="lowerheatertemp" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="lowerheatertemp" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['lowerheattempRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -495,7 +495,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="lowerheatertemp" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="lowerheatertemp" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['lowerheattempRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -515,7 +515,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="uppermoldtemp" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="uppermoldtemp" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['uppermoldtempRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -527,7 +527,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="uppermoldtemp" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="uppermoldtemp" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['uppermoldtempRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -547,7 +547,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="lowermoldtemp" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="lowermoldtemp" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['lowermoldtempRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -559,7 +559,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="lowermoldtemp" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="lowermoldtemp" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['lowermoldtempRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -594,7 +594,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="heaterTempUpnLow" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="heaterTempUpnLow" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['heaterTempUpnLowRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -606,7 +606,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="heaterTempUpnLow" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="heaterTempUpnLow" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['heaterTempUpnLowRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -626,7 +626,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="heaterSwabHandleFixture" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="heaterSwabHandleFixture" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['heaterSwabHandleFixtureRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -638,7 +638,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="heaterSwabHandleFixture" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="heaterSwabHandleFixture" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['heaterSwabHandleFixtureRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -658,7 +658,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Min
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="fixtureClosingTime" placeholder="Enter Minimum">
+                          <input type="text" class="form-control" id="fixtureClosingTime" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['fixtureClosingTimeRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
@@ -670,7 +670,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Max
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="fixtureClosingTime" placeholder="Enter Maximum">
+                          <input type="text" class="form-control" id="fixtureClosingTime" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['fixtureClosingTimeRange'])) . '" readonly>
                         </div>
                       </div>
                     </div>
