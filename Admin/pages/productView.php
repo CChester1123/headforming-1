@@ -35,8 +35,6 @@ while ($row = mysqli_fetch_array($sql)) {
                       <label>Product Name</label>
                       <input type="text" class="form-control" id="product" placeholder="Enter Product Name" value="<?php echo $row['product']; ?>" readonly>
                       <input type="text" class="form-control" id="deptType" placeholder="Enter Product Description" value="<?php echo $deptType = $row['department'];?>" readonly hidden>
-
-                      <input type="text" class="form-control" id="sealingtime" placeholder="Enter Minimum" value="<?php echo $user->value2Actual($row['sealingtimeRange']);?>" readonly >
                     </div>
                     <div class="col-sm">
                       <label>Product Description</label>
@@ -713,7 +711,8 @@ while ($row = mysqli_fetch_array($sql)) {
                               Min
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="totalLength" placeholder="Enter Minimum">
+                            <input type="text" class="form-control" id="totalLength" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['totallengthRange'])); ?>" readonly>
+
                             </div>
                           </div>
                         </div>
@@ -725,7 +724,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Max
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="totalLength" placeholder="Enter Maximum">
+                              <input type="text" class="form-control" id="totalLength" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['totallengthRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -745,7 +744,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Min
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabheadlength" placeholder="Enter Minimum">
+                              <input type="text" class="form-control" id="swabheadlength" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['swabheadlengthRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -757,7 +756,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Max
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabheadlength" placeholder="Enter Maximum">
+                              <input type="text" class="form-control" id="swabheadlength" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['swabheadlengthRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -777,7 +776,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Min
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabheadwidth" placeholder="Enter Minimum">
+                              <input type="text" class="form-control" id="swabheadwidth" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['swabheadwidthRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -789,7 +788,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Max
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabheadwidth" placeholder="Enter Maximum">
+                              <input type="text" class="form-control" id="swabheadwidth" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['swabheadwidthRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -809,7 +808,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Min
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabheadthickness" placeholder="Enter Minimum">
+                              <input type="text" class="form-control" id="swabheadthickness" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['swabheadthicknessRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -821,7 +820,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Max
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabheadthickness" placeholder="Enter Maximum">
+                              <input type="text" class="form-control" id="swabheadthickness" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['swabheadthicknessRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -841,7 +840,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Min
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabhandlewidth" placeholder="Enter Minimum">
+                              <input type="text" class="form-control" id="swabhandlewidth" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['swabhandlewidthRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -853,7 +852,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Max
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabhandlewidth" placeholder="Enter Maximum">
+                              <input type="text" class="form-control" id="swabhandlewidth" placeholder="Enter Maximum"  value="<?php echo htmlspecialchars($user->value2actual($row['swabhandlewidthRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -873,7 +872,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Min
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabhandlethickness" placeholder="Enter Minimum">
+                              <input type="text" class="form-control" id="swabhandlethickness" placeholder="Enter Minimum"  value="<?php echo htmlspecialchars($user->value1actual($row['swabhandlethicknessRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -885,7 +884,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Max
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabhandlethickness" placeholder="Enter Maximum">
+                              <input type="text" class="form-control" id="swabhandlethickness" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['swabhandlethicknessRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -905,7 +904,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Min
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabhandlediameter" placeholder="Enter Minimum">
+                              <input type="text" class="form-control" id="swabhandlediameter" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['swabheaddiameterRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -917,7 +916,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Max
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabhandlediameter" placeholder="Enter Maximum">
+                              <input type="text" class="form-control" id="swabhandlediameter" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['swabheaddiameterRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -938,7 +937,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Min
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="substrateDimention" placeholder="Enter Minimum">
+                              <input type="text" class="form-control" id="substrateDimention" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['swabdimensionspecsRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -950,7 +949,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Max
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="substrateDimention" placeholder="Enter Maximum">
+                              <input type="text" class="form-control" id="substrateDimention" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['swabdimensionspecsRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -970,7 +969,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Min
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="pullSeatTest" placeholder="Enter Minimum">
+                              <input type="text" class="form-control" id="pullSeatTest" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['swabdimensionspecsRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -982,7 +981,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Max
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="pullSeatTest" placeholder="Enter Maximum">
+                              <input type="text" class="form-control" id="pullSeatTest" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['pull/sealstrengthspecsRange'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -1013,7 +1012,7 @@ while ($row = mysqli_fetch_array($sql)) {
                         <label style="margin-left: 20px;">No. of Tips per HT</label>
                       </div>
                       <div class="col-sm">
-                        <input type="number" class="form-control" id="noHandleperHT" placeholder="Enter Handles">
+                        <input type="number" class="form-control" id="noHandleperHT" placeholder="Enter Handles" value="<?php echo htmlspecialchars($user->value1actual($row['noofsample'])); ?>" readonly>
                       </div>
                     </div>
                   </div>
@@ -1041,7 +1040,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Min
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="pulltest" placeholder="Enter Minimum">
+                              <input type="text" class="form-control" id="pulltest" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['pullTest'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
@@ -1053,7 +1052,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Max
                             </div>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control" id="pulltest" placeholder="Enter Maximum">
+                              <input type="text" class="form-control" id="pulltest" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['pullTest'])); ?>" readonly>
                             </div>
                           </div>
                         </div>
