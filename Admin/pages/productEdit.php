@@ -1491,9 +1491,9 @@ while ($row = mysqli_fetch_array($sql)) {
         // alert(result);
         if ($.trim(result) == 1) {
           $.notify("Account Created Successfully ", "success");
-          // setTimeout(function() {
-          //   window.location.href = "products2";
-          // }, 2000);
+          setTimeout(function() {
+            window.location.href = "products2";
+          }, 2000);
         } else {
           $.notify(result, "error");
           $("#dataSubmitDelete").attr("disabled", false);
