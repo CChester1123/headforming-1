@@ -1026,20 +1026,16 @@ while ($row = mysqli_fetch_array($sql)) {
 
                   <div class="form-group">
                     <div class="row">
+
                       <div class="col-sm">
-                        <input type="text" list="employees" name="pulltest" class="form-control emp_id" id="pulltestdesc" value="Pull Test">
+                        <input type="text" list="employees" name="pulltest" class="form-control emp_id" id="pulltestdesc"
+                          value="<?php echo htmlspecialchars($user->value1actual($row['pulltestdesc'])); ?>" readonly>
                         <datalist id="employees">
-                          <option value="Pull Test" selected> Pull Test </option>
-                          <option value="Seal Strength"> Seal Strength </option>
-                          <datalist>
-
-
-
-                            <!--   <select list="" name="pulltest" class="form-control emp_id" id="pulltestdesc" >
-                                     <option value="Pull Test"  selected> Pull Test </option>
-                                    <option value="Seal Strength"  > Seal Strength </option>        
-                                </select> -->
+                          <option value="Pull Test" <?php echo ($row['pulltestdesc'] == 'Pull Test') ? 'selected' : ''; ?>>Pull Test</option>
+                          <option value="Seal Strength" <?php echo ($row['pulltestdesc'] == 'Seal Strength') ? 'selected' : ''; ?>>Seal Strength</option>
+                        </datalist>
                       </div>
+
                       <div class="col-sm">
                         <div class="container">
                           <div class="row">
