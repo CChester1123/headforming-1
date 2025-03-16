@@ -346,9 +346,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Pressure
                         </div>
                         <div class="col-sm-5">
-                          <input type="checkbox" value="Pressure" class="form-control" ' 
-    . (htmlspecialchars($user->value1actual($row['mode'])) == 'Pressure' ? 'checked ' : '') 
-    . (htmlspecialchars($user->value2actual($row['mode'])) != null ? 'checked ' : '') . '>
+                          <input type="checkbox" value="Pressure" class="form-control" ' . (htmlspecialchars($user->value1actual($row['mode'])) == 'Pressure' ? 'checked ' : '') . (htmlspecialchars($user->value2actual($row['mode'])) != null ? 'checked ' : '') . '>
                         </div>
                       </div>
                     </div>
@@ -1089,7 +1087,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Max
                             </div>
                             <div class="col-sm-9">
-                            <select class="form-control" id="swabheadpulling" value="<?php echo htmlspecialchars($user->value2actual($row['swabheadpullingRange'])); ?>" readonly>
+                              <select class="form-control" id="swabheadpulling" value="<?php echo htmlspecialchars($user->value2actual($row['swabheadpullingRange'])); ?>" readonly>
                                 <option value="VALUE1" <?php echo ($user->value2actual($row['swabheadpullingRange']) == 'N/A') ? 'selected' : ''; ?>>N/A</option>
                                 <option value="VALUE2" <?php echo ($user->value2actual($row['swabheadpullingRange']) == 'GOOD') ? 'selected' : ''; ?>>GOOD</option>
                               </select>
@@ -1112,7 +1110,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Min
                             </div>
                             <div class="col-sm-9">
-                            <select class="form-control" id="swabheadpulling" value="<?php echo htmlspecialchars($user->value1actual($row['swabheadpoppingRange'])); ?>" readonly>
+                              <select class="form-control" id="swabheadpulling" value="<?php echo htmlspecialchars($user->value1actual($row['swabheadpoppingRange'])); ?>" readonly>
                                 <option value="VALUE1" <?php echo ($user->value1actual($row['swabheadpoppingRange']) == 'N/A') ? 'selected' : ''; ?>>N/A</option>
                                 <option value="VALUE2" <?php echo ($user->value1actual($row['swabheadpoppingRange']) == 'GOOD') ? 'selected' : ''; ?>>GOOD</option>
                               </select>
@@ -1127,7 +1125,7 @@ while ($row = mysqli_fetch_array($sql)) {
                               Max
                             </div>
                             <div class="col-sm-9">
-                            <select class="form-control" id="swabheadpulling" value="<?php echo htmlspecialchars($user->value2actual($row['swabheadpoppingRange'])); ?>" readonly>
+                              <select class="form-control" id="swabheadpulling" value="<?php echo htmlspecialchars($user->value2actual($row['swabheadpoppingRange'])); ?>" readonly>
                                 <option value="VALUE1" <?php echo ($user->value2actual($row['swabheadpoppingRange']) == 'N/A') ? 'selected' : ''; ?>>N/A</option>
                                 <option value="VALUE2" <?php echo ($user->value2actual($row['swabheadpoppingRange']) == 'GOOD') ? 'selected' : ''; ?>>GOOD</option>
                               </select>
