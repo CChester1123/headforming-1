@@ -40,6 +40,13 @@ while ($row = mysqli_fetch_array($sql)) {
                       <label>Product Description</label>
                       <input type="text" class="form-control" id="productDesc" placeholder="Enter Product Description" value="<?php echo $row['productDesc']; ?>" readonly>
                     </div>
+                    <div class="col-sm" style="margin-top: 0px;">
+                      <label for="deptType"><?php echo htmlspecialchars($row['department']); ?></label>
+                      <select class="form-control" id="status" value="<?php echo $row['status']; ?>" disabled>
+                        <option value="Active" <?php echo ($row['status'] == 'Active') ? 'selected' : ''; ?>>Active</option>
+                        <option value="Inactive" <?php echo ($row['status'] == 'Inactive') ? 'selected' : ''; ?>>Inactive</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
