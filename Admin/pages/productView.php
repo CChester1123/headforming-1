@@ -334,7 +334,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Position
                         </div>
                         <div class="col-sm-5">
-                          <input type="checkbox" value="Position" class="form-control">
+                          <input type="checkbox" value="Position" class="form-control" ' . (htmlspecialchars($user->value1actual($row['mode'])) == 'Position' ? 'checked' : '') . ' readonly>
                         </div>
                       </div>
                     </div>
@@ -346,7 +346,9 @@ while ($row = mysqli_fetch_array($sql)) {
                           Pressure
                         </div>
                         <div class="col-sm-5">
-                          <input type="checkbox" value="Pressure" class="form-control">
+                          <input type="checkbox" value="Pressure" class="form-control" ' 
+    . (htmlspecialchars($user->value1actual($row['mode'])) == 'Pressure' ? 'checked ' : '') 
+    . (htmlspecialchars($user->value2actual($row['mode'])) != null ? 'checked ' : '') . '>
                         </div>
                       </div>
                     </div>
