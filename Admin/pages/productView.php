@@ -42,7 +42,7 @@ while ($row = mysqli_fetch_array($sql)) {
                     </div>
                     <div class="col-sm" style="margin-top: 0px;">
                       <label for="deptType"><?php echo htmlspecialchars($row['department']); ?></label>
-                      <select class="form-control" id="status" value="<?php echo $row['status']; ?>" disabled>
+                      <select class="form-control" id="status" value="<?php echo $row['status']; ?>" readonly disabled>
                         <option value="Active" <?php echo ($row['status'] == 'Active') ? 'selected' : ''; ?>>Active</option>
                         <option value="Inactive" <?php echo ($row['status'] == 'Inactive') ? 'selected' : ''; ?>>Inactive</option>
                       </select>
@@ -341,7 +341,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Position
                         </div>
                         <div class="col-sm-5">
-                          <input type="checkbox" value="Position" class="form-control" ' . (htmlspecialchars($user->value1actual($row['mode'])) == 'Position' ? 'checked' : '') . ' readonly>
+                          <input type="checkbox" value="Position" class="form-control" ' . (htmlspecialchars($user->value1actual($row['mode'])) == 'Position' ? 'checked' : '') . ' readonly disabled>
                         </div>
                       </div>
                     </div>
@@ -353,7 +353,7 @@ while ($row = mysqli_fetch_array($sql)) {
                           Pressure
                         </div>
                         <div class="col-sm-5">
-                          <input type="checkbox" value="Pressure" class="form-control" ' . (htmlspecialchars($user->value1actual($row['mode'])) == 'Pressure' ? 'checked ' : '') . (htmlspecialchars($user->value2actual($row['mode'])) != null ? 'checked ' : '') . '>
+                          <input type="checkbox" value="Pressure" class="form-control" ' . (htmlspecialchars($user->value1actual($row['mode'])) == 'Pressure' ? 'checked ' : '') . (htmlspecialchars($user->value2actual($row['mode'])) != null ? 'checked ' : '') . ' readonly disabled>
                         </div>
                       </div>
                     </div>
