@@ -1204,9 +1204,8 @@ $deptType = $_GET['deptType'];
   });
 
   $(document).on('click', '#dataSubmitDelete', function() {
-    // $("#dataSubmitDelete").attr("disabled", true);  
+    $("#dataSubmitDelete").attr("disabled", true);  
     var pick = '6';
-
 
     var product = $.trim(encodeURI($("#product").val()));
     var productDesc = $.trim(encodeURI($("#productDesc").val()));

@@ -107,7 +107,10 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	$productDesc = htmlentities(htmlspecialchars(urldecode($_POST['productDesc'])));
 	$handle = htmlentities(htmlspecialchars(urldecode($_POST['handle'])));
 	$subtrate = htmlentities(htmlspecialchars(urldecode($_POST['subtrate'])));
+	$pulltestdesc = htmlentities(htmlspecialchars(urldecode($_POST['pulltestdesc'])));
 	$status = htmlentities(htmlspecialchars(urldecode($_POST['status'])));
+
+
 
 	$arrcuttingforce = htmlentities(htmlspecialchars(urldecode($_POST['arrcuttingforce'])));
 	$arrsealingtime = htmlentities(htmlspecialchars(urldecode($_POST['arrsealingtime'])));
@@ -115,15 +118,8 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	$arrapproachingposition = htmlentities(htmlspecialchars(urldecode($_POST['arrapproachingposition'])));
 	$arrsealingpositionspeed = htmlentities(htmlspecialchars(urldecode($_POST['arrsealingpositionspeed'])));
 	$arrsealingposition = htmlentities(htmlspecialchars(urldecode($_POST['arrsealingposition'])));
-	$arrCheckbox = htmlentities(htmlspecialchars(urldecode($_POST['arrCheckbox'])));
-	$moldopenspeed = htmlentities(htmlspecialchars(urldecode($_POST['moldopenspeed'])));
-	$arrwatertemp = htmlentities(htmlspecialchars(urldecode($_POST['arrwatertemp'])));
-	$arrairpressure = htmlentities(htmlspecialchars(urldecode($_POST['arrairpressure'])));
-	$arrupperheatertemp = htmlentities(htmlspecialchars(urldecode($_POST['arrupperheatertemp'])));
-	$arrlowerheatertemp = htmlentities(htmlspecialchars(urldecode($_POST['arrlowerheatertemp'])));
 	$arruppermoldtemp = htmlentities(htmlspecialchars(urldecode($_POST['arruppermoldtemp'])));
 	$arrlowermoldtemp = htmlentities(htmlspecialchars(urldecode($_POST['arrlowermoldtemp'])));
-
 	$arrtotalLength = htmlentities(htmlspecialchars(urldecode($_POST['arrtotalLength'])));
 	$arrswabheadlength = htmlentities(htmlspecialchars(urldecode($_POST['arrswabheadlength'])));
 	$arrswabheadwidth = htmlentities(htmlspecialchars(urldecode($_POST['arrswabheadwidth'])));
@@ -131,28 +127,36 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	$arrswabhandlewidth = htmlentities(htmlspecialchars(urldecode($_POST['arrswabhandlewidth'])));
 	$arrswabhandlethickness = htmlentities(htmlspecialchars(urldecode($_POST['arrswabhandlethickness'])));
 	$arrswabhandlediameter = htmlentities(htmlspecialchars(urldecode($_POST['arrswabhandlediameter'])));
-
-	$noHandleperHT = htmlentities(htmlspecialchars(urldecode($_POST['noHandleperHT'])));
 	$arrpulltest = htmlentities(htmlspecialchars(urldecode($_POST['arrpulltest'])));
 	$arrswabheadpulling = htmlentities(htmlspecialchars(urldecode($_POST['arrswabheadpulling'])));
 	$arrswabheadpopping = htmlentities(htmlspecialchars(urldecode($_POST['arrswabheadpopping'])));
-
-	$pulltestdesc = htmlentities(htmlspecialchars(urldecode($_POST['pulltestdesc'])));
-
-
-
 	$substrateDimensionforce = htmlentities(htmlspecialchars(urldecode($_POST['substrateDimensionforce'])));
 	$pullSeatTestforce = htmlentities(htmlspecialchars(urldecode($_POST['pullSeatTestforce'])));
 
 
 
+	$noHandleperHT = htmlentities(htmlspecialchars(urldecode($_POST['noHandleperHT'])));
 	$handleColor = htmlentities(htmlspecialchars(urldecode($_POST['handleColor'])));
 	$substrateLotNum = htmlentities(htmlspecialchars(urldecode($_POST['substrateLotNum'])));
 	$handleTreeMaterialNum = htmlentities(htmlspecialchars(urldecode($_POST['handleTreeMaterialNum'])));
 	$machineTreeMatType = htmlentities(htmlspecialchars(urldecode($_POST['machineTreeMatType'])));
 	$substrateType = htmlentities(htmlspecialchars(urldecode($_POST['substrateType'])));
 
-	echo $sql = $insertdata->editProduct($prod_id, $product, $productDesc, $handle, $subtrate, $status, $arrcuttingforce, $arrsealingtime, $arrcuttingspeed, $arrapproachingposition, $arrsealingpositionspeed, $arrsealingposition, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arruppermoldtemp, $arrlowermoldtemp, $arrtotalLength, $arrswabheadlength, $arrswabheadwidth, $arrswabheadthickness, $arrswabhandlewidth, $arrswabhandlethickness, $arrswabhandlediameter, $noHandleperHT, $arrpulltest, $arrswabheadpulling, $arrswabheadpopping, $pulltestdesc, $substrateDimensionforce, $pullSeatTestforce, $handleColor, $substrateLotNum, $handleTreeMaterialNum, $machineTreeMatType, $substrateType);
+
+	$arrCheckbox = htmlentities(htmlspecialchars(urldecode($_POST['arrCheckbox'])));
+	$moldopenspeed = htmlentities(htmlspecialchars(urldecode($_POST['moldopenspeed'])));
+	$arrwatertemp = htmlentities(htmlspecialchars(urldecode($_POST['arrwatertemp'])));
+	$arrairpressure = htmlentities(htmlspecialchars(urldecode($_POST['arrairpressure'])));
+	$arrupperheatertemp = htmlentities(htmlspecialchars(urldecode($_POST['arrupperheatertemp'])));
+	$arrlowerheatertemp = htmlentities(htmlspecialchars(urldecode($_POST['arrlowerheatertemp'])));
+
+
+	$arrheaterTempUpnLow = htmlentities(htmlspecialchars(urldecode($_POST['arrheaterTempUpnLow'])));
+	$arrheaterSwabHandleFixture = htmlentities(htmlspecialchars(urldecode($_POST['arrheaterSwabHandleFixture'])));
+	$arrfixtureClosingTime = htmlentities(htmlspecialchars(urldecode($_POST['arrfixtureClosingTime'])));
+	$department = htmlentities(htmlspecialchars(urldecode($_POST['department'])));
+
+	echo $sql = $insertdata->editProduct($prod_id, $product,$productDesc,$handle,$subtrate,$pulltestdesc,$status,$arrcuttingforce,$arrsealingtime,$arrcuttingspeed,$arrapproachingposition,$arrsealingpositionspeed,$arrsealingposition,$arruppermoldtemp,$arrlowermoldtemp,$arrtotalLength,$arrswabheadlength,$arrswabheadwidth,$arrswabheadthickness,$arrswabhandlewidth,$arrswabhandlethickness,$arrswabhandlediameter,$arrpulltest,$arrswabheadpulling,$arrswabheadpopping,$substrateDimensionforce,$pullSeatTestforce,$noHandleperHT,$handleColor,$substrateLotNum,$handleTreeMaterialNum,$machineTreeMatType,$substrateType, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arrheaterTempUpnLow, $arrheaterSwabHandleFixture, $arrfixtureClosingTime, $department);
 } else if ($pick == 8 || $pick == "8" || $pick == '8') {
 	$partNo = htmlentities(htmlspecialchars(urldecode($_POST['partNo'])));
 	$sql = $insertdata->selectPartNumber($partNo);
