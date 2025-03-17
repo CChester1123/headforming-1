@@ -244,8 +244,8 @@ while ($row = mysqli_fetch_array($sql)) {
                             <div class="card-body">
                                 <div class="form-group">
 
-
-
+                                   
+                                    <!-- fgfg -->
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-2">
@@ -463,69 +463,6 @@ while ($row = mysqli_fetch_array($sql)) {
     include  'includes/validation.php';
     ?>
     <script>
-        // Function to check values and apply color
-        function updateRemarksColorForTempUpnLow() {
-            const minTemp = <?php echo $minTemp; ?>;
-            const maxTemp = <?php echo $maxTemp; ?>;
-            const tempUpnLow = parseFloat(document.getElementById("actTempUpnLow").value);
-            const remarksTempUpnLow = document.getElementById("remarksTempUpnLow");
-
-            // If the input is empty, reset to default state and remove the placeholder
-            if (isNaN(tempUpnLow)) {
-                remarksTempUpnLow.style.backgroundColor = "";
-                remarksTempUpnLow.placeholder = ""; // Remove the placeholder
-                remarksTempUpnLow.style.fontWeight = "normal";
-            } else {
-                const tempUpnLowValid = tempUpnLow >= minTemp && tempUpnLow <= maxTemp;
-                remarksTempUpnLow.style.backgroundColor = tempUpnLowValid ? "green" : "red";
-                remarksTempUpnLow.placeholder = tempUpnLowValid ? "PASSED" : "FAILED";
-                remarksTempUpnLow.style.fontWeight = "bold"; // Make the text bold
-            }
-        }
-
-        function updateRemarksColorForSwabHandleFixture() {
-            const minOpennSwab = <?php echo $minOpennSwab; ?>;
-            const maxOpennSwab = <?php echo $maxOpennSwab; ?>;
-            const swabHandleFixture = parseFloat(document.getElementById("actSwabHandleFixture").value);
-            const remarksSwabHandleFixture = document.getElementById("remarksSwabHandleFixture");
-
-            // If the input is empty, reset to default state and remove the placeholder
-            if (isNaN(swabHandleFixture)) {
-                remarksSwabHandleFixture.style.backgroundColor = "";
-                remarksSwabHandleFixture.placeholder = ""; // Remove the placeholder
-                remarksSwabHandleFixture.style.fontWeight = "normal";
-            } else {
-                const swabHandleFixtureValid = swabHandleFixture >= minOpennSwab && swabHandleFixture <= maxOpennSwab;
-                remarksSwabHandleFixture.style.backgroundColor = swabHandleFixtureValid ? "green" : "red";
-                remarksSwabHandleFixture.placeholder = swabHandleFixtureValid ? "PASSED" : "FAILED";
-                remarksSwabHandleFixture.style.fontWeight = "bold"; // Make the text bold
-            }
-        }
-
-        function updateRemarksColorForFixtureClosingTime() {
-            const minFixture = <?php echo $minFixture; ?>;
-            const maxFixture = <?php echo $maxFixture; ?>;
-            const fixtureClosingTime = parseFloat(document.getElementById("actFixtureClosingTime").value);
-            const remarksFixtureClosingTime = document.getElementById("remarksFixtureClosingTime");
-
-            // If the input is empty, reset to default state and remove the placeholder
-            if (isNaN(fixtureClosingTime)) {
-                remarksFixtureClosingTime.style.backgroundColor = "";
-                remarksFixtureClosingTime.placeholder = ""; // Remove the placeholder
-                remarksFixtureClosingTime.style.fontWeight = "normal";
-            } else {
-                const fixtureClosingTimeValid = fixtureClosingTime >= minFixture && fixtureClosingTime <= maxFixture;
-                remarksFixtureClosingTime.style.backgroundColor = fixtureClosingTimeValid ? "green" : "red";
-                remarksFixtureClosingTime.placeholder = fixtureClosingTimeValid ? "PASSED" : "FAILED";
-                remarksFixtureClosingTime.style.fontWeight = "bold"; // Make the text bold
-            }
-        }
-
-        // Add event listeners for interaction
-        document.getElementById("actTempUpnLow").addEventListener("input", updateRemarksColorForTempUpnLow);
-        document.getElementById("actSwabHandleFixture").addEventListener("input", updateRemarksColorForSwabHandleFixture);
-        document.getElementById("actFixtureClosingTime").addEventListener("input", updateRemarksColorForFixtureClosingTime);
-
         function compareNumbers(groupIndex) {
             let number1 = parseFloat(document.getElementById("actualDataLoopa" + groupIndex + "1").value) - 0.1;
             let number2 = parseFloat(document.getElementById("actualDataLoopa" + groupIndex + "2").value) + 0.1;
@@ -567,120 +504,11 @@ while ($row = mysqli_fetch_array($sql)) {
             $("#dataSubmitDelete").attr("disabled", true);
 
             var pick = "90";
-
-            var workorder = $.trim(encodeURI($("#workorder").val()));
-            var date = $.trim(encodeURI($("#date").val()));
-            var time = $.trim(encodeURI($("#time").val()));
-            var shift = $.trim(encodeURI($("#shift").val()));
-            var operatorName = $.trim(encodeURI($("#operatorName").val()));
-            var teamLead = $.trim(encodeURI($("#teamLead").val()));
-            var machineNo = $.trim(encodeURI($("#machineNo").val()));
-            var productName = $.trim(encodeURI($("#product").val()));
-            var type = $.trim(encodeURI($("#type").val()));
-
-            var dept = $.trim(encodeURI($("#department").val()));
-
-            var InspectedBY = $.trim(encodeURI($("#InspectedBY").val()));
-            var maintenancecheced = $.trim(encodeURI($("#maintenancecheced").val()));
-
-            var handle = $.trim(encodeURI($("#handle").val()));
-            var substrate = $.trim(encodeURI($("#substrate").val()));
-            var handleTreeColor = $.trim(encodeURI($("#handleTreeColor").val()));
-            var substrateLotNum = $.trim(encodeURI($("#substrateLotNum").val()));
-            var handleTreeMaterialNum = $.trim(encodeURI($("#handleTreeMaterialNum").val()));
-            var texwipeLogo = $.trim(encodeURI($("#texwipeLogo").val()));
-            var remarksInprocess = $.trim(encodeURI($("#remarksInprocess").val()));
-
-            var actTempUpnLow = $.trim(encodeURI($("#actTempUpnLow").val()));
-            var actSwabHandleFixture = $.trim(encodeURI($("#actSwabHandleFixture").val()));
-            var actFixtureClosingTime = $.trim(encodeURI($("#actFixtureClosingTime").val()));
-
-            var productionStats = $.trim(encodeURI($("#productionStats").val()));
-            var remarksProduction = $.trim(encodeURI($("#remarksProduction").val()));
-
-            var visualInpection = $.trim(encodeURI($("#visualInpection").val()));
-            var remarksVisual = $.trim(encodeURI($("#remarksVisual").val()));
-            var resistanceInpection = $.trim(encodeURI($("#resistanceInpection").val()));
-            var remarksResistance = $.trim(encodeURI($("#remarksResistance").val()));
-
             var status = "Pending";
-
-            // Retrieve the PHP values passed in the query string
-            var minTemp = <?php echo $_GET['minTemp']; ?>;
-            var maxTemp = <?php echo $_GET['maxTemp']; ?>;
-            var minOpennSwab = <?php echo $_GET['minOpennSwab']; ?>;
-            var maxOpennSwab = <?php echo $_GET['maxOpennSwab']; ?>;
-            var minFixture = <?php echo $_GET['minFixture']; ?>;
-            var maxFixture = <?php echo $_GET['maxFixture']; ?>;
-
-            // Adjust the condition for remarksTempUpnLow
-            var remarksTempUpnLow = $.trim(encodeURI($("#remarksTempUpnLow").val()));
-            if (actTempUpnLow >= minTemp && actTempUpnLow <= maxTemp) {
-                remarksTempUpnLow = "PASSED";
-            } else {
-                remarksTempUpnLow = "FAILED";
-            }
-
-            // Adjust the condition for remarksSwabHandleFixture
-            var remarksSwabHandleFixture = $.trim(encodeURI($("#remarksSwabHandleFixture").val()));
-            if (actSwabHandleFixture >= minOpennSwab && actSwabHandleFixture <= maxOpennSwab) {
-                remarksSwabHandleFixture = "PASSED";
-            } else {
-                remarksSwabHandleFixture = "FAILED";
-            }
-
-            // Adjust the condition for remarksFixtureClosingTime
-            var remarksFixtureClosingTime = $.trim(encodeURI($("#remarksFixtureClosingTime").val()));
-            if (actFixtureClosingTime >= minFixture && actFixtureClosingTime <= maxFixture) {
-                remarksFixtureClosingTime = "PASSED";
-            } else {
-                remarksFixtureClosingTime = "FAILED";
-            }
-
 
             var fd = new FormData();
             fd.append('pick', pick);
-
-            fd.append('workorder', workorder);
-            fd.append('date', date);
-            fd.append('time', time);
-            fd.append('shift', shift);
-            fd.append('operatorName', operatorName);
-            fd.append('teamLead', teamLead);
-            fd.append('machineNo', machineNo);
-            fd.append('productName', productName);
-            fd.append('type', type);
-
-            fd.append('dept', dept);
-
-            fd.append('InspectedBY', InspectedBY);
-            fd.append('maintenancecheced', maintenancecheced);
-
-            fd.append('handle', handle);
-            fd.append('substrate', substrate);
-            fd.append('handleTreeColor', handleTreeColor);
-            fd.append('substrateLotNum', substrateLotNum);
-            fd.append('handleTreeMaterialNum', handleTreeMaterialNum);
-            fd.append('texwipeLogo', texwipeLogo);
-            fd.append('remarksInprocess', remarksInprocess);
-
-            fd.append('actTempUpnLow', actTempUpnLow);
-            fd.append('actSwabHandleFixture', actSwabHandleFixture);
-            fd.append('actFixtureClosingTime', actFixtureClosingTime);
-
-            fd.append('visualInpection', visualInpection);
-            fd.append('remarksVisual', remarksVisual);
-            fd.append('resistanceInpection', resistanceInpection);
-            fd.append('remarksResistance', remarksResistance);
-
             fd.append('status', status);
-
-            fd.append('remarksTempUpnLow', remarksTempUpnLow);
-            fd.append('remarksSwabHandleFixture', remarksSwabHandleFixture);
-            fd.append('remarksFixtureClosingTime', remarksFixtureClosingTime);
-
-            fd.append('productionStats', productionStats);
-            fd.append('remarksProduction', remarksProduction);
 
             $.ajax({
                 url: "../pages/codes/admin_control.php",
@@ -694,7 +522,7 @@ while ($row = mysqli_fetch_array($sql)) {
                     if ($.trim(result) != 0) {
                         $.notify("Account Created Successfully ", "success");
                         setTimeout(function() {
-                            window.location.href = "audit";
+                            window.location.href = "checklist";
                         }, 2000);
                     } else {
                         $.notify("Problem Encounter! please contact your administrator", "error");

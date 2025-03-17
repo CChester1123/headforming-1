@@ -116,6 +116,12 @@ class admin_creation
 		return $result;
 	}
 
+	public function  selectRequirements($prod_id)
+	{
+		$result = mysqli_query($this->dbh, "SELECT heaterTempUpnLowRange,heatingTimeRange,heaterSwabHandleFixtureRange,fixtureClosingTimeRange FROM headforming.tbl_products2 WHERE id = '$prod_id'");
+		return $result;
+	}
+
 	public function getName($empid)
 	{
 		$result = mysqli_query($this->dbh, "SELECT fullName FROM headforming.tbl_users WHERE employeeID = '$empid'");
