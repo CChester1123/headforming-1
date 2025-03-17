@@ -254,7 +254,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                             <div class="col-sm">
                                                 <label>Requirements</label>
-                                                <input type="text" class="form-control" value="<?php echo $minTemp . '-' . $maxTemp; ?> 'C" disabled>
+                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['heaterTempUpnLowRange'])); ?> - <?php echo htmlspecialchars($user->value2actual($row['heaterTempUpnLowRange'])); ?> °C" disabled>
                                             </div>
 
                                             <div class="col-sm">
@@ -275,7 +275,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" value="<?php echo $minTemp . '-' . $maxTemp; ?> 'C" disabled>
+                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['heatingTimeRange'])); ?> - <?php echo htmlspecialchars($user->value2actual($row['heatingTimeRange'])); ?> .secs" disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -294,7 +294,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" value="<?php echo $minOpennSwab . '-' . $maxOpennSwab; ?> sec." disabled>
+                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['heaterSwabHandleFixtureRange'])); ?> - <?php echo htmlspecialchars($user->value2actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -313,7 +313,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" value="<?php echo $minFixture . '-' . $maxFixture; ?> sec." disabled>
+                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['fixtureClosingTimeRange'])); ?> - <?php echo htmlspecialchars($user->value2actual($row['fixtureClosingTimeRange'])); ?> .secs" disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
