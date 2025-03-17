@@ -32,7 +32,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <label>Work Order</label>
                                             <input type="text" class="form-control" id="workorder" placeholder="Enter Work Order">
                                         </div>
-                                        
+
                                         <div class="col-sm-3">
                                             <label>Date</label>
                                             <input type="text" class="form-control" id="date" placeholder="Enter Product Description" value="<?php echo date("F j, Y"); ?>" disabled>
@@ -92,12 +92,13 @@ while ($row = mysqli_fetch_array($sql)) {
                                         ?>
                                         <div class="col-sm">
                                             <label>Type</label>
-                                            <select id="type" class="form-control">
+                                            <select id="type" class="form-control" disabled>
                                                 <option value="In-Process Audit" <?php echo ($qual == 'In-Process Audit') ? 'selected' : ''; ?>>In-Process Audit</option>
                                                 <option value="Start-up Qualification" <?php echo ($qual == 'Start-up Qualification') ? 'selected' : ''; ?>>Start-up Qualification</option>
                                                 <option value="Product Change" <?php echo ($qual == 'Product Change') ? 'selected' : ''; ?>>Product Change</option>
                                             </select>
                                         </div>
+
 
                                         <?php $dept = isset($_GET['dept']) ? $_GET['dept'] : '';
                                         ?>
@@ -163,13 +164,7 @@ while ($row = mysqli_fetch_array($sql)) {
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header" style="background-color: #111E6C; color: white;">
-                                <?php if ($qual == "In-Process Audit") {     ?>
-                                    <h3 class="card-title">In-Process Audit</h3>
-                                <?php } else if ($qual == "Start-up Qualification") { ?>
-                                    <h3 class="card-title">Start-up Qualification</h3>
-                                <?php } else { ?>
-                                    <h3 class="card-title">Product Change</h3>
-                                <?php } ?>
+                                <h3 class="card-title">In-Process Audit</h3>
                             </div>
 
                             <div class="card-body">
@@ -284,7 +279,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="actTempUpnLow" placeholder="Enter Actual">
+                                                <input type="text" class="form-control" id="actHeatingTime" placeholder="Enter Actual">
                                             </div>
 
                                             <div class="col-sm"><br>
