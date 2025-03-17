@@ -294,19 +294,25 @@
   });
 
   $(document).on('click', '#createProduct', function() {
-    var partNo = $.trim(encodeURI($("#partNo").val()));
-    var type = $.trim(encodeURI($("#type").val()));
+    var partNo = $.trim($("#partNo").val()),
+      type = $.trim($("#type").val()),
+      department = $.trim($("#department").val());
 
-    var department = $.trim(encodeURI($("#department").val()));
+    if (!partNo) {
+      $.notify("Please select Part No", "error");
+      return;
+    }
 
     $("#createList").modal("show");
 
-    if (partNo == '') {
-      $.notify("Please select Part No", "error");
-    } else {
-      location.href = "checklistCreate?Productid=" + partNo + "&type=" + type + "&department=" + department;
-    }
+    var url = (department === "Thermal Bonding" && type === "In-Process Audit") ?
+      "checklistCreate2" :
+      "checklistCreate";
+
+    location.href = `${url}?Productid=${encodeURIComponent(partNo)}&type=${encodeURIComponent(type)}&department=${encodeURIComponent(department)}`;
   });
+
+
 
   $(document).on('click', '.btnView', function() {
     id = $(this).attr("id");
