@@ -134,26 +134,26 @@
           </div> -->
 
           <div class="form-group">
-    <label>Department</label>
-    <select id="department" class="form-control" onchange="filterPartNo()">
-        <option value="Head Forming" selected>Head Forming</option>
-        <option value="Thermal Bonding">Thermal Bonding</option>
-    </select>
-</div>
+            <label>Classification</label>
+            <select id="department" class="form-control" onchange="filterPartNo()">
+              <option value="Head Forming" selected>Head Forming</option>
+              <option value="Thermal Bonding">Thermal Bonding</option>
+            </select>
+          </div>
 
-<div class="form-group">
-    <label>FG PART NO.</label>
-    <select id="partNo" class="form-control" onchange="updateDepartment()">
-        <option value="" active>Choose Item Code</option>
-        <?php
-        $sql = $user->selectPartNo();
-        while ($list = mysqli_fetch_array($sql)) { ?>
-            <option value="<?php echo base64_encode($list['id']); ?>" data-department="<?php echo $list['department']; ?>">
-                <?php echo $list['productname']; ?> - <?php echo $list['department']; ?>
-            </option>
-        <?php } ?>
-    </select>
-</div>
+          <div class="form-group">
+            <label>FG PART NO.</label>
+            <select id="partNo" class="form-control" onchange="updateDepartment()">
+              <option value="" active>Choose Item Code</option>
+              <?php
+              $sql = $user->selectPartNo();
+              while ($list = mysqli_fetch_array($sql)) { ?>
+                <option value="<?php echo base64_encode($list['id']); ?>" data-department="<?php echo $list['department']; ?>">
+                  <?php echo $list['department']; ?> - <?php echo $list['productname']; ?>
+                </option>
+              <?php } ?>
+            </select>
+          </div>
 
           <div class="form-group">
             <label> Qualification</label>
@@ -235,6 +235,60 @@
 
 <?php include 'includes/footer.php'; ?>
 <script>
+  // Function to filter FG PART NO. based on the selected department
+  function filterPartNo() {
+    const selectedDepartment = document.getElementById("department").value;
+    const partNoOptions = document.querySelectorAll("#partNo option");
+
+    partNoOptions.forEach(option => {
+      if (option.value === "") {
+        // Always show the default "Choose Item Code" option
+        option.style.display = "block";
+      } else {
+        // Show or hide based on the department
+        if (option.getAttribute("data-department") === selectedDepartment) {
+          option.style.display = "block";
+        } else {
+          option.style.display = "none";
+        }
+      }
+    });
+
+    // Reset the selected value of the FG PART NO. dropdown if it doesn't match the department
+    const selectedPartNo = document.getElementById("partNo");
+    if (selectedPartNo.value !== "" && selectedPartNo.querySelector(`option[value="${selectedPartNo.value}"]`).getAttribute("data-department") !== selectedDepartment) {
+      selectedPartNo.value = "";
+    }
+  }
+
+  // Function to update the department dropdown based on the selected FG PART NO.
+  function updateDepartment() {
+    const selectedPartNo = document.getElementById("partNo");
+    const selectedOption = selectedPartNo.options[selectedPartNo.selectedIndex];
+
+    if (selectedOption.value !== "") {
+      // Get the department from the selected FG PART NO.
+      const department = selectedOption.getAttribute("data-department");
+
+      // Set the department dropdown to the corresponding department
+      const departmentDropdown = document.getElementById("department");
+      departmentDropdown.value = department;
+
+      // Filter the FG PART NO. dropdown to show only options for the selected department
+      filterPartNo();
+
+      // Ensure the selected FG PART NO. remains selected
+      selectedPartNo.value = selectedOption.value;
+    } else {
+      // If "Choose Item Code" is selected, reset the department dropdown
+      document.getElementById("department").value = "Head Forming"; // Default department
+      filterPartNo();
+    }
+  }
+
+  // Initial call to filter FG PART NO. based on the default department
+  filterPartNo();
+
   $(document).on('click', '.createProduct', function() {
     $("#createList").modal("show");
   });
@@ -242,12 +296,15 @@
   $(document).on('click', '#createProduct', function() {
     var partNo = $.trim(encodeURI($("#partNo").val()));
     var type = $.trim(encodeURI($("#type").val()));
+
+    var department = $.trim(encodeURI($("#department").val()));
+
     $("#createList").modal("show");
 
     if (partNo == '') {
       $.notify("Please select Part No", "error");
     } else {
-      location.href = "checklistCreate?Productid=" + partNo + "&type=" + type;
+      location.href = "checklistCreate?Productid=" + partNo + "&type=" + type + "&department=" + department;
     }
   });
 
@@ -331,58 +388,4 @@
 
 
   });
-
-  // Function to filter FG PART NO. based on the selected department
-function filterPartNo() {
-    const selectedDepartment = document.getElementById("department").value;
-    const partNoOptions = document.querySelectorAll("#partNo option");
-
-    partNoOptions.forEach(option => {
-        if (option.value === "") {
-            // Always show the default "Choose Item Code" option
-            option.style.display = "block";
-        } else {
-            // Show or hide based on the department
-            if (option.getAttribute("data-department") === selectedDepartment) {
-                option.style.display = "block";
-            } else {
-                option.style.display = "none";
-            }
-        }
-    });
-
-    // Reset the selected value of the FG PART NO. dropdown if it doesn't match the department
-    const selectedPartNo = document.getElementById("partNo");
-    if (selectedPartNo.value !== "" && selectedPartNo.querySelector(`option[value="${selectedPartNo.value}"]`).getAttribute("data-department") !== selectedDepartment) {
-        selectedPartNo.value = "";
-    }
-}
-
-// Function to update the department dropdown based on the selected FG PART NO.
-function updateDepartment() {
-    const selectedPartNo = document.getElementById("partNo");
-    const selectedOption = selectedPartNo.options[selectedPartNo.selectedIndex];
-
-    if (selectedOption.value !== "") {
-        // Get the department from the selected FG PART NO.
-        const department = selectedOption.getAttribute("data-department");
-
-        // Set the department dropdown to the corresponding department
-        const departmentDropdown = document.getElementById("department");
-        departmentDropdown.value = department;
-
-        // Filter the FG PART NO. dropdown to show only options for the selected department
-        filterPartNo();
-
-        // Ensure the selected FG PART NO. remains selected
-        selectedPartNo.value = selectedOption.value;
-    } else {
-        // If "Choose Item Code" is selected, reset the department dropdown
-        document.getElementById("department").value = "Head Forming"; // Default department
-        filterPartNo();
-    }
-}
-
-// Initial call to filter FG PART NO. based on the default department
-filterPartNo();
 </script>

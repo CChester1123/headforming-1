@@ -98,9 +98,11 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	$arrfixtureClosingTime = htmlentities(htmlspecialchars(urldecode($_POST['arrfixtureClosingTime'])));
 	$department = htmlentities(htmlspecialchars(urldecode($_POST['department'])));
 
+	$arrheatingTime = htmlentities(htmlspecialchars(urldecode($_POST['arrheatingTime'])));
+
 	
 
-	echo $sql = $insertdata->createProduct($product,$productDesc,$handle,$subtrate,$pulltestdesc,$status,$arrcuttingforce,$arrsealingtime,$arrcuttingspeed,$arrapproachingposition,$arrsealingpositionspeed,$arrsealingposition,$arruppermoldtemp,$arrlowermoldtemp,$arrtotalLength,$arrswabheadlength,$arrswabheadwidth,$arrswabheadthickness,$arrswabhandlewidth,$arrswabhandlethickness,$arrswabhandlediameter,$arrpulltest,$arrswabheadpulling,$arrswabheadpopping,$substrateDimensionforce,$pullSeatTestforce,$noHandleperHT,$handleColor,$substrateLotNum,$handleTreeMaterialNum,$machineTreeMatType,$substrateType, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arrheaterTempUpnLow, $arrheaterSwabHandleFixture, $arrfixtureClosingTime, $department);
+	echo $sql = $insertdata->createProduct($product,$productDesc,$handle,$subtrate,$pulltestdesc,$status,$arrcuttingforce,$arrsealingtime,$arrcuttingspeed,$arrapproachingposition,$arrsealingpositionspeed,$arrsealingposition,$arruppermoldtemp,$arrlowermoldtemp,$arrtotalLength,$arrswabheadlength,$arrswabheadwidth,$arrswabheadthickness,$arrswabhandlewidth,$arrswabhandlethickness,$arrswabhandlediameter,$arrpulltest,$arrswabheadpulling,$arrswabheadpopping,$substrateDimensionforce,$pullSeatTestforce,$noHandleperHT,$handleColor,$substrateLotNum,$handleTreeMaterialNum,$machineTreeMatType,$substrateType, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arrheaterTempUpnLow, $arrheaterSwabHandleFixture, $arrfixtureClosingTime, $department, $arrheatingTime);
 } else if ($pick == 7 || $pick == "7" || $pick == '7') {
 	$prod_id = htmlentities(htmlspecialchars(urldecode($_POST['prod_id'])));
 	$product = htmlentities(htmlspecialchars(urldecode($_POST['product'])));
@@ -156,7 +158,9 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	$arrfixtureClosingTime = htmlentities(htmlspecialchars(urldecode($_POST['arrfixtureClosingTime'])));
 	$department = htmlentities(htmlspecialchars(urldecode($_POST['department'])));
 
-	echo $sql = $insertdata->editProduct($prod_id, $product,$productDesc,$handle,$subtrate,$pulltestdesc,$status,$arrcuttingforce,$arrsealingtime,$arrcuttingspeed,$arrapproachingposition,$arrsealingpositionspeed,$arrsealingposition,$arruppermoldtemp,$arrlowermoldtemp,$arrtotalLength,$arrswabheadlength,$arrswabheadwidth,$arrswabheadthickness,$arrswabhandlewidth,$arrswabhandlethickness,$arrswabhandlediameter,$arrpulltest,$arrswabheadpulling,$arrswabheadpopping,$substrateDimensionforce,$pullSeatTestforce,$noHandleperHT,$handleColor,$substrateLotNum,$handleTreeMaterialNum,$machineTreeMatType,$substrateType, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arrheaterTempUpnLow, $arrheaterSwabHandleFixture, $arrfixtureClosingTime, $department);
+	$arrheatingTime = htmlentities(htmlspecialchars(urldecode($_POST['arrheatingTime'])));
+
+	echo $sql = $insertdata->editProduct($prod_id, $product,$productDesc,$handle,$subtrate,$pulltestdesc,$status,$arrcuttingforce,$arrsealingtime,$arrcuttingspeed,$arrapproachingposition,$arrsealingpositionspeed,$arrsealingposition,$arruppermoldtemp,$arrlowermoldtemp,$arrtotalLength,$arrswabheadlength,$arrswabheadwidth,$arrswabheadthickness,$arrswabhandlewidth,$arrswabhandlethickness,$arrswabhandlediameter,$arrpulltest,$arrswabheadpulling,$arrswabheadpopping,$substrateDimensionforce,$pullSeatTestforce,$noHandleperHT,$handleColor,$substrateLotNum,$handleTreeMaterialNum,$machineTreeMatType,$substrateType, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arrheaterTempUpnLow, $arrheaterSwabHandleFixture, $arrfixtureClosingTime, $department, $arrheatingTime);
 } else if ($pick == 8 || $pick == "8" || $pick == '8') {
 	$partNo = htmlentities(htmlspecialchars(urldecode($_POST['partNo'])));
 	$sql = $insertdata->selectPartNumber($partNo);

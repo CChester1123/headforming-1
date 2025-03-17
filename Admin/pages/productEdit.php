@@ -623,6 +623,38 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="form-group">
                 <div class="row">
                   <div class="col-sm">
+                    <label style="margin-left: 20px;">Heating Time</label>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Min
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="heatingTime" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['heatingTimeRange'])) . '">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Max
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="heatingTime" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value2actual($row['heatingTimeRange'])) . '">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm">
                     <label style="margin-left: 20px;">Heater Open And Swab Handle Fixture Closing</label>
                   </div>
                   <div class="col-sm">
@@ -1401,6 +1433,12 @@ while ($row = mysqli_fetch_array($sql)) {
       arrfixtureClosingTime.push(textbox.value);
     });
 
+    let heatingTime = document.querySelectorAll('input[id="heatingTime"]');
+    let arrheatingTime = [];
+    heatingTime.forEach((textbox) => {
+      arrheatingTime.push(textbox.value);
+    });
+
     var moldopenspeed = $.trim(encodeURI($("#moldopenspeed").val()));
     var handleColor = $.trim(encodeURI($("#handleColor").val()));
     var substrateLotNum = $.trim(encodeURI($("#substrateLotNum").val()));
@@ -1428,6 +1466,8 @@ while ($row = mysqli_fetch_array($sql)) {
     fd.append('arrheaterSwabHandleFixture', arrheaterSwabHandleFixture);
     fd.append('arrfixtureClosingTime', arrfixtureClosingTime);
     fd.append('department', department);
+
+    fd.append('arrheatingTime', arrheatingTime);
 
 
 

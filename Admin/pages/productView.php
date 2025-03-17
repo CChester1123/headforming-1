@@ -622,6 +622,38 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="form-group">
                 <div class="row">
                   <div class="col-sm">
+                    <label style="margin-left: 20px;">Heating Time</label>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Min
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="heatingTime" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['heatingTimeRange'])) . '" readonly>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Max
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="heatingTime" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value2actual($row['heatingTimeRange'])) . '" readonly>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm">
                     <label style="margin-left: 20px;">Heater Open And Swab Handle Fixture Closing</label>
                   </div>
                   <div class="col-sm">

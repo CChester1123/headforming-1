@@ -3,6 +3,8 @@
 <?php 
     $prod_id = base64_decode($_GET['Productid']);
     $type = $_GET['type'];
+    $department = $_GET['department'];
+
     if( $type == "" || $prod_id == ""){
         header("Location: checklist");
     }

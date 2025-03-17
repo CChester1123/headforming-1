@@ -622,6 +622,38 @@ $deptType = $_GET['deptType'];
               <div class="form-group">
                 <div class="row">
                   <div class="col-sm">
+                    <label style="margin-left: 20px;">Heating Time</label>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Min
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="heatingTime" placeholder="Enter Minimum">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-2">
+                          Max
+                        </div>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" id="heatingTime" placeholder="Enter Maximum">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm">
                     <label style="margin-left: 20px;">Heater Open And Swab Handle Fixture Closing</label>
                   </div>
                   <div class="col-sm">
@@ -1204,7 +1236,7 @@ $deptType = $_GET['deptType'];
   });
 
   $(document).on('click', '#dataSubmitDelete', function() {
-    $("#dataSubmitDelete").attr("disabled", true);  
+    $("#dataSubmitDelete").attr("disabled", true);
     var pick = '6';
 
     var product = $.trim(encodeURI($("#product").val()));
@@ -1220,7 +1252,7 @@ $deptType = $_GET['deptType'];
     } else {
       department = "Thermal Bonding";
     }
-    console.log("asd "+department);
+    console.log("asd " + department);
 
     let cuttingforceText = document.querySelectorAll('input[id="cuttingforce"]');
     let arrcuttingforce = [];
@@ -1398,6 +1430,12 @@ $deptType = $_GET['deptType'];
       arrfixtureClosingTime.push(textbox.value);
     });
 
+    let heatingTime = document.querySelectorAll('input[id="heatingTime"]');
+    let arrheatingTime = [];
+    heatingTime.forEach((textbox) => {
+      arrheatingTime.push(textbox.value);
+    });
+
     var moldopenspeed = $.trim(encodeURI($("#moldopenspeed").val()));
     var handleColor = $.trim(encodeURI($("#handleColor").val()));
     var substrateLotNum = $.trim(encodeURI($("#substrateLotNum").val()));
@@ -1425,6 +1463,7 @@ $deptType = $_GET['deptType'];
     fd.append('arrfixtureClosingTime', arrfixtureClosingTime);
     fd.append('department', department);
 
+    fd.append('arrheatingTime', arrheatingTime);
 
 
 
