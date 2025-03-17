@@ -731,304 +731,309 @@ $deptType = $_GET['deptType'];
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <div class="card">
-            <div class="card-header" style="background-color: #111E6C; color: white;">
-              <h3 class="card-title"> DIMENSIONS </h3>
-            </div>
-            <div class="card-body">
-              <div class="form-group">
-
+          <?php
+          // Check if deptType is equal to "headforming"
+          if ($deptType === 'Head Forming') {
+            // Display the HTML block
+            echo '
+    <div class="card">
+        <div class="card-header" style="background-color: #111E6C; color: white;">
+            <h3 class="card-title"> DIMENSIONS </h3>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
                 <div class="form-group">
-                  <div class="row">
-                    <div class="col-sm">
-                      <label style="margin-left: 20px;">Total Length (head+subtrate)(mm)</label>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Min
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="totalLength" placeholder="Enter Minimum">
-                          </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Total Length (head+subtrate)(mm)</label>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Max
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="totalLength" placeholder="Enter Maximum">
-                          </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="totalLength" placeholder="Enter Minimum">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="totalLength" placeholder="Enter Maximum">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div> <br>
 
                 <div class="form-group">
-                  <div class="row">
-                    <div class="col-sm">
-                      <label style="margin-left: 20px;">Swab Head Length (mm)</label>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Min
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="swabheadlength" placeholder="Enter Minimum">
-                          </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Swab Head Length (mm)</label>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Max
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="swabheadlength" placeholder="Enter Maximum">
-                          </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabheadlength" placeholder="Enter Minimum">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabheadlength" placeholder="Enter Maximum">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
 
                 <div class="form-group">
-                  <div class="row">
-                    <div class="col-sm">
-                      <label style="margin-left: 20px;">Swab Head Width (mm)</label>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Min
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="swabheadwidth" placeholder="Enter Minimum">
-                          </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Swab Head Width (mm)</label>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Max
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="swabheadwidth" placeholder="Enter Maximum">
-                          </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabheadwidth" placeholder="Enter Minimum">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabheadwidth" placeholder="Enter Maximum">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
 
                 <div class="form-group">
-                  <div class="row">
-                    <div class="col-sm">
-                      <label style="margin-left: 20px;">Swab HeadThickness (mm)</label>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Min
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="swabheadthickness" placeholder="Enter Minimum">
-                          </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Swab HeadThickness (mm)</label>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Max
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="swabheadthickness" placeholder="Enter Maximum">
-                          </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabheadthickness" placeholder="Enter Minimum">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabheadthickness" placeholder="Enter Maximum">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div><br>
 
                 <div class="form-group">
-                  <div class="row">
-                    <div class="col-sm">
-                      <label style="margin-left: 20px;">Swab Handle Width (mm)</label>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Min
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="swabhandlewidth" placeholder="Enter Minimum">
-                          </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Swab Handle Width (mm)</label>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Max
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="swabhandlewidth" placeholder="Enter Maximum">
-                          </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabhandlewidth" placeholder="Enter Minimum">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabhandlewidth" placeholder="Enter Maximum">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
 
                 <div class="form-group">
-                  <div class="row">
-                    <div class="col-sm">
-                      <label style="margin-left: 20px;">Swab Handle Thickness (mm)</label>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Min
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="swabhandlethickness" placeholder="Enter Minimum">
-                          </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Swab Handle Thickness (mm)</label>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Max
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="swabhandlethickness" placeholder="Enter Maximum">
-                          </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabhandlethickness" placeholder="Enter Minimum">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabhandlethickness" placeholder="Enter Maximum">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
 
                 <div class="form-group">
-                  <div class="row">
-                    <div class="col-sm">
-                      <label style="margin-left: 20px;">Swab handle Diameter (mm)</label>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Min
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="swabhandlediameter" placeholder="Enter Minimum">
-                          </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Swab handle Diameter (mm)</label>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Max
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="swabhandlediameter" placeholder="Enter Maximum">
-                          </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabhandlediameter" placeholder="Enter Minimum">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="form-group">
-                  <div class="row">
-                    <div class="col-sm">
-                      <label style="margin-left: 20px;">Swab Dimension Specs (1ht, 5 tips)</label>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Min
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="substrateDimention" placeholder="Enter Minimum">
-                          </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabhandlediameter" placeholder="Enter Maximum">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Max
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="substrateDimention" placeholder="Enter Maximum">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
                 <div class="form-group">
-                  <div class="row">
-                    <div class="col-sm">
-                      <label style="margin-left: 20px;">Pull / Seal Strength Specs (1ht, 5 tips) </label>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Min
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="pullSeatTest" placeholder="Enter Minimum">
-                          </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Swab Dimension Specs (1ht, 5 tips)</label>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-sm">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm-2">
-                            Max
-                          </div>
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" id="pullSeatTest" placeholder="Enter Maximum">
-                          </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="substrateDimention" placeholder="Enter Minimum">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="substrateDimention" placeholder="Enter Maximum">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Pull / Seal Strength Specs (1ht, 5 tips) </label>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="pullSeatTest" placeholder="Enter Minimum">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="pullSeatTest" placeholder="Enter Maximum">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+        </div>
+    </div>';
+          }
+          ?>
         </div>
       </div>
     </div>

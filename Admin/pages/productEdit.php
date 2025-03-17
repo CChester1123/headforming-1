@@ -732,305 +732,333 @@ while ($row = mysqli_fetch_array($sql)) {
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <div class="card">
-              <div class="card-header" style="background-color: #111E6C; color: white;">
-                <h3 class="card-title"> DIMENSIONS </h3>
-              </div>
-              <div class="card-body">
-                <div class="form-group">
+            <?php
+            // Retrieve the deptType from the query string
+            $deptType = $_GET['deptType'];
 
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-sm">
-                        <label style="margin-left: 20px;">Total Length (head+subtrate)(mm)</label>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Min
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="totalLength" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['totallengthRange'])); ?>">
-
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Max
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="totalLength" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['totallengthRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> <br>
-
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-sm">
-                        <label style="margin-left: 20px;">Swab Head Length (mm)</label>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Min
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabheadlength" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['swabheadlengthRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Max
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabheadlength" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['swabheadlengthRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-sm">
-                        <label style="margin-left: 20px;">Swab Head Width (mm)</label>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Min
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabheadwidth" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['swabheadwidthRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Max
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabheadwidth" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['swabheadwidthRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-sm">
-                        <label style="margin-left: 20px;">Swab HeadThickness (mm)</label>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Min
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabheadthickness" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['swabheadthicknessRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Max
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabheadthickness" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['swabheadthicknessRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div><br>
-
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-sm">
-                        <label style="margin-left: 20px;">Swab Handle Width (mm)</label>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Min
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabhandlewidth" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['swabhandlewidthRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Max
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabhandlewidth" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['swabhandlewidthRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-sm">
-                        <label style="margin-left: 20px;">Swab Handle Thickness (mm)</label>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Min
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabhandlethickness" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['swabhandlethicknessRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Max
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabhandlethickness" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['swabhandlethicknessRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-sm">
-                        <label style="margin-left: 20px;">Swab handle Diameter (mm)</label>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Min
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabhandlediameter" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['swabheaddiameterRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Max
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="swabhandlediameter" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['swabheaddiameterRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-sm">
-                        <label style="margin-left: 20px;">Swab Dimension Specs (1ht, 5 tips)</label>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Min
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="substrateDimention" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['swabdimensionspecsRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Max
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="substrateDimention" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['swabdimensionspecsRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="row">
-                      <div class="col-sm">
-                        <label style="margin-left: 20px;">Pull / Seal Strength Specs (1ht, 5 tips) </label>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Min
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="pullSeatTest" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['swabdimensionspecsRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-2">
-                              Max
-                            </div>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="pullSeatTest" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['pull/sealstrengthspecsRange'])); ?>">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            // Check if deptType is equal to "headforming"
+            if ($deptType === 'headforming') {
+              // Display the first HTML block
+              echo '
+    <div class="card">
+        <div class="card-header" style="background-color: #111E6C; color: white;">
+            <h3 class="card-title"> DIMENSIONS </h3>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <!-- Your first HTML block content here -->
             </div>
+        </div>
+    </div>';
+
+              // Display the second HTML block
+              echo '
+    <div class="card">
+        <div class="card-header" style="background-color: #111E6C; color: white;">
+            <h3 class="card-title"> DIMENSIONS </h3>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Total Length (head+subtrate)(mm)</label>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="totalLength" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['totallengthRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="totalLength" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['totallengthRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <br>
+
+                <!-- Swab Head Length -->
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Swab Head Length (mm)</label>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabheadlength" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['swabheadlengthRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabheadlength" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['swabheadlengthRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swab Head Width -->
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Swab Head Width (mm)</label>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabheadwidth" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['swabheadwidthRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabheadwidth" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['swabheadwidthRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swab Head Thickness -->
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Swab HeadThickness (mm)</label>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabheadthickness" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['swabheadthicknessRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabheadthickness" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['swabheadthicknessRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+
+                <!-- Swab Handle Width -->
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Swab Handle Width (mm)</label>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabhandlewidth" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['swabhandlewidthRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabhandlewidth" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['swabhandlewidthRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swab Handle Thickness -->
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Swab Handle Thickness (mm)</label>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabhandlethickness" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['swabhandlethicknessRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabhandlethickness" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['swabhandlethicknessRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swab Handle Diameter -->
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Swab handle Diameter (mm)</label>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabhandlediameter" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['swabheaddiameterRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="swabhandlediameter" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['swabheaddiameterRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swab Dimension Specs -->
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Swab Dimension Specs (1ht, 5 tips)</label>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="substrateDimention" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['swabdimensionspecsRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="substrateDimention" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['swabdimensionspecsRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pull / Seal Strength Specs -->
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm">
+                            <label style="margin-left: 20px;">Pull / Seal Strength Specs (1ht, 5 tips) </label>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Min
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="pullSeatTest" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['swabdimensionspecsRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        Max
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="pullSeatTest" placeholder="Enter Maximum" value="' . htmlspecialchars($user->value2actual($row['pull/sealstrengthspecsRange'])) . '">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>';
+            }
+            ?>
           </div>
         </div>
       </div>
@@ -1235,7 +1263,7 @@ while ($row = mysqli_fetch_array($sql)) {
   });
 
   $(document).on('click', '#dataSubmitDelete', function() {
-    $("#dataSubmitDelete").attr("disabled", true);  
+    $("#dataSubmitDelete").attr("disabled", true);
     var pick = '7';
 
     var prod_id = $.trim(encodeURI($("#prod_id").val()));
@@ -1255,7 +1283,7 @@ while ($row = mysqli_fetch_array($sql)) {
     } else {
       department = "Thermal Bonding";
     }
-    console.log("asd "+department);
+    console.log("asd " + department);
 
     let cuttingforceText = document.querySelectorAll('input[id="cuttingforce"]');
     let arrcuttingforce = [];

@@ -48,6 +48,9 @@
                         <div class="col-sm">
                             <label>Work Order</label>
                             <input type="text" class="form-control" id="workorder" placeholder="Enter Work Order">
+
+                            <!-- <input type="text" class="form-control" id="workorder" placeholder="Enter Work Order" value="<?php echo htmlspecialchars($_GET['department']); ?>" readonly > -->
+
                         </div>                       
                         <div class="col-sm-3">
                             <label>Date</label>
