@@ -175,9 +175,15 @@ class admin_creation
 
 	public function	selectPartNo()
 	{
-		$result = mysqli_query($this->dbh, "SELECT id,productname FROM headforming.tbl_products2 WHERE status = 'Active'");
+		$result = mysqli_query($this->dbh, "SELECT id,productname, department FROM headforming.tbl_products2 WHERE status = 'Active'");
 		return $result;
 	}
+
+	// public function selectPartNo()
+	// {
+	// 	$result = mysqli_query($this->dbh, "SELECT id, productname, department FROM headforming.tbl_products2 WHERE status = 'Active' AND department = 'Head Forming'");
+	// 	return $result;
+	// }
 
 	public function selectPartNumber($partNo)
 	{
