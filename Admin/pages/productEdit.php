@@ -33,7 +33,7 @@ while ($row = mysqli_fetch_array($sql)) {
                   <div class="row">
                     <div class="col-sm">
                       <label>Product Name</label>
-                      <input type="text" class="form-control" id="product" placeholder="Enter Product Name" value="<?php echo $row['productname']; ?>">
+                      <input type="text" class="form-control" id="product" placeholder="Enter Product Name" value="<?php echo $row['productname']; ?>" readonly disabled>
                       <input type="text" class="form-control" id="deptType" placeholder="Enter Product Description" value="<?php echo $deptType = $row['department']; ?>" readonly hidden>
                       <input type="text" class="form-control" id="prod_id" value="<?php echo $prod_id ?>" readonly hidden>
                     </div>
