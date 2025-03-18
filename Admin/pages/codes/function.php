@@ -359,6 +359,12 @@ WHERE id = '$checklistId';
 		return $result;
 	}
 
+	public function GetCheckListThermal()
+	{
+		$result = mysqli_query($this->dbh, "SELECT * FROM tbl_checklist_thermal ORDER BY id DESC");
+		return $result;
+	}
+
 	public function ViewCheckList($Product_ID)
 	{
 		$result = mysqli_query($this->dbh, "SELECT * FROM headforming.tbl_checklist WHERE id = '$Product_ID'");

@@ -94,6 +94,76 @@
               </table>
             </div>
           </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"> THERMAL BONDING </h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example3" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th style="text-align:center;">Action</th>
+                    <th style="text-align:center;">Date</th>
+                    <th style="text-align:center;">Auditor</th>
+                    <th style="text-align:center;">Work Order</th>
+                    <th style="text-align:center;">Audit Type</th>
+                    <th style="text-align:center;">Product Number</th>
+                    <th style="text-align:center;">Status</th>
+                    <!-- <th style="text-align:center;">Maintenance Status</th>         -->
+                    <!-- <th style="text-align:center;">Team Lead Status</th>  </tr> -->
+                </thead>
+                <tbody>
+                  <?php
+                  if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
+                    $sql = $user->GetCheckListThermal();
+                  } else {
+                    $sql = $user->GetCheckListChecker($_SESSION['emp_id']);
+                  }
+
+                  while ($row = mysqli_fetch_array($sql)) { ?>
+                    <tr>
+                      <td style="text-align:center;">
+                        <?php  //if($row['status'] == "Rejected" && $row['count']  == "0") {
+                        ?>
+                        <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnDuplicate  btn-warning btn-sm' title='Duplicate Record'><i class="fa fa-clone" style='font-size:15px'></i> </button>
+                        <?php //} 
+                        ?>
+                        <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnView  btn-primary btn-sm' title='View Record'><i class='fa fa-search-plus' style='font-size:15px'></i> </button>
+                        <?php if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
+                          if ($row['status'] == "Pending" || $row['status'] == "") { ?>
+                            <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnEdit  btn-success btn-sm' title='View Record'><i class='fa fa-pen' style='font-size:15px'></i> </button>
+
+                            <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnDelete  btn-danger btn-sm' title='Delete Record'><i class='fa fa-trash' style='font-size:15px'></i> </button>
+
+
+
+                        <?php }
+                        } ?>
+                      </td>
+
+                      <td style="text-align:center;"><?php echo htmlentities($row['date']); ?></td>
+                      <td style="text-align:center;"><?php echo htmlentities($row['InspectedBY']); ?></td>
+
+
+                      <td style="text-align:center;"><?php echo htmlentities($row['workorder']); ?></td>
+                      <td style="text-align:center;"><?php echo htmlentities($row['type']); ?></td>
+                      <td style="text-align:center;"><?php echo htmlentities($row['product']); ?></td>
+                      <td style="text-align:center;"><?php echo (htmlentities($row['status']) == '' ? 'Pending' : $row['status']); ?></td>
+                      <!-- <td style="text-align:center;"><?php // echo (htmlentities($row['status_maintenance']) == '' ? 'Pending' : $row['status_maintenance']);
+                                                          ?></td> -->
+                      <!-- <td style="text-align:center;"><?php //echo (htmlentities($row['status_TL']) == '' ? 'Pending' : $row['status_TL']);
+                                                          ?></td> -->
+                    </tr>
+                  <?php } ?>
+
+                </tbody>
+
+              </table>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
