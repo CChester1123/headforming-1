@@ -477,28 +477,22 @@ while ($row = mysqli_fetch_array($sql)) {
     include  'includes/validation.php';
     ?>
     <script>
-        // Reusable function to check if the actual value is within the range
         function checkTemperatureRange(inputId, minId, maxId, resultId) {
             document.getElementById(inputId).addEventListener('input', function() {
-                var min = parseFloat(document.getElementById(minId).value);
-                var max = parseFloat(document.getElementById(maxId).value);
-                var actual = parseFloat(document.getElementById(inputId).value);
+                const [min, max, actual] = [minId, maxId, inputId].map(id => parseFloat(document.getElementById(id).value));
+                const result = (!isNaN(actual) && actual >= min && actual <= max) ? 'PASSED' : actual ? 'FAILED' : '';
+                const resultElement = document.getElementById(resultId);
 
-                // Check if actual value is valid and within range
-                if (!isNaN(actual)) {
-                    document.getElementById(resultId).value = (actual >= min && actual <= max) ? 'Passed' : 'Failed';
-                } else {
-                    document.getElementById(resultId).value = ''; // Clear remarks if input is not valid
-                }
+                resultElement.value = result;
+                resultElement.style.fontWeight = result ? 'bold' : '';
+                resultElement.style.backgroundColor = result === 'PASSED' ? 'green' : result === 'FAILED' ? 'red' : '';
+                resultElement.style.color = result ? 'white' : '';
             });
         }
-
-        // Apply the function to different inputs
         checkTemperatureRange('actTempUpnLow', 'minTemp', 'maxTemp', 'TempUpnLow');
         checkTemperatureRange('actHeatingTime', 'minHeat', 'maxHeat', 'HeatingTime');
         checkTemperatureRange('actSwabHandleFixture', 'minSwab', 'maxSwab', 'SwabHandleFixture');
         checkTemperatureRange('actFixtureClosingTime', 'minFixture', 'maxFixture', 'FixtureClosingTime');
-
 
         // // Function to check if the actual temperature is within the range
         // document.getElementById('actTempUpnLow').addEventListener('input', function() {
