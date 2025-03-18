@@ -406,3 +406,14 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 
 	echo $sql = $insertdata->DeleteCheckList($transID);
 }
+// else if ($pick == 17 || $pick == "17" || $pick == '17') {
+
+// 	$workorder  = htmlentities(htmlspecialchars(urldecode($_POST['workorder'])));
+// 	$date  = htmlentities(htmlspecialchars(urldecode($_POST['date'])));
+// 	$productDesc  = htmlentities(htmlspecialchars(urldecode($_POST['productDesc'])));
+// 	$machineNo  = htmlentities(htmlspecialchars(urldecode($_POST['machineNo'])));
+// 	$product  = htmlentities(htmlspecialchars(urldecode($_POST['product'])));
+
+
+// 	echo $sql = $insertdata->createCheckList($workorder, $date, $productDesc, $machineNo, $product, $type, $handle, $machinetobeused, $substrate, $operation, $maintenance, $preinstallremarks, $arrcuttingforce, $arrsealingtime, $arrcuttingspeed, $arrapproachingposition, $arrsealingpositionspeed, $arrsealingposition, $arrMode, $arrmoldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arruppermoldtemp, $arrlowermoldtemp, $arrtotalLength, $arrswabheadlength, $arrswabheadwidth, $arrswabheadthickness, $arrswabhandlewidth, $arrswabhandlethickness, $arrswabhandlediameter, $noHandleperHT, $visualInpection, $arractualDataLoop, $selectedoption, $shotproductionremarks, $InspectedBY, $acknowledge, $maintenancecheced, $status, $arrpulltest, $setUpNUmber, $template, $trans_num, $handleColor, $handleTreeMaterialNum, $machineTreeMatType, $substrateType, $substrateDimensionforce, $visualInspection, $shotRemarks, $pullSeatTestforce, $substrateLotNum, $pulltestdesc);
+// }

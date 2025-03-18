@@ -82,7 +82,7 @@
                       <td style="text-align:center;"><?php echo htmlentities($row['type']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['product']); ?></td>
                       <td style="text-align:center;"><?php echo (htmlentities($row['status']) == '' ? 'Pending' : $row['status']); ?></td>
-                      <!-- <td style="text-align:center;"><? php // echo (htmlentities($row['status_maintenance']) == '' ? 'Pending' : $row['status_maintenance']);
+                      <!-- <td style="text-align:center;"><?php // echo (htmlentities($row['status_maintenance']) == '' ? 'Pending' : $row['status_maintenance']);
                                                           ?></td> -->
                       <!-- <td style="text-align:center;"><?php //echo (htmlentities($row['status_TL']) == '' ? 'Pending' : $row['status_TL']);
                                                           ?></td> -->

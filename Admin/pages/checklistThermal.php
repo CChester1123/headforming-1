@@ -1,4 +1,4 @@
-192<title>View Product</title>
+<title>Thermal && In-Process Audit</title>
 
 <?php
 $prod_id = base64_decode($_GET['Productid']);
@@ -100,15 +100,15 @@ while ($row = mysqli_fetch_array($sql)) {
                                         </div>
 
 
-                                        <?php $dept = isset($_GET['dept']) ? $_GET['dept'] : '';
-                                        ?>
+                                        <!-- <?php $dept = isset($_GET['dept']) ? $_GET['dept'] : '';
+                                                ?>
                                         <div class="col-sm">
                                             <label>Department</label>
                                             <select id="department" class="form-control">
                                                 <option value="Thermal Bonding" <?php echo ($dept == 'Thermal Bonding') ? 'selected' : ''; ?>>Thermal Bonding</option>
                                                 <option value="Head Forming" <?php echo ($dept == 'Head Forming') ? 'selected' : ''; ?>>Head Forming</option>
                                             </select>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
 
@@ -134,7 +134,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
 
 
-                                <?php if ($type == "In-Process Audit") {     ?>
+                                <!-- <?php if ($type == "In-Process Audit") {     ?>
 
 
                                     <div class="form-group">
@@ -149,7 +149,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
                                         </div>
                                     </div>
-                                <?php } ?>
+                                <?php } ?> -->
 
                             </div>
                         </div>
@@ -244,7 +244,6 @@ while ($row = mysqli_fetch_array($sql)) {
                             <div class="card-body">
                                 <div class="form-group">
 
-                                   
                                     <!-- fgfg -->
                                     <div class="form-group">
                                         <div class="row">
@@ -253,18 +252,23 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm">
-                                                <label>Requirements</label>
-                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['heaterTempUpnLowRange'])); ?> - <?php echo htmlspecialchars($user->value2actual($row['heaterTempUpnLowRange'])); ?> °C" disabled>
+                                                <label>Minumum</label>
+                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
                                             </div>
 
                                             <div class="col-sm">
-                                                <label>Actual</label>
+                                                <label>Maximum</label>
+                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value2actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
+                                            </div>
+
+                                            <div class="col-sm">
+                                                <label>Actual</label><br>
                                                 <input type="text" class="form-control" id="actTempUpnLow" placeholder="Enter Actual">
                                             </div>
 
                                             <div class="col-sm">
                                                 <label>Remarks</label>
-                                                <input type="text" class="form-control" id="remarksTempUpnLow" placeholder="" disabled>
+                                                <input type="text" class="form-control" id="TempUpnLow" placeholder="" disabled>
                                             </div>
 
                                         </div>
@@ -275,7 +279,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['heatingTimeRange'])); ?> - <?php echo htmlspecialchars($user->value2actual($row['heatingTimeRange'])); ?> .secs" disabled>
+                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
+                                            </div>
+
+                                            <div class="col-sm"><br>
+                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value2actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -283,7 +291,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="remarksTempUpnLow" placeholder="" disabled>
+                                                <input type="text" class="form-control" id="HeatingTime" placeholder="" disabled>
                                             </div>
 
                                         </div>
@@ -294,7 +302,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['heaterSwabHandleFixtureRange'])); ?> - <?php echo htmlspecialchars($user->value2actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" disabled>
+                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
+                                            </div>
+
+                                            <div class="col-sm"><br>
+                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value2actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -302,7 +314,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="remarksSwabHandleFixture" placeholder="" disabled>
+                                                <input type="text" class="form-control" id="SwabHandleFixture" placeholder="" disabled>
                                             </div>
 
                                         </div>
@@ -313,7 +325,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['fixtureClosingTimeRange'])); ?> - <?php echo htmlspecialchars($user->value2actual($row['fixtureClosingTimeRange'])); ?> .secs" disabled>
+                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
+                                            </div>
+
+                                            <div class="col-sm"><br>
+                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value2actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -321,7 +337,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="remarksFixtureClosingTime" placeholder="" disabled>
+                                                <input type="text" class="form-control" id="FixtureClosingTime" placeholder="" disabled>
                                             </div>
 
                                         </div>
@@ -364,8 +380,6 @@ while ($row = mysqli_fetch_array($sql)) {
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-
-
 
                                     <div class="form-group">
                                         <div class="row">
@@ -503,12 +517,92 @@ while ($row = mysqli_fetch_array($sql)) {
         $(document).on('click', '#dataSubmitDelete', function() {
             $("#dataSubmitDelete").attr("disabled", true);
 
-            var pick = "90";
+            var pick = "17";
             var status = "Pending";
+
+            var workorder = $.trim(encodeURI($("#workorder").val()));
+            var date = $.trim(encodeURI($("#date").val()));
+            var time = $.trim(encodeURI($("#time").val()));
+            var shift = $.trim(encodeURI($("#shift").val()));
+            var operatorName = $.trim(encodeURI($("#operatorName").val()));
+
+            var teamLead = $.trim(encodeURI($("#teamLead").val()));
+            var machineNo = $.trim(encodeURI($("#machineNo").val()));
+            var product = $.trim(encodeURI($("#product").val()));
+            var type = $.trim(encodeURI($("#type").val()));
+            var InspectedBY = $.trim(encodeURI($("#InspectedBY").val()));
+
+            var maintenancecheced = $.trim(encodeURI($("#maintenancecheced").val()));
+            var handle = $.trim(encodeURI($("#handle").val()));
+            var substrate = $.trim(encodeURI($("#substrate").val()));
+            var handleTreeColor = $.trim(encodeURI($("#handleTreeColor").val()));
+            var substrateLotNum = $.trim(encodeURI($("#substrateLotNum").val()));
+
+            var handleTreeMaterialNum = $.trim(encodeURI($("#handleTreeMaterialNum").val()));
+            var texwipeLogo = $.trim(encodeURI($("#texwipeLogo").val()));
+            var remarksInprocess = $.trim(encodeURI($("#remarksInprocess").val()));
+            var actTempUpnLow = $.trim(encodeURI($("#actTempUpnLow").val()));
+            var TempUpnLow = $.trim(encodeURI($("#TempUpnLow").val()));
+
+            var actHeatingTime = $.trim(encodeURI($("#actHeatingTime").val()));
+            var HeatingTime = $.trim(encodeURI($("#HeatingTime").val()));
+            var actSwabHandleFixture = $.trim(encodeURI($("#actSwabHandleFixture").val()));
+            var SwabHandleFixture = $.trim(encodeURI($("#SwabHandleFixture").val()));
+            var actFixtureClosingTime = $.trim(encodeURI($("#actFixtureClosingTime").val()));
+            var FixtureClosingTime = $.trim(encodeURI($("#FixtureClosingTime").val()));
+
+            var productionStats = $.trim(encodeURI($("#productionStats").val()));
+            var remarksProduction = $.trim(encodeURI($("#remarksProduction").val()));
+            var visualInpection = $.trim(encodeURI($("#visualInpection").val()));
+            var remarksVisual = $.trim(encodeURI($("#remarksVisual").val()));
+            var resistanceInpection = $.trim(encodeURI($("#resistanceInpection").val()));
+            var remarksResistance = $.trim(encodeURI($("#remarksResistance").val()));
 
             var fd = new FormData();
             fd.append('pick', pick);
             fd.append('status', status);
+
+            fd.append('workorder', workorder);
+            fd.append('date', date);
+            fd.append('time', time);
+            fd.append('shift', shift);
+            fd.append('operatorName', operatorName);
+
+            fd.append('teamLead', teamLead);
+            fd.append('machineNo', machineNo);
+            fd.append('product', product);
+            fd.append('type', type);
+            fd.append('InspectedBY', InspectedBY);
+
+            fd.append('maintenancecheced', maintenancecheced);
+            fd.append('handle', handle);
+            fd.append('substrate', substrate);
+            fd.append('handleTreeColor', handleTreeColor);
+            fd.append('substrateLotNum', substrateLotNum);
+
+            fd.append('handleTreeMaterialNum', handleTreeMaterialNum);
+            fd.append('texwipeLogo', texwipeLogo);
+            fd.append('remarksInprocess', remarksInprocess);
+            fd.append('actTempUpnLow', actTempUpnLow);
+            fd.append('TempUpnLow', TempUpnLow);
+
+            fd.append('actHeatingTime', actHeatingTime);
+            fd.append('HeatingTime', HeatingTime);
+            fd.append('actSwabHandleFixture', actSwabHandleFixture);
+            fd.append('SwabHandleFixture', SwabHandleFixture);
+            fd.append('actFixtureClosingTime', actFixtureClosingTime);
+            fd.append('FixtureClosingTime', FixtureClosingTime);
+
+            fd.append('productionStats', productionStats);
+            fd.append('remarksProduction', remarksProduction);
+            fd.append('visualInpection', visualInpection);
+            fd.append('remarksVisual', remarksVisual);
+            fd.append('resistanceInpection', resistanceInpection);
+            fd.append('remarksResistance', remarksResistance);
+
+            for (let pair of fd.entries()) {
+                console.log(pair[0] + ": " + pair[1]);
+            }
 
             $.ajax({
                 url: "../pages/codes/admin_control.php",
