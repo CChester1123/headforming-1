@@ -164,7 +164,17 @@ class admin_creation
 		return $result;
 	}
 
+	public function ViewEditchecklist2($id)
+	{
+		$result = mysqli_query($this->dbh, "SELECT * FROM headforming.tbl_checklist_thermal WHERE id = '$id'");
+		return $result;
+	}
 
+	public function selectParameter($prod_id)
+	{
+		$result = mysqli_query($this->dbh, "SELECT id, heaterTempUpnLowRange, heatingTimeRange, heaterSwabHandleFixtureRange, fixtureClosingTimeRange FROM headforming.tbl_products2 WHERE id = '$prod_id'");
+		return $result;
+	}
 
 	public function ViewEditchecklist($id)
 	{
