@@ -1,11 +1,6 @@
 <title>Add Product</title>
 <?php include 'includes/header.php';
-
 $deptType = $_GET['deptType'];
-
-
-
-
 ?>
 
 
