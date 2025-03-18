@@ -306,7 +306,7 @@
     $("#createList").modal("show");
 
     var url = (department === "Thermal Bonding" && type === "In-Process Audit") ?
-      "checklistCreate2" :
+      "checklistThermal" :
       "checklistCreate";
 
     location.href = `${url}?Productid=${encodeURIComponent(partNo)}&type=${encodeURIComponent(type)}&department=${encodeURIComponent(department)}`;
