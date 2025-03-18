@@ -170,12 +170,6 @@ class admin_creation
 		return $result;
 	}
 
-	// public function selectParameter($prod_id)
-	// {
-	// 	$result = mysqli_query($this->dbh, "SELECT id, heaterTempUpnLowRange, heatingTimeRange, heaterSwabHandleFixtureRange, fixtureClosingTimeRange FROM headforming.tbl_products2 WHERE id = '$prod_id'");
-	// 	return $result;
-	// }
-
 	public function ViewEditchecklist($id)
 	{
 		$result = mysqli_query($this->dbh, "SELECT * FROM headforming.tbl_checklist WHERE id = '$id'");
@@ -636,9 +630,9 @@ WHERE id = '$checklistId';
 		return $transID;
 	}
 
-	public function createThermal($status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $actTempUpnLow, $TempUpnLow, $actHeatingTime, $HeatingTime, $actSwabHandleFixture, $SwabHandleFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $resistanceInpection, $remarksResistance)
+	public function createThermal($status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $resistanceInpection, $remarksResistance)
 	{
-		$result = mysqli_query($this->dbh, "INSERT INTO `headforming`.`tbl_checklist_thermal` ( `workorder`, `date`, `time`, `shift`, `operatorName`, `teamLead`, `machineNo`, `product`, `type`, `InspectedBY`, `maintenancecheced`, `handle`, `substrate`, `handleTreeColor`, `substrateLotNum`, `handleTreeMaterialNum`, `texwipeLogo`, `remarksInprocess`, `actTempUpnLow`, `TempUpnLow`, `actHeatingTime`, `HeatingTime`, `actSwabHandleFixture`, `SwabHandleFixture`, `actFixtureClosingTime`, `FixtureClosingTime`, `productionStats`, `remarksProduction`, `visualInpection`, `remarksVisual`, `resistanceInpection`, `remarksResistance`, `status` ) VALUES ( '$workorder', '$date', '$time', '$shift', '$operatorName', '$teamLead', '$machineNo', '$product', '$type', '$InspectedBY', '$maintenancecheced', '$handle', '$substrate', '$handleTreeColor', '$substrateLotNum', '$handleTreeMaterialNum', '$texwipeLogo', '$remarksInprocess', '$actTempUpnLow', '$TempUpnLow', '$actHeatingTime', '$HeatingTime', '$actSwabHandleFixture', '$SwabHandleFixture', '$actFixtureClosingTime', '$FixtureClosingTime', '$productionStats', '$remarksProduction', '$visualInpection', '$remarksVisual', '$resistanceInpection', '$remarksResistance', '$status' )");
+		$result = mysqli_query($this->dbh, "INSERT INTO `headforming`.`tbl_checklist_thermal` ( `workorder`, `date`, `time`, `shift`, `operatorName`, `teamLead`, `machineNo`, `product`, `type`, `InspectedBY`, `maintenancecheced`, `handle`, `substrate`, `handleTreeColor`, `substrateLotNum`, `handleTreeMaterialNum`, `texwipeLogo`, `remarksInprocess`, `TempUpnLowRange`, `actTempUpnLow`, `TempUpnLow`, `HeatingTimeRange`, `actHeatingTime`, `HeatingTime`,  `SwabHandleFixtureRange`, `actSwabHandleFixture`, `SwabHandleFixture`, `FixtureClosingTimeRange`, `actFixtureClosingTime`, `FixtureClosingTime`, `productionStats`, `remarksProduction`, `visualInpection`, `remarksVisual`, `resistanceInpection`, `remarksResistance`, `status` ) VALUES ( '$workorder', '$date', '$time', '$shift', '$operatorName', '$teamLead', '$machineNo', '$product', '$type', '$InspectedBY', '$maintenancecheced', '$handle', '$substrate', '$handleTreeColor', '$substrateLotNum', '$handleTreeMaterialNum', '$texwipeLogo', '$remarksInprocess', '$arrTemp', '$actTempUpnLow', '$TempUpnLow', '$arrHeat', '$actHeatingTime', '$HeatingTime', '$arrSwab', '$actSwabHandleFixture', '$SwabHandleFixture', '$arrFixture', '$actFixtureClosingTime', '$FixtureClosingTime', '$productionStats', '$remarksProduction', '$visualInpection', '$remarksVisual', '$resistanceInpection', '$remarksResistance', '$status' )");
 
 		return $result;
 	}

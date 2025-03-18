@@ -415,31 +415,37 @@ else if ($pick == 17 || $pick == "17" || $pick == '17') {
 	$time  = htmlentities(htmlspecialchars(urldecode($_POST['time'])));
 	$shift  = htmlentities(htmlspecialchars(urldecode($_POST['shift'])));
 	$operatorName  = htmlentities(htmlspecialchars(urldecode($_POST['operatorName'])));
-
 	$teamLead  = htmlentities(htmlspecialchars(urldecode($_POST['teamLead'])));
 	$machineNo  = htmlentities(htmlspecialchars(urldecode($_POST['machineNo'])));
 	$product  = htmlentities(htmlspecialchars(urldecode($_POST['product'])));
 	$type  = htmlentities(htmlspecialchars(urldecode($_POST['type'])));
 	$InspectedBY  = htmlentities(htmlspecialchars(urldecode($_POST['InspectedBY'])));
-
 	$maintenancecheced  = htmlentities(htmlspecialchars(urldecode($_POST['maintenancecheced'])));
 	$handle  = htmlentities(htmlspecialchars(urldecode($_POST['handle'])));
 	$substrate  = htmlentities(htmlspecialchars(urldecode($_POST['substrate'])));
 	$handleTreeColor  = htmlentities(htmlspecialchars(urldecode($_POST['handleTreeColor'])));
 	$substrateLotNum  = htmlentities(htmlspecialchars(urldecode($_POST['substrateLotNum'])));
-
 	$handleTreeMaterialNum  = htmlentities(htmlspecialchars(urldecode($_POST['handleTreeMaterialNum'])));
 	$texwipeLogo  = htmlentities(htmlspecialchars(urldecode($_POST['texwipeLogo'])));
 	$remarksInprocess  = htmlentities(htmlspecialchars(urldecode($_POST['remarksInprocess'])));
+
+
+	$arrTemp  = htmlentities(htmlspecialchars(urldecode($_POST['arrTemp'])));
 	$actTempUpnLow  = htmlentities(htmlspecialchars(urldecode($_POST['actTempUpnLow'])));
 	$TempUpnLow  = htmlentities(htmlspecialchars(urldecode($_POST['TempUpnLow'])));
 	
+	$arrHeat  = htmlentities(htmlspecialchars(urldecode($_POST['arrHeat'])));
 	$actHeatingTime  = htmlentities(htmlspecialchars(urldecode($_POST['actHeatingTime'])));
 	$HeatingTime  = htmlentities(htmlspecialchars(urldecode($_POST['HeatingTime'])));
+
+	$arrSwab  = htmlentities(htmlspecialchars(urldecode($_POST['arrSwab'])));
 	$actSwabHandleFixture  = htmlentities(htmlspecialchars(urldecode($_POST['actSwabHandleFixture'])));
 	$SwabHandleFixture  = htmlentities(htmlspecialchars(urldecode($_POST['SwabHandleFixture'])));
+
+	$arrFixture  = htmlentities(htmlspecialchars(urldecode($_POST['arrFixture'])));
 	$actFixtureClosingTime  = htmlentities(htmlspecialchars(urldecode($_POST['actFixtureClosingTime'])));
 	$FixtureClosingTime  = htmlentities(htmlspecialchars(urldecode($_POST['FixtureClosingTime'])));
+
 
 	$productionStats  = htmlentities(htmlspecialchars(urldecode($_POST['productionStats'])));
 	$remarksProduction  = htmlentities(htmlspecialchars(urldecode($_POST['remarksProduction'])));
@@ -449,5 +455,5 @@ else if ($pick == 17 || $pick == "17" || $pick == '17') {
 	$remarksResistance  = htmlentities(htmlspecialchars(urldecode($_POST['remarksResistance'])));
 
 
-	echo $sql = $insertdata->createThermal($status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $actTempUpnLow, $TempUpnLow, $actHeatingTime, $HeatingTime, $actSwabHandleFixture, $SwabHandleFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $resistanceInpection, $remarksResistance);
+	echo $sql = $insertdata->createThermal($status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $resistanceInpection, $remarksResistance);
 }
