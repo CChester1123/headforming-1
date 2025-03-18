@@ -170,11 +170,11 @@ class admin_creation
 		return $result;
 	}
 
-	public function selectParameter($prod_id)
-	{
-		$result = mysqli_query($this->dbh, "SELECT id, heaterTempUpnLowRange, heatingTimeRange, heaterSwabHandleFixtureRange, fixtureClosingTimeRange FROM headforming.tbl_products2 WHERE id = '$prod_id'");
-		return $result;
-	}
+	// public function selectParameter($prod_id)
+	// {
+	// 	$result = mysqli_query($this->dbh, "SELECT id, heaterTempUpnLowRange, heatingTimeRange, heaterSwabHandleFixtureRange, fixtureClosingTimeRange FROM headforming.tbl_products2 WHERE id = '$prod_id'");
+	// 	return $result;
+	// }
 
 	public function ViewEditchecklist($id)
 	{
