@@ -253,12 +253,12 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                             <div class="col-sm">
                                                 <label>Minumum</label>
-                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
+                                                <input type="text" class="form-control" id="minTemp" value="<?php echo htmlspecialchars($user->value1actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
                                             </div>
 
                                             <div class="col-sm">
                                                 <label>Maximum</label>
-                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value2actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
+                                                <input type="text" class="form-control" id="maxTemp" value="<?php echo htmlspecialchars($user->value2actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
                                             </div>
 
                                             <div class="col-sm">
@@ -279,11 +279,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="minHeat" value="<?php echo htmlspecialchars($user->value1actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value2actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="maxHeat" value="<?php echo htmlspecialchars($user->value2actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -302,11 +302,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="minSwab" value="<?php echo htmlspecialchars($user->value1actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value2actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="maxSwab" value="<?php echo htmlspecialchars($user->value2actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -325,11 +325,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value1actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="minFixture" value="<?php echo htmlspecialchars($user->value1actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" value="<?php echo htmlspecialchars($user->value2actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="maxFixture" value="<?php echo htmlspecialchars($user->value2actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -477,6 +477,102 @@ while ($row = mysqli_fetch_array($sql)) {
     include  'includes/validation.php';
     ?>
     <script>
+        // Reusable function to check if the actual value is within the range
+        function checkTemperatureRange(inputId, minId, maxId, resultId) {
+            document.getElementById(inputId).addEventListener('input', function() {
+                var min = parseFloat(document.getElementById(minId).value);
+                var max = parseFloat(document.getElementById(maxId).value);
+                var actual = parseFloat(document.getElementById(inputId).value);
+
+                // Check if actual value is valid and within range
+                if (!isNaN(actual)) {
+                    document.getElementById(resultId).value = (actual >= min && actual <= max) ? 'Passed' : 'Failed';
+                } else {
+                    document.getElementById(resultId).value = ''; // Clear remarks if input is not valid
+                }
+            });
+        }
+
+        // Apply the function to different inputs
+        checkTemperatureRange('actTempUpnLow', 'minTemp', 'maxTemp', 'TempUpnLow');
+        checkTemperatureRange('actHeatingTime', 'minHeat', 'maxHeat', 'HeatingTime');
+        checkTemperatureRange('actSwabHandleFixture', 'minSwab', 'maxSwab', 'SwabHandleFixture');
+        checkTemperatureRange('actFixtureClosingTime', 'minFixture', 'maxFixture', 'FixtureClosingTime');
+
+
+        // // Function to check if the actual temperature is within the range
+        // document.getElementById('actTempUpnLow').addEventListener('input', function() {
+        //     // Get the min, max, and actual temperature values
+        //     var minTemp = parseFloat(document.getElementById('minTemp').value);
+        //     var maxTemp = parseFloat(document.getElementById('maxTemp').value);
+        //     var actualTemp = parseFloat(document.getElementById('actTempUpnLow').value);
+
+        //     // Check if the actual temperature is within the range
+        //     if (!isNaN(actualTemp)) {
+        //         if (actualTemp >= minTemp && actualTemp <= maxTemp) {
+        //             document.getElementById('TempUpnLow').value = 'Passed';
+        //         } else {
+        //             document.getElementById('TempUpnLow').value = 'Failed';
+        //         }
+        //     } else {
+        //         document.getElementById('TempUpnLow').value = ''; // Clear remarks if input is not valid
+        //     }
+        // });
+        // // Function to check if the actual temperature is within the range
+        // document.getElementById('actHeatingTime').addEventListener('input', function() {
+        //     // Get the min, max, and actual temperature values
+        //     var minHeat = parseFloat(document.getElementById('minHeat').value);
+        //     var maxHeat = parseFloat(document.getElementById('maxHeat').value);
+        //     var actHeatingTime = parseFloat(document.getElementById('actHeatingTime').value);
+
+        //     // Check if the actual temperature is within the range
+        //     if (!isNaN(actHeatingTime)) {
+        //         if (actHeatingTime >= minHeat && actHeatingTime <= maxHeat) {
+        //             document.getElementById('HeatingTime').value = 'Passed';
+        //         } else {
+        //             document.getElementById('HeatingTime').value = 'Failed';
+        //         }
+        //     } else {
+        //         document.getElementById('HeatingTime').value = ''; // Clear remarks if input is not valid
+        //     }
+        // });
+        // // Function to check if the actual temperature is within the range
+        // document.getElementById('actSwabHandleFixture').addEventListener('input', function() {
+        //     // Get the min, max, and actual temperature values
+        //     var minSwab = parseFloat(document.getElementById('minSwab').value);
+        //     var maxSwab = parseFloat(document.getElementById('maxSwab').value);
+        //     var actSwabHandleFixture = parseFloat(document.getElementById('actSwabHandleFixture').value);
+
+        //     // Check if the actual temperature is within the range
+        //     if (!isNaN(actSwabHandleFixture)) {
+        //         if (actSwabHandleFixture >= minSwab && actSwabHandleFixture <= maxSwab) {
+        //             document.getElementById('SwabHandleFixture').value = 'Passed';
+        //         } else {
+        //             document.getElementById('SwabHandleFixture').value = 'Failed';
+        //         }
+        //     } else {
+        //         document.getElementById('SwabHandleFixture').value = ''; // Clear remarks if input is not valid
+        //     }
+        // });
+        // // Function to check if the actual temperature is within the range
+        // document.getElementById('actFixtureClosingTime').addEventListener('input', function() {
+        //     // Get the min, max, and actual temperature values
+        //     var minFixture = parseFloat(document.getElementById('minFixture').value);
+        //     var maxFixture = parseFloat(document.getElementById('maxFixture').value);
+        //     var actFixtureClosingTime = parseFloat(document.getElementById('actFixtureClosingTime').value);
+
+        //     // Check if the actual temperature is within the range
+        //     if (!isNaN(actFixtureClosingTime)) {
+        //         if (actFixtureClosingTime >= minFixture && actFixtureClosingTime <= maxFixture) {
+        //             document.getElementById('FixtureClosingTime').value = 'Passed';
+        //         } else {
+        //             document.getElementById('FixtureClosingTime').value = 'Failed';
+        //         }
+        //     } else {
+        //         document.getElementById('FixtureClosingTime').value = ''; // Clear remarks if input is not valid
+        //     }
+        // });
+
         function compareNumbers(groupIndex) {
             let number1 = parseFloat(document.getElementById("actualDataLoopa" + groupIndex + "1").value) - 0.1;
             let number2 = parseFloat(document.getElementById("actualDataLoopa" + groupIndex + "2").value) + 0.1;
