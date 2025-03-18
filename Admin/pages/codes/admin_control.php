@@ -406,14 +406,48 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 
 	echo $sql = $insertdata->DeleteCheckList($transID);
 }
-// else if ($pick == 17 || $pick == "17" || $pick == '17') {
+else if ($pick == 17 || $pick == "17" || $pick == '17') {
 
-// 	$workorder  = htmlentities(htmlspecialchars(urldecode($_POST['workorder'])));
-// 	$date  = htmlentities(htmlspecialchars(urldecode($_POST['date'])));
-// 	$productDesc  = htmlentities(htmlspecialchars(urldecode($_POST['productDesc'])));
-// 	$machineNo  = htmlentities(htmlspecialchars(urldecode($_POST['machineNo'])));
-// 	$product  = htmlentities(htmlspecialchars(urldecode($_POST['product'])));
+	$status  = htmlentities(htmlspecialchars(urldecode($_POST['status'])));
+	
+	$workorder  = htmlentities(htmlspecialchars(urldecode($_POST['workorder'])));
+	$date  = htmlentities(htmlspecialchars(urldecode($_POST['date'])));
+	$time  = htmlentities(htmlspecialchars(urldecode($_POST['time'])));
+	$shift  = htmlentities(htmlspecialchars(urldecode($_POST['shift'])));
+	$operatorName  = htmlentities(htmlspecialchars(urldecode($_POST['operatorName'])));
+
+	$teamLead  = htmlentities(htmlspecialchars(urldecode($_POST['teamLead'])));
+	$machineNo  = htmlentities(htmlspecialchars(urldecode($_POST['machineNo'])));
+	$product  = htmlentities(htmlspecialchars(urldecode($_POST['product'])));
+	$type  = htmlentities(htmlspecialchars(urldecode($_POST['type'])));
+	$InspectedBY  = htmlentities(htmlspecialchars(urldecode($_POST['InspectedBY'])));
+
+	$maintenancecheced  = htmlentities(htmlspecialchars(urldecode($_POST['maintenancecheced'])));
+	$handle  = htmlentities(htmlspecialchars(urldecode($_POST['handle'])));
+	$substrate  = htmlentities(htmlspecialchars(urldecode($_POST['substrate'])));
+	$handleTreeColor  = htmlentities(htmlspecialchars(urldecode($_POST['handleTreeColor'])));
+	$substrateLotNum  = htmlentities(htmlspecialchars(urldecode($_POST['substrateLotNum'])));
+
+	$handleTreeMaterialNum  = htmlentities(htmlspecialchars(urldecode($_POST['handleTreeMaterialNum'])));
+	$texwipeLogo  = htmlentities(htmlspecialchars(urldecode($_POST['texwipeLogo'])));
+	$remarksInprocess  = htmlentities(htmlspecialchars(urldecode($_POST['remarksInprocess'])));
+	$actTempUpnLow  = htmlentities(htmlspecialchars(urldecode($_POST['actTempUpnLow'])));
+	$TempUpnLow  = htmlentities(htmlspecialchars(urldecode($_POST['TempUpnLow'])));
+	
+	$actHeatingTime  = htmlentities(htmlspecialchars(urldecode($_POST['actHeatingTime'])));
+	$HeatingTime  = htmlentities(htmlspecialchars(urldecode($_POST['HeatingTime'])));
+	$actSwabHandleFixture  = htmlentities(htmlspecialchars(urldecode($_POST['actSwabHandleFixture'])));
+	$SwabHandleFixture  = htmlentities(htmlspecialchars(urldecode($_POST['SwabHandleFixture'])));
+	$actFixtureClosingTime  = htmlentities(htmlspecialchars(urldecode($_POST['actFixtureClosingTime'])));
+	$FixtureClosingTime  = htmlentities(htmlspecialchars(urldecode($_POST['FixtureClosingTime'])));
+
+	$productionStats  = htmlentities(htmlspecialchars(urldecode($_POST['productionStats'])));
+	$remarksProduction  = htmlentities(htmlspecialchars(urldecode($_POST['remarksProduction'])));
+	$visualInpection  = htmlentities(htmlspecialchars(urldecode($_POST['visualInpection'])));
+	$remarksVisual  = htmlentities(htmlspecialchars(urldecode($_POST['remarksVisual'])));
+	$resistanceInpection  = htmlentities(htmlspecialchars(urldecode($_POST['resistanceInpection'])));
+	$remarksResistance  = htmlentities(htmlspecialchars(urldecode($_POST['remarksResistance'])));
 
 
-// 	echo $sql = $insertdata->createCheckList($workorder, $date, $productDesc, $machineNo, $product, $type, $handle, $machinetobeused, $substrate, $operation, $maintenance, $preinstallremarks, $arrcuttingforce, $arrsealingtime, $arrcuttingspeed, $arrapproachingposition, $arrsealingpositionspeed, $arrsealingposition, $arrMode, $arrmoldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arruppermoldtemp, $arrlowermoldtemp, $arrtotalLength, $arrswabheadlength, $arrswabheadwidth, $arrswabheadthickness, $arrswabhandlewidth, $arrswabhandlethickness, $arrswabhandlediameter, $noHandleperHT, $visualInpection, $arractualDataLoop, $selectedoption, $shotproductionremarks, $InspectedBY, $acknowledge, $maintenancecheced, $status, $arrpulltest, $setUpNUmber, $template, $trans_num, $handleColor, $handleTreeMaterialNum, $machineTreeMatType, $substrateType, $substrateDimensionforce, $visualInspection, $shotRemarks, $pullSeatTestforce, $substrateLotNum, $pulltestdesc);
-// }
+	echo $sql = $insertdata->createThermal($status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $actTempUpnLow, $TempUpnLow, $actHeatingTime, $HeatingTime, $actSwabHandleFixture, $SwabHandleFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $resistanceInpection, $remarksResistance);
+}
