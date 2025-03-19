@@ -361,28 +361,6 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 <input type="text" class="form-control" id="FixtureClosingTime" placeholder="" disabled>
                                             </div>
                                         </div>
-
-
-                                        <div class="row">
-                                            <div class="col-sm-2">
-                                            </div>
-
-                                            <div class="col-sm"><br>
-                                            </div>
-
-                                            <div class="col-sm"><br>
-                                                <select class="form-control" id="productionStats">
-                                                    <option value="Continue Production" selected>Continue Production</option>
-                                                    <option value="Stop Production">Stop Production</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="col-sm"><br>
-                                                <input type="text" id="remarksProduction" class="form-control actualDataLoop result" placeholder="Enter Remarks">
-                                            </div>
-
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -409,7 +387,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                             </div>
 
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-2">
                                                 <select class="form-control" id="visualInpection">
                                                     <option value="Passed">PASSED</option>
                                                     <option value="Failed">FAILED</option>
@@ -429,7 +407,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 <label style="margin-left: 20px;"><br>Resistance of Substrate to Handle Tip (5 locations)</label>
                                             </div>
 
-                                            <div class="col-sm-3"><br>
+                                            <div class="col-sm-2"><br>
                                                 <select class="form-control" id="resistanceInpection">
                                                     <option value="Passed">PASSED</option>
                                                     <option value="Failed">FAILED</option>
@@ -441,6 +419,24 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                            </div>
+                                            <div class="col-sm-2"><br>
+                                                <select class="form-control" id="productionStats">
+                                                    <option value="Continue Production" selected>Continue Production</option>
+                                                    <option value="Stop Production">Stop Production</option>
+                                                </select>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm"><br>
+                                                <input type="text" id="remarksProduction" class="form-control actualDataLoop result" placeholder="Enter Remarks">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                         <div class="col-sm">
                                             <label style="color: red; margin-left: 30px;"> NOTE:</label><br>
                                             <label style="color: red; margin-left: 100px;">Process Inspection:<br>
