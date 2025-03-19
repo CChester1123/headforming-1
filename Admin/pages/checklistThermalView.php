@@ -250,7 +250,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 <label>Minumum</label>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control" id="TempMin" value="<?php echo htmlspecialchars($user->value1actual($row['TempUpnLowRange'])); ?>" readonly disabled>
-                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">°C</span>
+                                                    <span class="input-group-text" style="pointer-events: none">°C</span>
                                                 </div>
                                             </div>
 
@@ -258,7 +258,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 <label>Maximum</label>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control" id="TempMax" value="<?php echo htmlspecialchars($user->value2actual($row['TempUpnLowRange'])); ?>" readonly disabled>
-                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">°C</span>
+                                                    <span class="input-group-text" style="pointer-events: none">°C</span>
                                                 </div>
                                             </div>
 
@@ -281,14 +281,14 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <div class="col-sm"><br>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control" id="HeatMin" value="<?php echo htmlspecialchars($user->value1actual($row['HeatingTimeRange'])); ?>" readonly disabled>
-                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">secs</span>
+                                                    <span class="input-group-text" style="pointer-events: none">secs</span>
                                                 </div>
                                             </div>
 
                                             <div class="col-sm"><br>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control" id="HeatMax" value="<?php echo htmlspecialchars($user->value2actual($row['HeatingTimeRange'])); ?>" readonly disabled>
-                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">secs</span>
+                                                    <span class="input-group-text" style="pointer-events: none">secs</span>
                                                 </div>
                                             </div>
 
@@ -309,14 +309,14 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <div class="col-sm"><br>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control" id="SwabMin" value="<?php echo htmlspecialchars($user->value1actual($row['SwabHandleFixtureRange'])); ?>" readonly disabled>
-                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">secs</span>
+                                                    <span class="input-group-text" style="pointer-events: none">secs</span>
                                                 </div>
                                             </div>
 
                                             <div class="col-sm"><br>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control" id="SwabMax" value="<?php echo htmlspecialchars($user->value2actual($row['SwabHandleFixtureRange'])); ?>" readonly disabled>
-                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">secs</span>
+                                                    <span class="input-group-text" style="pointer-events: none">secs</span>
                                                 </div>
                                             </div>
 
@@ -337,14 +337,14 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <div class="col-sm"><br>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control" id="FixtureMin" value="<?php echo htmlspecialchars($user->value1actual($row['FixtureClosingTimeRange'])); ?>" readonly disabled>
-                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">secs</span>
+                                                    <span class="input-group-text" style="pointer-events: none">secs</span>
                                                 </div>
                                             </div>
 
                                             <div class="col-sm"><br>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control" id="FixtureMax" value="<?php echo htmlspecialchars($user->value2actual($row['FixtureClosingTimeRange'])); ?>" readonly disabled>
-                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">secs</span>
+                                                    <span class="input-group-text" style="pointer-events: none">secs</span>
                                                 </div>
                                             </div>
 
