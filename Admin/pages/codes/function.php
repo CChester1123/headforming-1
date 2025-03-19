@@ -634,27 +634,6 @@ WHERE id = '$checklistId';
 	{
 		$result = mysqli_query($this->dbh, "INSERT INTO `headforming`.`tbl_checklist_thermal` ( `workorder`, `date`, `time`, `shift`, `operatorName`, `teamLead`, `machineNo`, `product`, `type`, `InspectedBY`, `maintenancecheced`, `handle`, `substrate`, `handleTreeColor`, `substrateLotNum`, `handleTreeMaterialNum`, `texwipeLogo`, `remarksInprocess`, `TempUpnLowRange`, `actTempUpnLow`, `TempUpnLow`, `HeatingTimeRange`, `actHeatingTime`, `HeatingTime`,  `SwabHandleFixtureRange`, `actSwabHandleFixture`, `SwabHandleFixture`, `FixtureClosingTimeRange`, `actFixtureClosingTime`, `FixtureClosingTime`, `productionStats`, `remarksProduction`, `visualInpection`, `remarksVisual`, `resistanceInpection`, `remarksResistance`, `status` ) VALUES ( '$workorder', '$date', '$time', '$shift', '$operatorName', '$teamLead', '$machineNo', '$product', '$type', '$InspectedBY', '$maintenancecheced', '$handle', '$substrate', '$handleTreeColor', '$substrateLotNum', '$handleTreeMaterialNum', '$texwipeLogo', '$remarksInprocess', '$arrTemp', '$actTempUpnLow', '$TempUpnLow', '$arrHeat', '$actHeatingTime', '$HeatingTime', '$arrSwab', '$actSwabHandleFixture', '$SwabHandleFixture', '$arrFixture', '$actFixtureClosingTime', '$FixtureClosingTime', '$productionStats', '$remarksProduction', '$visualInpection', '$remarksVisual', '$resistanceInpection', '$remarksResistance', '$status' )");
 
-		$result1 = mysqli_query($this->dbh, "UPDATE tbl_checklist_thermal 
-SET TempUpnLowRange = REPLACE(TempUpnLowRange, '&deg;C', '') 
-WHERE TempUpnLowRange LIKE '%&deg;C%'");
-
-		$result2 = mysqli_query($this->dbh, "UPDATE tbl_checklist_thermal 
-SET HeatingTimeRange = REPLACE(HeatingTimeRange, '&deg;C', '') 
-WHERE HeatingTimeRange LIKE '%.secs%'");
-
-
-$result3 = mysqli_query($this->dbh, "UPDATE tbl_checklist_thermal 
-SET SwabHandleFixtureRange = REPLACE(SwabHandleFixtureRange, '&deg;C', '') 
-WHERE SwabHandleFixtureRange LIKE '%.secs%'");
-
-$result4 = mysqli_query($this->dbh, "UPDATE tbl_checklist_thermal 
-SET FixtureClosingTimeRange = REPLACE(FixtureClosingTimeRange, '&deg;C', '') 
-WHERE FixtureClosingTimeRange LIKE '%.secs%'");
-
 		return $result;
-		return $result1;
-		return $result2;
-		return $result3;
-		return $result4;
 	}
 }

@@ -100,9 +100,9 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 
 	$arrheatingTime = htmlentities(htmlspecialchars(urldecode($_POST['arrheatingTime'])));
 
-	
 
-	echo $sql = $insertdata->createProduct($product,$productDesc,$handle,$subtrate,$pulltestdesc,$status,$arrcuttingforce,$arrsealingtime,$arrcuttingspeed,$arrapproachingposition,$arrsealingpositionspeed,$arrsealingposition,$arruppermoldtemp,$arrlowermoldtemp,$arrtotalLength,$arrswabheadlength,$arrswabheadwidth,$arrswabheadthickness,$arrswabhandlewidth,$arrswabhandlethickness,$arrswabhandlediameter,$arrpulltest,$arrswabheadpulling,$arrswabheadpopping,$substrateDimensionforce,$pullSeatTestforce,$noHandleperHT,$handleColor,$substrateLotNum,$handleTreeMaterialNum,$machineTreeMatType,$substrateType, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arrheaterTempUpnLow, $arrheaterSwabHandleFixture, $arrfixtureClosingTime, $department, $arrheatingTime);
+
+	echo $sql = $insertdata->createProduct($product, $productDesc, $handle, $subtrate, $pulltestdesc, $status, $arrcuttingforce, $arrsealingtime, $arrcuttingspeed, $arrapproachingposition, $arrsealingpositionspeed, $arrsealingposition, $arruppermoldtemp, $arrlowermoldtemp, $arrtotalLength, $arrswabheadlength, $arrswabheadwidth, $arrswabheadthickness, $arrswabhandlewidth, $arrswabhandlethickness, $arrswabhandlediameter, $arrpulltest, $arrswabheadpulling, $arrswabheadpopping, $substrateDimensionforce, $pullSeatTestforce, $noHandleperHT, $handleColor, $substrateLotNum, $handleTreeMaterialNum, $machineTreeMatType, $substrateType, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arrheaterTempUpnLow, $arrheaterSwabHandleFixture, $arrfixtureClosingTime, $department, $arrheatingTime);
 } else if ($pick == 7 || $pick == "7" || $pick == '7') {
 	$prod_id = htmlentities(htmlspecialchars(urldecode($_POST['prod_id'])));
 	$product = htmlentities(htmlspecialchars(urldecode($_POST['product'])));
@@ -160,7 +160,7 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 
 	$arrheatingTime = htmlentities(htmlspecialchars(urldecode($_POST['arrheatingTime'])));
 
-	echo $sql = $insertdata->editProduct($prod_id, $product,$productDesc,$handle,$subtrate,$pulltestdesc,$status,$arrcuttingforce,$arrsealingtime,$arrcuttingspeed,$arrapproachingposition,$arrsealingpositionspeed,$arrsealingposition,$arruppermoldtemp,$arrlowermoldtemp,$arrtotalLength,$arrswabheadlength,$arrswabheadwidth,$arrswabheadthickness,$arrswabhandlewidth,$arrswabhandlethickness,$arrswabhandlediameter,$arrpulltest,$arrswabheadpulling,$arrswabheadpopping,$substrateDimensionforce,$pullSeatTestforce,$noHandleperHT,$handleColor,$substrateLotNum,$handleTreeMaterialNum,$machineTreeMatType,$substrateType, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arrheaterTempUpnLow, $arrheaterSwabHandleFixture, $arrfixtureClosingTime, $department, $arrheatingTime);
+	echo $sql = $insertdata->editProduct($prod_id, $product, $productDesc, $handle, $subtrate, $pulltestdesc, $status, $arrcuttingforce, $arrsealingtime, $arrcuttingspeed, $arrapproachingposition, $arrsealingpositionspeed, $arrsealingposition, $arruppermoldtemp, $arrlowermoldtemp, $arrtotalLength, $arrswabheadlength, $arrswabheadwidth, $arrswabheadthickness, $arrswabhandlewidth, $arrswabhandlethickness, $arrswabhandlediameter, $arrpulltest, $arrswabheadpulling, $arrswabheadpopping, $substrateDimensionforce, $pullSeatTestforce, $noHandleperHT, $handleColor, $substrateLotNum, $handleTreeMaterialNum, $machineTreeMatType, $substrateType, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arrheaterTempUpnLow, $arrheaterSwabHandleFixture, $arrfixtureClosingTime, $department, $arrheatingTime);
 } else if ($pick == 8 || $pick == "8" || $pick == '8') {
 	$partNo = htmlentities(htmlspecialchars(urldecode($_POST['partNo'])));
 	$sql = $insertdata->selectPartNumber($partNo);
@@ -405,11 +405,10 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	$transID = base64_decode($id);
 
 	echo $sql = $insertdata->DeleteCheckList($transID);
-}
-else if ($pick == 17 || $pick == "17" || $pick == '17') {
+} else if ($pick == 17 || $pick == "17" || $pick == '17') {
 
 	$status  = htmlentities(htmlspecialchars(urldecode($_POST['status'])));
-	
+
 	$workorder  = htmlentities(htmlspecialchars(urldecode($_POST['workorder'])));
 	$date  = htmlentities(htmlspecialchars(urldecode($_POST['date'])));
 	$time  = htmlentities(htmlspecialchars(urldecode($_POST['time'])));
@@ -433,7 +432,7 @@ else if ($pick == 17 || $pick == "17" || $pick == '17') {
 	$arrTemp  = htmlentities(htmlspecialchars(urldecode($_POST['arrTemp'])));
 	$actTempUpnLow  = htmlentities(htmlspecialchars(urldecode($_POST['actTempUpnLow'])));
 	$TempUpnLow  = htmlentities(htmlspecialchars(urldecode($_POST['TempUpnLow'])));
-	
+
 	$arrHeat  = htmlentities(htmlspecialchars(urldecode($_POST['arrHeat'])));
 	$actHeatingTime  = htmlentities(htmlspecialchars(urldecode($_POST['actHeatingTime'])));
 	$HeatingTime  = htmlentities(htmlspecialchars(urldecode($_POST['HeatingTime'])));

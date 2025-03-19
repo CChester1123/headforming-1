@@ -1,11 +1,11 @@
 <title>Thermal && In-Process Audit</title>
 
 <?php
- $prod_id = base64_decode($_GET['id']);
- include 'includes/header.php'; 
+$prod_id = base64_decode($_GET['id']);
+include 'includes/header.php';
 
- $sql=$user->ViewEditchecklist2($prod_id);
- while($row=mysqli_fetch_array($sql)){
+$sql = $user->ViewEditchecklist2($prod_id);
+while ($row = mysqli_fetch_array($sql)) {
 ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -248,12 +248,12 @@
 
                                             <div class="col-sm">
                                                 <label>Minumum</label>
-                                                <input type="text" class="form-control" id="minTemp" value="<?php echo htmlspecialchars($user->value1actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
+                                                <input type="text" class="form-control" id="TempMin" value="<?php echo htmlspecialchars($user->value1actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
                                             </div>
 
                                             <div class="col-sm">
                                                 <label>Maximum</label>
-                                                <input type="text" class="form-control" id="maxTemp" value="<?php echo htmlspecialchars($user->value2actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
+                                                <input type="text" class="form-control" id="TempMax" value="<?php echo htmlspecialchars($user->value2actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
                                             </div>
 
                                             <div class="col-sm">
@@ -265,7 +265,6 @@
                                                 <label>Remarks</label>
                                                 <input type="text" class="form-control" id="TempUpnLow" placeholder="" disabled>
                                             </div>
-
                                         </div>
 
                                         <div class="row">
@@ -274,11 +273,11 @@
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="minHeat" value="<?php echo htmlspecialchars($user->value1actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="HeatMin" value="<?php echo htmlspecialchars($user->value1actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="maxHeat" value="<?php echo htmlspecialchars($user->value2actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="HeatMax" value="<?php echo htmlspecialchars($user->value2actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -288,7 +287,6 @@
                                             <div class="col-sm"><br>
                                                 <input type="text" class="form-control" id="HeatingTime" placeholder="" disabled>
                                             </div>
-
                                         </div>
 
                                         <div class="row">
@@ -297,11 +295,11 @@
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="minSwab" value="<?php echo htmlspecialchars($user->value1actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="SwabMin" value="<?php echo htmlspecialchars($user->value1actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="maxSwab" value="<?php echo htmlspecialchars($user->value2actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="SwabMax" value="<?php echo htmlspecialchars($user->value2actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -311,7 +309,6 @@
                                             <div class="col-sm"><br>
                                                 <input type="text" class="form-control" id="SwabHandleFixture" placeholder="" disabled>
                                             </div>
-
                                         </div>
 
                                         <div class="row">
@@ -320,11 +317,11 @@
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="minFixture" value="<?php echo htmlspecialchars($user->value1actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="FixtureMin" value="<?php echo htmlspecialchars($user->value1actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="maxFixture" value="<?php echo htmlspecialchars($user->value2actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="FixtureMax" value="<?php echo htmlspecialchars($user->value2actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -334,8 +331,8 @@
                                             <div class="col-sm"><br>
                                                 <input type="text" class="form-control" id="FixtureClosingTime" placeholder="" disabled>
                                             </div>
-
                                         </div>
+
 
                                         <div class="row">
                                             <div class="col-sm-2">
@@ -474,20 +471,48 @@
     <script>
         function checkTemperatureRange(inputId, minId, maxId, resultId) {
             document.getElementById(inputId).addEventListener('input', function() {
-                const [min, max, actual] = [minId, maxId, inputId].map(id => parseFloat(document.getElementById(id).value));
-                const result = (!isNaN(actual) && actual >= min && actual <= max) ? 'PASSED' : actual ? 'FAILED' : '';
-                const resultElement = document.getElementById(resultId);
+                // Use min and max input values from the form
+                const min = parseFloat(document.querySelector(`#${minId}`).value);
+                const max = parseFloat(document.querySelector(`#${maxId}`).value);
+                const actual = parseFloat(document.querySelector(`#${inputId}`).value);
 
+                // Determine whether the actual value falls within the range
+                const result = (!isNaN(actual) && actual >= min && actual <= max) ? 'PASSED' : actual ? 'FAILED' : '';
+
+                // Get the result element
+                const resultElement = document.querySelector(`#${resultId}`);
+
+                // Display the result
                 resultElement.value = result;
                 resultElement.style.fontWeight = result ? 'bold' : '';
                 resultElement.style.backgroundColor = result === 'PASSED' ? 'green' : result === 'FAILED' ? 'red' : '';
                 resultElement.style.color = result ? 'white' : '';
             });
         }
-        checkTemperatureRange('actTempUpnLow', 'minTemp', 'maxTemp', 'TempUpnLow');
-        checkTemperatureRange('actHeatingTime', 'minHeat', 'maxHeat', 'HeatingTime');
-        checkTemperatureRange('actSwabHandleFixture', 'minSwab', 'maxSwab', 'SwabHandleFixture');
-        checkTemperatureRange('actFixtureClosingTime', 'minFixture', 'maxFixture', 'FixtureClosingTime');
+
+        // Call the function for each check with the updated IDs
+        checkTemperatureRange('actTempUpnLow', 'TempMin', 'TempMax', 'TempUpnLow');
+        checkTemperatureRange('actHeatingTime', 'HeatMin', 'HeatMax', 'HeatingTime');
+        checkTemperatureRange('actSwabHandleFixture', 'SwabMin', 'SwabMax', 'SwabHandleFixture');
+        checkTemperatureRange('actFixtureClosingTime', 'FixtureMin', 'FixtureMax', 'FixtureClosingTime');
+
+
+        // function checkTemperatureRange(inputId, minId, maxId, resultId) {
+        //     document.getElementById(inputId).addEventListener('input', function() {
+        //         const [min, max, actual] = [minId, maxId, inputId].map(id => parseFloat(document.getElementById(id).value));
+        //         const result = (!isNaN(actual) && actual >= min && actual <= max) ? 'PASSED' : actual ? 'FAILED' : '';
+        //         const resultElement = document.getElementById(resultId);
+
+        //         resultElement.value = result;
+        //         resultElement.style.fontWeight = result ? 'bold' : '';
+        //         resultElement.style.backgroundColor = result === 'PASSED' ? 'green' : result === 'FAILED' ? 'red' : '';
+        //         resultElement.style.color = result ? 'white' : '';
+        //     });
+        // }
+        // checkTemperatureRange('actTempUpnLow', 'minTemp', 'maxTemp', 'TempUpnLow');
+        // checkTemperatureRange('actHeatingTime', 'minHeat', 'maxHeat', 'HeatingTime');
+        // checkTemperatureRange('actSwabHandleFixture', 'minSwab', 'maxSwab', 'SwabHandleFixture');
+        // checkTemperatureRange('actFixtureClosingTime', 'minFixture', 'maxFixture', 'FixtureClosingTime');
 
         // // Function to check if the actual temperature is within the range
         // document.getElementById('actTempUpnLow').addEventListener('input', function() {
@@ -626,13 +651,36 @@
             var handleTreeMaterialNum = $.trim(encodeURI($("#handleTreeMaterialNum").val()));
             var texwipeLogo = $.trim(encodeURI($("#texwipeLogo").val()));
             var remarksInprocess = $.trim(encodeURI($("#remarksInprocess").val()));
+
+            let Temp = document.querySelectorAll('input[id="Temp"]');
+            let arrTemp = [];
+            Temp.forEach((textbox) => {
+                arrTemp.push(textbox.value);
+            });
             var actTempUpnLow = $.trim(encodeURI($("#actTempUpnLow").val()));
             var TempUpnLow = $.trim(encodeURI($("#TempUpnLow").val()));
 
+            let Heat = document.querySelectorAll('input[id="Heat"]');
+            let arrHeat = [];
+            Heat.forEach((textbox) => {
+                arrHeat.push(textbox.value);
+            });
             var actHeatingTime = $.trim(encodeURI($("#actHeatingTime").val()));
             var HeatingTime = $.trim(encodeURI($("#HeatingTime").val()));
+
+            let Swab = document.querySelectorAll('input[id="Swab"]');
+            let arrSwab = [];
+            Swab.forEach((textbox) => {
+                arrSwab.push(textbox.value);
+            });
             var actSwabHandleFixture = $.trim(encodeURI($("#actSwabHandleFixture").val()));
             var SwabHandleFixture = $.trim(encodeURI($("#SwabHandleFixture").val()));
+
+            let Fixture = document.querySelectorAll('input[id="Fixture"]');
+            let arrFixture = [];
+            Fixture.forEach((textbox) => {
+                arrFixture.push(textbox.value);
+            });
             var actFixtureClosingTime = $.trim(encodeURI($("#actFixtureClosingTime").val()));
             var FixtureClosingTime = $.trim(encodeURI($("#FixtureClosingTime").val()));
 
@@ -652,31 +700,37 @@
             fd.append('time', time);
             fd.append('shift', shift);
             fd.append('operatorName', operatorName);
-
             fd.append('teamLead', teamLead);
             fd.append('machineNo', machineNo);
             fd.append('product', product);
             fd.append('type', type);
             fd.append('InspectedBY', InspectedBY);
-
             fd.append('maintenancecheced', maintenancecheced);
             fd.append('handle', handle);
             fd.append('substrate', substrate);
             fd.append('handleTreeColor', handleTreeColor);
             fd.append('substrateLotNum', substrateLotNum);
-
             fd.append('handleTreeMaterialNum', handleTreeMaterialNum);
             fd.append('texwipeLogo', texwipeLogo);
             fd.append('remarksInprocess', remarksInprocess);
+
+
+            fd.append('arrTemp', arrTemp);
             fd.append('actTempUpnLow', actTempUpnLow);
             fd.append('TempUpnLow', TempUpnLow);
 
+            fd.append('arrHeat', arrHeat);
             fd.append('actHeatingTime', actHeatingTime);
             fd.append('HeatingTime', HeatingTime);
+
+            fd.append('arrSwab', arrSwab);
             fd.append('actSwabHandleFixture', actSwabHandleFixture);
             fd.append('SwabHandleFixture', SwabHandleFixture);
+
+            fd.append('arrFixture', arrFixture);
             fd.append('actFixtureClosingTime', actFixtureClosingTime);
             fd.append('FixtureClosingTime', FixtureClosingTime);
+
 
             fd.append('productionStats', productionStats);
             fd.append('remarksProduction', remarksProduction);

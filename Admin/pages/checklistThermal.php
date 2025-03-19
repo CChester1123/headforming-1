@@ -253,12 +253,12 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                             <div class="col-sm">
                                                 <label>Minumum</label>
-                                                <input type="text" class="form-control" id="Temp" value="<?php echo htmlspecialchars($user->value1actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
+                                                <input type="text" class="form-control" id="TempMin" value="<?php echo htmlspecialchars($user->value1actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
                                             </div>
 
                                             <div class="col-sm">
                                                 <label>Maximum</label>
-                                                <input type="text" class="form-control" id="Temp" value="<?php echo htmlspecialchars($user->value2actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
+                                                <input type="text" class="form-control" id="TempMax" value="<?php echo htmlspecialchars($user->value2actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
                                             </div>
 
                                             <div class="col-sm">
@@ -270,7 +270,6 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 <label>Remarks</label>
                                                 <input type="text" class="form-control" id="TempUpnLow" placeholder="" disabled>
                                             </div>
-
                                         </div>
 
                                         <div class="row">
@@ -279,11 +278,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="Heat" value="<?php echo htmlspecialchars($user->value1actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="HeatMin" value="<?php echo htmlspecialchars($user->value1actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="Heat" value="<?php echo htmlspecialchars($user->value2actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="HeatMax" value="<?php echo htmlspecialchars($user->value2actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -293,7 +292,6 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <div class="col-sm"><br>
                                                 <input type="text" class="form-control" id="HeatingTime" placeholder="" disabled>
                                             </div>
-
                                         </div>
 
                                         <div class="row">
@@ -302,11 +300,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="Swab" value="<?php echo htmlspecialchars($user->value1actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="SwabMin" value="<?php echo htmlspecialchars($user->value1actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="Swab" value="<?php echo htmlspecialchars($user->value2actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="SwabMax" value="<?php echo htmlspecialchars($user->value2actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -316,7 +314,6 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <div class="col-sm"><br>
                                                 <input type="text" class="form-control" id="SwabHandleFixture" placeholder="" disabled>
                                             </div>
-
                                         </div>
 
                                         <div class="row">
@@ -325,11 +322,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="Fixture" value="<?php echo htmlspecialchars($user->value1actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="FixtureMin" value="<?php echo htmlspecialchars($user->value1actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="Fixture" value="<?php echo htmlspecialchars($user->value2actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
+                                                <input type="text" class="form-control" id="FixtureMax" value="<?php echo htmlspecialchars($user->value2actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -339,8 +336,8 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <div class="col-sm"><br>
                                                 <input type="text" class="form-control" id="FixtureClosingTime" placeholder="" disabled>
                                             </div>
-
                                         </div>
+
 
                                         <div class="row">
                                             <div class="col-sm-2">
@@ -498,11 +495,12 @@ while ($row = mysqli_fetch_array($sql)) {
             });
         }
 
-        // Call the function for each check with the original IDs
-        checkTemperatureRange('actTempUpnLow', 'Temp', 'Temp', 'TempUpnLow');
-        checkTemperatureRange('actHeatingTime', 'Heat', 'Heat', 'HeatingTime');
-        checkTemperatureRange('actSwabHandleFixture', 'Swab', 'Swab', 'SwabHandleFixture');
-        checkTemperatureRange('actFixtureClosingTime', 'Fixture', 'Fixture', 'FixtureClosingTime');
+        // Call the function for each check with the updated IDs
+        checkTemperatureRange('actTempUpnLow', 'TempMin', 'TempMax', 'TempUpnLow');
+        checkTemperatureRange('actHeatingTime', 'HeatMin', 'HeatMax', 'HeatingTime');
+        checkTemperatureRange('actSwabHandleFixture', 'SwabMin', 'SwabMax', 'SwabHandleFixture');
+        checkTemperatureRange('actFixtureClosingTime', 'FixtureMin', 'FixtureMax', 'FixtureClosingTime');
+
 
         // function checkTemperatureRange(inputId, minId, maxId, resultId) {
         //     document.getElementById(inputId).addEventListener('input', function() {
