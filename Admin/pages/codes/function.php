@@ -166,7 +166,7 @@ class admin_creation
 
 	public function ViewEditchecklist2($id)
 	{
-		$result = mysqli_query($this->dbh, "SELECT * FROM headforming.tbl_checklist_thermal WHERE id = '$id'");
+		$result = mysqli_query($this->dbh, "SELECT * FROM headforming.tbl_thermalbonding WHERE id = '$id'");
 		return $result;
 	}
 
@@ -365,7 +365,7 @@ WHERE id = '$checklistId';
 
 	public function GetCheckListThermal()
 	{
-		$result = mysqli_query($this->dbh, "SELECT * FROM tbl_checklist_thermal WHERE status != '0' OR status is null ORDER BY id DESC");
+		$result = mysqli_query($this->dbh, "SELECT * FROM tbl_thermalbonding WHERE status != '0' OR status is null ORDER BY id DESC");
 		return $result;
 	}
 
@@ -625,9 +625,9 @@ WHERE id = '$checklistId';
 
 	public function DuplicateCheckList2($transID)
 	{
-		$result = mysqli_query($this->dbh, "INSERT INTO headforming.tbl_checklist_thermal (workorder, date, time, shift, operatorName, teamLead, machineNo, product, type, InspectedBY, maintenancecheced, handle, substrate, handleTreeColor, substrateLotNum, handleTreeMaterialNum, texwipeLogo, remarksInprocess, TempUpnLowRange, actTempUpnLow, TempUpnLow, HeatingTimeRange, actHeatingTime, HeatingTime, SwabHandleFixtureRange, actSwabHandleFixture, SwabHandleFixture, FixtureClosingTimeRange, actFixtureClosingTime, FixtureClosingTime, productionStats, remarksProduction, visualInpection, remarksVisual, resistanceInpection, remarksResistance, status)
+		$result = mysqli_query($this->dbh, "INSERT INTO headforming.tbl_thermalbonding (workorder, date, time, shift, operatorName, teamLead, machineNo, product, type, InspectedBY, maintenancecheced, handle, substrate, handleTreeColor, substrateLotNum, handleTreeMaterialNum, texwipeLogo, remarksInprocess, TempUpnLowRange, actTempUpnLow, TempUpnLow, HeatingTimeRange, actHeatingTime, HeatingTime, SwabHandleFixtureRange, actSwabHandleFixture, SwabHandleFixture, FixtureClosingTimeRange, actFixtureClosingTime, FixtureClosingTime, productionStats, remarksProduction, visualInpection, remarksVisual, resistanceInpection, remarksResistance, status)
 		
-		SELECT workorder, date, time, shift, operatorName, teamLead, machineNo, product, type, InspectedBY, maintenancecheced, handle, substrate, handleTreeColor, substrateLotNum, handleTreeMaterialNum, texwipeLogo, remarksInprocess, TempUpnLowRange, actTempUpnLow, TempUpnLow, HeatingTimeRange, actHeatingTime, HeatingTime, SwabHandleFixtureRange, actSwabHandleFixture, SwabHandleFixture, FixtureClosingTimeRange, actFixtureClosingTime, FixtureClosingTime, productionStats, remarksProduction, visualInpection, remarksVisual, resistanceInpection, remarksResistance, status FROM headforming.tbl_checklist_thermal WHERE id = '$transID'");
+		SELECT workorder, date, time, shift, operatorName, teamLead, machineNo, product, type, InspectedBY, maintenancecheced, handle, substrate, handleTreeColor, substrateLotNum, handleTreeMaterialNum, texwipeLogo, remarksInprocess, TempUpnLowRange, actTempUpnLow, TempUpnLow, HeatingTimeRange, actHeatingTime, HeatingTime, SwabHandleFixtureRange, actSwabHandleFixture, SwabHandleFixture, FixtureClosingTimeRange, actFixtureClosingTime, FixtureClosingTime, productionStats, remarksProduction, visualInpection, remarksVisual, resistanceInpection, remarksResistance, status FROM headforming.tbl_thermalbonding WHERE id = '$transID'");
 
 
 
@@ -643,13 +643,13 @@ WHERE id = '$checklistId';
 
 	public function DeleteCheckList2($transID)
 	{
-		$result = mysqli_query($this->dbh, "UPDATE headforming.tbl_checklist_thermal SET status = '0' WHERE id = '$transID'");
+		$result = mysqli_query($this->dbh, "UPDATE headforming.tbl_thermalbonding SET status = '0' WHERE id = '$transID'");
 		return $result;
 	}
 
 	public function createThermal($status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $resistanceInpection, $remarksResistance)
 	{
-		$result = mysqli_query($this->dbh, "INSERT INTO `headforming`.`tbl_checklist_thermal` ( `workorder`, `date`, `time`, `shift`, `operatorName`, `teamLead`, `machineNo`, `product`, `type`, `InspectedBY`, `maintenancecheced`, `handle`, `substrate`, `handleTreeColor`, `substrateLotNum`, `handleTreeMaterialNum`, `texwipeLogo`, `remarksInprocess`, `TempUpnLowRange`, `actTempUpnLow`, `TempUpnLow`, `HeatingTimeRange`, `actHeatingTime`, `HeatingTime`,  `SwabHandleFixtureRange`, `actSwabHandleFixture`, `SwabHandleFixture`, `FixtureClosingTimeRange`, `actFixtureClosingTime`, `FixtureClosingTime`, `productionStats`, `remarksProduction`, `visualInpection`, `remarksVisual`, `resistanceInpection`, `remarksResistance`, `status` ) VALUES ( '$workorder', '$date', '$time', '$shift', '$operatorName', '$teamLead', '$machineNo', '$product', '$type', '$InspectedBY', '$maintenancecheced', '$handle', '$substrate', '$handleTreeColor', '$substrateLotNum', '$handleTreeMaterialNum', '$texwipeLogo', '$remarksInprocess', '$arrTemp', '$actTempUpnLow', '$TempUpnLow', '$arrHeat', '$actHeatingTime', '$HeatingTime', '$arrSwab', '$actSwabHandleFixture', '$SwabHandleFixture', '$arrFixture', '$actFixtureClosingTime', '$FixtureClosingTime', '$productionStats', '$remarksProduction', '$visualInpection', '$remarksVisual', '$resistanceInpection', '$remarksResistance', '$status' )");
+		$result = mysqli_query($this->dbh, "INSERT INTO `headforming`.`tbl_thermalbonding` ( `workorder`, `date`, `time`, `shift`, `operatorName`, `teamLead`, `machineNo`, `product`, `type`, `InspectedBY`, `maintenancecheced`, `handle`, `substrate`, `handleTreeColor`, `substrateLotNum`, `handleTreeMaterialNum`, `texwipeLogo`, `remarksInprocess`, `TempUpnLowRange`, `actTempUpnLow`, `TempUpnLow`, `HeatingTimeRange`, `actHeatingTime`, `HeatingTime`,  `SwabHandleFixtureRange`, `actSwabHandleFixture`, `SwabHandleFixture`, `FixtureClosingTimeRange`, `actFixtureClosingTime`, `FixtureClosingTime`, `productionStats`, `remarksProduction`, `visualInpection`, `remarksVisual`, `resistanceInpection`, `remarksResistance`, `status` ) VALUES ( '$workorder', '$date', '$time', '$shift', '$operatorName', '$teamLead', '$machineNo', '$product', '$type', '$InspectedBY', '$maintenancecheced', '$handle', '$substrate', '$handleTreeColor', '$substrateLotNum', '$handleTreeMaterialNum', '$texwipeLogo', '$remarksInprocess', '$arrTemp', '$actTempUpnLow', '$TempUpnLow', '$arrHeat', '$actHeatingTime', '$HeatingTime', '$arrSwab', '$actSwabHandleFixture', '$SwabHandleFixture', '$arrFixture', '$actFixtureClosingTime', '$FixtureClosingTime', '$productionStats', '$remarksProduction', '$visualInpection', '$remarksVisual', '$resistanceInpection', '$remarksResistance', '$status' )");
 
 		return $result;
 	}
