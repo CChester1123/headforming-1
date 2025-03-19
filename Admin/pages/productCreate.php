@@ -570,7 +570,7 @@ $deptType = $_GET['deptType'];
           </div>';
           } else {
             echo '<div class="card">
-            <div class="card-header" style="background-color: #111E6C; color: white;">
+            <div class="card-header" style="background-color:rgb(27, 102, 201); color: white;">
               <h3 class="card-title">STANDARD PARAMETER </h3>
             </div>
 

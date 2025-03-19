@@ -16,7 +16,7 @@ while ($row = mysqli_fetch_array($sql)) {
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header" style="background-color: #111E6C; color: white;">
+                            <div class="card-header" style="background-color:rgb(27, 102, 201); color: white;">
                                 <h3 class="card-title"> AUDIT LIST </h3>
                             </div>
                             <div class="card-body">
@@ -162,7 +162,7 @@ while ($row = mysqli_fetch_array($sql)) {
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header" style="background-color: #111E6C; color: white;">
+                            <div class="card-header" style="background-color:rgb(27, 102, 201); color: white;">
                                 <h3 class="card-title">In-Process Audit</h3>
                             </div>
 
@@ -239,7 +239,7 @@ while ($row = mysqli_fetch_array($sql)) {
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header" style="background-color: #111E6C; color: white;">
+                            <div class="card-header" style="background-color:rgb(27, 102, 201); color: white;">
                                 <h3 class="card-title"> THERMAL BONDING MACHINE PARAMETERS </h3>
                             </div>
                             <div class="card-body">
@@ -398,7 +398,7 @@ while ($row = mysqli_fetch_array($sql)) {
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header" style="background-color: #111E6C; color: white;">
+                            <div class="card-header" style="background-color:rgb(27, 102, 201); color: white;">
                                 <h3 class="card-title"> FUNCTIONALITY </h3>
                             </div>
                             <div class="card-body">
