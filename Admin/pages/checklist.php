@@ -133,7 +133,7 @@
                         <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnView2  btn-primary btn-sm' title='View Record'><i class='fa fa-search-plus' style='font-size:15px'></i> </button>
                         <?php if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
                           if ($row['status'] == "Pending" || $row['status'] == "") { ?>
-                            <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnEdit  btn-success btn-sm' title='View Record'><i class='fa fa-pen' style='font-size:15px'></i> </button>
+                            <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnEdit2  btn-success btn-sm' title='View Record'><i class='fa fa-pen' style='font-size:15px'></i> </button>
 
                             <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnDelete  btn-danger btn-sm' title='Delete Record'><i class='fa fa-trash' style='font-size:15px'></i> </button>
 
@@ -397,6 +397,11 @@
   $(document).on('click', '.btnEdit', function() {
     id = $(this).attr("id");
     location.href = "checklistEdit?id=" + id;
+  });
+
+  $(document).on('click', '.btnEdit2', function() {
+    id = $(this).attr("id");
+    location.href = "checklistThermalEdit?id=" + id;
   });
 
   $(document).on('click', '.btnDuplicate', function() {
