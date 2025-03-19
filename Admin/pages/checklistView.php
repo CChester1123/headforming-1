@@ -2402,8 +2402,8 @@ while ($row = mysqli_fetch_array($sql)) {
                         $count = ($i - 1) * 7 + $j - 1; ?>
                         <div class="col-sm">
                           <input type="text" class="form-control" id="actualDataLoop" placeholder="Enter Actual" value="<?php echo $user->pullTest($row['arractualDataLoop'], $count); ?>" <?php if ($user->pullTest($row['arractualDataLoop'], $count) == "||") {
-                                                                                                                                                                                            echo "hidden";
-                                                                                                                                                                                          } ?> disabled>
+                                                                                                                                                                                              echo "hidden";
+                                                                                                                                                                                            } ?> disabled>
                         </div>
                       <?php
                       }

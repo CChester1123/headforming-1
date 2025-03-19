@@ -253,12 +253,18 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                             <div class="col-sm">
                                                 <label>Minumum</label>
-                                                <input type="text" class="form-control" id="TempMin" value="<?php echo htmlspecialchars($user->value1actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="TempMin" value="<?php echo htmlspecialchars($user->value1actual($row['heaterTempUpnLowRange'])); ?>" readonly disabled>
+                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">°C</span>
+                                                </div>
                                             </div>
 
                                             <div class="col-sm">
                                                 <label>Maximum</label>
-                                                <input type="text" class="form-control" id="TempMax" value="<?php echo htmlspecialchars($user->value2actual($row['heaterTempUpnLowRange'])); ?> °C" readonly disabled>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="TempMax" value="<?php echo htmlspecialchars($user->value2actual($row['heaterTempUpnLowRange'])); ?>" readonly disabled>
+                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">°C</span>
+                                                </div>
                                             </div>
 
                                             <div class="col-sm">
@@ -278,11 +284,17 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="HeatMin" value="<?php echo htmlspecialchars($user->value1actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="HeatMin" value="<?php echo htmlspecialchars($user->value1actual($row['heatingTimeRange'])); ?>" readonly disabled>
+                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">secs</span>
+                                                </div>
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="HeatMax" value="<?php echo htmlspecialchars($user->value2actual($row['heatingTimeRange'])); ?> .secs" readonly disabled>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="HeatMax" value="<?php echo htmlspecialchars($user->value2actual($row['heatingTimeRange'])); ?>" readonly disabled>
+                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">secs</span>
+                                                </div>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -300,11 +312,17 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="SwabMin" value="<?php echo htmlspecialchars($user->value1actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="SwabMin" value="<?php echo htmlspecialchars($user->value1actual($row['heaterSwabHandleFixtureRange'])); ?>" readonly disabled>
+                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">secs</span>
+                                                </div>
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="SwabMax" value="<?php echo htmlspecialchars($user->value2actual($row['heaterSwabHandleFixtureRange'])); ?> .secs" readonly disabled>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="SwabMax" value="<?php echo htmlspecialchars($user->value2actual($row['heaterSwabHandleFixtureRange'])); ?>" readonly disabled>
+                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">secs</span>
+                                                </div>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -322,11 +340,17 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="FixtureMin" value="<?php echo htmlspecialchars($user->value1actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="FixtureMin" value="<?php echo htmlspecialchars($user->value1actual($row['fixtureClosingTimeRange'])); ?>" readonly disabled>
+                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">secs</span>
+                                                </div>
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="FixtureMax" value="<?php echo htmlspecialchars($user->value2actual($row['fixtureClosingTimeRange'])); ?> .secs" readonly disabled>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="FixtureMax" value="<?php echo htmlspecialchars($user->value2actual($row['fixtureClosingTimeRange'])); ?>" readonly disabled>
+                                                    <span class="input-group-text" style="pointer-events: none; opacity: 0.6;">secs</span>
+                                                </div>
                                             </div>
 
                                             <div class="col-sm"><br>
@@ -657,35 +681,45 @@ while ($row = mysqli_fetch_array($sql)) {
             var texwipeLogo = $.trim(encodeURI($("#texwipeLogo").val()));
             var remarksInprocess = $.trim(encodeURI($("#remarksInprocess").val()));
 
-            let Temp = document.querySelectorAll('input[id="Temp"]');
+            let TempInputs = document.querySelectorAll('input[id="TempMin"], input[id="TempMax"]');
             let arrTemp = [];
-            Temp.forEach((textbox) => {
+            TempInputs.forEach((textbox) => {
                 arrTemp.push(textbox.value);
             });
+            var TempMin = $.trim(encodeURI($("#TempMin").val()));
+            var TempMax = $.trim(encodeURI($("#TempMax").val()));
             var actTempUpnLow = $.trim(encodeURI($("#actTempUpnLow").val()));
             var TempUpnLow = $.trim(encodeURI($("#TempUpnLow").val()));
 
-            let Heat = document.querySelectorAll('input[id="Heat"]');
+            let HeatInputs = document.querySelectorAll('input[id="HeatMin"], input[id="HeatMax"]');
             let arrHeat = [];
-            Heat.forEach((textbox) => {
+            HeatInputs.forEach((textbox) => {
                 arrHeat.push(textbox.value);
             });
+            var HeatMin = $.trim(encodeURI($("#HeatMin").val()));
+            var HeatMax = $.trim(encodeURI($("#HeatMax").val()));
             var actHeatingTime = $.trim(encodeURI($("#actHeatingTime").val()));
             var HeatingTime = $.trim(encodeURI($("#HeatingTime").val()));
 
-            let Swab = document.querySelectorAll('input[id="Swab"]');
+
+            let SwabInputs = document.querySelectorAll('input[id="SwabMin"], input[id="SwabMax"]');
             let arrSwab = [];
-            Swab.forEach((textbox) => {
+            SwabInputs.forEach((textbox) => {
                 arrSwab.push(textbox.value);
             });
+            var SwabMin = $.trim(encodeURI($("#SwabMin").val()));
+            var SwabMax = $.trim(encodeURI($("#SwabMax").val()));
             var actSwabHandleFixture = $.trim(encodeURI($("#actSwabHandleFixture").val()));
             var SwabHandleFixture = $.trim(encodeURI($("#SwabHandleFixture").val()));
 
-            let Fixture = document.querySelectorAll('input[id="Fixture"]');
+
+            let FixtureInputs = document.querySelectorAll('input[id="FixtureMin"], input[id="FixtureMax"]');
             let arrFixture = [];
-            Fixture.forEach((textbox) => {
+            FixtureInputs.forEach((textbox) => {
                 arrFixture.push(textbox.value);
             });
+            var FixtureMin = $.trim(encodeURI($("#FixtureMin").val()));
+            var FixtureMax = $.trim(encodeURI($("#FixtureMax").val()));
             var actFixtureClosingTime = $.trim(encodeURI($("#actFixtureClosingTime").val()));
             var FixtureClosingTime = $.trim(encodeURI($("#FixtureClosingTime").val()));
 
