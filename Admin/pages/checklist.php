@@ -125,36 +125,25 @@
                   while ($row = mysqli_fetch_array($sql)) { ?>
                     <tr>
                       <td style="text-align:center;">
-                        <?php  //if($row['status'] == "Rejected" && $row['count']  == "0") {
-                        ?>
-                        <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnDuplicate  btn-warning btn-sm' title='Duplicate Record'><i class="fa fa-clone" style='font-size:15px'></i> </button>
-                        <?php //} 
-                        ?>
+                        <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnDuplicate2  btn-warning btn-sm' title='Duplicate Record'><i class="fa fa-clone" style='font-size:15px'></i> </button>
+
                         <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnView2  btn-primary btn-sm' title='View Record'><i class='fa fa-search-plus' style='font-size:15px'></i> </button>
+
                         <?php if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
                           if ($row['status'] == "Pending" || $row['status'] == "") { ?>
                             <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnEdit2  btn-success btn-sm' title='View Record'><i class='fa fa-pen' style='font-size:15px'></i> </button>
 
-                            <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnDelete  btn-danger btn-sm' title='Delete Record'><i class='fa fa-trash' style='font-size:15px'></i> </button>
-
-
-
+                            <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnDelete2  btn-danger btn-sm' title='Delete Record'><i class='fa fa-trash' style='font-size:15px'></i> </button>
                         <?php }
                         } ?>
                       </td>
 
                       <td style="text-align:center;"><?php echo htmlentities($row['date']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['InspectedBY']); ?></td>
-
-
                       <td style="text-align:center;"><?php echo htmlentities($row['workorder']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['type']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['product']); ?></td>
-                      <td style="text-align:center;"><?php echo (htmlentities($row['status']) == '' ? 'Pending' : $row['status']); ?></td>
-                      <!-- <td style="text-align:center;"><?php // echo (htmlentities($row['status_maintenance']) == '' ? 'Pending' : $row['status_maintenance']);
-                                                          ?></td> -->
-                      <!-- <td style="text-align:center;"><?php //echo (htmlentities($row['status_TL']) == '' ? 'Pending' : $row['status_TL']);
-                                                          ?></td> -->
+                      <td style="text-align:center;"><?php echo htmlentities($row['status']); ?></td>
                     </tr>
                   <?php } ?>
 
@@ -272,6 +261,31 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="duplicateList2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          Do you want to create a duplicate copy?
+
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary createAccount" id="duplicateBtn2">Yes</button>
+        <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
+
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 
@@ -295,6 +309,31 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary createAccount" id="deleteBtn">Yes</button>
+        <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deleteList2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          Do you want to create a delete copy?
+
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary createAccount" id="deleteBtn2">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
 
       </div>
@@ -409,10 +448,14 @@
     $("#duplicateList").modal("show");
   });
 
-  $(document).on('click', '#duplicateBtn', function() {
+  $(document).on('click', '.btnDuplicate2', function() {
+    id = $(this).attr("id");
+    $("#duplicateList2").modal("show");
+  });
 
+  $(document).on('click', '#duplicateBtn2', function() {
 
-    var pick = "15";
+    var pick = "18";
     var fd = new FormData();
     fd.append('pick', pick);
     fd.append('id', id);
@@ -435,15 +478,49 @@
       }
     });
 
-
-
   });
+
+  // $(document).on('click', '#duplicateBtn', function() {
+
+
+  //   var pick = "15";
+  //   var fd = new FormData();
+  //   fd.append('pick', pick);
+  //   fd.append('id', id);
+  //   $.ajax({
+  //     url: "../pages/codes/admin_control.php",
+  //     data: fd,
+  //     processData: false,
+  //     contentType: false,
+  //     type: 'POST',
+  //     success: function(result) {
+  //       if ($.trim(result) != 0) {
+  //         $.notify("Checklist Successfully Duplicated ", "success");
+  //         setTimeout(function() {
+  //           window.location.href = "checklist";
+  //         }, 2000);
+  //       } else {
+  //         $.notify("Problem Encounter! please contact your administrator", "error");
+  //         $("#dataSubmitDelete").attr("disabled", false);
+  //       }
+  //     }
+  //   });
+
+
+
+  // });
 
 
   $(document).on('click', '.btnDelete', function() {
     id = $(this).attr("id");
     $("#deleteList").modal("show");
   });
+
+  $(document).on('click', '.btnDelete2', function() {
+    id = $(this).attr("id");
+    $("#deleteList2").modal("show");
+  });
+
   $(document).on('click', '#deleteBtn', function() {
 
     // alert(id);
@@ -474,4 +551,35 @@
 
 
   });
+
+  $(document).on('click', '#deleteBtn2', function() {
+
+// alert(id);
+var pick = "19";
+var fd = new FormData();
+fd.append('pick', pick);
+fd.append('id', id);
+$.ajax({
+  url: "../pages/codes/admin_control.php",
+  data: fd,
+  processData: false,
+  contentType: false,
+  type: 'POST',
+  success: function(result) {
+    // alert(result);
+    if ($.trim(result) != 0) {
+      $.notify("Checklist Delete Successfully  ", "success");
+      setTimeout(function() {
+        window.location.href = "checklist";
+      }, 2000);
+    } else {
+      $.notify("Problem Encounter! please contact your administrator", "error");
+      $("#dataSubmitDelete").attr("disabled", false);
+    }
+  }
+});
+
+
+
+});
 </script>
