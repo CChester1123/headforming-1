@@ -362,29 +362,6 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 <input type="text" class="form-control" id="FixtureClosingTime" placeholder="" disabled value="<?php echo $row['FixtureClosingTime']; ?>" readonly disabled>
                                             </div>
                                         </div>
-
-
-                                        <div class="row">
-                                            <div class="col-sm-2">
-                                            </div>
-
-                                            <div class="col-sm"><br>
-                                            </div>
-
-                                            <div class="col-sm"><br>
-                                                <select class="form-control" id="productionStats" readonly disabled>
-                                                    <option value="Continue Production" <?php echo ($row['productionStats'] == 'Continue Production') ? 'selected' : ''; ?>>Continue Production</option>
-                                                    <option value="Stop Production" <?php echo ($row['productionStats'] == 'Stop Production') ? 'selected' : ''; ?>>Stop Production</option>
-                                                </select>
-                                            </div>
-
-
-                                            <div class="col-sm"><br>
-                                                <input type="text" id="remarksProduction" class="form-control actualDataLoop result" placeholder="Enter Remarks" value="<?php echo $row['remarksProduction']; ?>" readonly disabled>
-                                            </div>
-
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -403,15 +380,13 @@ while ($row = mysqli_fetch_array($sql)) {
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-2">
                                                 <label style="margin-left: 20px;">Visual Inspection (20 HT)</label>
-
                                             </div>
 
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-2">
                                                 <select class="form-control" id="visualInpection" readonly disabled>
                                                     <option value="Passed" <?php echo ($row['visualInpection'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
                                                     <option value="Failed" <?php echo ($row['visualInpection'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
@@ -423,16 +398,14 @@ while ($row = mysqli_fetch_array($sql)) {
                                                     <input type="text" id="remarksVisual" class="form-control actualDataLoop result" placeholder="Enter Remarks" value="<?php echo $row['remarksVisual']; ?>" readonly disabled>
                                                 </div>
                                             </div>
-
                                         </div>
-
 
                                         <div class="row">
                                             <div class="col-sm-2">
                                                 <label style="margin-left: 20px;"><br>Resistance of Substrate to Handle Tip (5 locations)</label>
                                             </div>
 
-                                            <div class="col-sm-3"><br>
+                                            <div class="col-sm-2"><br>
                                                 <select class="form-control" id="resistanceInpection" readonly disabled>
                                                     <option value="Passed" <?php echo ($row['resistanceInpection'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
                                                     <option value="Failed" <?php echo ($row['resistanceInpection'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
@@ -445,6 +418,24 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                            </div>
+                                            <div class="col-sm-2"><br>
+                                                <select class="form-control" id="productionStats" readonly disabled>
+                                                    <option value="Continue Production" <?php echo ($row['productionStats'] == 'Continue Production') ? 'selected' : ''; ?>>Continue Production</option>
+                                                    <option value="Stop Production" <?php echo ($row['productionStats'] == 'Stop Production') ? 'selected' : ''; ?>>Stop Production</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm"><br>
+                                                    <input type="text" id="remarksProduction" class="form-control actualDataLoop result" placeholder="Enter Remarks" value="<?php echo $row['remarksProduction']; ?>" readonly disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="col-sm">
                                             <label style="color: red; margin-left: 30px;"> NOTE:</label><br>
                                             <label style="color: red; margin-left: 100px;">Process Inspection:<br>
