@@ -652,7 +652,7 @@ while ($row = mysqli_fetch_array($sql)) {
         $(document).on('click', '#dataSubmitDelete', function() {
             $("#dataSubmitDelete").attr("disabled", true);
 
-            var pick = "20";
+            var pick = "18";
             var status = "Pending";
             var prod_id = $.trim(encodeURI($("#prod_id").val()));
 

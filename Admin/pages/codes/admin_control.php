@@ -455,20 +455,8 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 
 
 	echo $sql = $insertdata->createThermal($status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $resistanceInpection, $remarksResistance);
-} else if ($pick == 18 || $pick == "18" || $pick == '18') {
-
-	$id  = htmlentities(htmlspecialchars(urldecode($_POST['id'])));
-	$transID = base64_decode($id);
-
-	echo $sql = $insertdata->DuplicateCheckList2($transID);
-} else if ($pick == 19 || $pick == "19" || $pick == '19') {
-
-	$id  = htmlentities(htmlspecialchars(urldecode($_POST['id'])));
-	$transID = base64_decode($id);
-
-	echo $sql = $insertdata->DeleteCheckList2($transID);
 }
-else if ($pick == 20 || $pick == "20" || $pick == '20') {
+else if ($pick == 18 || $pick == "18" || $pick == '18') {
 
 	$status  = htmlentities(htmlspecialchars(urldecode($_POST['status'])));
 	$prod_id  = htmlentities(htmlspecialchars(urldecode($_POST['prod_id'])));
@@ -519,4 +507,16 @@ else if ($pick == 20 || $pick == "20" || $pick == '20') {
 
 
 	echo $sql = $insertdata->updateThermalList($prod_id, $status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $resistanceInpection, $remarksResistance);
+} else if ($pick == 19 || $pick == "19" || $pick == '19') {
+
+	$id  = htmlentities(htmlspecialchars(urldecode($_POST['id'])));
+	$transID = base64_decode($id);
+
+	echo $sql = $insertdata->DuplicateCheckList2($transID);
+} else if ($pick == 20 || $pick == "20" || $pick == '20') {
+
+	$id  = htmlentities(htmlspecialchars(urldecode($_POST['id'])));
+	$transID = base64_decode($id);
+
+	echo $sql = $insertdata->DeleteCheckList2($transID);
 }

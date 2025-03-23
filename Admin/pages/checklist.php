@@ -484,7 +484,7 @@
   });
 
   $(document).on('click', '#duplicateBtn2', function() {
-    var pick = "18";
+    var pick = "19";
     var fd = new FormData();
     fd.append('pick', pick);
     fd.append('id', id);
@@ -572,7 +572,7 @@
 
   $(document).on('click', '#deleteBtn2', function() {
     // alert(id);
-    var pick = "19";
+    var pick = "20";
     var fd = new FormData();
     fd.append('pick', pick);
     fd.append('id', id);
