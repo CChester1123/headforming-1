@@ -1,4 +1,4 @@
-<title>Thermal Bonding Audit</title>
+<title>Thermal Bonding Edit</title>
 
 <?php
 $prod_id = base64_decode($_GET['id']);
@@ -26,6 +26,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                         <div class="col-sm">
                                             <label>Work Order</label>
                                             <input type="text" class="form-control" id="workorder" placeholder="Enter Work Order" value="<?php echo $row['workorder']; ?>">
+                                            <input type="text" class="form-control" id="prod_id" value="<?php echo $prod_id ?>" hidden readonly disabled>
                                         </div>
 
                                         <div class="col-sm-3">
@@ -660,8 +661,9 @@ while ($row = mysqli_fetch_array($sql)) {
         $(document).on('click', '#dataSubmitDelete', function() {
             $("#dataSubmitDelete").attr("disabled", true);
 
-            var pick = "17";
+            var pick = "20";
             var status = "Pending";
+            var prod_id = $.trim(encodeURI($("#prod_id").val()));
 
             var workorder = $.trim(encodeURI($("#workorder").val()));
             var date = $.trim(encodeURI($("#date").val()));
@@ -737,6 +739,7 @@ while ($row = mysqli_fetch_array($sql)) {
             var fd = new FormData();
             fd.append('pick', pick);
             fd.append('status', status);
+            fd.append('prod_id', prod_id);
 
             fd.append('workorder', workorder);
             fd.append('date', date);

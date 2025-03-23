@@ -1,4 +1,4 @@
-<title>Thermal && In-Process Audit</title>
+<title>Thermal Bonding Quality Audit</title>
 
 <?php
 $prod_id = base64_decode($_GET['Productid']);

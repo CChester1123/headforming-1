@@ -357,6 +357,13 @@ WHERE id = '$checklistId';
 		return $result;
 	}
 
+	public function updateThermalList($prod_id, $status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $resistanceInpection, $remarksResistance)
+	{
+		$result = mysqli_query($this->dbh, "UPDATE `headforming`.`tbl_thermalbonding` SET `workorder` = '$workorder', `date` = '$date', `time` = '$time', `shift` = '$shift', `operatorName` = '$operatorName', `teamLead` = '$teamLead', `machineNo` = '$machineNo', `product` = '$product', `type` = '$type', `InspectedBY` = '$InspectedBY', `maintenancecheced` = '$maintenancecheced', `handle` = '$handle', `substrate` = '$substrate', `handleTreeColor` = '$handleTreeColor', `substrateLotNum` = '$substrateLotNum', `handleTreeMaterialNum` = '$handleTreeMaterialNum', `texwipeLogo` = '$texwipeLogo', `remarksInprocess` = '$remarksInprocess', `TempUpnLowRange` = '$arrTemp', `actTempUpnLow` = '$actTempUpnLow', `TempUpnLow` = '$TempUpnLow', `HeatingTimeRange` = '$arrHeat', `actHeatingTime` = '$actHeatingTime', `HeatingTime` = '$HeatingTime', `SwabHandleFixtureRange` = '$arrSwab', `actSwabHandleFixture` = '$actSwabHandleFixture', `SwabHandleFixture` = '$SwabHandleFixture', `FixtureClosingTimeRange` = '$arrFixture', `actFixtureClosingTime` = '$actFixtureClosingTime', `FixtureClosingTime` = '$FixtureClosingTime', `productionStats` = '$productionStats', `remarksProduction` = '$remarksProduction', `visualInpection` = '$visualInpection', `remarksVisual` = '$remarksVisual', `resistanceInpection` = '$resistanceInpection', `remarksResistance` = '$remarksResistance', `status` = '$status' WHERE `id` = '$prod_id'");
+		
+		return $result;
+	}
+
 	public function GetCheckList()
 	{
 		$result = mysqli_query($this->dbh, "SELECT id, workorder,product, status, status_maintenance, status_TL, type,InspectedBY,date FROM headforming.tbl_checklist WHERE status != '0' OR status is null ORDER BY id DESC");
