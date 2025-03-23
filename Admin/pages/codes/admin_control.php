@@ -455,8 +455,7 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 
 
 	echo $sql = $insertdata->createThermal($status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $resistanceInpection, $remarksResistance);
-}
-else if ($pick == 18 || $pick == "18" || $pick == '18') {
+} else if ($pick == 18 || $pick == "18" || $pick == '18') {
 
 	$status  = htmlentities(htmlspecialchars(urldecode($_POST['status'])));
 	$prod_id  = htmlentities(htmlspecialchars(urldecode($_POST['prod_id'])));

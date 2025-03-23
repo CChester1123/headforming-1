@@ -431,7 +431,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm"><br>
-                                                <input type="text" id="remarksProduction" class="form-control actualDataLoop result" placeholder="Enter Remarks">
+                                                    <input type="text" id="remarksProduction" class="form-control actualDataLoop result" placeholder="Enter Remarks">
                                                 </div>
                                             </div>
                                         </div>
