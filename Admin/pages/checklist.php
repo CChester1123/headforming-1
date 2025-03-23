@@ -152,12 +152,36 @@
               </table>
             </div>
           </div>
-
+          <ol class="float-sm-right">
+            <a type="button" class="btn btn-info fa fa-plus-square excelBtn"> Excel Report</a>
+          </ol>
         </div>
       </div>
     </div>
   </section>
 
+</div>
+
+<div class="modal fade" id="excelList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          <label>Do you want to generate a Report?</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="createExcel">Yes</button>
+        <button type="button" class="btn btn-Danger" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="modal fade" id="createList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -402,6 +426,14 @@
     $("#createList").modal("show");
   });
 
+  $(document).on('click', '.excelBtn', function() {
+    $("#excelList").modal("show");
+  });
+
+  $(document).on('click', '#createExcel', function() {
+    location.href = 'export2.php';
+  });
+
   $(document).on('click', '#createProduct', function() {
     var partNo = $.trim($("#partNo").val()),
       type = $.trim($("#type").val()),
@@ -420,8 +452,6 @@
 
     location.href = `${url}?Productid=${encodeURIComponent(partNo)}&type=${encodeURIComponent(type)}&department=${encodeURIComponent(department)}`;
   });
-
-
 
   $(document).on('click', '.btnView', function() {
     id = $(this).attr("id");
@@ -454,7 +484,6 @@
   });
 
   $(document).on('click', '#duplicateBtn2', function() {
-
     var pick = "18";
     var fd = new FormData();
     fd.append('pick', pick);
@@ -477,12 +506,9 @@
         }
       }
     });
-
   });
 
   // $(document).on('click', '#duplicateBtn', function() {
-
-
   //   var pick = "15";
   //   var fd = new FormData();
   //   fd.append('pick', pick);
@@ -505,11 +531,7 @@
   //       }
   //     }
   //   });
-
-
-
   // });
-
 
   $(document).on('click', '.btnDelete', function() {
     id = $(this).attr("id");
@@ -522,7 +544,6 @@
   });
 
   $(document).on('click', '#deleteBtn', function() {
-
     // alert(id);
     var pick = "16";
     var fd = new FormData();
@@ -547,39 +568,32 @@
         }
       }
     });
-
-
-
   });
 
   $(document).on('click', '#deleteBtn2', function() {
-
-// alert(id);
-var pick = "19";
-var fd = new FormData();
-fd.append('pick', pick);
-fd.append('id', id);
-$.ajax({
-  url: "../pages/codes/admin_control.php",
-  data: fd,
-  processData: false,
-  contentType: false,
-  type: 'POST',
-  success: function(result) {
-    // alert(result);
-    if ($.trim(result) != 0) {
-      $.notify("Checklist Delete Successfully  ", "success");
-      setTimeout(function() {
-        window.location.href = "checklist";
-      }, 2000);
-    } else {
-      $.notify("Problem Encounter! please contact your administrator", "error");
-      $("#dataSubmitDelete").attr("disabled", false);
-    }
-  }
-});
-
-
-
-});
+    // alert(id);
+    var pick = "19";
+    var fd = new FormData();
+    fd.append('pick', pick);
+    fd.append('id', id);
+    $.ajax({
+      url: "../pages/codes/admin_control.php",
+      data: fd,
+      processData: false,
+      contentType: false,
+      type: 'POST',
+      success: function(result) {
+        // alert(result);
+        if ($.trim(result) != 0) {
+          $.notify("Checklist Delete Successfully  ", "success");
+          setTimeout(function() {
+            window.location.href = "checklist";
+          }, 2000);
+        } else {
+          $.notify("Problem Encounter! please contact your administrator", "error");
+          $("#dataSubmitDelete").attr("disabled", false);
+        }
+      }
+    });
+  });
 </script>
