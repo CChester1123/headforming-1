@@ -691,7 +691,7 @@ while ($row = mysqli_fetch_array($sql)) {
             let HeatInputs = document.querySelectorAll('input[id="HeatMin"], input[id="HeatMax"]');
             let arrHeat = [];
             HeatInputs.forEach((textbox) => {
-                arrTemp.push(textbox.value);
+                arrHeat.push(textbox.value);
             });
             var HeatMin = $.trim(encodeURI($("#HeatMin").val()));
             var HeatMax = $.trim(encodeURI($("#HeatMax").val()));
@@ -702,7 +702,7 @@ while ($row = mysqli_fetch_array($sql)) {
             let SwabInputs = document.querySelectorAll('input[id="SwabMin"], input[id="SwabMax"]');
             let arrSwab = [];
             SwabInputs.forEach((textbox) => {
-                arrTemp.push(textbox.value);
+                arrSwab.push(textbox.value);
             });
             var SwabMin = $.trim(encodeURI($("#SwabMin").val()));
             var SwabMax = $.trim(encodeURI($("#SwabMax").val()));
@@ -713,7 +713,7 @@ while ($row = mysqli_fetch_array($sql)) {
             let FixtureInputs = document.querySelectorAll('input[id="FixtureMin"], input[id="FixtureMax"]');
             let arrFixture = [];
             FixtureInputs.forEach((textbox) => {
-                arrTemp.push(textbox.value);
+                arrFixture.push(textbox.value);
             });
             var FixtureMin = $.trim(encodeURI($("#FixtureMin").val()));
             var FixtureMax = $.trim(encodeURI($("#FixtureMax").val()));
