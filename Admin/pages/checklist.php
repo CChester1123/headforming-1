@@ -174,6 +174,30 @@
       <div class="modal-body">
         <div class="card-body">
           <label>Do you want to generate a Report?</label>
+
+          <div class="form-group">
+            <!-- <select id="partNo" class="form-control" onchange="updateDepartment()"> -->
+            <select id="yearSelected" class="form-control">
+              <option value="" active>Choose Item Code</option>
+              <?php
+              // Query distinct years
+              $sql = $user->selectYear(); // Ensure this query retrieves unique years
+              $years = []; // Array to store unique years
+              while ($list = mysqli_fetch_array($sql)) {
+                $year = date('Y', strtotime($list['date'])); // Extract year
+                if (!in_array($year, $years)) {
+                  $years[] = $year; // Add year to array if not already present
+              ?>
+                  <option value="<?php echo base64_encode($list['id']); ?>" data-department="<?php echo $list['date']; ?>">
+                    <?php echo $year; ?>
+                  </option>
+              <?php
+                }
+              }
+              ?>
+            </select>
+          </div>
+
         </div>
       </div>
       <div class="modal-footer">
@@ -430,9 +454,24 @@
     $("#excelList").modal("show");
   });
 
+  // $(document).on('click', '#createExcel', function() {
+  //   var yearSelected = $.trim(encodeURI($("#yearSelected").val()));
+
+  //   console.log(yearSelected);
+
+  //   // location.href = 'export2.php?yearSelected=' + yearSelected;
+  // });
+
   $(document).on('click', '#createExcel', function() {
-    location.href = 'export2.php';
-  });
+    var selectedOption = $("#yearSelected option:selected");
+    var yearSelected = $.trim(selectedOption.text());  // Get the year displayed in the option
+
+    console.log(yearSelected);
+
+    // Now you can use the year for your export or other purposes
+    location.href = 'export2.php?yearSelected=' + yearSelected;
+});
+
 
   $(document).on('click', '#createProduct', function() {
     var partNo = $.trim($("#partNo").val()),
