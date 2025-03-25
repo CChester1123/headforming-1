@@ -297,13 +297,13 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                         <div class="row">
                                             <div class="col-sm-2">
-                                                <label style="margin-left: 20px; position: relative; left: 100px; top: 90px;"><br>Pull Testing</label>
+                                                <label style="margin-left: 20px; position: relative; left: 100px; top: 125px;"><br>Pull Testing</label>
                                             </div>
 
                                             <div class="col-sm-2">
                                                 <br>
                                                 <div class="remarks-container">
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Remarks" style="height: 233px;">
+                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Remarks" style="height: 285px;">
                                                 </div>
                                             </div>
 
