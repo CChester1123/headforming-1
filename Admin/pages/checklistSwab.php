@@ -300,15 +300,16 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 <label style="margin-left: 20px;"><br>Pull Testing</label>
                                             </div>
 
-                                            <div class="col-sm-2"><br>
-                                                <select class="form-control" id="resistanceInpection">
-                                                    <option value="Passed">PASSED</option>
-                                                    <option value="Failed">FAILED</option>
-                                                </select>
+                                            <div class="col-sm-2">
+                                                <br>
+                                                <div class="remarks-container">
+                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Remarks" style="height: 500px;">
+                                                </div>
                                             </div>
+
                                             <div class="row">
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Remarks">
+                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 1">
                                                 </div>
                                             </div>
                                         </div>
@@ -316,7 +317,77 @@ while ($row = mysqli_fetch_array($sql)) {
                                         <div class="row">
                                             <div class="col-sm-2">
                                                 <label style="color: red; margin-left: 20px;">Note: Note: For TX730 Nylon Swabs<br>
-                                                only, 5 tips</label>
+                                                    only, 5 tips</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+
+                                            </div>
+
+                                            <div class="col-sm-2"><br>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm"><br>
+                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 2">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+
+                                            </div>
+
+                                            <div class="col-sm-2"><br>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm"><br>
+                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 3">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+
+                                            </div>
+
+                                            <div class="col-sm-2"><br>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm"><br>
+                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 4">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+
+                                            </div>
+
+                                            <div class="col-sm-2"><br>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm"><br>
+                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 5">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+
+                                            </div>
+
+                                            <div class="col-sm-2"><br>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm"><br>
+                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter (N/A)">
+                                                </div>
                                             </div>
                                         </div>
 
