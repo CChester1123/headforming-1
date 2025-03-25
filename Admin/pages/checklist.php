@@ -176,22 +176,17 @@
           <label>Do you want to generate a Report?</label>
 
           <div class="form-group">
-            <!-- <select id="partNo" class="form-control" onchange="updateDepartment()"> -->
             <select id="yearSelected" class="form-control">
-              <option value="" active>Choose Item Code</option>
+              <option value="" selected>Choose Year</option>
               <?php
               // Query distinct years
-              $sql = $user->selectYear(); // Ensure this query retrieves unique years
-              $years = []; // Array to store unique years
+              $sql = $user->selectYear();
+              $years = [];
               while ($list = mysqli_fetch_array($sql)) {
-                $year = date('Y', strtotime($list['date'])); // Extract year
+                $year = date('Y', strtotime($list['date']));
                 if (!in_array($year, $years)) {
-                  $years[] = $year; // Add year to array if not already present
-              ?>
-                  <option value="<?php echo base64_encode($list['id']); ?>" data-department="<?php echo $list['date']; ?>">
-                    <?php echo $year; ?>
-                  </option>
-              <?php
+                  $years[] = $year;
+                  echo "<option value='" . base64_encode($list['id']) . "' data-department='" . $list['date'] . "'>$year</option>";
                 }
               }
               ?>
@@ -219,26 +214,6 @@
       </div>
       <div class="modal-body">
         <div class="card-body">
-
-          <!-- <div class="form-group">
-            <label> department </label>
-            <select id="department" class="form-control">
-              <option value="Head Forming" selected>Head Forming</option>
-              <option value="Thermal Bonding">Thermal Bonding</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label> FG PART NO. </label>
-            <select id="partNo" class="form-control" onchange="jsFunction()">
-              <option value="" active>Choose Item Code</option>
-              <?php
-              $sql = $user->selectPartNo();
-              while ($list = mysqli_fetch_array($sql)) { ?>
-                <option value="<?php echo base64_encode($list['id']); ?>"><?php echo $list['productname']; ?> - <?php echo $list['department']; ?></option>
-              <?php } ?>
-            </select>
-          </div> -->
 
           <div class="form-group">
             <label>Classification</label>
@@ -271,7 +246,6 @@
               <option value="Product Change">Product Change</option>
             </select>
           </div>
-
 
         </div>
       </div>
@@ -455,38 +429,50 @@
     $("#excelList").modal("show");
   });
 
-  // $(document).on('click', '#createExcel', function() {
-  //   var yearSelected = $.trim(encodeURI($("#yearSelected").val()));
-
-  //   console.log(yearSelected);
-
-  //   // location.href = 'export2.php?yearSelected=' + yearSelected;
-  // });
-
   $(document).on('click', '#createExcel', function() {
     var selectedOption = $("#yearSelected option:selected");
-    var yearSelected = $.trim(selectedOption.text()); // Get the year displayed in the option
+    var yearSelected = $.trim(selectedOption.text());
 
-    console.log(yearSelected);
+    if (yearSelected == "Choose Year") {
+      $.notify("Please select Year", "error");
+      return;
+    }
 
-    // Now you can use the year for your export or other purposes
-    location.href = 'export2.php?yearSelected=' + yearSelected;
+    $.ajax({
+      url: 'export2.php',
+      method: 'GET',
+      data: {
+        yearSelected: yearSelected
+      },
+      success: function(result) {
+        if ($.trim(result) != 0) {
+          $.notify("Excel file generated successfully", "success");
+          setTimeout(function() {
+            window.location.href = 'export2.php?yearSelected=' + yearSelected;
+            $("#excelList").modal("hide");
+          }, 2000);
+        } else {
+          $.notify("Error encountered while generating Excel. Please contact your administrator", "error");
+        }
+      },
+      error: function() {
+        $.notify("An error occurred. Please try again later", "error");
+      }
+    });
   });
-
 
   $(document).on('click', '#createProduct', function() {
     var partNo = $.trim($("#partNo").val()),
       type = $.trim($("#type").val()),
       department = $.trim($("#department").val());
 
-    // if (!partNo) {
-    //   $.notify("Please select Part No", "error");
-    //   return;
-    // }
+    if (!partNo) {
+      $.notify("Please select Part No", "error");
+      return;
+    }
 
     $("#createList").modal("show");
 
-    // Check for the department condition
     var url;
     if (department === "Thermal Bonding" && type === "In-Process Audit") {
       url = "checklistThermal";
@@ -496,10 +482,8 @@
       url = "checklistCreate";
     }
 
-    // Redirect with the URL and parameters
     location.href = `${url}?Productid=${encodeURIComponent(partNo)}&type=${encodeURIComponent(type)}&department=${encodeURIComponent(department)}`;
   });
-
 
   $(document).on('click', '.btnView', function() {
     id = $(this).attr("id");
@@ -555,31 +539,6 @@
       }
     });
   });
-
-  // $(document).on('click', '#duplicateBtn', function() {
-  //   var pick = "15";
-  //   var fd = new FormData();
-  //   fd.append('pick', pick);
-  //   fd.append('id', id);
-  //   $.ajax({
-  //     url: "../pages/codes/admin_control.php",
-  //     data: fd,
-  //     processData: false,
-  //     contentType: false,
-  //     type: 'POST',
-  //     success: function(result) {
-  //       if ($.trim(result) != 0) {
-  //         $.notify("Checklist Successfully Duplicated ", "success");
-  //         setTimeout(function() {
-  //           window.location.href = "checklist";
-  //         }, 2000);
-  //       } else {
-  //         $.notify("Problem Encounter! please contact your administrator", "error");
-  //         $("#dataSubmitDelete").attr("disabled", false);
-  //       }
-  //     }
-  //   });
-  // });
 
   $(document).on('click', '.btnDelete', function() {
     id = $(this).attr("id");
