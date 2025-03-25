@@ -297,13 +297,13 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                         <div class="row">
                                             <div class="col-sm-2">
-                                                <label style="margin-left: 20px;"><br>Pull Testing</label>
+                                                <label style="margin-left: 20px; position: relative; left: 100px; top: 90px;"><br>Pull Testing</label>
                                             </div>
 
                                             <div class="col-sm-2">
                                                 <br>
                                                 <div class="remarks-container">
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Remarks" style="height: 500px;">
+                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Remarks" style="height: 233px;">
                                                 </div>
                                             </div>
 
@@ -312,6 +312,42 @@ while ($row = mysqli_fetch_array($sql)) {
                                                     <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 1">
                                                 </div>
                                             </div>
+
+                                            <div class="row" style="position: relative; left: -205px; top: 50px;">
+                                                <div class="col-sm">
+                                                    <br>
+                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 2">
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="position: relative; left: -408px; top: 97px;">
+                                                <div class="col-sm">
+                                                    <br>
+                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 3">
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="position: relative; left: -612px; top: 145px;">
+                                                <div class="col-sm">
+                                                    <br>
+                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 4">
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="position: relative; left: -816px; top: 195px;">
+                                                <div class="col-sm">
+                                                    <br>
+                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 5">
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="position: relative; left: -1020px; top: 247px;">
+                                                <div class="col-sm">
+                                                    <br>
+                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter (N/A)">
+                                                </div>
+                                            </div>
+
                                         </div>
 
                                         <div class="row">
@@ -328,10 +364,14 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                             <div class="col-sm-2"><br>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm"><br>
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 2">
-                                                </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+
+                                            </div>
+
+                                            <div class="col-sm-2"><br>
                                             </div>
                                         </div>
 
@@ -342,11 +382,6 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                             <div class="col-sm-2"><br>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm"><br>
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 3">
-                                                </div>
-                                            </div>
                                         </div>
 
                                         <div class="row">
@@ -356,11 +391,6 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                             <div class="col-sm-2"><br>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm"><br>
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 4">
-                                                </div>
-                                            </div>
                                         </div>
 
                                         <div class="row">
@@ -369,25 +399,6 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm-2"><br>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm"><br>
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 5">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-sm-2">
-
-                                            </div>
-
-                                            <div class="col-sm-2"><br>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm"><br>
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter (N/A)">
-                                                </div>
                                             </div>
                                         </div>
 
