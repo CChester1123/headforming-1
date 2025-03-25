@@ -9,7 +9,13 @@ $deptType = $_GET['deptType'];
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1> Create Products</h1>
+          <?php if ($deptType == "Head Forming") { ?>
+            <h1 style="font-weight: bold;">HEAD FORMING CREATE</h1>
+          <?php } else if ($deptType == "Thermal Bonding") { ?>
+            <h1 style="font-weight: bold;">THERMAL BONDING CREATE</h1>
+          <?php } else { ?>
+            <h1 style="font-weight: bold;">SWAB ASSEMBLY CREATE</h1>
+          <?php } ?>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -362,7 +368,6 @@ $deptType = $_GET['deptType'];
                     <div class="container">
                       <div class="row">
                         <div class="col-sm">
-
                           <input type="text" class="form-control" id="moldopenspeed" placeholder="Enter Mold Open Speed (mm/s)">
                         </div>
                       </div>
@@ -569,7 +574,7 @@ $deptType = $_GET['deptType'];
           </div>';
           } else if ($deptType == "Thermal Bonding") {
             echo '<div class="card">
-            <div class="card-header" style="background-color:rgb(27, 102, 201); color: white;">
+            <div class="card-header" style="background-color: #111E6C; color: white;">
               <h3 class="card-title">STANDARD PARAMETER </h3>
             </div>
 
@@ -1029,7 +1034,7 @@ $deptType = $_GET['deptType'];
       </div>
     </div>
   </section>
-  
+
   <section class="content">
     <div class="container-fluid">
       <div class="row">
@@ -1243,11 +1248,15 @@ $deptType = $_GET['deptType'];
     var status = "Active";
 
     var department = $.trim($("#deptType").val()); // Use only $.trim, no need for encodeURI
+
     if (department === "Head Forming") {
       department = "Head Forming";
+    } else if (department === "Swab Assembly") {
+      department = "Swab Assembly"; // Assign department as "Swab" if that's the selected value
     } else {
       department = "Thermal Bonding";
     }
+
     console.log("asd " + department);
 
     let cuttingforceText = document.querySelectorAll('input[id="cuttingforce"]');

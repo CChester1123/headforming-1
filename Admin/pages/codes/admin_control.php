@@ -53,7 +53,6 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	$status = htmlentities(htmlspecialchars(urldecode($_POST['status'])));
 
 
-
 	$arrcuttingforce = htmlentities(htmlspecialchars(urldecode($_POST['arrcuttingforce'])));
 	$arrsealingtime = htmlentities(htmlspecialchars(urldecode($_POST['arrsealingtime'])));
 	$arrcuttingspeed = htmlentities(htmlspecialchars(urldecode($_POST['arrcuttingspeed'])));
@@ -74,7 +73,6 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	$arrswabheadpopping = htmlentities(htmlspecialchars(urldecode($_POST['arrswabheadpopping'])));
 	$substrateDimensionforce = htmlentities(htmlspecialchars(urldecode($_POST['substrateDimensionforce'])));
 	$pullSeatTestforce = htmlentities(htmlspecialchars(urldecode($_POST['pullSeatTestforce'])));
-
 
 
 	$noHandleperHT = htmlentities(htmlspecialchars(urldecode($_POST['noHandleperHT'])));
