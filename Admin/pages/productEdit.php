@@ -1,6 +1,5 @@
-<title>View Product</title>
+<title>Edit Product</title>
 <?php
-
 $prod_id = base64_decode($_GET['id']);
 include 'includes/header.php';
 
@@ -8,14 +7,20 @@ $sql = $user->ViewEditProduct($prod_id);
 while ($row = mysqli_fetch_array($sql)) {
 ?>
 
-
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1> Create Products</h1>
+            <input type="text" class="form-control" id="deptType" placeholder="Enter Product Description" value="<?php echo $deptType = $row['department']; ?>" readonly hidden>
+            <?php if ($deptType == "Head Forming") { ?>
+              <h1 style="font-weight: bold;">HEAD FORMING EDIT</h1>
+            <?php } else if ($deptType == "Thermal Bonding") { ?>
+              <h1 style="font-weight: bold;">THERMAL BONDING EDIT</h1>
+            <?php } else { ?>
+              <h1 style="font-weight: bold;">SWAB ASSEMBLY EDIT</h1>
+            <?php } ?>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -34,7 +39,6 @@ while ($row = mysqli_fetch_array($sql)) {
                     <div class="col-sm">
                       <label>Product Name</label>
                       <input type="text" class="form-control" id="product" placeholder="Enter Product Name" value="<?php echo $row['productname']; ?>" readonly disabled>
-                      <input type="text" class="form-control" id="deptType" placeholder="Enter Product Description" value="<?php echo $deptType = $row['department']; ?>" readonly hidden>
                       <input type="text" class="form-control" id="prod_id" value="<?php echo $prod_id ?>" readonly hidden>
                     </div>
                     <div class="col-sm">
@@ -577,9 +581,9 @@ while ($row = mysqli_fetch_array($sql)) {
 
 
           </div>';
-            } else {
+            } else if ($deptType == "Thermal Bonding") {
               echo '<div class="card">
-            <div class="card-header" style="background-color:rgb(27, 102, 201); color: white;">
+            <div class="card-header" style="background-color: #111E6C; color: white;">
               <h3 class="card-title">STANDARD PARAMETER </h3>
             </div>
 
