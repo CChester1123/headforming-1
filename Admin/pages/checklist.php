@@ -245,6 +245,7 @@
             <select id="department" class="form-control" onchange="filterPartNo()">
               <option value="Head Forming" selected>Head Forming</option>
               <option value="Thermal Bonding">Thermal Bonding</option>
+              <option value="Swab Assembly">Swab Assembly</option>
             </select>
           </div>
 
@@ -464,13 +465,13 @@
 
   $(document).on('click', '#createExcel', function() {
     var selectedOption = $("#yearSelected option:selected");
-    var yearSelected = $.trim(selectedOption.text());  // Get the year displayed in the option
+    var yearSelected = $.trim(selectedOption.text()); // Get the year displayed in the option
 
     console.log(yearSelected);
 
     // Now you can use the year for your export or other purposes
     location.href = 'export2.php?yearSelected=' + yearSelected;
-});
+  });
 
 
   $(document).on('click', '#createProduct', function() {
@@ -478,19 +479,27 @@
       type = $.trim($("#type").val()),
       department = $.trim($("#department").val());
 
-    if (!partNo) {
-      $.notify("Please select Part No", "error");
-      return;
-    }
+    // if (!partNo) {
+    //   $.notify("Please select Part No", "error");
+    //   return;
+    // }
 
     $("#createList").modal("show");
 
-    var url = (department === "Thermal Bonding" && type === "In-Process Audit") ?
-      "checklistThermal" :
-      "checklistCreate";
+    // Check for the department condition
+    var url;
+    if (department === "Thermal Bonding" && type === "In-Process Audit") {
+      url = "checklistThermal";
+    } else if (department === "Swab Assembly" && type === "In-Process Audit") {
+      url = "checklistSwab";
+    } else {
+      url = "checklistCreate";
+    }
 
+    // Redirect with the URL and parameters
     location.href = `${url}?Productid=${encodeURIComponent(partNo)}&type=${encodeURIComponent(type)}&department=${encodeURIComponent(department)}`;
   });
+
 
   $(document).on('click', '.btnView', function() {
     id = $(this).attr("id");
