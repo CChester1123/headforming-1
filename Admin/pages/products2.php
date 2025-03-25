@@ -84,9 +84,9 @@
             <select id="deptType" class="form-control">
               <option value="Head Forming" selected>Head Forming</option>
               <option value="Thermal Bonding">Thermal Bonding</option>
+              <option value="Swab Assembly">Swab Assembly</option>
             </select>
           </div>
-
 
         </div>
       </div>
@@ -114,11 +114,6 @@
     location.href = "productView?id=" + id;
   });
 
-
-  // $(document).on('click','.createProduct',function(){
-  //     location.href = "productCreate";  
-  // });
-
   $(document).on('click', '.createProduct', function() {
     $("#createList").modal("show");
   });
@@ -127,6 +122,8 @@
     var deptType = $.trim($("#deptType").val());
 
     if (deptType === "Head Forming") {
+      location.href = "productCreate?deptType=" + deptType;
+    } else if (deptType == "Swab Assembly") {
       location.href = "productCreate?deptType=" + deptType;
     } else {
       location.href = "productCreate?deptType=" + deptType;

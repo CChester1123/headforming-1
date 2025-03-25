@@ -566,9 +566,8 @@ $deptType = $_GET['deptType'];
 
             </div>
 
-
           </div>';
-          } else {
+          } else if ($deptType == "Thermal Bonding") {
             echo '<div class="card">
             <div class="card-header" style="background-color:rgb(27, 102, 201); color: white;">
               <h3 class="card-title">STANDARD PARAMETER </h3>
@@ -1030,7 +1029,7 @@ $deptType = $_GET['deptType'];
       </div>
     </div>
   </section>
-  <!--  -->
+  
   <section class="content">
     <div class="container-fluid">
       <div class="row">
@@ -1461,10 +1460,6 @@ $deptType = $_GET['deptType'];
     fd.append('department', department);
 
     fd.append('arrheatingTime', arrheatingTime);
-
-
-
-
 
     fd.append('product', product);
     fd.append('productDesc', productDesc);
