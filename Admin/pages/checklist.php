@@ -156,6 +156,63 @@
             <a type="button" class="btn btn-info fa fa-plus-square excelBtn"> Excel Report</a>
           </ol>
         </div>
+
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Swab Assembly</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example4" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th style="text-align:center;">Action</th>
+                    <th style="text-align:center;">Date</th>
+                    <th style="text-align:center;">Auditor</th>
+                    <th style="text-align:center;">Work Order</th>
+                    <th style="text-align:center;">Audit Type</th>
+                    <th style="text-align:center;">Product Number</th>
+                    <th style="text-align:center;">Status</th>
+                </thead>
+                <tbody>
+                  <?php
+                  if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
+                    $sql = $user->GetCheckListThermal();
+                  } else {
+                    $sql = $user->GetCheckListChecker($_SESSION['emp_id']);
+                  }
+                  while ($row = mysqli_fetch_array($sql)) { ?>
+                    <tr>
+                      <td style="text-align:center;">
+                        <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnDuplicate2  btn-warning btn-sm' title='Duplicate Record'><i class="fa fa-clone" style='font-size:15px'></i> </button>
+
+                        <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnView2  btn-primary btn-sm' title='View Record'><i class='fa fa-search-plus' style='font-size:15px'></i> </button>
+
+                        <?php if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
+                          if ($row['status'] == "Pending" || $row['status'] == "") { ?>
+                            <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnEdit2  btn-success btn-sm' title='View Record'><i class='fa fa-pen' style='font-size:15px'></i> </button>
+
+                            <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnDelete2  btn-danger btn-sm' title='Delete Record'><i class='fa fa-trash' style='font-size:15px'></i> </button>
+                        <?php }
+                        } ?>
+                      </td>
+                      <td style="text-align:center;"><?php echo htmlentities($row['date']); ?></td>
+                      <td style="text-align:center;"><?php echo htmlentities($row['InspectedBY']); ?></td>
+                      <td style="text-align:center;"><?php echo htmlentities($row['workorder']); ?></td>
+                      <td style="text-align:center;"><?php echo htmlentities($row['type']); ?></td>
+                      <td style="text-align:center;"><?php echo htmlentities($row['product']); ?></td>
+                      <td style="text-align:center;"><?php echo htmlentities($row['status']); ?></td>
+                    </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <ol class="float-sm-right">
+            <a type="button" class="btn btn-info fa fa-plus-square excelBtn"> Excel Report</a>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
