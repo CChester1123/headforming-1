@@ -1035,6 +1035,55 @@ $deptType = $_GET['deptType'];
     </div>
   </section>
 
+  <?php if ($deptType == "Swab Assembly") {
+    echo '<section class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-header" style="background-color: #111E6C; color: white;">
+                      <h3 class="card-title">PARAMETER</h3>
+                    </div>
+                    <div class="card-body">
+                      <div class="form-group">
+                        <div class="form-group">
+                          <div class="row">
+                            <div class="col-sm">
+                              <label style="margin-left: 20px;">Pull Testing</label>
+                            </div>
+                            <div class="col-sm">
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-sm-2">
+                                    Min
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="pulltestingMin" placeholder="Enter Minimum">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm">
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-sm-2">
+                                  </div>
+                                  <div class="col-sm-9">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  </section>';
+  } ?>
+
   <section class="content">
     <div class="container-fluid">
       <div class="row">
@@ -1349,6 +1398,7 @@ $deptType = $_GET['deptType'];
       arrswabhandlediameter.push(textbox.value);
     });
 
+    var pulltestingMin = $.trim(encodeURI($("#pulltestingMin").val()));
     var noHandleperHT = $.trim(encodeURI($("#noHandleperHT").val()));
 
     let pulltestText = document.querySelectorAll('input[id="pulltest"]');
@@ -1493,7 +1543,8 @@ $deptType = $_GET['deptType'];
     fd.append('arrswabhandlewidth', arrswabhandlewidth);
     fd.append('arrswabhandlethickness', arrswabhandlethickness);
     fd.append('arrswabhandlediameter', arrswabhandlediameter);
-
+    
+    fd.append('pulltestingMin', pulltestingMin);
     fd.append('noHandleperHT', noHandleperHT);
     fd.append('arrpulltest', arrpulltest);
     fd.append('arrswabheadpulling', arrswabheadpulling);
