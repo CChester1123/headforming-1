@@ -10,11 +10,11 @@ $deptType = $_GET['deptType'];
       <div class="row mb-2">
         <div class="col-sm-6">
           <?php if ($deptType == "Head Forming") { ?>
-            <h1 style="font-weight: bold;">HEAD FORMING CREATE</h1>
+            <h1 style="font-weight: bold;">HEAD FORMING PRODUCT CREATE</h1>
           <?php } else if ($deptType == "Thermal Bonding") { ?>
-            <h1 style="font-weight: bold;">THERMAL BONDING CREATE</h1>
+            <h1 style="font-weight: bold;">THERMAL BONDING PRODUCT CREATE</h1>
           <?php } else { ?>
-            <h1 style="font-weight: bold;">SWAB ASSEMBLY CREATE</h1>
+            <h1 style="font-weight: bold;">SWAB ASSEMBLY PRODUCT CREATE</h1>
           <?php } ?>
         </div>
       </div>

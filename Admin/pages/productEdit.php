@@ -15,11 +15,11 @@ while ($row = mysqli_fetch_array($sql)) {
           <div class="col-sm-6">
             <input type="text" class="form-control" id="deptType" placeholder="Enter Product Description" value="<?php echo $deptType = $row['department']; ?>" readonly hidden>
             <?php if ($deptType == "Head Forming") { ?>
-              <h1 style="font-weight: bold;">HEAD FORMING EDIT</h1>
+              <h1 style="font-weight: bold;">HEAD FORMING PRODUCT EDIT</h1>
             <?php } else if ($deptType == "Thermal Bonding") { ?>
-              <h1 style="font-weight: bold;">THERMAL BONDING EDIT</h1>
+              <h1 style="font-weight: bold;">THERMAL BONDING PRODUCT EDIT</h1>
             <?php } else { ?>
-              <h1 style="font-weight: bold;">SWAB ASSEMBLY EDIT</h1>
+              <h1 style="font-weight: bold;">SWAB ASSEMBLY PRODUCT EDIT</h1>
             <?php } ?>
           </div>
         </div>
