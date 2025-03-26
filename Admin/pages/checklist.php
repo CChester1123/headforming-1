@@ -7,7 +7,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Checklist</h1>
+          <h1 style="font-weight: bold;">CHECKLIST</h1>
         </div>
 
         <?php if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') { ?>
@@ -97,7 +97,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title"> THERMAL BONDING </h3>
+              <h3 class="card-title">Thermal Bonding</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
