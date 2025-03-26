@@ -1049,7 +1049,56 @@ while ($row = mysqli_fetch_array($sql)) {
         </div>
       </div>
     </section>
-    <!--  -->
+    
+    <?php  if ($deptType == "Swab Assembly") {
+    echo '<section class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-header" style="background-color: #111E6C; color: white;">
+                      <h3 class="card-title">PARAMETER</h3>
+                    </div>
+                    <div class="card-body">
+                      <div class="form-group">
+                        <div class="form-group">
+                          <div class="row">
+                            <div class="col-sm">
+                              <label style="margin-left: 20px;">Pull Testing</label>
+                            </div>
+                            <div class="col-sm">
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-sm-2">
+                                    Min
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="pulltestingMin" placeholder="Enter Minimum" value="' . htmlspecialchars($user->value1actual($row['pulltestingMin'])) . '" readonly disabled>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm">
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-sm-2">
+                                  </div>
+                                  <div class="col-sm-9">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  </section>';
+  } ?>
+
     <section class="content">
       <div class="container-fluid">
         <div class="row">
