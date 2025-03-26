@@ -736,25 +736,7 @@ while ($row = mysqli_fetch_array($sql)) {
         <div class="row">
           <div class="col-12">
             <?php
-            // Retrieve the deptType from the query string
-            $deptType = $_GET['deptType'];
-
-            // Check if deptType is equal to "headforming"
-            if ($deptType === 'headforming') {
-              // Display the first HTML block
-              echo '
-    <div class="card">
-        <div class="card-header" style="background-color: #111E6C; color: white;">
-            <h3 class="card-title"> DIMENSIONS </h3>
-        </div>
-        <div class="card-body">
-            <div class="form-group">
-                <!-- Your first HTML block content here -->
-            </div>
-        </div>
-    </div>';
-
-              // Display the second HTML block
+            if ($deptType == "Head Forming") {
               echo '
     <div class="card">
         <div class="card-header" style="background-color: #111E6C; color: white;">
