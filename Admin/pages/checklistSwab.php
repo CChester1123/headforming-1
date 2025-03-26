@@ -300,7 +300,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="pulltestingMin" class="form-control actualDataLoop result" placeholder="≥350 (g)" readonly disabled>
+                                                    <div class="input-group">
+                                                    <span class="input-group-text" style="pointer-events: none">≥</span>
+                                                        <input type="text" class="form-control" id="TempMin" value="<?php echo htmlspecialchars($user->value1actual($row['pulltestingMin'])); ?>" readonly disabled>
+                                                        <span class="input-group-text" style="pointer-events: none">(g)</span>
+                                                    </div>
                                                 </div>
 
                                                 <div class="col-sm"><br>
@@ -702,7 +706,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
             fd.append('arrSample', arrSample);
             fd.append('remarksPullTesting', remarksPullTesting);
-            
+
             // fd.append('pulltestingSample1', pulltestingSample1);
             // fd.append('pulltestingSample2', pulltestingSample2);
             // fd.append('pulltestingSample3', pulltestingSample3);
