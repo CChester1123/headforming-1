@@ -301,8 +301,8 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                                 <div class="col-sm"><br>
                                                     <div class="input-group">
-                                                    <span class="input-group-text" style="pointer-events: none">≥</span>
-                                                        <input type="text" class="form-control" id="TempMin" value="<?php echo htmlspecialchars($user->value1actual($row['pulltestingMin'])); ?>" readonly disabled>
+                                                        <span class="input-group-text" style="pointer-events: none">≥</span>
+                                                        <input type="text" class="form-control" id="pulltestingMin" value="<?php echo htmlspecialchars($user->value1actual($row['pulltestingMin'])); ?>" readonly disabled>
                                                         <span class="input-group-text" style="pointer-events: none">(g)</span>
                                                     </div>
                                                 </div>
@@ -416,6 +416,38 @@ while ($row = mysqli_fetch_array($sql)) {
     include  'includes/validation.php';
     ?>
     <script>
+        function checkPullTestingRange(inputIds, minId, resultId) {
+            // Iterate through the input IDs (Sample inputs)
+            inputIds.forEach(inputId => {
+                document.getElementById(inputId).addEventListener('input', function() {
+                    // Get the minimum pull testing value from the form
+                    const min = parseFloat(document.querySelector(`#${minId}`).value);
+
+                    // Get the value from the actual input field
+                    const actual = parseFloat(document.querySelector(`#${inputId}`).value);
+
+                    // Determine whether the actual value is greater than or equal to the minimum value
+                    const result = (!isNaN(actual) && actual >= min) ? 'PASSED' : actual ? 'FAILED' : '';
+
+                    // Get the result element (remarksPullTesting)
+                    const resultElement = document.querySelector(`#${resultId}`);
+
+                    // Display the result
+                    resultElement.value = result;
+                    resultElement.style.fontWeight = result ? 'bold' : '';
+                    resultElement.style.backgroundColor = result === 'PASSED' ? 'green' : result === 'FAILED' ? 'red' : '';
+                    resultElement.style.color = result ? 'white' : '';
+                });
+            });
+        }
+
+        // Call the function for the pull testing samples
+        checkPullTestingRange(
+            ['pulltestingSample1', 'pulltestingSample2', 'pulltestingSample3', 'pulltestingSample4', 'pulltestingSample5'],
+            'pulltestingMin',
+            'remarksPullTesting'
+        );
+
         // function checkTemperatureRange(inputId, minId, maxId, resultId) {
         //     document.getElementById(inputId).addEventListener('input', function() {
         //         // Use min and max input values from the form
