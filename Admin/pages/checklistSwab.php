@@ -73,10 +73,9 @@ while ($row = mysqli_fetch_array($sql)) {
                                         <div class="col-sm ">
                                             <label>Machine No.</label>
                                             <select name="cars" class="form-control" id="machineNo">
-                                                <?php for ($i = 1; $i <= 2; $i++) { ?>
+                                                <?php for ($i = 1; $i <= 6; $i++) { ?>
                                                     <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                                                 <?php } ?>
-                                                <option value="Manual">Manual</option>
                                             </select>
                                         </div>
                                     </div>
@@ -86,8 +85,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                     <div class="row">
                                         <div class="col-sm">
                                             <label>Product Name</label>
-                                            <!-- <input type="text" class="form-control" id="product" placeholder="Enter Product Name" value="<?php echo $row['productname']; ?>" disabled> -->
-                                            <input type="text" class="form-control" id="product" placeholder="Enter Product Name">
+                                            <input type="text" class="form-control" id="product" placeholder="Enter Product Name" value="<?php echo $row['productname']; ?>" disabled>
                                         </div>
 
                                         <?php $qual = isset($_GET['qual']) ? $_GET['qual'] : '';
@@ -193,9 +191,9 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 <label>Handle Tree Color</label>
                                                 <select class="form-control" id="handleTreeColor">
                                                     <option value="Light green">Light Green</option>
-                                                    <option value="Black">Black</option>
+                                                    <option value="Orange">Orange</option>
+                                                    <option value="Blue">Blue</option>
                                                     <option value="Light blue">Light Blue</option>
-                                                    <option value="Brown">Brown</option>
                                                     <option value="White">White</option>
                                                 </select>
                                             </div>
@@ -234,8 +232,6 @@ while ($row = mysqli_fetch_array($sql)) {
                 </div>
             </div>
         </section>
-
-
 
         <section class="content">
             <div class="container-fluid">
@@ -297,10 +293,6 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                         <div class="row">
 
-                                            <!-- <div class="col-sm-2">
-                                                <label style="margin-left: 20px;"><br>Pull Testing</label>
-                                            </div> -->
-
                                             <div class="row">
 
                                                 <div class="col-sm-2">
@@ -308,31 +300,31 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="≥350 (g)" readonly disabled>
+                                                    <input type="text" id="pulltestingMin" class="form-control actualDataLoop result" placeholder="≥350 (g)" readonly disabled>
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 1">
+                                                    <input type="text" id="pulltestingSample1" class="form-control actualDataLoop result" placeholder="Enter Sample 1">
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 2">
+                                                    <input type="text" id="pulltestingSample2" class="form-control actualDataLoop result" placeholder="Enter Sample 2">
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 3">
+                                                    <input type="text" id="pulltestingSample3" class="form-control actualDataLoop result" placeholder="Enter Sample 3">
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 4">
+                                                    <input type="text" id="pulltestingSample4" class="form-control actualDataLoop result" placeholder="Enter Sample 4">
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Sample 5">
+                                                    <input type="text" id="pulltestingSample5" class="form-control actualDataLoop result" placeholder="Enter Sample 5">
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter (N/A)">
+                                                    <input type="text" id="remarksPullTesting" class="form-control actualDataLoop result" placeholder="Enter (N/A)">
                                                 </div>
                                             </div>
 
@@ -420,32 +412,32 @@ while ($row = mysqli_fetch_array($sql)) {
     include  'includes/validation.php';
     ?>
     <script>
-        function checkTemperatureRange(inputId, minId, maxId, resultId) {
-            document.getElementById(inputId).addEventListener('input', function() {
-                // Use min and max input values from the form
-                const min = parseFloat(document.querySelector(`#${minId}`).value);
-                const max = parseFloat(document.querySelector(`#${maxId}`).value);
-                const actual = parseFloat(document.querySelector(`#${inputId}`).value);
+        // function checkTemperatureRange(inputId, minId, maxId, resultId) {
+        //     document.getElementById(inputId).addEventListener('input', function() {
+        //         // Use min and max input values from the form
+        //         const min = parseFloat(document.querySelector(`#${minId}`).value);
+        //         const max = parseFloat(document.querySelector(`#${maxId}`).value);
+        //         const actual = parseFloat(document.querySelector(`#${inputId}`).value);
 
-                // Determine whether the actual value falls within the range
-                const result = (!isNaN(actual) && actual >= min && actual <= max) ? 'PASSED' : actual ? 'FAILED' : '';
+        //         // Determine whether the actual value falls within the range
+        //         const result = (!isNaN(actual) && actual >= min && actual <= max) ? 'PASSED' : actual ? 'FAILED' : '';
 
-                // Get the result element
-                const resultElement = document.querySelector(`#${resultId}`);
+        //         // Get the result element
+        //         const resultElement = document.querySelector(`#${resultId}`);
 
-                // Display the result
-                resultElement.value = result;
-                resultElement.style.fontWeight = result ? 'bold' : '';
-                resultElement.style.backgroundColor = result === 'PASSED' ? 'green' : result === 'FAILED' ? 'red' : '';
-                resultElement.style.color = result ? 'white' : '';
-            });
-        }
+        //         // Display the result
+        //         resultElement.value = result;
+        //         resultElement.style.fontWeight = result ? 'bold' : '';
+        //         resultElement.style.backgroundColor = result === 'PASSED' ? 'green' : result === 'FAILED' ? 'red' : '';
+        //         resultElement.style.color = result ? 'white' : '';
+        //     });
+        // }
 
-        // Call the function for each check with the updated IDs
-        checkTemperatureRange('actTempUpnLow', 'TempMin', 'TempMax', 'TempUpnLow');
-        checkTemperatureRange('actHeatingTime', 'HeatMin', 'HeatMax', 'HeatingTime');
-        checkTemperatureRange('actSwabHandleFixture', 'SwabMin', 'SwabMax', 'SwabHandleFixture');
-        checkTemperatureRange('actFixtureClosingTime', 'FixtureMin', 'FixtureMax', 'FixtureClosingTime');
+        // // Call the function for each check with the updated IDs
+        // checkTemperatureRange('actTempUpnLow', 'TempMin', 'TempMax', 'TempUpnLow');
+        // checkTemperatureRange('actHeatingTime', 'HeatMin', 'HeatMax', 'HeatingTime');
+        // checkTemperatureRange('actSwabHandleFixture', 'SwabMin', 'SwabMax', 'SwabHandleFixture');
+        // checkTemperatureRange('actFixtureClosingTime', 'FixtureMin', 'FixtureMax', 'FixtureClosingTime');
 
 
         // function checkTemperatureRange(inputId, minId, maxId, resultId) {
@@ -577,7 +569,7 @@ while ($row = mysqli_fetch_array($sql)) {
         $(document).on('click', '#dataSubmitDelete', function() {
             $("#dataSubmitDelete").attr("disabled", true);
 
-            var pick = "17";
+            var pick = "21";
             var status = "Pending";
 
             var workorder = $.trim(encodeURI($("#workorder").val()));
@@ -601,6 +593,19 @@ while ($row = mysqli_fetch_array($sql)) {
             var handleTreeMaterialNum = $.trim(encodeURI($("#handleTreeMaterialNum").val()));
             var texwipeLogo = $.trim(encodeURI($("#texwipeLogo").val()));
             var remarksInprocess = $.trim(encodeURI($("#remarksInprocess").val()));
+
+            var remarksPullTesting = $.trim(encodeURI($("#remarksPullTesting").val()));
+
+            let SampleInputs = document.querySelectorAll('input[id="pulltestingSample1"], input[id="pulltestingSample2"], input[id="pulltestingSample3"], input[id="pulltestingSample4"], input[id="pulltestingSample5"]');
+            let arrSample = [];
+            SampleInputs.forEach((textbox) => {
+                arrSample.push(textbox.value);
+            });
+            // var pulltestingSample1 = $.trim(encodeURI($("#pulltestingSample1").val()));
+            // var pulltestingSample2 = $.trim(encodeURI($("#pulltestingSample2").val()));
+            // var pulltestingSample3 = $.trim(encodeURI($("#pulltestingSample3").val()));
+            // var pulltestingSample4 = $.trim(encodeURI($("#pulltestingSample4").val()));
+            // var pulltestingSample5 = $.trim(encodeURI($("#pulltestingSample5").val()));
 
             let TempInputs = document.querySelectorAll('input[id="TempMin"], input[id="TempMax"]');
             let arrTemp = [];
@@ -695,6 +700,15 @@ while ($row = mysqli_fetch_array($sql)) {
             fd.append('resistanceInpection', resistanceInpection);
             fd.append('remarksResistance', remarksResistance);
 
+            fd.append('arrSample', arrSample);
+            fd.append('remarksPullTesting', remarksPullTesting);
+            
+            // fd.append('pulltestingSample1', pulltestingSample1);
+            // fd.append('pulltestingSample2', pulltestingSample2);
+            // fd.append('pulltestingSample3', pulltestingSample3);
+            // fd.append('pulltestingSample4', pulltestingSample4);
+            // fd.append('pulltestingSample5', pulltestingSample5);
+
             for (let pair of fd.entries()) {
                 console.log(pair[0] + ": " + pair[1]);
             }
@@ -710,9 +724,9 @@ while ($row = mysqli_fetch_array($sql)) {
                     // alert(result);
                     if ($.trim(result) != 0) {
                         $.notify("Account Created Successfully ", "success");
-                        setTimeout(function() {
-                            window.location.href = "checklist";
-                        }, 2000);
+                        // setTimeout(function() {
+                        //     window.location.href = "checklist";
+                        // }, 2000);
                     } else {
                         $.notify("Problem Encounter! please contact your administrator", "error");
                         $("#dataSubmitDelete").attr("disabled", false);
