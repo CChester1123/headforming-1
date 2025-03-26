@@ -121,7 +121,6 @@
                   } else {
                     $sql = $user->GetCheckListChecker($_SESSION['emp_id']);
                   }
-
                   while ($row = mysqli_fetch_array($sql)) { ?>
                     <tr>
                       <td style="text-align:center;">
@@ -137,7 +136,6 @@
                         <?php }
                         } ?>
                       </td>
-
                       <td style="text-align:center;"><?php echo htmlentities($row['date']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['InspectedBY']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['workorder']); ?></td>
@@ -146,9 +144,7 @@
                       <td style="text-align:center;"><?php echo htmlentities($row['status']); ?></td>
                     </tr>
                   <?php } ?>
-
                 </tbody>
-
               </table>
             </div>
           </div>
@@ -162,7 +158,6 @@
             <div class="card-header">
               <h3 class="card-title">Swab Assembly</h3>
             </div>
-            <!-- /.card-header -->
             <div class="card-body">
               <table id="example4" class="table table-bordered table-striped">
                 <thead>

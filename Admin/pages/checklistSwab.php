@@ -308,7 +308,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Remarks">
+                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="≥350 (g)" readonly disabled>
                                                 </div>
 
                                                 <div class="col-sm"><br>
@@ -340,7 +340,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                         <div class="row">
                                             <div class="col-sm-2">
-                                                <label style="color: red; margin-left: 20px;">Note: Note: For TX730 Nylon Swabs<br>
+                                                <label style="color: red; margin-left: 20px;">Note: For TX730 Nylon Swabs<br>
                                                     only, 5 tips</label>
                                             </div>
                                         </div>
