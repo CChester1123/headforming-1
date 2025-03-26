@@ -1303,7 +1303,6 @@ while ($row = mysqli_fetch_array($sql)) {
 
     var prod_id = $.trim(encodeURI($("#prod_id").val()));
 
-
     var product = $.trim(encodeURI($("#product").val()));
     var productDesc = $.trim(encodeURI($("#productDesc").val()));
     var handle = $.trim(encodeURI($("#handle").val()));
@@ -1315,10 +1314,11 @@ while ($row = mysqli_fetch_array($sql)) {
     var department = $.trim($("#deptType").val()); // Use only $.trim, no need for encodeURI
     if (department === "Head Forming") {
       department = "Head Forming";
+    } else if (department === "Swab Assembly") {
+      department = "Swab Assembly"; // Assign department as "Swab" if that's the selected value
     } else {
       department = "Thermal Bonding";
     }
-    console.log("asd " + department);
 
     let cuttingforceText = document.querySelectorAll('input[id="cuttingforce"]');
     let arrcuttingforce = [];
@@ -1409,7 +1409,8 @@ while ($row = mysqli_fetch_array($sql)) {
     swabhandlediameterText.forEach((textbox) => {
       arrswabhandlediameter.push(textbox.value);
     });
-
+    
+    var pulltestingMin = $.trim(encodeURI($("#pulltestingMin").val()));
     var noHandleperHT = $.trim(encodeURI($("#noHandleperHT").val()));
 
     let pulltestText = document.querySelectorAll('input[id="pulltest"]');
@@ -1533,10 +1534,6 @@ while ($row = mysqli_fetch_array($sql)) {
     fd.append('arrheatingTime', arrheatingTime);
 
 
-
-
-
-
     fd.append('product', product);
     fd.append('productDesc', productDesc);
     fd.append('handle', handle);
@@ -1561,6 +1558,7 @@ while ($row = mysqli_fetch_array($sql)) {
     fd.append('arrswabhandlethickness', arrswabhandlethickness);
     fd.append('arrswabhandlediameter', arrswabhandlediameter);
 
+    fd.append('pulltestingMin', pulltestingMin);
     fd.append('noHandleperHT', noHandleperHT);
     fd.append('arrpulltest', arrpulltest);
     fd.append('arrswabheadpulling', arrswabheadpulling);
