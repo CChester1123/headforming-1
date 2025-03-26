@@ -1,5 +1,5 @@
 CREATE TABLE `tbl_swabassembly` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `workorder` varchar(45) DEFAULT NULL,
   `date` varchar(45) DEFAULT NULL,
   `time` varchar(45) DEFAULT NULL,
@@ -18,18 +18,6 @@ CREATE TABLE `tbl_swabassembly` (
   `handleTreeMaterialNum` varchar(45) DEFAULT NULL,
   `texwipeLogo` varchar(45) DEFAULT NULL,
   `remarksInprocess` varchar(45) DEFAULT NULL,
-  `TempUpnLowRange` varchar(45) DEFAULT NULL,
-  `actTempUpnLow` varchar(45) DEFAULT NULL,
-  `TempUpnLow` varchar(45) DEFAULT NULL,
-  `HeatingTimeRange` varchar(45) DEFAULT NULL,
-  `actHeatingTime` varchar(45) DEFAULT NULL,
-  `HeatingTime` varchar(45) DEFAULT NULL,
-  `SwabHandleFixtureRange` varchar(45) DEFAULT NULL,
-  `actSwabHandleFixture` varchar(45) DEFAULT NULL,
-  `SwabHandleFixture` varchar(45) DEFAULT NULL,
-  `FixtureClosingTimeRange` varchar(45) DEFAULT NULL,
-  `actFixtureClosingTime` varchar(45) DEFAULT NULL,
-  `FixtureClosingTime` varchar(45) DEFAULT NULL,
   `productionStats` varchar(45) DEFAULT NULL,
   `remarksProduction` varchar(45) DEFAULT NULL,
   `visualInpection` varchar(45) DEFAULT NULL,
@@ -40,4 +28,7 @@ CREATE TABLE `tbl_swabassembly` (
   `SampleRange` varchar(45) DEFAULT NULL,
   `remarksPullTesting` varchar(45) DEFAULT NULL,
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+//scrambled
