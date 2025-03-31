@@ -382,6 +382,29 @@ WHERE id = '$checklistId';
 		return $result;
 	}
 
+	public function GetCheckListSwab()
+	{
+		$result = mysqli_query($this->dbh, "SELECT * FROM tbl_swabassembly WHERE status != '0' OR status is null ORDER BY id DESC");
+		return $result;
+	}
+
+	// 	public function GetCheckListThermal()
+	// 	{
+	// 		$result = mysqli_query($this->dbh, "SELECT id, date, workorder, product, status, type, InspectedBY
+	// FROM tbl_thermalbonding
+	// WHERE status != '0' OR status IS NULL
+
+	// UNION
+
+	// SELECT id, date, workorder, product, status, type, InspectedBY
+	// FROM tbl_checklist
+	// WHERE status != '0' OR status IS NULL
+
+	// ORDER BY id DESC;
+	// ");
+	// 		return $result;
+	// 	}
+
 	public function ViewCheckList($Product_ID)
 	{
 		$result = mysqli_query($this->dbh, "SELECT * FROM headforming.tbl_checklist WHERE id = '$Product_ID'");

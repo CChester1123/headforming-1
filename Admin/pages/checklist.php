@@ -173,7 +173,7 @@
                 <tbody>
                   <?php
                   if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
-                    $sql = $user->GetCheckListThermal();
+                    $sql = $user->GetCheckListSwab();
                   } else {
                     $sql = $user->GetCheckListChecker($_SESSION['emp_id']);
                   }
