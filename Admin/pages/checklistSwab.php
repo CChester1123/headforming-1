@@ -40,7 +40,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                         <div class="col-sm-3">
                                             <label>Time</label>
-                                            <input type="datetime-local" class="form-control" id="time" value="<?php echo date('Y-m-d\TH:i'); ?>" />
+                                            <input type="datetime-local" class="form-control" id="time" value="<?php echo date('Y-m-d\TH:i'); ?>">
 
                                         </div>
 

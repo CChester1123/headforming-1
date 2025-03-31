@@ -25,7 +25,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                     <div class="row">
                                         <div class="col-sm">
                                             <label>Work Order</label>
-                                            <input type="text" class="form-control" id="workorder" placeholder="Enter Work Order">
+                                            <input type="text" class="form-control" id="workorder" placeholder="Enter Work Order" value="<?php echo $row['workorder']; ?>" readonly disabled>
                                         </div>
 
                                         <div class="col-sm-3">
@@ -35,15 +35,15 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                         <div class="col-sm-3">
                                             <label>Time</label>
-                                            <input type="datetime-local" class="form-control" id="time" value="<?php echo date('Y-m-d\TH:i'); ?>" />
+                                            <input type="datetime-local" class="form-control" id="time" value="<?php echo date('Y-m-d\TH:i'); ?>" value="<?php echo $row['time']; ?>" readonly disabled>
 
                                         </div>
 
                                         <div class="col-sm">
                                             <label>Shift</label>
-                                            <select class="form-control" id="shift">
-                                                <option value="AM">AM</option>
-                                                <option value="PM">PM</option>
+                                            <select class="form-control" id="shift" readonly disabled>
+                                                <option value="AM" <?php echo ($row['shift'] == 'AM') ? 'selected' : ''; ?>>AM</option>
+                                                <option value="PM" <?php echo ($row['shift'] == 'PM') ? 'selected' : ''; ?>>PM</option>
                                             </select>
                                         </div>
                                     </div>
@@ -54,12 +54,12 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                         <div class="col-sm">
                                             <label>Operator/s Name</label>
-                                            <input type="text" class="form-control" id="operatorName" placeholder="Enter Operator Name">
+                                            <input type="text" class="form-control" id="operatorName" placeholder="Enter Operator Name" value="<?php echo $row['operatorName']; ?>" readonly disabled>
                                         </div>
 
                                         <div class="col-sm">
                                             <label>Assigned Team Leader</label>
-                                            <select class="form-control" id="teamLead">
+                                            <select class="form-control" id="teamLead" value="<?php echo $row['teamLead']; ?>" readonly disabled>
                                                 <option value="asd">asd</option>
                                                 <option value="dsa">dsa</option>
                                             </select>
@@ -67,7 +67,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                         <div class="col-sm ">
                                             <label>Machine No.</label>
-                                            <select name="cars" class="form-control" id="machineNo">
+                                            <select name="cars" class="form-control" id="machineNo" value="<?php echo $row['machineNo']; ?>" readonly disabled>
                                                 <?php for ($i = 1; $i <= 2; $i++) { ?>
                                                     <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                                                 <?php } ?><option value="Manual">Manual</option>
@@ -116,7 +116,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                         <div class="col-sm">
                                             <label class="mr-1">Maintenance</label>
-                                            <select class="form-control" id="maintenancecheced" data-placeholder="Maintenance By" style="width: 100%;">
+                                            <select class="form-control" id="maintenancecheced" data-placeholder="Maintenance By" style="width: 100%;" value="<?php echo $row['maintenancecheced']; ?>" readonly disabled>
                                                 <?php
                                                 $sql = $user->selectMaintenance();
                                                 while ($list1 = mysqli_fetch_array($sql)) { ?>
@@ -169,12 +169,12 @@ while ($row = mysqli_fetch_array($sql)) {
                                     <div class="row">
                                         <div class="col-sm">
                                             <label>Handle Part Number</label>
-                                            <input type="text" class="form-control" id="handle" placeholder="Enter Handle" value="<?php echo $row['handle']; ?>">
+                                            <input type="text" class="form-control" id="handle" placeholder="Enter Handle" value="<?php echo $row['handle']; ?>" readonly disabled>
                                         </div>
 
                                         <div class="col-sm">
                                             <label>Substrate Material Part NUmber</label>
-                                            <input type="text" class="form-control" id="substrate" placeholder="Enter Handle" value="<?php echo $row['substrate']; ?>">
+                                            <input type="text" class="form-control" id="substrate" placeholder="Enter Handle" value="<?php echo $row['substrate']; ?>" readonly disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -184,7 +184,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                         <div class="col-sm">
                                             <div class="col-sm">
                                                 <label>Handle Tree Color</label>
-                                                <select class="form-control" id="handleTreeColor">
+                                                <select class="form-control" id="handleTreeColor" value="<?php echo $row['handleTreeColor']; ?>" readonly disabled>
                                                     <option value="Light Green">Light Green</option>
                                                     <option value="Black">Black</option>
                                                     <option value="Light Blue">Light Blue</option>
@@ -195,11 +195,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                         </div>
                                         <div class="col-sm">
                                             <label>Substrate Material Lot Number</label>
-                                            <input type="text" class="form-control" id="substrateLotNum" placeholder="Enter Substrate Material Lot Number" value="<?php echo $row['substrateLotNum']; ?>">
+                                            <input type="text" class="form-control" id="substrateLotNum" placeholder="Enter Substrate Material Lot Number" value="<?php echo $row['substrateLotNum']; ?>" readonly disabled>
                                         </div>
                                         <div class="col-sm">
                                             <label>Handle Tree Material Lot Number</label>
-                                            <input type="text" class="form-control" id="handleTreeMaterialNum" placeholder="Enter Tree Material Number" value="<?php echo $row['handleTreeMaterialNum']; ?>">
+                                            <input type="text" class="form-control" id="handleTreeMaterialNum" placeholder="Enter Tree Material Number" value="<?php echo $row['handleTreeMaterialNum']; ?>" readonly disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -208,15 +208,15 @@ while ($row = mysqli_fetch_array($sql)) {
                                     <div class="row">
                                         <div class="col-sm">
                                             <label>Swab Handle with Texwipe Logo?</label>
-                                            <select class="form-control" id="texwipeLogo">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                            <select class="form-control" id="texwipeLogo" readonly disabled>
+                                                <option value="Yes" <?php echo ($row['texwipeLogo'] == 'Yes') ? 'selected' : ''; ?>>Yes</option>
+                                                <option value="No" <?php echo ($row['texwipeLogo'] == 'No') ? 'selected' : ''; ?>>No</option>
                                             </select>
                                         </div>
 
                                         <div class="col-sm">
                                             <label>Remarks</label>
-                                            <input type="text" class="form-control" id="remarksInprocess" placeholder="Enter Remarks">
+                                            <input type="text" class="form-control" id="remarksInprocess" placeholder="Enter Remarks" value="<?php echo $row['remarksInprocess']; ?>" readonly disabled>
                                         </div>
 
                                     </div>
@@ -247,14 +247,14 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm-2">
-                                                <select class="form-control" id="visualInpection">
-                                                    <option value="Passed">PASSED</option>
-                                                    <option value="Failed">FAILED</option>
+                                            <select class="form-control" id="visualInpection" readonly disabled>
+                                                    <option value="Passed" <?php echo ($row['visualInpection'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
+                                                    <option value="Failed" <?php echo ($row['visualInpection'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
                                                 </select>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm">
-                                                    <input type="text" id="remarksVisual" class="form-control actualDataLoop result" placeholder="Enter Remarks">
+                                                    <input type="text" id="remarksVisual" class="form-control actualDataLoop result" placeholder="Enter Remarks" value="<?php echo $row['remarksVisual']; ?>" readonly disabled>
                                                 </div>
                                             </div>
 
@@ -267,14 +267,14 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm-2"><br>
-                                                <select class="form-control" id="manualHeadPulling">
-                                                    <option value="Passed">PASSED</option>
-                                                    <option value="Failed">FAILED</option>
+                                                <select class="form-control" id="manualHeadPulling" readonly disabled>
+                                                    <option value="Passed" <?php echo ($row['manualHeadPulling'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
+                                                    <option value="Failed" <?php echo ($row['manualHeadPulling'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
                                                 </select>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksManualHeadPulling" class="form-control actualDataLoop result" placeholder="Enter Remarks">
+                                                    <input type="text" id="remarksManualHeadPulling" class="form-control actualDataLoop result" placeholder="Enter Remarks" value="<?php echo $row['remarksManualHeadPulling']; ?>" readonly disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -303,27 +303,27 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="pulltestingSample1" class="form-control actualDataLoop result" placeholder="Enter Sample 1">
+                                                    <input type="text" id="pulltestingSample1" class="form-control actualDataLoop result" placeholder="Enter Sample 1" value="<?php echo htmlspecialchars($user->value1actual($row['pulltestingSample'])); ?>" readonly disabled>
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="pulltestingSample2" class="form-control actualDataLoop result" placeholder="Enter Sample 2">
+                                                    <input type="text" id="pulltestingSample2" class="form-control actualDataLoop result" placeholder="Enter Sample 2" value="<?php echo htmlspecialchars($user->value2actual($row['pulltestingSample'])); ?>" readonly disabled>
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="pulltestingSample3" class="form-control actualDataLoop result" placeholder="Enter Sample 3">
+                                                    <input type="text" id="pulltestingSample3" class="form-control actualDataLoop result" placeholder="Enter Sample 3" value="<?php echo htmlspecialchars($user->value3actual($row['pulltestingSample'])); ?>" readonly disabled>
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="pulltestingSample4" class="form-control actualDataLoop result" placeholder="Enter Sample 4">
+                                                    <input type="text" id="pulltestingSample4" class="form-control actualDataLoop result" placeholder="Enter Sample 4" value="<?php echo htmlspecialchars($user->value4actual($row['pulltestingSample'])); ?>" readonly disabled>
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="pulltestingSample5" class="form-control actualDataLoop result" placeholder="Enter Sample 5">
+                                                    <input type="text" id="pulltestingSample5" class="form-control actualDataLoop result" placeholder="Enter Sample 5" value="<?php echo htmlspecialchars($user->value5actual($row['pulltestingSample'])); ?>" readonly disabled>
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksPullTesting" class="form-control actualDataLoop result" placeholder="Remarks" readonly disabled>
+                                                    <input type="text" id="remarksPullTesting" class="form-control actualDataLoop result" placeholder="Remarks" value="<?php echo $row['remarksPullTesting']; ?>" readonly disabled>
                                                 </div>
                                             </div>
 
@@ -340,14 +340,14 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <div class="col-sm-2">
                                             </div>
                                             <div class="col-sm-2"><br>
-                                                <select class="form-control" id="productionStats">
-                                                    <option value="Continue Production" selected>Continue Production</option>
-                                                    <option value="Stop Production">Stop Production</option>
+                                                <select class="form-control" id="productionStats" readonly disabled>
+                                                    <option value="Continue Production" <?php echo ($row['productionStats'] == 'Continue Production') ? 'selected' : ''; ?>>Continue Production</option>
+                                                    <option value="Stop Production" <?php echo ($row['productionStats'] == 'Stop Production') ? 'selected' : ''; ?>>Stop Production</option>
                                                 </select>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksProduction" class="form-control actualDataLoop result" placeholder="Enter Remarks">
+                                                    <input type="text" id="remarksProduction" class="form-control actualDataLoop result" placeholder="Enter Remarks" value="<?php echo $row['remarksProduction']; ?>" readonly disabled>
                                                 </div>
                                             </div>
                                         </div>
