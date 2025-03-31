@@ -29,14 +29,13 @@ while ($row = mysqli_fetch_array($sql)) {
                                         </div>
 
                                         <div class="col-sm-3">
-                                            <label>Date</label>
-                                            <input type="text" class="form-control" id="date" placeholder="Enter Product Description" value="<?php echo date("F j, Y"); ?>" disabled>
+                                            <label for="date">Date</label>
+                                            <input type="text" class="form-control" id="date" placeholder="Current Date" value="<?php echo $row['date'] ? $row['date'] : date('F j, Y'); ?>" readonly disabled>
                                         </div>
 
                                         <div class="col-sm-3">
-                                            <label>Time</label>
-                                            <input type="datetime-local" class="form-control" id="time" value="<?php echo date('Y-m-d\TH:i'); ?>" value="<?php echo $row['time']; ?>" readonly disabled>
-
+                                            <label for="time">Time</label>
+                                            <input type="datetime-local" class="form-control" id="time" value="<?php echo $row['time'] ? $row['time'] : date('Y-m-d\TH:i'); ?>" readonly disabled>
                                         </div>
 
                                         <div class="col-sm">
@@ -58,21 +57,26 @@ while ($row = mysqli_fetch_array($sql)) {
                                         </div>
 
                                         <div class="col-sm">
-                                            <label>Assigned Team Leader</label>
-                                            <select class="form-control" id="teamLead" value="<?php echo $row['teamLead']; ?>" readonly disabled>
-                                                <option value="asd">asd</option>
-                                                <option value="dsa">dsa</option>
+                                            <label for="teamLead">Assigned Team Leader</label>
+                                            <select class="form-control" id="teamLead" disabled>
+                                                <option value="asd" <?php echo ($row['teamLead'] == 'asd') ? 'selected' : ''; ?>>asd</option>
+                                                <option value="dsa" <?php echo ($row['teamLead'] == 'dsa') ? 'selected' : ''; ?>>dsa</option>
                                             </select>
                                         </div>
 
-                                        <div class="col-sm ">
-                                            <label>Machine No.</label>
-                                            <select name="cars" class="form-control" id="machineNo" value="<?php echo $row['machineNo']; ?>" readonly disabled>
-                                                <?php for ($i = 1; $i <= 2; $i++) { ?>
-                                                    <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                <?php } ?><option value="Manual">Manual</option>
+                                        <div class="col-sm">
+                                            <label for="machineNo">Machine No.</label>
+                                            <select name="cars" class="form-control" id="machineNo" disabled>
+                                                <?php
+                                                for ($i = 1; $i <= 2; $i++) {
+                                                    $selected = ($row['machineNo'] == $i) ? 'selected' : '';
+                                                    echo "<option value='$i' $selected>$i</option>";
+                                                }
+                                                ?>
+                                                <option value="Manual" <?php echo ($row['machineNo'] == 'Manual') ? 'selected' : ''; ?>>Manual</option>
                                             </select>
                                         </div>
+
                                     </div>
                                 </div>
 
@@ -80,14 +84,14 @@ while ($row = mysqli_fetch_array($sql)) {
                                     <div class="row">
                                         <div class="col-sm">
                                             <label>Product Name</label>
-                                            <input type="text" class="form-control" id="product" placeholder="Enter Product Name" value="<?php echo $row['productname']; ?>" disabled>
+                                            <input type="text" class="form-control" id="product" placeholder="Enter Product Name" value="<?php echo $row['product']; ?>" readonly disabled>
                                         </div>
 
                                         <?php $qual = isset($_GET['qual']) ? $_GET['qual'] : '';
                                         ?>
                                         <div class="col-sm">
                                             <label>Type</label>
-                                            <select id="type" class="form-control" disabled>
+                                            <select id="type" class="form-control" readonly disabled>
                                                 <option value="In-Process Audit" <?php echo ($qual == 'In-Process Audit') ? 'selected' : ''; ?>>In-Process Audit</option>
                                                 <option value="Start-up Qualification" <?php echo ($qual == 'Start-up Qualification') ? 'selected' : ''; ?>>Start-up Qualification</option>
                                                 <option value="Product Change" <?php echo ($qual == 'Product Change') ? 'selected' : ''; ?>>Product Change</option>
@@ -111,19 +115,22 @@ while ($row = mysqli_fetch_array($sql)) {
                                     <div class="row">
                                         <div class="col-sm">
                                             <label class="mr-1">Quality</label>
-                                            <input type="text" id="InspectedBY" value="<?php echo $_SESSION['name']; ?>" class="form-control" readonly>
+                                            <input type="text" id="InspectedBY" value="<?php echo $_SESSION['name']; ?>" class="form-control" readonly disabled>
                                         </div>
 
                                         <div class="col-sm">
                                             <label class="mr-1">Maintenance</label>
-                                            <select class="form-control" id="maintenancecheced" data-placeholder="Maintenance By" style="width: 100%;" value="<?php echo $row['maintenancecheced']; ?>" readonly disabled>
+                                            <select class="form-control" id="maintenancecheced" data-placeholder="Maintenance By" style="width: 100%;" disabled>
                                                 <?php
                                                 $sql = $user->selectMaintenance();
-                                                while ($list1 = mysqli_fetch_array($sql)) { ?>
-                                                    <option value="<?php echo $list1['employeeID']; ?>"><?php echo $list1['fullName']; ?></option>
-                                                <?php } ?>
+                                                while ($list1 = mysqli_fetch_array($sql)) {
+                                                    $selected = ($list1['employeeID'] == $row['maintenancecheced']) ? 'selected' : '';
+                                                    echo "<option value='" . $list1['employeeID'] . "' $selected>" . $list1['fullName'] . "</option>";
+                                                }
+                                                ?>
                                             </select>
                                         </div>
+
                                     </div>
                                 </div>
 
@@ -183,15 +190,16 @@ while ($row = mysqli_fetch_array($sql)) {
                                     <div class="row">
                                         <div class="col-sm">
                                             <div class="col-sm">
-                                                <label>Handle Tree Color</label>
-                                                <select class="form-control" id="handleTreeColor" value="<?php echo $row['handleTreeColor']; ?>" readonly disabled>
-                                                    <option value="Light Green">Light Green</option>
-                                                    <option value="Black">Black</option>
-                                                    <option value="Light Blue">Light Blue</option>
-                                                    <option value="Brown">Brown</option>
-                                                    <option value="White">White</option>
+                                                <label for="handleTreeColor">Handle Tree Color</label>
+                                                <select class="form-control" id="handleTreeColor" readonly disabled>
+                                                    <option value="Light Green" <?php echo ($row['handleTreeColor'] == 'Light Green') ? 'selected' : ''; ?>>Light Green</option>
+                                                    <option value="Black" <?php echo ($row['handleTreeColor'] == 'Black') ? 'selected' : ''; ?>>Black</option>
+                                                    <option value="Light Blue" <?php echo ($row['handleTreeColor'] == 'Light Blue') ? 'selected' : ''; ?>>Light Blue</option>
+                                                    <option value="Brown" <?php echo ($row['handleTreeColor'] == 'Brown') ? 'selected' : ''; ?>>Brown</option>
+                                                    <option value="White" <?php echo ($row['handleTreeColor'] == 'White') ? 'selected' : ''; ?>>White</option>
                                                 </select>
                                             </div>
+
                                         </div>
                                         <div class="col-sm">
                                             <label>Substrate Material Lot Number</label>
@@ -247,7 +255,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm-2">
-                                            <select class="form-control" id="visualInpection" readonly disabled>
+                                                <select class="form-control" id="visualInpection" readonly disabled>
                                                     <option value="Passed" <?php echo ($row['visualInpection'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
                                                     <option value="Failed" <?php echo ($row['visualInpection'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
                                                 </select>
