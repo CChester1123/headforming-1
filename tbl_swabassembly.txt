@@ -30,8 +30,6 @@ CREATE TABLE `tbl_swabassembly` (
   ## `FixtureClosingTimeRange` varchar(45) DEFAULT NULL,
   ## `actFixtureClosingTime` varchar(45) DEFAULT NULL,
   ## `FixtureClosingTime` varchar(45) DEFAULT NULL,
-  `productionStats` varchar(45) DEFAULT NULL,
-  `remarksProduction` varchar(45) DEFAULT NULL,
   `visualInpection` varchar(45) DEFAULT NULL,
   `remarksVisual` varchar(45) DEFAULT NULL,
   
@@ -41,6 +39,8 @@ CREATE TABLE `tbl_swabassembly` (
   `pulltestingSample` varchar(45) DEFAULT NULL, ##ADD
   `remarksPullTesting` varchar(45) DEFAULT NULL, ##ADD
   
+  `productionStats` varchar(45) DEFAULT NULL,
+  `remarksProduction` varchar(45) DEFAULT NULL,
   `status` varchar(45) DEFAULT NULL,
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
