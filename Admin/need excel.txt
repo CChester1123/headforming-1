@@ -1,0 +1,11 @@
+part number
+workorder
+date
+machine number
+pulltest 12345
+insepectedby
+
+
+
+(thermal bonding)
+parameter
