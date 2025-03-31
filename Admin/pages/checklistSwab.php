@@ -806,9 +806,9 @@ while ($row = mysqli_fetch_array($sql)) {
                     // alert(result);
                     if ($.trim(result) != 0) {
                         $.notify("Account Created Successfully ", "success");
-                        // setTimeout(function() {
-                        //     window.location.href = "checklist";
-                        // }, 2000);
+                        setTimeout(function() {
+                            window.location.href = "checklist";
+                        }, 2000);
                     } else {
                         $.notify("Problem Encounter! please contact your administrator", "error");
                         $("#dataSubmitDelete").attr("disabled", false);
