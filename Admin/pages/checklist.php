@@ -186,7 +186,7 @@
 
                         <?php if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
                           if ($row['status'] == "Pending" || $row['status'] == "") { ?>
-                            <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnEdit2  btn-success btn-sm' title='View Record'><i class='fa fa-pen' style='font-size:15px'></i> </button>
+                            <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnEdit3  btn-success btn-sm' title='View Record'><i class='fa fa-pen' style='font-size:15px'></i> </button>
 
                             <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnDelete2  btn-danger btn-sm' title='Delete Record'><i class='fa fa-trash' style='font-size:15px'></i> </button>
                         <?php }
@@ -560,6 +560,11 @@
   $(document).on('click', '.btnEdit2', function() {
     id = $(this).attr("id");
     location.href = "checklistThermalEdit?id=" + id;
+  });
+
+  $(document).on('click', '.btnEdit3', function() {
+    id = $(this).attr("id");
+    location.href = "checklistSwabEdit?id=" + id;
   });
 
   $(document).on('click', '.btnDuplicate', function() {
