@@ -164,15 +164,21 @@ class admin_creation
 		return $result;
 	}
 
+	public function ViewEditchecklist($id)
+	{
+		$result = mysqli_query($this->dbh, "SELECT * FROM headforming.tbl_checklist WHERE id = '$id'");
+		return $result;
+	}
+
 	public function ViewEditchecklist2($id)
 	{
 		$result = mysqli_query($this->dbh, "SELECT * FROM headforming.tbl_thermalbonding WHERE id = '$id'");
 		return $result;
 	}
 
-	public function ViewEditchecklist($id)
+	public function ViewEditchecklist3($id)
 	{
-		$result = mysqli_query($this->dbh, "SELECT * FROM headforming.tbl_checklist WHERE id = '$id'");
+		$result = mysqli_query($this->dbh, "SELECT * FROM headforming.tbl_swabassembly WHERE id = '$id'");
 		return $result;
 	}
 

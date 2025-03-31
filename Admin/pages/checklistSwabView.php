@@ -1,15 +1,10 @@
 <title>Thermal Bonding Quality Audit</title>
 
 <?php
-$prod_id = base64_decode($_GET['Productid']);
-$type = $_GET['type'];
-$department = $_GET['department'];
-
-if ($type == "" || $prod_id == "") {
-    header("Location: checklist");
-}
+$prod_id = base64_decode($_GET['id']);
 include 'includes/header.php';
-$sql = $user->ViewEditProduct($prod_id);
+
+$sql = $user->ViewEditchecklist3($prod_id);
 while ($row = mysqli_fetch_array($sql)) {
 ?>
     <meta charset="UTF-8">

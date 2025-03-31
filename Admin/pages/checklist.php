@@ -182,7 +182,7 @@
                       <td style="text-align:center;">
                         <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnDuplicate2  btn-warning btn-sm' title='Duplicate Record'><i class="fa fa-clone" style='font-size:15px'></i> </button>
 
-                        <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnView2  btn-primary btn-sm' title='View Record'><i class='fa fa-search-plus' style='font-size:15px'></i> </button>
+                        <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnView3  btn-primary btn-sm' title='View Record'><i class='fa fa-search-plus' style='font-size:15px'></i> </button>
 
                         <?php if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
                           if ($row['status'] == "Pending" || $row['status'] == "") { ?>
@@ -545,6 +545,11 @@
   $(document).on('click', '.btnView2', function() {
     id = $(this).attr("id");
     location.href = "checklistThermalView?id=" + id;
+  });
+
+  $(document).on('click', '.btnView3', function() {
+    id = $(this).attr("id");
+    location.href = "checklistSwabView?id=" + id;
   });
 
   $(document).on('click', '.btnEdit', function() {
