@@ -272,14 +272,14 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm-2"><br>
-                                                <select class="form-control" id="resistanceInpection">
+                                                <select class="form-control" id="manualHeadPulling">
                                                     <option value="Passed">PASSED</option>
                                                     <option value="Failed">FAILED</option>
                                                 </select>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Remarks">
+                                                    <input type="text" id="remarksManualHeadPulling" class="form-control actualDataLoop result" placeholder="Enter Remarks">
                                                 </div>
                                             </div>
                                         </div>
@@ -328,7 +328,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksPullTesting" class="form-control actualDataLoop result" placeholder="Enter (N/A)">
+                                                    <input type="text" id="remarksPullTesting" class="form-control actualDataLoop result" placeholder="Remarks" readonly disabled>
                                                 </div>
                                             </div>
 
@@ -632,6 +632,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
             var remarksPullTesting = $.trim(encodeURI($("#remarksPullTesting").val()));
 
+            var pulltestingMin = $.trim(encodeURI($("#pulltestingMin").val()));
             let SampleInputs = document.querySelectorAll('input[id="pulltestingSample1"], input[id="pulltestingSample2"], input[id="pulltestingSample3"], input[id="pulltestingSample4"], input[id="pulltestingSample5"]');
             let arrSample = [];
             SampleInputs.forEach((textbox) => {
@@ -687,8 +688,8 @@ while ($row = mysqli_fetch_array($sql)) {
             var remarksProduction = $.trim(encodeURI($("#remarksProduction").val()));
             var visualInpection = $.trim(encodeURI($("#visualInpection").val()));
             var remarksVisual = $.trim(encodeURI($("#remarksVisual").val()));
-            var resistanceInpection = $.trim(encodeURI($("#resistanceInpection").val()));
-            var remarksResistance = $.trim(encodeURI($("#remarksResistance").val()));
+            var manualHeadPulling = $.trim(encodeURI($("#manualHeadPulling").val()));
+            var remarksManualHeadPulling = $.trim(encodeURI($("#remarksManualHeadPulling").val()));
 
             var fd = new FormData();
             fd.append('pick', pick);
@@ -733,9 +734,11 @@ while ($row = mysqli_fetch_array($sql)) {
             fd.append('remarksProduction', remarksProduction);
             fd.append('visualInpection', visualInpection);
             fd.append('remarksVisual', remarksVisual);
-            fd.append('resistanceInpection', resistanceInpection);
-            fd.append('remarksResistance', remarksResistance);
+            fd.append('manualHeadPulling', manualHeadPulling);
+            fd.append('remarksManualHeadPulling', remarksManualHeadPulling);
 
+            
+            fd.append('pulltestingMin', pulltestingMin);
             fd.append('arrSample', arrSample);
             fd.append('remarksPullTesting', remarksPullTesting);
 

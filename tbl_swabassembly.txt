@@ -34,8 +34,13 @@ CREATE TABLE `tbl_swabassembly` (
   `remarksProduction` varchar(45) DEFAULT NULL,
   `visualInpection` varchar(45) DEFAULT NULL,
   `remarksVisual` varchar(45) DEFAULT NULL,
-  `resistanceInpection` varchar(45) DEFAULT NULL,
-  `remarksResistance` varchar(45) DEFAULT NULL,
+  
+  `manualHeadPulling` varchar(45) DEFAULT NULL, ##EDIT
+  `remarksManualHeadPulling` varchar(45) DEFAULT NULL, ##EDIT
+  `pulltestingMin` varchar(45) DEFAULT NULL, ##ADD
+  `pulltestingSample` varchar(45) DEFAULT NULL, ##ADD
+  `remarksPullTesting` varchar(45) DEFAULT NULL, ##ADD
+  
   `status` varchar(45) DEFAULT NULL,
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
