@@ -676,6 +676,78 @@ WHERE id = '$checklistId';
 		return $result;
 	}
 
+	public function DuplicateCheckList3($transID)
+	{
+		$result = mysqli_query($this->dbh, "INSERT INTO `headforming`.`tbl_swabassembly` ( 
+    `workorder`, 
+    `date`, 
+    `time`, 
+    `shift`, 
+    `operatorName`, 
+    `teamLead`, 
+    `machineNo`, 
+    `product`, 
+    `type`, 
+    `InspectedBY`, 
+    `maintenancecheced`, 
+    `handle`, 
+    `substrate`, 
+    `handleTreeColor`, 
+    `substrateLotNum`, 
+    `handleTreeMaterialNum`, 
+    `texwipeLogo`, 
+    `remarksInprocess`, 
+    `visualInpection`, 
+    `remarksVisual`, 
+    `manualHeadPulling`, 
+    `remarksManualHeadPulling`, 
+    `pulltestingMin`, 
+    `pulltestingSample`, 
+    `remarksPullTesting`, 
+    `productionStats`, 
+    `remarksProduction`, 
+    `status`
+)
+SELECT 
+    workorder, 
+    date, 
+    time, 
+    shift, 
+    operatorName, 
+    teamLead, 
+    machineNo, 
+    product, 
+    type, 
+    InspectedBY, 
+    maintenancecheced, 
+    handle, 
+    substrate, 
+    handleTreeColor, 
+    substrateLotNum, 
+    handleTreeMaterialNum, 
+    texwipeLogo, 
+    remarksInprocess, 
+    visualInpection, 
+    remarksVisual, 
+    manualHeadPulling, 
+    remarksManualHeadPulling, 
+    pulltestingMin, 
+    pulltestingSample, 
+    remarksPullTesting, 
+    productionStats, 
+    remarksProduction, 
+    status
+FROM 
+    headforming.tbl_swabassembly 
+WHERE 
+    id = '$transID';
+");
+
+
+
+		return $result;
+	}
+
 
 	public function DeleteCheckList($transID)
 	{

@@ -180,7 +180,7 @@
                   while ($row = mysqli_fetch_array($sql)) { ?>
                     <tr>
                       <td style="text-align:center;">
-                        <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnDuplicate2  btn-warning btn-sm' title='Duplicate Record'><i class="fa fa-clone" style='font-size:15px'></i> </button>
+                        <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnDuplicate3  btn-warning btn-sm' title='Duplicate Record'><i class="fa fa-clone" style='font-size:15px'></i> </button>
 
                         <button type='button' id='<?php echo htmlentities(base64_encode($row['id'])); ?>' class='btnView3  btn-primary btn-sm' title='View Record'><i class='fa fa-search-plus' style='font-size:15px'></i> </button>
 
@@ -355,6 +355,31 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary createAccount" id="duplicateBtn2">Yes</button>
+        <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="duplicateList3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          Do you want to create a duplicate copy?
+
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary createAccount" id="duplicateBtn3">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
 
       </div>
@@ -602,8 +627,38 @@
     $("#duplicateList2").modal("show");
   });
 
+  $(document).on('click', '.btnDuplicate3', function() {
+    id = $(this).attr("id");
+    $("#duplicateList3").modal("show");
+  });
+
   $(document).on('click', '#duplicateBtn2', function() {
     var pick = "19";
+    var fd = new FormData();
+    fd.append('pick', pick);
+    fd.append('id', id);
+    $.ajax({
+      url: "../pages/codes/admin_control.php",
+      data: fd,
+      processData: false,
+      contentType: false,
+      type: 'POST',
+      success: function(result) {
+        if ($.trim(result) != 0) {
+          $.notify("Checklist Successfully Duplicated ", "success");
+          setTimeout(function() {
+            window.location.href = "checklist";
+          }, 2000);
+        } else {
+          $.notify("Problem Encounter! please contact your administrator", "error");
+          $("#dataSubmitDelete").attr("disabled", false);
+        }
+      }
+    });
+  });
+
+  $(document).on('click', '#duplicateBtn3', function() {
+    var pick = "23";
     var fd = new FormData();
     fd.append('pick', pick);
     fd.append('id', id);
