@@ -688,6 +688,11 @@ WHERE id = '$checklistId';
 		$result = mysqli_query($this->dbh, "UPDATE headforming.tbl_thermalbonding SET status = '0' WHERE id = '$transID'");
 		return $result;
 	}
+	public function DeleteCheckList3($transID)
+	{
+		$result = mysqli_query($this->dbh, "UPDATE headforming.tbl_swabassembly SET status = '0' WHERE id = '$transID'");
+		return $result;
+	}
 
 	public function createThermal($status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $resistanceInpection, $remarksResistance)
 	{

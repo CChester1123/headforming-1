@@ -639,3 +639,10 @@ else if ($pick == 22 || $pick == "22" || $pick == '22') {
 
 	echo $sql = $insertdata->updateSwab($prod_id, $status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $manualHeadPulling, $remarksManualHeadPulling, $pulltestingMin, $arrSample, $remarksPullTesting);
 }
+else if ($pick == 24 || $pick == "24" || $pick == '24') {
+
+	$id  = htmlentities(htmlspecialchars(urldecode($_POST['id'])));
+	$transID = base64_decode($id);
+
+	echo $sql = $insertdata->DeleteCheckList3($transID);
+}
