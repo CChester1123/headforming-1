@@ -578,3 +578,64 @@ else if ($pick == 21 || $pick == "21" || $pick == '21') {
 
 	echo $sql = $insertdata->createSwab($status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $manualHeadPulling, $remarksManualHeadPulling, $pulltestingMin, $arrSample, $remarksPullTesting);
 }
+else if ($pick == 22 || $pick == "22" || $pick == '22') {
+
+	$prod_id  = htmlentities(htmlspecialchars(urldecode($_POST['prod_id'])));
+	$status  = htmlentities(htmlspecialchars(urldecode($_POST['status'])));
+
+	$workorder  = htmlentities(htmlspecialchars(urldecode($_POST['workorder'])));
+	$date  = htmlentities(htmlspecialchars(urldecode($_POST['date'])));
+	$time  = htmlentities(htmlspecialchars(urldecode($_POST['time'])));
+	$shift  = htmlentities(htmlspecialchars(urldecode($_POST['shift'])));
+	$operatorName  = htmlentities(htmlspecialchars(urldecode($_POST['operatorName'])));
+	$teamLead  = htmlentities(htmlspecialchars(urldecode($_POST['teamLead'])));
+	$machineNo  = htmlentities(htmlspecialchars(urldecode($_POST['machineNo'])));
+	$product  = htmlentities(htmlspecialchars(urldecode($_POST['product'])));
+	$type  = htmlentities(htmlspecialchars(urldecode($_POST['type'])));
+	$InspectedBY  = htmlentities(htmlspecialchars(urldecode($_POST['InspectedBY'])));
+	$maintenancecheced  = htmlentities(htmlspecialchars(urldecode($_POST['maintenancecheced'])));
+	$handle  = htmlentities(htmlspecialchars(urldecode($_POST['handle'])));
+	$substrate  = htmlentities(htmlspecialchars(urldecode($_POST['substrate'])));
+	$handleTreeColor  = htmlentities(htmlspecialchars(urldecode($_POST['handleTreeColor'])));
+	$substrateLotNum  = htmlentities(htmlspecialchars(urldecode($_POST['substrateLotNum'])));
+	$handleTreeMaterialNum  = htmlentities(htmlspecialchars(urldecode($_POST['handleTreeMaterialNum'])));
+	$texwipeLogo  = htmlentities(htmlspecialchars(urldecode($_POST['texwipeLogo'])));
+	$remarksInprocess  = htmlentities(htmlspecialchars(urldecode($_POST['remarksInprocess'])));
+
+
+	$arrTemp  = htmlentities(htmlspecialchars(urldecode($_POST['arrTemp'])));
+	$actTempUpnLow  = htmlentities(htmlspecialchars(urldecode($_POST['actTempUpnLow'])));
+	$TempUpnLow  = htmlentities(htmlspecialchars(urldecode($_POST['TempUpnLow'])));
+
+	$arrHeat  = htmlentities(htmlspecialchars(urldecode($_POST['arrHeat'])));
+	$actHeatingTime  = htmlentities(htmlspecialchars(urldecode($_POST['actHeatingTime'])));
+	$HeatingTime  = htmlentities(htmlspecialchars(urldecode($_POST['HeatingTime'])));
+
+	$arrSwab  = htmlentities(htmlspecialchars(urldecode($_POST['arrSwab'])));
+	$actSwabHandleFixture  = htmlentities(htmlspecialchars(urldecode($_POST['actSwabHandleFixture'])));
+	$SwabHandleFixture  = htmlentities(htmlspecialchars(urldecode($_POST['SwabHandleFixture'])));
+
+	$arrFixture  = htmlentities(htmlspecialchars(urldecode($_POST['arrFixture'])));
+	$actFixtureClosingTime  = htmlentities(htmlspecialchars(urldecode($_POST['actFixtureClosingTime'])));
+	$FixtureClosingTime  = htmlentities(htmlspecialchars(urldecode($_POST['FixtureClosingTime'])));
+
+
+	$productionStats  = htmlentities(htmlspecialchars(urldecode($_POST['productionStats'])));
+	$remarksProduction  = htmlentities(htmlspecialchars(urldecode($_POST['remarksProduction'])));
+	$visualInpection  = htmlentities(htmlspecialchars(urldecode($_POST['visualInpection'])));
+	$remarksVisual  = htmlentities(htmlspecialchars(urldecode($_POST['remarksVisual'])));
+	$manualHeadPulling  = htmlentities(htmlspecialchars(urldecode($_POST['manualHeadPulling'])));
+	$remarksManualHeadPulling  = htmlentities(htmlspecialchars(urldecode($_POST['remarksManualHeadPulling'])));
+
+	$arrSample  = htmlentities(htmlspecialchars(urldecode($_POST['arrSample'])));
+	$remarksPullTesting  = htmlentities(htmlspecialchars(urldecode($_POST['remarksPullTesting'])));
+
+	$pulltestingMin  = htmlentities(htmlspecialchars(urldecode($_POST['pulltestingMin'])));
+
+	
+	
+	
+
+
+	echo $sql = $insertdata->updateSwab($prod_id, $status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $manualHeadPulling, $remarksManualHeadPulling, $pulltestingMin, $arrSample, $remarksPullTesting);
+}

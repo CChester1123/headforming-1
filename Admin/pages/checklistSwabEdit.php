@@ -26,6 +26,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                         <div class="col-sm">
                                             <label>Work Order</label>
                                             <input type="text" class="form-control" id="workorder" placeholder="Enter Work Order" value="<?php echo $row['workorder']; ?>">
+                                            <input type="text" class="form-control" id="prod_id" value="<?php echo $prod_id ?>" hidden readonly disabled>
                                         </div>
 
                                         <div class="col-sm-3">
@@ -651,9 +652,10 @@ while ($row = mysqli_fetch_array($sql)) {
         $(document).on('click', '#dataSubmitDelete', function() {
             $("#dataSubmitDelete").attr("disabled", true);
 
-            var pick = "21";
+            var pick = "22";
             var status = "Pending";
 
+            var prod_id = $.trim(encodeURI($("#prod_id").val()));
             var workorder = $.trim(encodeURI($("#workorder").val()));
             var date = $.trim(encodeURI($("#date").val()));
             var time = $.trim(encodeURI($("#time").val()));
@@ -738,6 +740,7 @@ while ($row = mysqli_fetch_array($sql)) {
             var remarksManualHeadPulling = $.trim(encodeURI($("#remarksManualHeadPulling").val()));
 
             var fd = new FormData();
+            fd.append('prod_id', prod_id);
             fd.append('pick', pick);
             fd.append('status', status);
 
@@ -809,9 +812,9 @@ while ($row = mysqli_fetch_array($sql)) {
                     // alert(result);
                     if ($.trim(result) != 0) {
                         $.notify("Account Created Successfully ", "success");
-                        // setTimeout(function() {
-                        //     window.location.href = "checklist";
-                        // }, 2000);
+                        setTimeout(function() {
+                            window.location.href = "checklist";
+                        }, 2000);
                     } else {
                         $.notify("Problem Encounter! please contact your administrator", "error");
                         $("#dataSubmitDelete").attr("disabled", false);

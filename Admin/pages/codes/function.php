@@ -702,4 +702,43 @@ WHERE id = '$checklistId';
 
 		return $result;
 	}
+
+	public function updateSwab($prod_id, $status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $manualHeadPulling, $remarksManualHeadPulling, $pulltestingMin, $arrSample, $remarksPullTesting)
+	{
+		$result = mysqli_query($this->dbh, "UPDATE `headforming`.`tbl_swabassembly`
+SET
+    `workorder` = '$workorder',
+	`date` = '$date',
+    `time` = '$time',
+    `shift` = '$shift',
+    `operatorName` = '$operatorName',
+    `teamLead` = '$teamLead',
+    `machineNo` = '$machineNo',
+    `product` = '$product',
+    `type` = '$type',
+    `InspectedBY` = '$InspectedBY',
+    `maintenancecheced` = '$maintenancecheced',
+    `handle` = '$handle',
+    `substrate` = '$substrate',
+    `handleTreeColor` = '$handleTreeColor',
+    `substrateLotNum` = '$substrateLotNum',
+    `handleTreeMaterialNum` = '$handleTreeMaterialNum',
+    `texwipeLogo` = '$texwipeLogo',
+    `remarksInprocess` = '$remarksInprocess',
+    `visualInpection` = '$visualInpection',
+    `remarksVisual` = '$remarksVisual',
+    `manualHeadPulling` = '$manualHeadPulling',
+    `remarksManualHeadPulling` = '$remarksManualHeadPulling',
+    `pulltestingMin` = '$pulltestingMin',
+    `pulltestingSample` = '$arrSample',
+    `remarksPullTesting` = '$remarksPullTesting',
+    `productionStats` = '$productionStats',
+    `remarksProduction` = '$remarksProduction',
+    `status` = '$status'
+WHERE `id` = '$prod_id';  -- Modify this WHERE clause based on how you identify the record(s) to update
+
+");
+
+		return $result;
+	}
 }
