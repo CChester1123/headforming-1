@@ -34,10 +34,19 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <input type="text" class="form-control" id="date" placeholder="Current Date" value="<?php echo $row['date'] ? $row['date'] : date('F j, Y'); ?>" readonly disabled>
                                         </div>
 
-                                        <div class="col-sm-3">
+                                        <?php
+                                        if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
+                                            echo '<div class="col-sm-3">
+                                                  <label>Time</label>
+                                                  <input type="datetime-local" class="form-control" id="time" value="' . date('Y-m-d\TH:i') . '">
+                                                  </div>';
+                                        }
+                                        ?>
+
+                                        <!-- <div class="col-sm-3">
                                             <label for="time">Time</label>
                                             <input type="datetime-local" class="form-control" id="time" value="<?php echo $row['time'] ? $row['time'] : date('Y-m-d\TH:i'); ?>">
-                                        </div>
+                                        </div> -->
 
                                         <div class="col-sm">
                                             <label>Shift</label>
