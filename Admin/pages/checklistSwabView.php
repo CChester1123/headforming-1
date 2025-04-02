@@ -255,8 +255,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm-2">
-                                                        <select class="form-control" id="visualInpection" readonly disabled 
-                style="background-color: <?php echo ($row['visualInpection'] == 'Failed') ? 'red' : 'green'; ?>; color: white;">
+                                                        <select class="form-control" id="visualInpection" readonly disabled >
                 <option value="Passed" <?php echo ($row['visualInpection'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
                 <option value="Failed" <?php echo ($row['visualInpection'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
             </select>
@@ -276,8 +275,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm-2"><br>
-    <select class="form-control" id="manualHeadPulling" readonly disabled 
-        style="background-color: <?php echo ($row['manualHeadPulling'] == 'Failed') ? 'red' : 'green'; ?>; color: white;">
+    <select class="form-control" id="manualHeadPulling" readonly disabled>
         <option value="Passed" <?php echo ($row['manualHeadPulling'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
         <option value="Failed" <?php echo ($row['manualHeadPulling'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
     </select>

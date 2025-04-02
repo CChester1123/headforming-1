@@ -341,7 +341,9 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksPullTesting" class="form-control actualDataLoop result" placeholder="Remarks" value="<?php echo $row['remarksPullTesting']; ?>">
+                                                    <input
+                                                     style="background-color: <?php echo ($row['remarksPullTesting'] == 'FAILED') ? 'red' : 'green'; ?>; color: white;"
+                                                    type="text" id="remarksPullTesting" class="form-control actualDataLoop result" placeholder="Remarks" value="<?php echo $row['remarksPullTesting']; ?>">
                                                 </div>
                                             </div>
 
@@ -428,46 +430,6 @@ while ($row = mysqli_fetch_array($sql)) {
     <?php include 'includes/footer.php';
     include  'includes/validation.php';
     ?>
-    <script>
-    function updateManualHeadPulling() {
-        var select = document.getElementById("manualHeadPulling");
-
-        if (select.value === "Failed") {
-            select.style.backgroundColor = "red";
-            select.style.color = "white";
-            input.style.backgroundColor = "red";
-            input.style.color = "white";
-        } else {
-            select.style.backgroundColor = "green";
-            select.style.color = "white";
-            input.style.backgroundColor = "green";
-            input.style.color = "white";
-        }
-    }
-
-    // Call the function on page load to apply initial styles
-    document.addEventListener("DOMContentLoaded", updateManualHeadPulling);
-</script>
-    <script>
-    function updateBackground() {
-        var select = document.getElementById("visualInpection");
-
-        if (select.value === "Failed") {
-            select.style.backgroundColor = "red";
-            select.style.color = "white";
-            input.style.backgroundColor = "red";
-            input.style.color = "white";
-        } else {
-            select.style.backgroundColor = "green";
-            select.style.color = "white";
-            input.style.backgroundColor = "green";
-            input.style.color = "white";
-        }
-    }
-
-    // Call the function on page load to apply initial styles
-    document.addEventListener("DOMContentLoaded", updateBackground);
-</script>
     <script>
         // function checkPullTestingRange(inputIds, minId, resultId) {
         //     // Iterate through the input IDs (Sample inputs)
