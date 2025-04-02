@@ -14,6 +14,20 @@ while ($row = mysqli_fetch_array($sql)) {
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
+
+                    <div class="col-sm-12">
+                        <ol class="float-sm-right">
+                            <?php
+                            if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
+                                if ($row['status'] == "Approved") { ?>
+                                    <a type="button" class="btn btn-danger mr-1 fas far fa-arrow-alt-circle-left btnReject" title="Reject Record">Reject</a>
+                                <?php } else { ?>
+                                    <a type="button" class="btn btn-primary mr-1 fas fa-check-circle btnApprove" title="Approve Record">Approve</a>
+                            <?php }
+                            } ?>
+                        </ol>
+                    </div>
+
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header" style="background-color:rgb(27, 102, 201); color: white;">
@@ -26,6 +40,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                         <div class="col-sm">
                                             <label>Work Order</label>
                                             <input type="text" class="form-control" id="workorder" placeholder="Enter Work Order" value="<?php echo $row['workorder']; ?>" readonly disabled>
+                                            <input type="text" class="form-control" id="prod_id" value="<?php echo $prod_id ?>" hidden readonly disabled>
                                         </div>
 
                                         <div class="col-sm-3">
@@ -488,6 +503,46 @@ while ($row = mysqli_fetch_array($sql)) {
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="approvedModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #111E6C; color: white;">
+                    <button type="button" class="close" data-dismiss="modal" style="color:white;">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    Do you to submit this checklist ?
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="dataApproved">Yes</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="rejectedModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #111E6C; color: white;">
+                    <button type="button" class="close" data-dismiss="modal" style="color:white;">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    Do you to submit this checklist ?
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="dataRejected">Yes</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
     </div>
     <?php include 'includes/footer.php';
     include  'includes/validation.php';
@@ -646,6 +701,323 @@ while ($row = mysqli_fetch_array($sql)) {
         $(document).on('click', '.btnSave', function() {
 
             $("#deleteModal").modal("show");
+        });
+
+
+        $(document).on('click', '.btnReject', function() {
+
+            $("#rejectedModal").modal("show");
+        });
+
+        $(document).on('click', '#dataRejected', function() {
+            $("#dataRejected").attr("disabled", true);
+
+            var pick = "25";
+            var status = "Pending";
+            var prod_id = $.trim(encodeURI($("#prod_id").val()));
+
+            var workorder = $.trim(encodeURI($("#workorder").val()));
+            var date = $.trim(encodeURI($("#date").val()));
+            var time = $.trim(encodeURI($("#time").val()));
+            var shift = $.trim(encodeURI($("#shift").val()));
+            var operatorName = $.trim(encodeURI($("#operatorName").val()));
+
+            var teamLead = $.trim(encodeURI($("#teamLead").val()));
+            var machineNo = $.trim(encodeURI($("#machineNo").val()));
+            var product = $.trim(encodeURI($("#product").val()));
+            var type = $.trim(encodeURI($("#type").val()));
+            var InspectedBY = $.trim(encodeURI($("#InspectedBY").val()));
+
+            var maintenancecheced = $.trim(encodeURI($("#maintenancecheced").val()));
+            var handle = $.trim(encodeURI($("#handle").val()));
+            var substrate = $.trim(encodeURI($("#substrate").val()));
+            var handleTreeColor = $.trim(encodeURI($("#handleTreeColor").val()));
+            var substrateLotNum = $.trim(encodeURI($("#substrateLotNum").val()));
+
+            var handleTreeMaterialNum = $.trim(encodeURI($("#handleTreeMaterialNum").val()));
+            var texwipeLogo = $.trim(encodeURI($("#texwipeLogo").val()));
+            var remarksInprocess = $.trim(encodeURI($("#remarksInprocess").val()));
+
+            let TempInputs = document.querySelectorAll('input[id="TempMin"], input[id="TempMax"]');
+            let arrTemp = [];
+            TempInputs.forEach((textbox) => {
+                arrTemp.push(textbox.value);
+            });
+            var TempMin = $.trim(encodeURI($("#TempMin").val()));
+            var TempMax = $.trim(encodeURI($("#TempMax").val()));
+            var actTempUpnLow = $.trim(encodeURI($("#actTempUpnLow").val()));
+            var TempUpnLow = $.trim(encodeURI($("#TempUpnLow").val()));
+
+            let HeatInputs = document.querySelectorAll('input[id="HeatMin"], input[id="HeatMax"]');
+            let arrHeat = [];
+            HeatInputs.forEach((textbox) => {
+                arrTemp.push(textbox.value);
+            });
+            var HeatMin = $.trim(encodeURI($("#HeatMin").val()));
+            var HeatMax = $.trim(encodeURI($("#HeatMax").val()));
+            var actHeatingTime = $.trim(encodeURI($("#actHeatingTime").val()));
+            var HeatingTime = $.trim(encodeURI($("#HeatingTime").val()));
+
+
+            let SwabInputs = document.querySelectorAll('input[id="SwabMin"], input[id="SwabMax"]');
+            let arrSwab = [];
+            SwabInputs.forEach((textbox) => {
+                arrTemp.push(textbox.value);
+            });
+            var SwabMin = $.trim(encodeURI($("#SwabMin").val()));
+            var SwabMax = $.trim(encodeURI($("#SwabMax").val()));
+            var actSwabHandleFixture = $.trim(encodeURI($("#actSwabHandleFixture").val()));
+            var SwabHandleFixture = $.trim(encodeURI($("#SwabHandleFixture").val()));
+
+
+            let FixtureInputs = document.querySelectorAll('input[id="FixtureMin"], input[id="FixtureMax"]');
+            let arrFixture = [];
+            FixtureInputs.forEach((textbox) => {
+                arrTemp.push(textbox.value);
+            });
+            var FixtureMin = $.trim(encodeURI($("#FixtureMin").val()));
+            var FixtureMax = $.trim(encodeURI($("#FixtureMax").val()));
+            var actFixtureClosingTime = $.trim(encodeURI($("#actFixtureClosingTime").val()));
+            var FixtureClosingTime = $.trim(encodeURI($("#FixtureClosingTime").val()));
+
+            var productionStats = $.trim(encodeURI($("#productionStats").val()));
+            var remarksProduction = $.trim(encodeURI($("#remarksProduction").val()));
+            var visualInpection = $.trim(encodeURI($("#visualInpection").val()));
+            var remarksVisual = $.trim(encodeURI($("#remarksVisual").val()));
+            var resistanceInpection = $.trim(encodeURI($("#resistanceInpection").val()));
+            var remarksResistance = $.trim(encodeURI($("#remarksResistance").val()));
+
+            var fd = new FormData();
+            fd.append('pick', pick);
+            fd.append('status', status);
+            fd.append('prod_id', prod_id);
+
+            fd.append('workorder', workorder);
+            fd.append('date', date);
+            fd.append('time', time);
+            fd.append('shift', shift);
+            fd.append('operatorName', operatorName);
+            fd.append('teamLead', teamLead);
+            fd.append('machineNo', machineNo);
+            fd.append('product', product);
+            fd.append('type', type);
+            fd.append('InspectedBY', InspectedBY);
+            fd.append('maintenancecheced', maintenancecheced);
+            fd.append('handle', handle);
+            fd.append('substrate', substrate);
+            fd.append('handleTreeColor', handleTreeColor);
+            fd.append('substrateLotNum', substrateLotNum);
+            fd.append('handleTreeMaterialNum', handleTreeMaterialNum);
+            fd.append('texwipeLogo', texwipeLogo);
+            fd.append('remarksInprocess', remarksInprocess);
+
+
+            fd.append('arrTemp', arrTemp);
+            fd.append('actTempUpnLow', actTempUpnLow);
+            fd.append('TempUpnLow', TempUpnLow);
+
+            fd.append('arrHeat', arrHeat);
+            fd.append('actHeatingTime', actHeatingTime);
+            fd.append('HeatingTime', HeatingTime);
+
+            fd.append('arrSwab', arrSwab);
+            fd.append('actSwabHandleFixture', actSwabHandleFixture);
+            fd.append('SwabHandleFixture', SwabHandleFixture);
+
+            fd.append('arrFixture', arrFixture);
+            fd.append('actFixtureClosingTime', actFixtureClosingTime);
+            fd.append('FixtureClosingTime', FixtureClosingTime);
+
+
+            fd.append('productionStats', productionStats);
+            fd.append('remarksProduction', remarksProduction);
+            fd.append('visualInpection', visualInpection);
+            fd.append('remarksVisual', remarksVisual);
+            fd.append('resistanceInpection', resistanceInpection);
+            fd.append('remarksResistance', remarksResistance);
+
+            for (let pair of fd.entries()) {
+                console.log(pair[0] + ": " + pair[1]);
+            }
+
+            $.ajax({
+                url: "../pages/codes/admin_control.php",
+                data: fd,
+                processData: false,
+                contentType: false,
+                type: 'POST',
+                success: function(result) {
+
+                    // alert(result);
+                    if ($.trim(result) != 0) {
+                        $.notify("Account Created Successfully ", "success");
+                        setTimeout(function() {
+                            window.location.href = "checklist";
+                        }, 2000);
+                    } else {
+                        $.notify("Problem Encounter! please contact your administrator", "error");
+                        $("#dataSubmitDelete").attr("disabled", false);
+                    }
+                }
+            });
+        });
+
+        $(document).on('click', '.btnApprove', function() {
+
+            $("#approvedModal").modal("show");
+        });
+
+        $(document).on('click', '#dataApproved', function() {
+            $("#dataApproved").attr("disabled", true);
+
+            var pick = "25";
+            var status = "Approved";
+            var prod_id = $.trim(encodeURI($("#prod_id").val()));
+
+            var workorder = $.trim(encodeURI($("#workorder").val()));
+            var date = $.trim(encodeURI($("#date").val()));
+            var time = $.trim(encodeURI($("#time").val()));
+            var shift = $.trim(encodeURI($("#shift").val()));
+            var operatorName = $.trim(encodeURI($("#operatorName").val()));
+
+            var teamLead = $.trim(encodeURI($("#teamLead").val()));
+            var machineNo = $.trim(encodeURI($("#machineNo").val()));
+            var product = $.trim(encodeURI($("#product").val()));
+            var type = $.trim(encodeURI($("#type").val()));
+            var InspectedBY = $.trim(encodeURI($("#InspectedBY").val()));
+
+            var maintenancecheced = $.trim(encodeURI($("#maintenancecheced").val()));
+            var handle = $.trim(encodeURI($("#handle").val()));
+            var substrate = $.trim(encodeURI($("#substrate").val()));
+            var handleTreeColor = $.trim(encodeURI($("#handleTreeColor").val()));
+            var substrateLotNum = $.trim(encodeURI($("#substrateLotNum").val()));
+
+            var handleTreeMaterialNum = $.trim(encodeURI($("#handleTreeMaterialNum").val()));
+            var texwipeLogo = $.trim(encodeURI($("#texwipeLogo").val()));
+            var remarksInprocess = $.trim(encodeURI($("#remarksInprocess").val()));
+
+            let TempInputs = document.querySelectorAll('input[id="TempMin"], input[id="TempMax"]');
+            let arrTemp = [];
+            TempInputs.forEach((textbox) => {
+                arrTemp.push(textbox.value);
+            });
+            var TempMin = $.trim(encodeURI($("#TempMin").val()));
+            var TempMax = $.trim(encodeURI($("#TempMax").val()));
+            var actTempUpnLow = $.trim(encodeURI($("#actTempUpnLow").val()));
+            var TempUpnLow = $.trim(encodeURI($("#TempUpnLow").val()));
+
+            let HeatInputs = document.querySelectorAll('input[id="HeatMin"], input[id="HeatMax"]');
+            let arrHeat = [];
+            HeatInputs.forEach((textbox) => {
+                arrTemp.push(textbox.value);
+            });
+            var HeatMin = $.trim(encodeURI($("#HeatMin").val()));
+            var HeatMax = $.trim(encodeURI($("#HeatMax").val()));
+            var actHeatingTime = $.trim(encodeURI($("#actHeatingTime").val()));
+            var HeatingTime = $.trim(encodeURI($("#HeatingTime").val()));
+
+
+            let SwabInputs = document.querySelectorAll('input[id="SwabMin"], input[id="SwabMax"]');
+            let arrSwab = [];
+            SwabInputs.forEach((textbox) => {
+                arrTemp.push(textbox.value);
+            });
+            var SwabMin = $.trim(encodeURI($("#SwabMin").val()));
+            var SwabMax = $.trim(encodeURI($("#SwabMax").val()));
+            var actSwabHandleFixture = $.trim(encodeURI($("#actSwabHandleFixture").val()));
+            var SwabHandleFixture = $.trim(encodeURI($("#SwabHandleFixture").val()));
+
+
+            let FixtureInputs = document.querySelectorAll('input[id="FixtureMin"], input[id="FixtureMax"]');
+            let arrFixture = [];
+            FixtureInputs.forEach((textbox) => {
+                arrTemp.push(textbox.value);
+            });
+            var FixtureMin = $.trim(encodeURI($("#FixtureMin").val()));
+            var FixtureMax = $.trim(encodeURI($("#FixtureMax").val()));
+            var actFixtureClosingTime = $.trim(encodeURI($("#actFixtureClosingTime").val()));
+            var FixtureClosingTime = $.trim(encodeURI($("#FixtureClosingTime").val()));
+
+            var productionStats = $.trim(encodeURI($("#productionStats").val()));
+            var remarksProduction = $.trim(encodeURI($("#remarksProduction").val()));
+            var visualInpection = $.trim(encodeURI($("#visualInpection").val()));
+            var remarksVisual = $.trim(encodeURI($("#remarksVisual").val()));
+            var resistanceInpection = $.trim(encodeURI($("#resistanceInpection").val()));
+            var remarksResistance = $.trim(encodeURI($("#remarksResistance").val()));
+
+            var fd = new FormData();
+            fd.append('pick', pick);
+            fd.append('status', status);
+            fd.append('prod_id', prod_id);
+
+            fd.append('workorder', workorder);
+            fd.append('date', date);
+            fd.append('time', time);
+            fd.append('shift', shift);
+            fd.append('operatorName', operatorName);
+            fd.append('teamLead', teamLead);
+            fd.append('machineNo', machineNo);
+            fd.append('product', product);
+            fd.append('type', type);
+            fd.append('InspectedBY', InspectedBY);
+            fd.append('maintenancecheced', maintenancecheced);
+            fd.append('handle', handle);
+            fd.append('substrate', substrate);
+            fd.append('handleTreeColor', handleTreeColor);
+            fd.append('substrateLotNum', substrateLotNum);
+            fd.append('handleTreeMaterialNum', handleTreeMaterialNum);
+            fd.append('texwipeLogo', texwipeLogo);
+            fd.append('remarksInprocess', remarksInprocess);
+
+
+            fd.append('arrTemp', arrTemp);
+            fd.append('actTempUpnLow', actTempUpnLow);
+            fd.append('TempUpnLow', TempUpnLow);
+
+            fd.append('arrHeat', arrHeat);
+            fd.append('actHeatingTime', actHeatingTime);
+            fd.append('HeatingTime', HeatingTime);
+
+            fd.append('arrSwab', arrSwab);
+            fd.append('actSwabHandleFixture', actSwabHandleFixture);
+            fd.append('SwabHandleFixture', SwabHandleFixture);
+
+            fd.append('arrFixture', arrFixture);
+            fd.append('actFixtureClosingTime', actFixtureClosingTime);
+            fd.append('FixtureClosingTime', FixtureClosingTime);
+
+
+            fd.append('productionStats', productionStats);
+            fd.append('remarksProduction', remarksProduction);
+            fd.append('visualInpection', visualInpection);
+            fd.append('remarksVisual', remarksVisual);
+            fd.append('resistanceInpection', resistanceInpection);
+            fd.append('remarksResistance', remarksResistance);
+
+            for (let pair of fd.entries()) {
+                console.log(pair[0] + ": " + pair[1]);
+            }
+
+            $.ajax({
+                url: "../pages/codes/admin_control.php",
+                data: fd,
+                processData: false,
+                contentType: false,
+                type: 'POST',
+                success: function(result) {
+
+                    // alert(result);
+                    if ($.trim(result) != 0) {
+                        $.notify("Account Created Successfully ", "success");
+                        setTimeout(function() {
+                            window.location.href = "checklist";
+                        }, 2000);
+                    } else {
+                        $.notify("Problem Encounter! please contact your administrator", "error");
+                        $("#dataSubmitDelete").attr("disabled", false);
+                    }
+                }
+            });
         });
 
         $(document).on('click', '#dataSubmitDelete', function() {
