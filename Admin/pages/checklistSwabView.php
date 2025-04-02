@@ -331,8 +331,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksPullTesting" class="form-control actualDataLoop result" placeholder="Remarks" value="<?php echo $row['remarksPullTesting']; ?>" readonly disabled>
-                                                </div>
+                                        <input type="text" id="remarksPullTesting" class="form-control actualDataLoop result" placeholder="Remarks"
+                                            value="<?php echo $row['remarksPullTesting']; ?>" 
+                                            readonly disabled 
+                                            style="background-color: <?php echo ($row['remarksPullTesting'] == 'FAILED') ? 'red' : 'green'; ?>; color: white;">
+                                    </div>
                                             </div>
 
                                         </div>
