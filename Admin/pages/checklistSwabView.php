@@ -255,10 +255,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm-2">
-                                                <select class="form-control" id="visualInpection" readonly disabled>
-                                                    <option value="Passed" <?php echo ($row['visualInpection'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
-                                                    <option value="Failed" <?php echo ($row['visualInpection'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
-                                                </select>
+                                                        <select class="form-control" id="visualInpection" readonly disabled 
+                style="background-color: <?php echo ($row['visualInpection'] == 'Failed') ? 'red' : 'green'; ?>; color: white;">
+                <option value="Passed" <?php echo ($row['visualInpection'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
+                <option value="Failed" <?php echo ($row['visualInpection'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
+            </select>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm">
@@ -275,11 +276,12 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm-2"><br>
-                                                <select class="form-control" id="manualHeadPulling" readonly disabled>
-                                                    <option value="Passed" <?php echo ($row['manualHeadPulling'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
-                                                    <option value="Failed" <?php echo ($row['manualHeadPulling'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
-                                                </select>
-                                            </div>
+    <select class="form-control" id="manualHeadPulling" readonly disabled 
+        style="background-color: <?php echo ($row['manualHeadPulling'] == 'Failed') ? 'red' : 'green'; ?>; color: white;">
+        <option value="Passed" <?php echo ($row['manualHeadPulling'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
+        <option value="Failed" <?php echo ($row['manualHeadPulling'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
+    </select>
+</div>
                                             <div class="row">
                                                 <div class="col-sm"><br>
                                                     <input type="text" id="remarksManualHeadPulling" class="form-control actualDataLoop result" placeholder="Enter Remarks" value="<?php echo $row['remarksManualHeadPulling']; ?>" readonly disabled>
@@ -331,8 +333,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksPullTesting" class="form-control actualDataLoop result" placeholder="Remarks" value="<?php echo $row['remarksPullTesting']; ?>" readonly disabled>
-                                                </div>
+                                        <input type="text" id="remarksPullTesting" class="form-control actualDataLoop result" placeholder="Remarks"
+                                            value="<?php echo $row['remarksPullTesting']; ?>" 
+                                            readonly disabled 
+                                            style="background-color: <?php echo ($row['remarksPullTesting'] == 'FAILED') ? 'red' : 'green'; ?>; color: white;">
+                                    </div>
                                             </div>
 
                                         </div>
