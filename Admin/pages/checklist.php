@@ -149,7 +149,7 @@
             </div>
           </div>
           <ol class="float-sm-right">
-            <a type="button" class="btn btn-info fa fa-plus-square excelBtn"> Excel Report</a>
+            <a type="button" class="btn btn-info fa fa-plus-square excelBtn"> Thermal Report</a>
           </ol>
         </div>
 
@@ -205,7 +205,7 @@
             </div>
           </div>
           <ol class="float-sm-right">
-            <a type="button" class="btn btn-info fa fa-plus-square excelSwabBtn"> Excel Report</a>
+            <a type="button" class="btn btn-info fa fa-plus-square excelSwabBtn"> Swab Report</a>
           </ol>
         </div>
       </div>
