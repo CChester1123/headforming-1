@@ -275,7 +275,10 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                             <div class="col-sm">
                                                 <label>Remarks</label>
-                                                <input type="text" class="form-control" id="TempUpnLow" placeholder="" disabled value="<?php echo $row['TempUpnLow']; ?>" readonly disabled>
+                                                <input type="text" class="form-control" id="TempUpnLow" placeholder=""
+                                                    disabled value="<?php echo $row['TempUpnLow']; ?>" readonly
+                                                    style="background-color: <?php echo ($row['TempUpnLow'] == 'FAILED') ? 'red' : 'green'; ?>; color: white;">
+
                                             </div>
                                         </div>
 
@@ -303,8 +306,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="HeatingTime" placeholder="" disabled value="<?php echo $row['HeatingTime']; ?>" readonly disabled>
+                                                <input type="text" class="form-control" id="HeatingTime" placeholder=""
+                                                    disabled value="<?php echo $row['HeatingTime']; ?>" readonly
+                                                    style="background-color: <?php echo ($row['HeatingTime'] == 'FAILED') ? 'red' : 'green'; ?>; color: white;">
                                             </div>
+
                                         </div>
 
                                         <div class="row">
@@ -331,8 +337,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="SwabHandleFixture" placeholder="" disabled value="<?php echo $row['SwabHandleFixture']; ?>" readonly disabled>
+                                                <input type="text" class="form-control" id="SwabHandleFixture" placeholder=""
+                                                    disabled value="<?php echo $row['SwabHandleFixture']; ?>" readonly
+                                                    style="background-color: <?php echo ($row['SwabHandleFixture'] == 'FAILED') ? 'red' : 'green'; ?>; color: white;">
                                             </div>
+
                                         </div>
 
                                         <div class="row">
@@ -359,8 +368,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm"><br>
-                                                <input type="text" class="form-control" id="FixtureClosingTime" placeholder="" disabled value="<?php echo $row['FixtureClosingTime']; ?>" readonly disabled>
+                                                <input type="text" class="form-control" id="FixtureClosingTime" placeholder=""
+                                                    disabled value="<?php echo $row['FixtureClosingTime']; ?>" readonly
+                                                    style="background-color: <?php echo ($row['FixtureClosingTime'] == 'FAILED') ? 'red' : 'green'; ?>; color: white;">
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -387,11 +399,13 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm-2">
-                                                <select class="form-control" id="visualInpection" readonly disabled>
+                                                <select class="form-control" id="visualInpection" readonly disabled
+                                                    style="background-color: <?php echo ($row['visualInpection'] == 'Failed') ? 'red' : 'green'; ?>; color: white;">
                                                     <option value="Passed" <?php echo ($row['visualInpection'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
                                                     <option value="Failed" <?php echo ($row['visualInpection'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
                                                 </select>
                                             </div>
+
 
                                             <div class="row">
                                                 <div class="col-sm">
@@ -406,11 +420,13 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
 
                                             <div class="col-sm-2"><br>
-                                                <select class="form-control" id="resistanceInpection" readonly disabled>
-                                                    <option value="Passed" <?php echo ($row['resistanceInpection'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
-                                                    <option value="Failed" <?php echo ($row['resistanceInpection'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
-                                                </select>
-                                            </div>
+    <select class="form-control" id="resistanceInpection" readonly disabled 
+        style="background-color: <?php echo ($row['resistanceInpection'] == 'Failed') ? 'red' : 'green'; ?>; color: white;">
+        <option value="Passed" <?php echo ($row['resistanceInpection'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
+        <option value="Failed" <?php echo ($row['resistanceInpection'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
+    </select>
+</div>
+
 
                                             <div class="row">
                                                 <div class="col-sm"><br>
