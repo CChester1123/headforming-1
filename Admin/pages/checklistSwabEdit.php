@@ -258,44 +258,44 @@ while ($row = mysqli_fetch_array($sql)) {
                                 <div class="form-group">
 
                                     <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-sm-2">
-                                                <label style="margin-left: 20px;">Visual Inspection (20 HT)</label>
+                                    <div class="row">
+    <div class="col-sm-2">
+        <label style="margin-left: 20px;">Visual Inspection (20 HT)</label>
+    </div>
 
-                                            </div>
+    <div class="col-sm-2">
+        <select class="form-control" id="visualInpection" onchange="updateBackground()">
+            <option value="Passed" <?php echo ($row['visualInpection'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
+            <option value="Failed" <?php echo ($row['visualInpection'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
+        </select>
+    </div>
 
-                                            <div class="col-sm-2">
-                                                <select class="form-control" id="visualInpection">
-                                                    <option value="Passed" <?php echo ($row['visualInpection'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
-                                                    <option value="Failed" <?php echo ($row['visualInpection'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
-                                                </select>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm">
-                                                    <input type="text" id="remarksVisual" class="form-control actualDataLoop result" placeholder="Enter Remarks" value="<?php echo $row['remarksVisual']; ?>">
-                                                </div>
-                                            </div>
-
-                                        </div>
+    <div class="row">
+        <div class="col-sm">
+            <input type="text" id="remarksVisual" class="form-control actualDataLoop result" placeholder="Enter Remarks" value="<?php echo $row['remarksVisual']; ?>">
+        </div>
+    </div>
+</div>
 
 
-                                        <div class="row">
-                                            <div class="col-sm-2">
-                                                <label style="margin-left: 20px;"><br>Manual Head Pulling</label>
-                                            </div>
+<div class="row">
+    <div class="col-sm-2">
+        <label style="margin-left: 20px;"><br>Manual Head Pulling</label>
+    </div>
 
-                                            <div class="col-sm-2"><br>
-                                                <select class="form-control" id="manualHeadPulling">
-                                                    <option value="Passed" <?php echo ($row['manualHeadPulling'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
-                                                    <option value="Failed" <?php echo ($row['manualHeadPulling'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
-                                                </select>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm"><br>
-                                                    <input type="text" id="remarksManualHeadPulling" class="form-control actualDataLoop result" placeholder="Enter Remarks" value="<?php echo $row['remarksManualHeadPulling']; ?>">
-                                                </div>
-                                            </div>
-                                        </div>
+    <div class="col-sm-2"><br>
+        <select class="form-control" id="manualHeadPulling" onchange="updateManualHeadPulling()">
+            <option value="Passed" <?php echo ($row['manualHeadPulling'] == 'Passed') ? 'selected' : ''; ?>>PASSED</option>
+            <option value="Failed" <?php echo ($row['manualHeadPulling'] == 'Failed') ? 'selected' : ''; ?>>FAILED</option>
+        </select>
+    </div>
+
+    <div class="row">
+        <div class="col-sm"><br>
+            <input type="text" id="remarksManualHeadPulling" class="form-control actualDataLoop result" placeholder="Enter Remarks" value="<?php echo $row['remarksManualHeadPulling']; ?>">
+        </div>
+    </div>
+</div>
 
                                         <div class="row">
                                             <div class="col-sm-2">
@@ -341,7 +341,9 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 </div>
 
                                                 <div class="col-sm"><br>
-                                                    <input type="text" id="remarksPullTesting" class="form-control actualDataLoop result" placeholder="Remarks" value="<?php echo $row['remarksPullTesting']; ?>">
+                                                    <input
+                                                     style="background-color: <?php echo ($row['remarksPullTesting'] == 'FAILED') ? 'red' : 'green'; ?>; color: white;"
+                                                    type="text" id="remarksPullTesting" class="form-control actualDataLoop result" placeholder="Remarks" value="<?php echo $row['remarksPullTesting']; ?>">
                                                 </div>
                                             </div>
 
