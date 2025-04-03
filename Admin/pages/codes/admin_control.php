@@ -648,11 +648,7 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	$transID = base64_decode($id);
 
 	echo $sql = $insertdata->DeleteCheckList3($transID);
-<<<<<<< HEAD
-} else if ($pick == 25 || $pick == "25" || $pick == '25') {
-=======
 }else if ($pick == 25 || $pick == "25" || $pick == '25') {
->>>>>>> 0c53b5e6aba037bbe5f215cb87a7751ec86f74b0
 
 	$status  = htmlentities(htmlspecialchars(urldecode($_POST['status'])));
 	$prod_id  = htmlentities(htmlspecialchars(urldecode($_POST['prod_id'])));
@@ -703,9 +699,4 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 
 
 	echo $sql = $insertdata->updateThermalList($prod_id, $status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $resistanceInpection, $remarksResistance);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0c53b5e6aba037bbe5f215cb87a7751ec86f74b0
-/

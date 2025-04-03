@@ -15,20 +15,6 @@ while ($row = mysqli_fetch_array($sql)) {
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-
-                    <div class="col-sm-12">
-                        <ol class="float-sm-right">
-                            <?php
-                            if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
-                                if ($row['status'] == "Approved") { ?>
-                                    <a type="button" class="btn btn-danger mr-1 fas far fa-arrow-alt-circle-left btnReject" title="Reject Record">Reject</a>
-                                <?php } else { ?>
-                                    <a type="button" class="btn btn-primary mr-1 fas fa-check-circle btnApprove" title="Approve Record">Approve</a>
-                            <?php }
-                            } ?>
-                        </ol>
-                    </div>
-
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header" style="background-color:rgb(27, 102, 201); color: white;">
@@ -41,7 +27,6 @@ while ($row = mysqli_fetch_array($sql)) {
                                         <div class="col-sm">
                                             <label>Work Order</label>
                                             <input type="text" class="form-control" id="workorder" placeholder="Enter Work Order" value="<?php echo $row['workorder']; ?>" readonly disabled>
-                                            <input type="text" class="form-control" id="prod_id" value="<?php echo $prod_id ?>" hidden readonly disabled>
                                         </div>
 
                                         <div class="col-sm-3">
@@ -518,6 +503,7 @@ while ($row = mysqli_fetch_array($sql)) {
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 
     <div class="modal fade" id="approvedModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -562,6 +548,8 @@ while ($row = mysqli_fetch_array($sql)) {
 
 =======
 >>>>>>> 0c53b5e6aba037bbe5f215cb87a7751ec86f74b0
+=======
+>>>>>>> parent of 5268580 (Done: Thermal Approved)
     </div>
     <?php include 'includes/footer.php';
     include  'includes/validation.php';
@@ -722,6 +710,7 @@ while ($row = mysqli_fetch_array($sql)) {
             $("#deleteModal").modal("show");
         });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -1042,6 +1031,8 @@ while ($row = mysqli_fetch_array($sql)) {
             });
         });
 
+=======
+>>>>>>> parent of 5268580 (Done: Thermal Approved)
         $(document).on('click', '#dataSubmitDelete', function() {
             $("#dataSubmitDelete").attr("disabled", true);
 
