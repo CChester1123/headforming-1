@@ -7,6 +7,7 @@ include 'includes/header.php';
 $sql = $user->ViewEditchecklist2($prod_id);
 while ($row = mysqli_fetch_array($sql)) {
 ?>
+<!--  -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
