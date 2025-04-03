@@ -702,6 +702,5 @@ else if ($pick == 24 || $pick == "24" || $pick == '24') {
 	$resistanceInpection  = htmlentities(htmlspecialchars(urldecode($_POST['resistanceInpection'])));
 	$remarksResistance  = htmlentities(htmlspecialchars(urldecode($_POST['remarksResistance'])));
 
-
 	echo $sql = $insertdata->updateThermalList($prod_id, $status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $resistanceInpection, $remarksResistance);
 }
