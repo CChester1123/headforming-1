@@ -149,7 +149,7 @@
             </div>
           </div>
           <ol class="float-sm-right">
-            <a type="button" class="btn btn-info fa fa-plus-square excelBtn"> Excel Report</a>
+            <a type="button" class="btn btn-info fa fa-plus-square excelBtn"> Thermal Report</a>
           </ol>
         </div>
 
@@ -205,7 +205,7 @@
             </div>
           </div>
           <ol class="float-sm-right">
-            <a type="button" class="btn btn-info fa fa-plus-square excelBtn"> Excel Report</a>
+            <a type="button" class="btn btn-info fa fa-plus-square excelSwabBtn"> Swab Report</a>
           </ol>
         </div>
       </div>
@@ -249,6 +249,47 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="createExcel">Yes</button>
+        <button type="button" class="btn btn-Danger" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="excelSwabList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          <label>Do you want to generate a Report?</label>
+
+          <div class="form-group">
+            <select id="yearSelectedSwab" class="form-control">
+              <option value="" selected>Choose Year</option>
+              <?php
+              // Query distinct years
+              $sql = $user->selectYearSwab();
+              $years = [];
+              while ($list = mysqli_fetch_array($sql)) {
+                $year = date('Y', strtotime($list['date']));
+                if (!in_array($year, $years)) {
+                  $years[] = $year;
+                  echo "<option value='" . base64_encode($list['id']) . "' data-department='" . $list['date'] . "'>$year</option>";
+                }
+              }
+              ?>
+            </select>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="createSwabExcel">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">Cancel</button>
       </div>
     </div>
@@ -531,6 +572,10 @@
     $("#excelList").modal("show");
   });
 
+  $(document).on('click', '.excelSwabBtn', function() {
+    $("#excelSwabList").modal("show");
+  });
+
   $(document).on('click', '#createExcel', function() {
     var selectedOption = $("#yearSelected option:selected");
     var yearSelected = $.trim(selectedOption.text());
@@ -552,6 +597,38 @@
           setTimeout(function() {
             window.location.href = 'export2.php?yearSelected=' + yearSelected;
             $("#excelList").modal("hide");
+          }, 2000);
+        } else {
+          $.notify("Error encountered while generating Excel. Please contact your administrator", "error");
+        }
+      },
+      error: function() {
+        $.notify("An error occurred. Please try again later", "error");
+      }
+    });
+  });
+
+  $(document).on('click', '#createSwabExcel', function() {
+    var selectedOption = $("#yearSelectedSwab option:selected");
+    var yearSelected = $.trim(selectedOption.text());
+
+    if (yearSelected == "Choose Year") {
+      $.notify("Please select Year", "error");
+      return;
+    }
+
+    $.ajax({
+      url: 'export3.php',
+      method: 'GET',
+      data: {
+        yearSelected: yearSelected
+      },
+      success: function(result) {
+        if ($.trim(result) != 0) {
+          $.notify("Excel file generated successfully", "success");
+          setTimeout(function() {
+            window.location.href = 'export3.php?yearSelected=' + yearSelected;
+            $("#excelSwabList").modal("hide");
           }, 2000);
         } else {
           $.notify("Error encountered while generating Excel. Please contact your administrator", "error");
