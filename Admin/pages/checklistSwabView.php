@@ -14,6 +14,20 @@ while ($row = mysqli_fetch_array($sql)) {
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
+
+                    <div class="col-sm-12">
+                        <ol class="float-sm-right">
+                            <?php
+                            if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
+                                if ($row['status'] == "Approved") { ?>
+                                    <a type="button" class="btn btn-danger mr-1 fas far fa-arrow-alt-circle-left btnReject" title="Reject Record">Reject</a>
+                                <?php } else { ?>
+                                    <a type="button" class="btn btn-primary mr-1 fas fa-check-circle btnApprove" title="Approve Record">Approve</a>
+                            <?php }
+                            } ?>
+                        </ol>
+                    </div>
+
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header" style="background-color:rgb(27, 102, 201); color: white;">
@@ -26,6 +40,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                         <div class="col-sm">
                                             <label>Work Order</label>
                                             <input type="text" class="form-control" id="workorder" placeholder="Enter Work Order" value="<?php echo $row['workorder']; ?>" readonly disabled>
+                                            <input type="text" class="form-control" id="prod_id" value="<?php echo $prod_id ?>" hidden readonly disabled>
                                         </div>
 
                                         <div class="col-sm-3">
@@ -395,6 +410,48 @@ while ($row = mysqli_fetch_array($sql)) {
     </section>
     </div>
 
+    <div class="modal fade" id="approveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #111E6C; color: white;">
+                    <button type="button" class="close" data-dismiss="modal" style="color:white;">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    Do you to submit this checklist ?
+                    <input type="text" id="status" value="Approved" hidden readonly disabled>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="dataSubmitApprove">Yes</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="rejectModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #111E6C; color: white;">
+                    <button type="button" class="close" data-dismiss="modal" style="color:white;">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    Do you to submit this checklist ?
+                    <input type="text" id="status" value="Pending" hidden readonly disabled>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="dataSubmitReject">Yes</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -643,16 +700,21 @@ while ($row = mysqli_fetch_array($sql)) {
             window.location.href = "checklist";
         });
 
-        $(document).on('click', '.btnSave', function() {
-
-            $("#deleteModal").modal("show");
+        $(document).on('click', '.btnApprove', function() {
+            $("#approveModal").modal("show");
         });
 
-        $(document).on('click', '#dataSubmitDelete', function() {
-            $("#dataSubmitDelete").attr("disabled", true);
+        $(document).on('click', '.btnReject', function() {
+            $("#rejectModal").modal("show");
+        });
 
-            var pick = "21";
-            var status = "Pending";
+        $(document).on('click', '#dataSubmitApprove ,#dataSubmitReject', function() {
+            $("#dataSubmitApprove ,#dataSubmitReject").attr("disabled", true);
+
+            var stats = $(this).attr('id') === 'dataSubmitApprove' ? 'Approved' : 'Pending';
+            var prod_id = $.trim(encodeURI($("#prod_id").val()));
+            var pick = "22";
+            var status = stats;
 
             var workorder = $.trim(encodeURI($("#workorder").val()));
             var date = $.trim(encodeURI($("#date").val()));
@@ -739,6 +801,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
             var fd = new FormData();
             fd.append('pick', pick);
+            fd.append('prod_id', prod_id);
             fd.append('status', status);
 
             fd.append('workorder', workorder);
@@ -809,9 +872,9 @@ while ($row = mysqli_fetch_array($sql)) {
                     // alert(result);
                     if ($.trim(result) != 0) {
                         $.notify("Account Created Successfully ", "success");
-                        // setTimeout(function() {
-                        //     window.location.href = "checklist";
-                        // }, 2000);
+                        setTimeout(function() {
+                            window.location.href = "checklist";
+                        }, 2000);
                     } else {
                         $.notify("Problem Encounter! please contact your administrator", "error");
                         $("#dataSubmitDelete").attr("disabled", false);

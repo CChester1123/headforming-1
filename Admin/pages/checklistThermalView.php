@@ -525,46 +525,7 @@ while ($row = mysqli_fetch_array($sql)) {
             </div>
         </div>
     </div>
-
-    <div class="modal fade" id="approvedModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: #111E6C; color: white;">
-                    <button type="button" class="close" data-dismiss="modal" style="color:white;">&times;</button>
-                </div>
-
-                <div class="modal-body">
-                    Do you to submit this checklist ?
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="dataApproved">Yes</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="rejectedModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header" style="background-color: #111E6C; color: white;">
-                    <button type="button" class="close" data-dismiss="modal" style="color:white;">&times;</button>
-                </div>
-
-                <div class="modal-body">
-                    Do you to submit this checklist ?
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="dataRejected">Yes</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
+    
     </div>
     <?php include 'includes/footer.php';
     include  'includes/validation.php';
@@ -730,11 +691,10 @@ while ($row = mysqli_fetch_array($sql)) {
         $(document).on('click', '#dataSubmitApprove ,#dataSubmitReject', function() {
             $("#dataSubmitApprove ,#dataSubmitReject").attr("disabled", true);
 
-            var actionStatus = $(this).attr('id') === 'dataSubmitApprove' ? 'Approved' : 'Pending';
+            var stats = $(this).attr('id') === 'dataSubmitApprove' ? 'Approved' : 'Pending';
             var prod_id = $.trim(encodeURI($("#prod_id").val()));
-            var status = $.trim(encodeURI($("#status").val()));
             var pick = "18";
-            var status = actionStatus;
+            var status = stats;
 
             var workorder = $.trim(encodeURI($("#workorder").val()));
             var date = $.trim(encodeURI($("#date").val()));
