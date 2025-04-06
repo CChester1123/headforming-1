@@ -37,8 +37,8 @@ while ($row = mysqli_fetch_array($sql)) {
                                         <?php
                                         if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
                                             echo '<div class="col-sm-3">
-                                                  <label>Time</label>
-                                                  <input type="datetime-local" class="form-control" id="time" value="' . date('Y-m-d\TH:i') . '">
+                                                    <label>Time</label>
+                                                    <input type="datetime-local" class="form-control" id="time" value="' . $row['time'] . '">
                                                   </div>';
                                         }
                                         ?>
