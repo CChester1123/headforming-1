@@ -84,12 +84,17 @@ while ($row = mysqli_fetch_array($sql)) {
                   </div>
                 </div>
 
-
                 <div class="form-group">
                   <div class="row">
                     <div class="col-sm">
                       <label>Handle Tree Color</label>
-                      <input type="text" class="form-control" id="handleColor" placeholder="Enter Handle Color" value="<?php echo $row['handleTreeColor']; ?>" readonly disabled>
+                      <select class="form-control" id="handleColor" readonly disabled>
+                        <option value="Light green" <?php echo ($row['handleTreeColor'] == 'Light green') ? 'selected' : ''; ?>>Light Green</option>
+                        <option value="Orange" <?php echo ($row['handleTreeColor'] == 'Orange') ? 'selected' : ''; ?>>Orange</option>
+                        <option value="Blue" <?php echo ($row['handleTreeColor'] == 'Blue') ? 'selected' : ''; ?>>Blue</option>
+                        <option value="Light Blue" <?php echo ($row['handleTreeColor'] == 'Light Blue') ? 'selected' : ''; ?>>Light Blue</option>
+                        <option value="White" <?php echo ($row['handleTreeColor'] == 'White') ? 'selected' : ''; ?>>White</option>
+                      </select>
                     </div>
 
                     <div class="col-sm">
@@ -1049,9 +1054,9 @@ while ($row = mysqli_fetch_array($sql)) {
         </div>
       </div>
     </section>
-    
-    <?php  if ($deptType == "Swab Assembly") {
-    echo '<section class="content">
+
+    <?php if ($deptType == "Swab Assembly") {
+      echo '<section class="content">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-12">
@@ -1097,7 +1102,7 @@ while ($row = mysqli_fetch_array($sql)) {
               </div>
             </div>
   </section>';
-  } ?>
+    } ?>
 
     <section class="content">
       <div class="container-fluid">

@@ -73,13 +73,17 @@ $deptType = $_GET['deptType'];
                 </div>
               </div>
 
-
               <div class="form-group">
                 <div class="row">
                   <div class="col-sm">
                     <label>Handle Tree Color</label>
-                    <input type="text" class="form-control" id="handleColor" placeholder="Enter Handle Color" value="<?php //echo $row['handleColor']; 
-                                                                                                                      ?>">
+                    <select class="form-control" id="handleColor">
+                      <option value="Light green">Light Green</option>
+                      <option value="Orange">Orange</option>
+                      <option value="Blue">Blue</option>
+                      <option value="Light Blue">Light Blue</option>
+                      <option value="White">White</option>
+                    </select>
                   </div>
 
                   <div class="col-sm">
@@ -1543,7 +1547,7 @@ $deptType = $_GET['deptType'];
     fd.append('arrswabhandlewidth', arrswabhandlewidth);
     fd.append('arrswabhandlethickness', arrswabhandlethickness);
     fd.append('arrswabhandlediameter', arrswabhandlediameter);
-    
+
     fd.append('pulltestingMin', pulltestingMin);
     fd.append('noHandleperHT', noHandleperHT);
     fd.append('arrpulltest', arrpulltest);
