@@ -343,6 +343,26 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 <div class="col-sm"><br>
                                                     <input type="text" id="remarksPullTesting" class="form-control actualDataLoop result" placeholder="Remarks" value="<?php echo $row['remarksPullTesting']; ?>">
                                                 </div>
+
+                                                <script>
+                                                    // Get the value from the input field
+                                                    var remarksPullTestingValue = "<?php echo $row['remarksPullTesting']; ?>";
+
+                                                    // Get the input element
+                                                    var inputElementRemarksPullTesting = document.getElementById('remarksPullTesting');
+
+                                                    // Change the color and font weight based on the value
+                                                    if (remarksPullTestingValue.toLowerCase() === 'passed') {
+                                                        inputElementRemarksPullTesting.style.backgroundColor = 'green';
+                                                        inputElementRemarksPullTesting.style.color = 'white'; // Optional: Change text color to white for contrast
+                                                        inputElementRemarksPullTesting.style.fontWeight = 'bold'; // Make the text bold
+                                                    } else if (remarksPullTestingValue.toLowerCase() === 'failed') {
+                                                        inputElementRemarksPullTesting.style.backgroundColor = 'red';
+                                                        inputElementRemarksPullTesting.style.color = 'white'; // Optional: Change text color to white for contrast
+                                                        inputElementRemarksPullTesting.style.fontWeight = 'bold'; // Make the text bold
+                                                    }
+                                                </script>
+
                                             </div>
 
                                         </div>
