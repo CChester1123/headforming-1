@@ -362,9 +362,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                                         inputElementRemarksPullTesting.style.fontWeight = 'bold'; // Make the text bold
                                                     }
                                                 </script>
-
                                             </div>
-
                                         </div>
 
                                         <div class="row">

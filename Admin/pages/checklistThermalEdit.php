@@ -287,26 +287,6 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 <label>Remarks</label>
                                                 <input type="text" class="form-control" id="TempUpnLow" placeholder="" value="<?php echo $row['TempUpnLow']; ?>" disabled>
                                             </div>
-
-                                            <script>
-                                                // Get the value from the input field
-                                                var remarksValue = "<?php echo $row['TempUpnLow']; ?>";
-
-                                                // Get the input element
-                                                var inputElement = document.getElementById('TempUpnLow');
-
-                                                // Change the color and font weight based on the value (Passed or Failed)
-                                                if (remarksValue.toLowerCase() === 'passed') {
-                                                    inputElement.style.backgroundColor = 'green';
-                                                    inputElement.style.color = 'white'; // Optional: Change text color to white for contrast
-                                                    inputElement.style.fontWeight = 'bold'; // Make the text bold
-                                                } else if (remarksValue.toLowerCase() === 'failed') {
-                                                    inputElement.style.backgroundColor = 'red';
-                                                    inputElement.style.color = 'white'; // Optional: Change text color to white for contrast
-                                                    inputElement.style.fontWeight = 'bold'; // Make the text bold
-                                                }
-                                            </script>
-
                                         </div>
 
                                         <div class="row">
@@ -335,26 +315,6 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <div class="col-sm"><br>
                                                 <input type="text" class="form-control" id="HeatingTime" placeholder="" disabled value="<?php echo $row['HeatingTime']; ?>" disabled>
                                             </div>
-
-                                            <script>
-                                                // Get the value from the input field
-                                                var heatingTimeValue = "<?php echo $row['HeatingTime']; ?>";
-
-                                                // Get the input element
-                                                var inputElementHeatingTime = document.getElementById('HeatingTime');
-
-                                                // Change the color and font weight based on the value
-                                                if (heatingTimeValue.toLowerCase() === 'passed') {
-                                                    inputElementHeatingTime.style.backgroundColor = 'green';
-                                                    inputElementHeatingTime.style.color = 'white'; // Optional: Change text color to white for contrast
-                                                    inputElementHeatingTime.style.fontWeight = 'bold'; // Make the text bold
-                                                } else if (heatingTimeValue.toLowerCase() === 'failed') {
-                                                    inputElementHeatingTime.style.backgroundColor = 'red';
-                                                    inputElementHeatingTime.style.color = 'white'; // Optional: Change text color to white for contrast
-                                                    inputElementHeatingTime.style.fontWeight = 'bold'; // Make the text bold
-                                                }
-                                            </script>
-
                                         </div>
 
                                         <div class="row">
@@ -383,26 +343,6 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <div class="col-sm"><br>
                                                 <input type="text" class="form-control" id="SwabHandleFixture" placeholder="" disabled value="<?php echo $row['SwabHandleFixture']; ?>" disabled>
                                             </div>
-
-                                            <script>
-                                                // Get the value from the input field
-                                                var swabHandleFixtureValue = "<?php echo $row['SwabHandleFixture']; ?>";
-
-                                                // Get the input element
-                                                var inputElementSwabHandleFixture = document.getElementById('SwabHandleFixture');
-
-                                                // Change the color and font weight based on the value
-                                                if (swabHandleFixtureValue.toLowerCase() === 'passed') {
-                                                    inputElementSwabHandleFixture.style.backgroundColor = 'green';
-                                                    inputElementSwabHandleFixture.style.color = 'white'; // Optional: Change text color to white for contrast
-                                                    inputElementSwabHandleFixture.style.fontWeight = 'bold'; // Make the text bold
-                                                } else if (swabHandleFixtureValue.toLowerCase() === 'failed') {
-                                                    inputElementSwabHandleFixture.style.backgroundColor = 'red';
-                                                    inputElementSwabHandleFixture.style.color = 'white'; // Optional: Change text color to white for contrast
-                                                    inputElementSwabHandleFixture.style.fontWeight = 'bold'; // Make the text bold
-                                                }
-                                            </script>
-
                                         </div>
 
                                         <div class="row">
@@ -431,26 +371,6 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <div class="col-sm"><br>
                                                 <input type="text" class="form-control" id="FixtureClosingTime" placeholder="" disabled value="<?php echo $row['FixtureClosingTime']; ?>" disabled>
                                             </div>
-
-                                            <script>
-                                                // Get the value from the input field
-                                                var fixtureClosingTimeValue = "<?php echo $row['FixtureClosingTime']; ?>";
-
-                                                // Get the input element
-                                                var inputElementFixtureClosingTime = document.getElementById('FixtureClosingTime');
-
-                                                // Change the color and font weight based on the value
-                                                if (fixtureClosingTimeValue.toLowerCase() === 'passed') {
-                                                    inputElementFixtureClosingTime.style.backgroundColor = 'green';
-                                                    inputElementFixtureClosingTime.style.color = 'white'; // Optional: Change text color to white for contrast
-                                                    inputElementFixtureClosingTime.style.fontWeight = 'bold'; // Make the text bold
-                                                } else if (fixtureClosingTimeValue.toLowerCase() === 'failed') {
-                                                    inputElementFixtureClosingTime.style.backgroundColor = 'red';
-                                                    inputElementFixtureClosingTime.style.color = 'white'; // Optional: Change text color to white for contrast
-                                                    inputElementFixtureClosingTime.style.fontWeight = 'bold'; // Make the text bold
-                                                }
-                                            </script>
-
                                         </div>
                                     </div>
                                 </div>
@@ -459,6 +379,26 @@ while ($row = mysqli_fetch_array($sql)) {
                     </div>
                 </div>
         </section>
+
+        <script>
+            // Function to apply styling based on value
+            function applyStyle(elementId, value) {
+                var element = document.getElementById(elementId);
+                if (value.toLowerCase() === 'passed') {
+                    element.style.backgroundColor = 'green';
+                } else if (value.toLowerCase() === 'failed') {
+                    element.style.backgroundColor = 'red';
+                }
+                element.style.color = 'white'; // Optional: Change text color to white for contrast
+                element.style.fontWeight = 'bold'; // Make the text bold
+            }
+
+            // Apply styles based on the PHP values
+            applyStyle('TempUpnLow', "<?php echo $row['TempUpnLow']; ?>");
+            applyStyle('HeatingTime', "<?php echo $row['HeatingTime']; ?>");
+            applyStyle('SwabHandleFixture', "<?php echo $row['SwabHandleFixture']; ?>");
+            applyStyle('FixtureClosingTime', "<?php echo $row['FixtureClosingTime']; ?>");
+        </script>
 
         <section class="content">
             <div class="container-fluid">

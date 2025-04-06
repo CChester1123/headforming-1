@@ -348,8 +348,23 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 <div class="col-sm"><br>
                                                     <input type="text" id="remarksPullTesting" class="form-control actualDataLoop result" placeholder="Remarks" value="<?php echo $row['remarksPullTesting']; ?>" readonly disabled>
                                                 </div>
-                                            </div>
 
+                                                <script>
+                                                    // Get the input element
+                                                    var remarksInput = document.getElementById('remarksPullTesting');
+
+                                                    // Check the value and change background color, text color, and bold text
+                                                    if (remarksInput.value.toLowerCase() === 'passed') {
+                                                        remarksInput.style.backgroundColor = 'green';
+                                                        remarksInput.style.color = 'white'; // Set text color to white
+                                                        remarksInput.style.fontWeight = 'bold'; // Set text to bold
+                                                    } else if (remarksInput.value.toLowerCase() === 'failed') {
+                                                        remarksInput.style.backgroundColor = 'red';
+                                                        remarksInput.style.color = 'white'; // Set text color to white
+                                                        remarksInput.style.fontWeight = 'bold'; // Set text to bold
+                                                    }
+                                                </script>
+                                            </div>
                                         </div>
 
                                         <div class="row">
@@ -476,20 +491,6 @@ while ($row = mysqli_fetch_array($sql)) {
     include  'includes/validation.php';
     ?>
     <script>
-        // Get the input element
-        var remarksInput = document.getElementById('remarksPullTesting');
-
-        // Check the value and change background color, text color, and bold text
-        if (remarksInput.value.toLowerCase() === 'passed') {
-            remarksInput.style.backgroundColor = 'green';
-            remarksInput.style.color = 'white'; // Set text color to white
-            remarksInput.style.fontWeight = 'bold'; // Set text to bold
-        } else if (remarksInput.value.toLowerCase() === 'failed') {
-            remarksInput.style.backgroundColor = 'red';
-            remarksInput.style.color = 'white'; // Set text color to white
-            remarksInput.style.fontWeight = 'bold'; // Set text to bold
-        }
-        
         // function checkPullTestingRange(inputIds, minId, resultId) {
         //     // Iterate through the input IDs (Sample inputs)
         //     inputIds.forEach(inputId => {
