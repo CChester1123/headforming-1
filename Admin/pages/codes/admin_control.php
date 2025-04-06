@@ -74,7 +74,7 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	$substrateDimensionforce = htmlentities(htmlspecialchars(urldecode($_POST['substrateDimensionforce'])));
 	$pullSeatTestforce = htmlentities(htmlspecialchars(urldecode($_POST['pullSeatTestforce'])));
 
-	
+
 	$pulltestingMin = htmlentities(htmlspecialchars(urldecode($_POST['pulltestingMin'])));
 	$noHandleperHT = htmlentities(htmlspecialchars(urldecode($_POST['noHandleperHT'])));
 	$handleColor = htmlentities(htmlspecialchars(urldecode($_POST['handleColor'])));
@@ -104,7 +104,7 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	echo $sql = $insertdata->createProduct($product, $productDesc, $handle, $subtrate, $pulltestdesc, $status, $arrcuttingforce, $arrsealingtime, $arrcuttingspeed, $arrapproachingposition, $arrsealingpositionspeed, $arrsealingposition, $arruppermoldtemp, $arrlowermoldtemp, $arrtotalLength, $arrswabheadlength, $arrswabheadwidth, $arrswabheadthickness, $arrswabhandlewidth, $arrswabhandlethickness, $arrswabhandlediameter, $arrpulltest, $arrswabheadpulling, $arrswabheadpopping, $substrateDimensionforce, $pullSeatTestforce, $pulltestingMin, $noHandleperHT, $handleColor, $substrateLotNum, $handleTreeMaterialNum, $machineTreeMatType, $substrateType, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arrheaterTempUpnLow, $arrheaterSwabHandleFixture, $arrfixtureClosingTime, $department, $arrheatingTime);
 } else if ($pick == 7 || $pick == "7" || $pick == '7') {
 	$prod_id = htmlentities(htmlspecialchars(urldecode($_POST['prod_id'])));
-	
+
 	$product = htmlentities(htmlspecialchars(urldecode($_POST['product'])));
 	$productDesc = htmlentities(htmlspecialchars(urldecode($_POST['productDesc'])));
 	$handle = htmlentities(htmlspecialchars(urldecode($_POST['handle'])));
@@ -134,7 +134,7 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	$substrateDimensionforce = htmlentities(htmlspecialchars(urldecode($_POST['substrateDimensionforce'])));
 	$pullSeatTestforce = htmlentities(htmlspecialchars(urldecode($_POST['pullSeatTestforce'])));
 
-	
+
 	$pulltestingMin = htmlentities(htmlspecialchars(urldecode($_POST['pulltestingMin'])));
 	$noHandleperHT = htmlentities(htmlspecialchars(urldecode($_POST['noHandleperHT'])));
 	$handleColor = htmlentities(htmlspecialchars(urldecode($_POST['handleColor'])));
@@ -517,8 +517,7 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 	$transID = base64_decode($id);
 
 	echo $sql = $insertdata->DeleteCheckList2($transID);
-}
-else if ($pick == 21 || $pick == "21" || $pick == '21') {
+} else if ($pick == 21 || $pick == "21" || $pick == '21') {
 
 	$status  = htmlentities(htmlspecialchars(urldecode($_POST['status'])));
 
@@ -571,14 +570,13 @@ else if ($pick == 21 || $pick == "21" || $pick == '21') {
 
 	$pulltestingMin  = htmlentities(htmlspecialchars(urldecode($_POST['pulltestingMin'])));
 
-	
-	
-	
+
+
+
 
 
 	echo $sql = $insertdata->createSwab($status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $manualHeadPulling, $remarksManualHeadPulling, $pulltestingMin, $arrSample, $remarksPullTesting);
-}
-else if ($pick == 22 || $pick == "22" || $pick == '22') {
+} else if ($pick == 22 || $pick == "22" || $pick == '22') {
 
 	$prod_id  = htmlentities(htmlspecialchars(urldecode($_POST['prod_id'])));
 	$status  = htmlentities(htmlspecialchars(urldecode($_POST['status'])));
@@ -632,28 +630,25 @@ else if ($pick == 22 || $pick == "22" || $pick == '22') {
 
 	$pulltestingMin  = htmlentities(htmlspecialchars(urldecode($_POST['pulltestingMin'])));
 
-	
-	
-	
+
+
+
 
 
 	echo $sql = $insertdata->updateSwab($prod_id, $status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $manualHeadPulling, $remarksManualHeadPulling, $pulltestingMin, $arrSample, $remarksPullTesting);
-}
-
-else if ($pick == 23 || $pick == "23" || $pick == '23') {
+} else if ($pick == 23 || $pick == "23" || $pick == '23') {
 
 	$id  = htmlentities(htmlspecialchars(urldecode($_POST['id'])));
 	$transID = base64_decode($id);
 
 	echo $sql = $insertdata->DuplicateCheckList3($transID);
-}
-else if ($pick == 24 || $pick == "24" || $pick == '24') {
+} else if ($pick == 24 || $pick == "24" || $pick == '24') {
 
 	$id  = htmlentities(htmlspecialchars(urldecode($_POST['id'])));
 	$transID = base64_decode($id);
 
 	echo $sql = $insertdata->DeleteCheckList3($transID);
-}else if ($pick == 25 || $pick == "25" || $pick == '25') {
+} else if ($pick == 25 || $pick == "25" || $pick == '25') {
 
 	$status  = htmlentities(htmlspecialchars(urldecode($_POST['status'])));
 	$prod_id  = htmlentities(htmlspecialchars(urldecode($_POST['prod_id'])));

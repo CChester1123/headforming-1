@@ -77,13 +77,23 @@ $deptType = $_GET['deptType'];
                 <div class="row">
                   <div class="col-sm">
                     <label>Handle Tree Color</label>
-                    <select class="form-control" id="handleColor">
-                      <option value="Light green">Light Green</option>
-                      <option value="Orange">Orange</option>
-                      <option value="Blue">Blue</option>
-                      <option value="Light Blue">Light Blue</option>
-                      <option value="White">White</option>
-                    </select>
+                    <?php if ($deptType == "Thermal Bonding") { ?>
+                      <select class="form-control" id="handleColor">
+                        <option value="Light green">Light Green</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Light Blue">Light Blue</option>
+                        <option value="White">White</option>
+                      </select>
+                    <?php } else if ($deptType == "Swab Assembly") { ?>
+                      <select class="form-control" id="handleColor">
+                        <option value="Light Green">Light Green</option>
+                        <option value="Black">Black</option>
+                        <option value="Light Blue">Light Blue</option>
+                        <option value="Brown">Brown</option>
+                        <option value="White">White</option>
+                      </select>
+                    <?php } ?>
                   </div>
 
                   <div class="col-sm">

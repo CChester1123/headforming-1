@@ -197,7 +197,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                         <div class="col-sm">
                                             <div class="col-sm">
                                                 <label>Handle Tree Color</label>
-                                                <select class="form-control" id="handleColor">
+                                                <select class="form-control" id="handleTreeColor">
                                                     <option value="Light green" <?php echo ($row['handleTreeColor'] == 'Light green') ? 'selected' : ''; ?>>Light Green</option>
                                                     <option value="Orange" <?php echo ($row['handleTreeColor'] == 'Orange') ? 'selected' : ''; ?>>Orange</option>
                                                     <option value="Blue" <?php echo ($row['handleTreeColor'] == 'Blue') ? 'selected' : ''; ?>>Blue</option>

@@ -198,11 +198,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <div class="col-sm">
                                                 <label>Handle Tree Color</label>
                                                 <select class="form-control" id="handleTreeColor">
-                                                    <option value="Light Green">Light Green</option>
-                                                    <option value="Black">Black</option>
-                                                    <option value="Light Blue">Light Blue</option>
-                                                    <option value="Brown">Brown</option>
-                                                    <option value="White">White</option>
+                                                    <option value="Light Green" <?php echo ($row['handleTreeColor'] == 'Light Green') ? 'selected' : ''; ?>>Light Green</option>
+                                                    <option value="Black" <?php echo ($row['handleTreeColor'] == 'Black') ? 'selected' : ''; ?>>Black</option>
+                                                    <option value="Light Blue" <?php echo ($row['handleTreeColor'] == 'Light Blue') ? 'selected' : ''; ?>>Light Blue</option>
+                                                    <option value="Brown" <?php echo ($row['handleTreeColor'] == 'Brown') ? 'selected' : ''; ?>>Brown</option>
+                                                    <option value="White" <?php echo ($row['handleTreeColor'] == 'White') ? 'selected' : ''; ?>>White</option>
                                                 </select>
                                             </div>
                                         </div>
