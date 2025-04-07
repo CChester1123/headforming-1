@@ -7,10 +7,22 @@
         <td>Date</td>
         <td>Machine Number</td>
         <td>Quality By</td>
+
         <td>Heater Temperature Upper And Lower</td>
+        <td>Actual</td>
+        <td>Passed/Failed</td>
+
         <td>Heating Time</td>
+        <td>Actual</td>
+        <td>Passed/Failed</td>
+
         <td>Heater Open And Swab Handle Fixture Closing</td>
+        <td>Actual</td>
+        <td>Passed/Failed</td>
+        
         <td>Fixture Closing Time</td>
+        <td>Actual</td>
+        <td>Passed/Failed</td>
     </tr>
 
     <?php
@@ -26,10 +38,22 @@
             <td> <?php echo $row["date"]; ?> </td>
             <td> <?php echo $row["machineNo"]; ?> </td>
             <td> <?php echo $row["InspectedBY"]; ?> </td>
-            <td> <?php echo $row["TempUpnLowRange"]; ?> (<?php echo $row["actTempUpnLow"]; ?>) <?php echo $row["TempUpnLow"]; ?> </td>
-            <td> <?php echo $row["HeatingTimeRange"]; ?> (<?php echo $row["actHeatingTime"]; ?>) <?php echo $row["HeatingTime"]; ?> </td>
-            <td> <?php echo $row["SwabHandleFixtureRange"]; ?> (<?php echo $row["actSwabHandleFixture"]; ?>) <?php echo $row["SwabHandleFixture"]; ?> </td>
-            <td> <?php echo $row["FixtureClosingTimeRange"]; ?> (<?php echo $row["actFixtureClosingTime"]; ?>) <?php echo $row["FixtureClosingTime"]; ?> </td>
+
+            <td> <?php echo $row["TempUpnLowRange"]; ?> </td>
+            <td> <?php echo $row["actTempUpnLow"]; ?> </td>
+            <td> <?php echo $row["TempUpnLow"]; ?> </td>
+
+            <td> <?php echo $row["HeatingTimeRange"]; ?> </td>
+            <td> <?php echo $row["actHeatingTime"]; ?> </td>
+            <td> <?php echo $row["HeatingTime"]; ?> </td>
+
+            <td> <?php echo $row["SwabHandleFixtureRange"]; ?> </td>
+            <td> <?php echo $row["actSwabHandleFixture"]; ?> </td>
+            <td> <?php echo $row["SwabHandleFixture"]; ?> </td>
+
+            <td> <?php echo $row["FixtureClosingTimeRange"]; ?> </td>
+            <td> <?php echo $row["actFixtureClosingTime"]; ?> </td>
+            <td> <?php echo $row["FixtureClosingTime"]; ?> </td>
         </tr>
     <?php endforeach; ?>
 </table>
