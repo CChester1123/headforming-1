@@ -50,7 +50,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                         <div class="col-sm">
                                             <label>Shift</label>
-                                            <select class="form-control" id="shift" readonly disabled>
+                                            <select class="form-control" id="shift">
                                                 <option value="AM" <?php echo ($row['shift'] == 'AM') ? 'selected' : ''; ?>>AM</option>
                                                 <option value="PM" <?php echo ($row['shift'] == 'PM') ? 'selected' : ''; ?>>PM</option>
                                             </select>
@@ -64,12 +64,12 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                         <div class="col-sm">
                                             <label>Operator/s Name</label>
-                                            <input type="text" class="form-control" id="operatorName" placeholder="Enter Operator Name" value="<?php echo $row['operatorName']; ?>" readonly disabled>
+                                            <input type="text" class="form-control" id="operatorName" placeholder="Enter Operator Name" value="<?php echo $row['operatorName']; ?>">
                                         </div>
 
                                         <div class="col-sm">
                                             <label>Assigned Team Leader</label>
-                                            <select class="form-control" id="teamLead" value="<?php echo $row['teamLead']; ?>" readonly disabled>
+                                            <select class="form-control" id="teamLead" value="<?php echo $row['teamLead']; ?>">
                                                 <option value="asd">asd</option>
                                                 <option value="dsa">dsa</option>
                                             </select>

@@ -73,7 +73,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                         <div class="col-sm">
                                             <label for="teamLead">Assigned Team Leader</label>
-                                            <select class="form-control" id="teamLead" disabled>
+                                            <select class="form-control" id="teamLead" readonly disabled>
                                                 <option value="asd" <?php echo ($row['teamLead'] == 'asd') ? 'selected' : ''; ?>>asd</option>
                                                 <option value="dsa" <?php echo ($row['teamLead'] == 'dsa') ? 'selected' : ''; ?>>dsa</option>
                                             </select>
@@ -81,7 +81,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                         <div class="col-sm">
                                             <label for="machineNo">Machine No.</label>
-                                            <select name="cars" class="form-control" id="machineNo" disabled>
+                                            <select name="cars" class="form-control" id="machineNo" readonly disabled>
                                                 <?php
                                                 for ($i = 1; $i <= 2; $i++) {
                                                     $selected = ($row['machineNo'] == $i) ? 'selected' : '';
@@ -135,7 +135,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                         <div class="col-sm">
                                             <label class="mr-1">Maintenance</label>
-                                            <select class="form-control" id="maintenancecheced" data-placeholder="Maintenance By" style="width: 100%;" disabled>
+                                            <select class="form-control" id="maintenancecheced" data-placeholder="Maintenance By" style="width: 100%;" readonly disabled>
                                                 <?php
                                                 $sql = $user->selectMaintenance();
                                                 while ($list1 = mysqli_fetch_array($sql)) {
