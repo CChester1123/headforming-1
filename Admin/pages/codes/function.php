@@ -779,14 +779,14 @@ WHERE
 		return $result;
 	}
 
-	public function createSwab($status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $manualHeadPulling, $remarksManualHeadPulling, $pulltestingMin, $arrSample, $remarksPullTesting)
+	public function createSwab($status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $manualHeadPulling, $remarksManualHeadPulling, $pulltestingMin, $arrSample, $remarksPullTesting, $enterNA)
 	{
-		$result = mysqli_query($this->dbh, "INSERT INTO `headforming`.`tbl_swabassembly` ( `workorder`, `date`, `time`, `shift`, `operatorName`, `teamLead`, `machineNo`, `product`, `type`, `InspectedBY`, `maintenancecheced`, `handle`, `substrate`, `handleTreeColor`, `substrateLotNum`, `handleTreeMaterialNum`, `texwipeLogo`, `remarksInprocess`, `visualInpection`, `remarksVisual`, `manualHeadPulling`, `remarksManualHeadPulling`, `pulltestingMin`, `pulltestingSample`, `remarksPullTesting`, `productionStats`, `remarksProduction`, `status` ) VALUES ( '$workorder', '$date', '$time', '$shift', '$operatorName', '$teamLead', '$machineNo', '$product', '$type', '$InspectedBY', '$maintenancecheced', '$handle', '$substrate', '$handleTreeColor', '$substrateLotNum', '$handleTreeMaterialNum', '$texwipeLogo', '$remarksInprocess', '$visualInpection', '$remarksVisual', '$manualHeadPulling', '$remarksManualHeadPulling', '$pulltestingMin', '$arrSample', '$remarksPullTesting', '$productionStats', '$remarksProduction', '$status')");
+		$result = mysqli_query($this->dbh, "INSERT INTO `headforming`.`tbl_swabassembly` ( `workorder`, `date`, `time`, `shift`, `operatorName`, `teamLead`, `machineNo`, `product`, `type`, `InspectedBY`, `maintenancecheced`, `handle`, `substrate`, `handleTreeColor`, `substrateLotNum`, `handleTreeMaterialNum`, `texwipeLogo`, `remarksInprocess`, `visualInpection`, `remarksVisual`, `manualHeadPulling`, `remarksManualHeadPulling`, `pulltestingMin`, `pulltestingSample`, `remarksPullTesting`, `enterNA`, `productionStats`, `remarksProduction`, `status` ) VALUES ( '$workorder', '$date', '$time', '$shift', '$operatorName', '$teamLead', '$machineNo', '$product', '$type', '$InspectedBY', '$maintenancecheced', '$handle', '$substrate', '$handleTreeColor', '$substrateLotNum', '$handleTreeMaterialNum', '$texwipeLogo', '$remarksInprocess', '$visualInpection', '$remarksVisual', '$manualHeadPulling', '$remarksManualHeadPulling', '$pulltestingMin', '$arrSample', '$remarksPullTesting', '$enterNA', '$productionStats', '$remarksProduction', '$status')");
 
 		return $result;
 	}
 
-	public function updateSwab($prod_id, $status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $manualHeadPulling, $remarksManualHeadPulling, $pulltestingMin, $arrSample, $remarksPullTesting)
+	public function updateSwab($prod_id, $status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $manualHeadPulling, $remarksManualHeadPulling, $pulltestingMin, $arrSample, $remarksPullTesting, $enterNA)
 	{
 		$result = mysqli_query($this->dbh, "UPDATE `headforming`.`tbl_swabassembly`
 SET
@@ -815,6 +815,7 @@ SET
     `pulltestingMin` = '$pulltestingMin',
     `pulltestingSample` = '$arrSample',
     `remarksPullTesting` = '$remarksPullTesting',
+	`enterNA` = '$enterNA',
     `productionStats` = '$productionStats',
     `remarksProduction` = '$remarksProduction',
     `status` = '$status'

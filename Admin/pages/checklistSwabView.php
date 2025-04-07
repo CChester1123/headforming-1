@@ -370,7 +370,30 @@ while ($row = mysqli_fetch_array($sql)) {
                                         <div class="row">
                                             <div class="col-sm-2">
                                                 <label style="color: red; margin-left: 20px;">Note: For TX730 Nylon Swabs<br>
-                                                    only, 5 tips</label>
+                                                    only, 5 tips
+                                                </label>
+                                            </div>
+
+                                            <div class="col-sm"><br>
+                                                <input type="text" id="enterNA" class="form-control actualDataLoop result" placeholder="Enter (N/A)" value="<?php echo $row['enterNA']; ?>" readonly disabled>
+                                            </div>
+
+                                            <div class="col-sm"><br>
+                                            </div>
+
+                                            <div class="col-sm"><br>
+                                            </div>
+
+                                            <div class="col-sm"><br>
+                                            </div>
+
+                                            <div class="col-sm"><br>
+                                            </div>
+
+                                            <div class="col-sm"><br>
+                                            </div>
+
+                                            <div class="col-sm"><br>
                                             </div>
                                         </div>
 
@@ -754,6 +777,7 @@ while ($row = mysqli_fetch_array($sql)) {
             var remarksInprocess = $.trim(encodeURI($("#remarksInprocess").val()));
 
             var remarksPullTesting = $.trim(encodeURI($("#remarksPullTesting").val()));
+            var enterNA = $.trim(encodeURI($("#enterNA").val()));
 
             var pulltestingMin = $.trim(encodeURI($("#pulltestingMin").val()));
             let SampleInputs = document.querySelectorAll('input[id="pulltestingSample1"], input[id="pulltestingSample2"], input[id="pulltestingSample3"], input[id="pulltestingSample4"], input[id="pulltestingSample5"]');
@@ -865,6 +889,7 @@ while ($row = mysqli_fetch_array($sql)) {
             fd.append('pulltestingMin', pulltestingMin);
             fd.append('arrSample', arrSample);
             fd.append('remarksPullTesting', remarksPullTesting);
+            fd.append('enterNA', enterNA);
 
             // fd.append('pulltestingSample1', pulltestingSample1);
             // fd.append('pulltestingSample2', pulltestingSample2);

@@ -567,6 +567,8 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 
 	$arrSample  = htmlentities(htmlspecialchars(urldecode($_POST['arrSample'])));
 	$remarksPullTesting  = htmlentities(htmlspecialchars(urldecode($_POST['remarksPullTesting'])));
+	$enterNA  = htmlentities(htmlspecialchars(urldecode($_POST['enterNA'])));
+	
 
 	$pulltestingMin  = htmlentities(htmlspecialchars(urldecode($_POST['pulltestingMin'])));
 
@@ -575,7 +577,7 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 
 
 
-	echo $sql = $insertdata->createSwab($status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $manualHeadPulling, $remarksManualHeadPulling, $pulltestingMin, $arrSample, $remarksPullTesting);
+	echo $sql = $insertdata->createSwab($status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $manualHeadPulling, $remarksManualHeadPulling, $pulltestingMin, $arrSample, $remarksPullTesting, $enterNA);
 } else if ($pick == 22 || $pick == "22" || $pick == '22') {
 
 	$prod_id  = htmlentities(htmlspecialchars(urldecode($_POST['prod_id'])));
@@ -627,6 +629,8 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 
 	$arrSample  = htmlentities(htmlspecialchars(urldecode($_POST['arrSample'])));
 	$remarksPullTesting  = htmlentities(htmlspecialchars(urldecode($_POST['remarksPullTesting'])));
+	$enterNA  = htmlentities(htmlspecialchars(urldecode($_POST['enterNA'])));
+	
 
 	$pulltestingMin  = htmlentities(htmlspecialchars(urldecode($_POST['pulltestingMin'])));
 
@@ -635,7 +639,7 @@ if ($pick == 0 || $pick == "0" || $pick == '0') {
 
 
 
-	echo $sql = $insertdata->updateSwab($prod_id, $status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $manualHeadPulling, $remarksManualHeadPulling, $pulltestingMin, $arrSample, $remarksPullTesting);
+	echo $sql = $insertdata->updateSwab($prod_id, $status, $workorder, $date, $time, $shift, $operatorName, $teamLead, $machineNo, $product, $type, $InspectedBY, $maintenancecheced, $handle, $substrate, $handleTreeColor, $substrateLotNum, $handleTreeMaterialNum, $texwipeLogo, $remarksInprocess, $arrTemp, $actTempUpnLow, $TempUpnLow, $arrHeat, $actHeatingTime, $HeatingTime, $arrSwab, $actSwabHandleFixture, $SwabHandleFixture, $arrFixture, $actFixtureClosingTime, $FixtureClosingTime, $productionStats, $remarksProduction, $visualInpection, $remarksVisual, $manualHeadPulling, $remarksManualHeadPulling, $pulltestingMin, $arrSample, $remarksPullTesting, $enterNA);
 } else if ($pick == 23 || $pick == "23" || $pick == '23') {
 
 	$id  = htmlentities(htmlspecialchars(urldecode($_POST['id'])));
