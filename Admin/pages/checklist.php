@@ -227,7 +227,7 @@
         <div class="card-body">
           <label>Do you want to generate a Report?</label>
 
-          <div class="form-group">
+          <!-- <div class="form-group">
             <select id="yearSelected" class="form-control">
               <option value="" selected>Choose Year</option>
               <?php
@@ -243,6 +243,48 @@
               }
               ?>
             </select>
+          </div> -->
+
+          <div class="form-group">
+            <label>Classification</label>
+            <select id="department" class="form-control" onchange="updateYearList()">
+              <option value="Head Forming" selected>Head Forming</option>
+              <option value="Thermal Bonding">Thermal Bonding</option>
+              <option value="Swab Assembly">Swab Assembly</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Select Year</label>
+
+            <!-- Thermal Bonding Year List -->
+            <select id="year-thermal" class="form-control year-select" style="display: none;">
+              <option value="" selected>Choose Item Code</option>
+              <?php
+              $sql = $user->yearThermalList();
+              while ($list = mysqli_fetch_array($sql)) { ?>
+                <option>
+                  <?php echo $list['date']; ?> - <?php echo $list['product']; ?>
+                </option>
+              <?php } ?>
+            </select>
+
+            <!-- Swab Assembly Year List -->
+            <select id="year-swab" class="form-control year-select" style="display: none;">
+              <option value="" selected>Choose Item Code</option>
+              <?php
+              $sql = $user->yearSwabList();
+              while ($list = mysqli_fetch_array($sql)) { ?>
+                <option>
+                  <?php echo $list['date']; ?> - <?php echo $list['product']; ?>
+                </option>
+              <?php } ?>
+            </select>
+
+            <!-- Default fallback -->
+            <select id="year-default" class="form-control year-select" style="display: none;">
+              <option value="">No data for this department</option>
+            </select>
           </div>
 
         </div>
@@ -254,6 +296,31 @@
     </div>
   </div>
 </div>
+
+<script>
+  function updateYearList() {
+    const selectedDept = document.getElementById('department').value;
+    const yearSelects = document.querySelectorAll('.year-select');
+
+    // Hide all year select elements and reset them to default option
+    yearSelects.forEach(select => {
+      select.style.display = 'none';
+      select.selectedIndex = 0; // Reset to first option (usually "Choose Item Code")
+    });
+
+    // Show the appropriate year select
+    if (selectedDept === 'Thermal Bonding') {
+      document.getElementById('year-thermal').style.display = 'block';
+    } else if (selectedDept === 'Swab Assembly') {
+      document.getElementById('year-swab').style.display = 'block';
+    } else {
+      document.getElementById('year-default').style.display = 'block';
+    }
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', updateYearList);
+</script>
 
 <div class="modal fade" id="excelSwabList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
