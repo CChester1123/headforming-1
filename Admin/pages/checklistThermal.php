@@ -208,11 +208,11 @@ while ($row = mysqli_fetch_array($sql)) {
                                         </div>
                                         <div class="col-sm">
                                             <label>Substrate Material Lot Number</label>
-                                            <input type="text" class="form-control" id="substrateLotNum" placeholder="Enter Substrate Material Lot Number" value="<?php echo $row['substrateLotNum']; ?>">
+                                            <input type="text" class="form-control" id="substrateLotNum" placeholder="Enter Substrate Material Lot Number" value="<?php echo $row['substrateMatLotNum']; ?>">
                                         </div>
                                         <div class="col-sm">
                                             <label>Handle Tree Material Lot Number</label>
-                                            <input type="text" class="form-control" id="handleTreeMaterialNum" placeholder="Enter Tree Material Number" value="<?php echo $row['handleTreeMaterialNum']; ?>">
+                                            <input type="text" class="form-control" id="handleTreeMaterialNum" placeholder="Enter Tree Material Number" value="<?php echo $row['handleTreeMatLotNum']; ?>">
                                         </div>
                                     </div>
                                 </div>
