@@ -261,10 +261,20 @@
             <select id="year-thermal" class="form-control year-select" style="display: none;">
               <option value="" selected>Choose Item Code</option>
               <?php
+              // Collect years in an array
+              $years = [];
               $sql = $user->yearThermalList();
-              while ($list = mysqli_fetch_array($sql)) { ?>
+              while ($list = mysqli_fetch_array($sql)) {
+                $year = date('Y', strtotime($list['date']));
+                if (!in_array($year, $years)) {
+                  $years[] = $year; // Add year if it's not already in the array
+                }
+              }
+
+              // Display years
+              foreach ($years as $year) { ?>
                 <option>
-                  <?php echo $list['date']; ?> - <?php echo $list['product']; ?>
+                  <?php echo $year; ?> <!-- Display only the unique year -->
                 </option>
               <?php } ?>
             </select>
@@ -273,10 +283,20 @@
             <select id="year-swab" class="form-control year-select" style="display: none;">
               <option value="" selected>Choose Item Code</option>
               <?php
+              // Collect years in an array
+              $years = [];
               $sql = $user->yearSwabList();
-              while ($list = mysqli_fetch_array($sql)) { ?>
+              while ($list = mysqli_fetch_array($sql)) {
+                $year = date('Y', strtotime($list['date']));
+                if (!in_array($year, $years)) {
+                  $years[] = $year; // Add year if it's not already in the array
+                }
+              }
+
+              // Display years
+              foreach ($years as $year) { ?>
                 <option>
-                  <?php echo $list['date']; ?> - <?php echo $list['product']; ?>
+                  <?php echo $year; ?> <!-- Display only the unique year -->
                 </option>
               <?php } ?>
             </select>
@@ -287,6 +307,7 @@
             </select>
           </div>
 
+
         </div>
       </div>
       <div class="modal-footer">
@@ -296,6 +317,20 @@
     </div>
   </div>
 </div>
+
+<script>
+    // Log selected year from Thermal Bonding dropdown
+    document.getElementById('year-thermal').addEventListener('change', function() {
+        const selectedYear = this.value;
+        console.log('Selected year from Thermal Bonding:', selectedYear);
+    });
+
+    // Log selected year from Swab Assembly dropdown
+    document.getElementById('year-swab').addEventListener('change', function() {
+        const selectedYear = this.value;
+        console.log('Selected year from Swab Assembly:', selectedYear);
+    });
+</script>
 
 <script>
   function updateYearList() {
