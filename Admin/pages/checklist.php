@@ -247,7 +247,7 @@
 
           <div class="form-group">
             <label>Classification</label>
-            <select id="department" class="form-control" onchange="updateYearList()">
+            <select id="departmentYear" class="form-control" onchange="updateYearList()">
               <option value="Head Forming" selected>Head Forming</option>
               <option value="Thermal Bonding">Thermal Bonding</option>
               <option value="Swab Assembly">Swab Assembly</option>
@@ -334,7 +334,7 @@
 
 <script>
   function updateYearList() {
-    const selectedDept = document.getElementById('department').value;
+    const selectedDept = document.getElementById('departmentYear').value;
     const yearSelects = document.querySelectorAll('.year-select');
 
     // Hide all year select elements and reset them to default option
