@@ -1,4 +1,4 @@
-<title>Thermal Bonding Quality Audit</title>
+<title>Swab Assembly View</title>
 
 <?php
 $prod_id = base64_decode($_GET['id']);
