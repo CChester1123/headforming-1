@@ -241,9 +241,9 @@
 
       <div class="modal-body">
         <div class="card-body">
-          <label>Do you want to generate a Report?</label>
+          
           <div class="form-group">
-            <label>Classification</label>
+            <label>Generate Report</label>
             <select id="departmentYear" class="form-control" onchange="updateYearList()">
               <!-- <option value="Head Forming" selected>Head Forming</option> -->
               <option value="Thermal Bonding" selected>Thermal Bonding</option>
@@ -366,7 +366,6 @@
   </div>
 </div>
 </div>
-
 
 <div class="modal fade" id="duplicateList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
