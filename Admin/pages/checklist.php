@@ -6,7 +6,7 @@
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
-        
+
         <div class="col-sm-6">
           <h1 style="font-weight: bold;">CHECKLIST</h1>
         </div>
@@ -98,11 +98,9 @@
           </div>
 
           <div class="card">
-
             <div class="card-header">
               <h3 class="card-title">Thermal Bonding</h3>
             </div>
-            
             <div class="card-body">
               <table id="example3" class="table table-bordered table-striped">
                 <thead>
@@ -147,24 +145,18 @@
                       <td style="text-align:center;"><?php echo htmlentities($row['product']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['status']); ?></td>
                     </tr>
-
                   <?php } ?>
-
                 </tbody>
-
               </table>
-
             </div>
           </div>
         </div>
 
         <div class="col-12">
           <div class="card">
-
             <div class="card-header">
               <h3 class="card-title">Swab Assembly</h3>
             </div>
-
             <div class="card-body">
               <table id="example4" class="table table-bordered table-striped">
                 <thead>
@@ -209,29 +201,23 @@
                       <td style="text-align:center;"><?php echo htmlentities($row['product']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['status']); ?></td>
                     </tr>
-
                   <?php } ?>
-
                 </tbody>
-
               </table>
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <ol class="float-sm-right">
       <a type="button" class="btn btn-info fa fa-plus-square excelBtn"> Report</a>
     </ol>
-
   </section>
 </div>
 
 <div class="modal fade" id="excelList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -241,7 +227,6 @@
 
       <div class="modal-body">
         <div class="card-body">
-          
           <div class="form-group">
             <label>Generate Report</label>
             <select id="departmentYear" class="form-control" onchange="updateYearList()">
@@ -295,7 +280,6 @@
               <option value="">No data for this department</option>
             </select>
           </div>
-
         </div>
       </div>
 
@@ -303,7 +287,6 @@
         <button type="button" class="btn btn-primary" id="createExcel">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">Cancel</button>
       </div>
-
     </div>
   </div>
 </div>
@@ -311,7 +294,6 @@
 <div class="modal fade" id="createList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -321,7 +303,6 @@
 
       <div class="modal-body">
         <div class="card-body">
-
           <div class="form-group">
             <label>Classification</label>
             <select id="department" class="form-control" onchange="filterPartNo()">
@@ -353,7 +334,6 @@
               <option value="Product Change">Product Change</option>
             </select>
           </div>
-
         </div>
       </div>
 
@@ -361,7 +341,6 @@
         <button type="button" class="btn btn-primary createAccount" id="createProduct">Create</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">Cancel</button>
       </div>
-
     </div>
   </div>
 </div>
@@ -370,7 +349,6 @@
 <div class="modal fade" id="duplicateList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -388,7 +366,6 @@
         <button type="button" class="btn btn-primary createAccount" id="duplicateBtn">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
       </div>
-
     </div>
   </div>
 </div>
@@ -396,7 +373,6 @@
 <div class="modal fade" id="duplicateList2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -414,7 +390,6 @@
         <button type="button" class="btn btn-primary createAccount" id="duplicateBtn2">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
       </div>
-
     </div>
   </div>
 </div>
@@ -422,7 +397,6 @@
 <div class="modal fade" id="duplicateList3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -440,7 +414,6 @@
         <button type="button" class="btn btn-primary createAccount" id="duplicateBtn3">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
       </div>
-
     </div>
   </div>
 </div>
@@ -449,7 +422,6 @@
 <div class="modal fade" id="deleteList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -467,7 +439,6 @@
         <button type="button" class="btn btn-primary createAccount" id="deleteBtn">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
       </div>
-
     </div>
   </div>
 </div>
@@ -475,7 +446,6 @@
 <div class="modal fade" id="deleteList2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -493,7 +463,6 @@
         <button type="button" class="btn btn-primary createAccount" id="deleteBtn2">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
       </div>
-
     </div>
   </div>
 </div>
@@ -501,7 +470,6 @@
 <div class="modal fade" id="deleteList3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -519,13 +487,13 @@
         <button type="button" class="btn btn-primary createAccount" id="deleteBtn3">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
       </div>
-
     </div>
   </div>
 </div>
 </div>
 
 <?php include 'includes/footer.php'; ?>
+
 <script>
   function updateYearList() {
     const selectedDept = document.getElementById('departmentYear').value;
