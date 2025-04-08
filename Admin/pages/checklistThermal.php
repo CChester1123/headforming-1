@@ -25,7 +25,6 @@ while ($row = mysqli_fetch_array($sql)) {
                                 <h3 class="card-title" style="font-weight: bold;">AUDIT LIST</h3>
                             </div>
                             <div class="card-body">
-
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm">
@@ -47,11 +46,6 @@ while ($row = mysqli_fetch_array($sql)) {
                                         }
                                         ?>
 
-                                        <!-- <div class="col-sm-3">
-                                            <label>Time</label>
-                                            <input type="datetime-local" class="form-control" id="time" value="<?php echo date('Y-m-d\TH:i'); ?>">
-                                        </div> -->
-
                                         <div class="col-sm">
                                             <label>Shift</label>
                                             <select class="form-control" id="shift">
@@ -64,7 +58,6 @@ while ($row = mysqli_fetch_array($sql)) {
 
                                 <div class="form-group">
                                     <div class="row">
-
                                         <div class="col-sm">
                                             <label>Operator/s Name</label>
                                             <input type="text" class="form-control" id="operatorName" placeholder="Enter Operator Name">
@@ -96,8 +89,8 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <input type="text" class="form-control" id="product" placeholder="Enter Product Name" value="<?php echo $row['productname']; ?>" disabled>
                                         </div>
 
-                                        <?php $qual = isset($_GET['qual']) ? $_GET['qual'] : '';
-                                        ?>
+                                        <?php $qual = isset($_GET['qual']) ? $_GET['qual'] : ''; ?>
+
                                         <div class="col-sm">
                                             <label>Type</label>
                                             <select id="type" class="form-control" disabled>
@@ -106,17 +99,6 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 <option value="Product Change" <?php echo ($qual == 'Product Change') ? 'selected' : ''; ?>>Product Change</option>
                                             </select>
                                         </div>
-
-
-                                        <!-- <?php $dept = isset($_GET['dept']) ? $_GET['dept'] : '';
-                                                ?>
-                                        <div class="col-sm">
-                                            <label>Department</label>
-                                            <select id="department" class="form-control">
-                                                <option value="Thermal Bonding" <?php echo ($dept == 'Thermal Bonding') ? 'selected' : ''; ?>>Thermal Bonding</option>
-                                                <option value="Head Forming" <?php echo ($dept == 'Head Forming') ? 'selected' : ''; ?>>Head Forming</option>
-                                            </select>
-                                        </div> -->
                                     </div>
                                 </div>
 
@@ -140,11 +122,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                     </div>
                                 </div>
 
-
-
                                 <!-- <?php if ($type == "In-Process Audit") {     ?>
-
-
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm">
@@ -174,10 +152,7 @@ while ($row = mysqli_fetch_array($sql)) {
                             <div class="card-header" style="background-color:rgb(27, 102, 201); color: white;">
                                 <h3 class="card-title" style="font-weight: bold;">IN-PROCESS AUDIT</h3>
                             </div>
-
                             <div class="card-body">
-
-
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm">
@@ -206,10 +181,12 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 </select>
                                             </div>
                                         </div>
+
                                         <div class="col-sm">
                                             <label>Substrate Material Lot Number</label>
                                             <input type="text" class="form-control" id="substrateLotNum" placeholder="Enter Substrate Material Lot Number" value="<?php echo $row['substrateMatLotNum']; ?>">
                                         </div>
+
                                         <div class="col-sm">
                                             <label>Handle Tree Material Lot Number</label>
                                             <input type="text" class="form-control" id="handleTreeMaterialNum" placeholder="Enter Tree Material Number" value="<?php echo $row['handleTreeMatLotNum']; ?>">
@@ -231,7 +208,6 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <label>Remarks</label>
                                             <input type="text" class="form-control" id="remarksInprocess" placeholder="Enter Remarks">
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -251,8 +227,6 @@ while ($row = mysqli_fetch_array($sql)) {
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-
-                                    <!-- fgfg -->
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-2">
@@ -387,12 +361,10 @@ while ($row = mysqli_fetch_array($sql)) {
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-2">
                                                 <label style="margin-left: 20px;">Visual Inspection (20 HT)</label>
-
                                             </div>
 
                                             <div class="col-sm-2">
@@ -401,14 +373,13 @@ while ($row = mysqli_fetch_array($sql)) {
                                                     <option value="Failed">FAILED</option>
                                                 </select>
                                             </div>
+
                                             <div class="row">
                                                 <div class="col-sm">
                                                     <input type="text" id="remarksVisual" class="form-control actualDataLoop result" placeholder="Enter Remarks">
                                                 </div>
                                             </div>
-
                                         </div>
-
 
                                         <div class="row">
                                             <div class="col-sm-2">
@@ -421,6 +392,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                                     <option value="Failed">FAILED</option>
                                                 </select>
                                             </div>
+
                                             <div class="row">
                                                 <div class="col-sm"><br>
                                                     <input type="text" id="remarksResistance" class="form-control actualDataLoop result" placeholder="Enter Remarks">
@@ -431,12 +403,14 @@ while ($row = mysqli_fetch_array($sql)) {
                                         <div class="row">
                                             <div class="col-sm-2">
                                             </div>
+
                                             <div class="col-sm-2"><br>
                                                 <select class="form-control" id="productionStats">
                                                     <option value="Continue Production" selected>Continue Production</option>
                                                     <option value="Stop Production">Stop Production</option>
                                                 </select>
                                             </div>
+
                                             <div class="row">
                                                 <div class="col-sm"><br>
                                                     <input type="text" id="remarksProduction" class="form-control actualDataLoop result" placeholder="Enter Remarks">
@@ -444,13 +418,13 @@ while ($row = mysqli_fetch_array($sql)) {
                                             </div>
                                         </div>
 
-
                                         <div class="col-sm">
                                             <label style="color: red; margin-left: 30px;"> NOTE:</label><br>
                                             <label style="color: red; margin-left: 100px;">Process Inspection:<br>
                                                 Any non conformance found requires immediate correction of process, quarantine of affected lot and follow non-conforming SOP.</label><br><br>
                                             <label style="color: red; margin-left: 100px;">Process and Visual Inspection of Product for each Operator: <br>
-                                                QA shall conduct verification if found one (1) reject during visual inspection for each operator. Operator shall do 100% re inspection if found another one (1) similar reject. QA will then verify the re worked products as well as finished goods (if there is any). Follow Non–conforming SOP if reject are still found. </label><br>
+                                                QA shall conduct verification if found one (1) reject during visual inspection for each operator. Operator shall do 100% re inspection if found another one (1) similar reject. QA will then verify the re worked products as well as finished goods (if there is any). Follow Non–conforming SOP if reject are still found.
+                                            </label><br>
                                         </div>
                                     </div>
                                 </div>
@@ -459,22 +433,19 @@ while ($row = mysqli_fetch_array($sql)) {
                     </div>
                 </div>
         </section>
-
     <?php }    ?>
 
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-
                 <div class="col-sm-12">
                     <ol class="breadcrumb float-sm-right">
                         <li><a type="button" class="btn btn-primary mr-1 fas fa-check-circle btnSave"> Submit </a></li>
                         <li><a type="button" class="btn btn-danger mr-1 fas far fa-arrow-alt-circle-left btnBack"> Back </a></li>
                     </ol>
                 </div>
-
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
     </div>
 
@@ -493,14 +464,16 @@ while ($row = mysqli_fetch_array($sql)) {
                     <button type="button" class="btn btn-primary" id="dataSubmitDelete">Yes</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                 </div>
-
             </div>
         </div>
     </div>
     </div>
-    <?php include 'includes/footer.php';
+
+    <?php
+    include 'includes/footer.php';
     include  'includes/validation.php';
     ?>
+
     <script>
         function checkTemperatureRange(inputId, minId, maxId, resultId) {
             document.getElementById(inputId).addEventListener('input', function() {
@@ -529,97 +502,6 @@ while ($row = mysqli_fetch_array($sql)) {
         checkTemperatureRange('actSwabHandleFixture', 'SwabMin', 'SwabMax', 'SwabHandleFixture');
         checkTemperatureRange('actFixtureClosingTime', 'FixtureMin', 'FixtureMax', 'FixtureClosingTime');
 
-
-        // function checkTemperatureRange(inputId, minId, maxId, resultId) {
-        //     document.getElementById(inputId).addEventListener('input', function() {
-        //         const [min, max, actual] = [minId, maxId, inputId].map(id => parseFloat(document.getElementById(id).value));
-        //         const result = (!isNaN(actual) && actual >= min && actual <= max) ? 'PASSED' : actual ? 'FAILED' : '';
-        //         const resultElement = document.getElementById(resultId);
-
-        //         resultElement.value = result;
-        //         resultElement.style.fontWeight = result ? 'bold' : '';
-        //         resultElement.style.backgroundColor = result === 'PASSED' ? 'green' : result === 'FAILED' ? 'red' : '';
-        //         resultElement.style.color = result ? 'white' : '';
-        //     });
-        // }
-        // checkTemperatureRange('actTempUpnLow', 'minTemp', 'maxTemp', 'TempUpnLow');
-        // checkTemperatureRange('actHeatingTime', 'minHeat', 'maxHeat', 'HeatingTime');
-        // checkTemperatureRange('actSwabHandleFixture', 'minSwab', 'maxSwab', 'SwabHandleFixture');
-        // checkTemperatureRange('actFixtureClosingTime', 'minFixture', 'maxFixture', 'FixtureClosingTime');
-
-        // // Function to check if the actual temperature is within the range
-        // document.getElementById('actTempUpnLow').addEventListener('input', function() {
-        //     // Get the min, max, and actual temperature values
-        //     var minTemp = parseFloat(document.getElementById('minTemp').value);
-        //     var maxTemp = parseFloat(document.getElementById('maxTemp').value);
-        //     var actualTemp = parseFloat(document.getElementById('actTempUpnLow').value);
-
-        //     // Check if the actual temperature is within the range
-        //     if (!isNaN(actualTemp)) {
-        //         if (actualTemp >= minTemp && actualTemp <= maxTemp) {
-        //             document.getElementById('TempUpnLow').value = 'Passed';
-        //         } else {
-        //             document.getElementById('TempUpnLow').value = 'Failed';
-        //         }
-        //     } else {
-        //         document.getElementById('TempUpnLow').value = ''; // Clear remarks if input is not valid
-        //     }
-        // });
-        // // Function to check if the actual temperature is within the range
-        // document.getElementById('actHeatingTime').addEventListener('input', function() {
-        //     // Get the min, max, and actual temperature values
-        //     var minHeat = parseFloat(document.getElementById('minHeat').value);
-        //     var maxHeat = parseFloat(document.getElementById('maxHeat').value);
-        //     var actHeatingTime = parseFloat(document.getElementById('actHeatingTime').value);
-
-        //     // Check if the actual temperature is within the range
-        //     if (!isNaN(actHeatingTime)) {
-        //         if (actHeatingTime >= minHeat && actHeatingTime <= maxHeat) {
-        //             document.getElementById('HeatingTime').value = 'Passed';
-        //         } else {
-        //             document.getElementById('HeatingTime').value = 'Failed';
-        //         }
-        //     } else {
-        //         document.getElementById('HeatingTime').value = ''; // Clear remarks if input is not valid
-        //     }
-        // });
-        // // Function to check if the actual temperature is within the range
-        // document.getElementById('actSwabHandleFixture').addEventListener('input', function() {
-        //     // Get the min, max, and actual temperature values
-        //     var minSwab = parseFloat(document.getElementById('minSwab').value);
-        //     var maxSwab = parseFloat(document.getElementById('maxSwab').value);
-        //     var actSwabHandleFixture = parseFloat(document.getElementById('actSwabHandleFixture').value);
-
-        //     // Check if the actual temperature is within the range
-        //     if (!isNaN(actSwabHandleFixture)) {
-        //         if (actSwabHandleFixture >= minSwab && actSwabHandleFixture <= maxSwab) {
-        //             document.getElementById('SwabHandleFixture').value = 'Passed';
-        //         } else {
-        //             document.getElementById('SwabHandleFixture').value = 'Failed';
-        //         }
-        //     } else {
-        //         document.getElementById('SwabHandleFixture').value = ''; // Clear remarks if input is not valid
-        //     }
-        // });
-        // // Function to check if the actual temperature is within the range
-        // document.getElementById('actFixtureClosingTime').addEventListener('input', function() {
-        //     // Get the min, max, and actual temperature values
-        //     var minFixture = parseFloat(document.getElementById('minFixture').value);
-        //     var maxFixture = parseFloat(document.getElementById('maxFixture').value);
-        //     var actFixtureClosingTime = parseFloat(document.getElementById('actFixtureClosingTime').value);
-
-        //     // Check if the actual temperature is within the range
-        //     if (!isNaN(actFixtureClosingTime)) {
-        //         if (actFixtureClosingTime >= minFixture && actFixtureClosingTime <= maxFixture) {
-        //             document.getElementById('FixtureClosingTime').value = 'Passed';
-        //         } else {
-        //             document.getElementById('FixtureClosingTime').value = 'Failed';
-        //         }
-        //     } else {
-        //         document.getElementById('FixtureClosingTime').value = ''; // Clear remarks if input is not valid
-        //     }
-        // });
-
         function compareNumbers(groupIndex) {
             let number1 = parseFloat(document.getElementById("actualDataLoopa" + groupIndex + "1").value) - 0.1;
             let number2 = parseFloat(document.getElementById("actualDataLoopa" + groupIndex + "2").value) + 0.1;
@@ -647,7 +529,6 @@ while ($row = mysqli_fetch_array($sql)) {
             theme: 'bootstrap4'
         })
 
-
         $(document).on('click', '.btnBack', function() {
             window.location.href = "checklist";
         });
@@ -662,25 +543,21 @@ while ($row = mysqli_fetch_array($sql)) {
 
             var pick = "17";
             var status = "Pending";
-
             var workorder = $.trim(encodeURI($("#workorder").val()));
             var date = $.trim(encodeURI($("#date").val()));
             var time = $.trim(encodeURI($("#time").val()));
             var shift = $.trim(encodeURI($("#shift").val()));
             var operatorName = $.trim(encodeURI($("#operatorName").val()));
-
             var teamLead = $.trim(encodeURI($("#teamLead").val()));
             var machineNo = $.trim(encodeURI($("#machineNo").val()));
             var product = $.trim(encodeURI($("#product").val()));
             var type = $.trim(encodeURI($("#type").val()));
             var InspectedBY = $.trim(encodeURI($("#InspectedBY").val()));
-
             var maintenancecheced = $.trim(encodeURI($("#maintenancecheced").val()));
             var handle = $.trim(encodeURI($("#handle").val()));
             var substrate = $.trim(encodeURI($("#substrate").val()));
             var handleTreeColor = $.trim(encodeURI($("#handleTreeColor").val()));
             var substrateLotNum = $.trim(encodeURI($("#substrateLotNum").val()));
-
             var handleTreeMaterialNum = $.trim(encodeURI($("#handleTreeMaterialNum").val()));
             var texwipeLogo = $.trim(encodeURI($("#texwipeLogo").val()));
             var remarksInprocess = $.trim(encodeURI($("#remarksInprocess").val()));
@@ -705,7 +582,6 @@ while ($row = mysqli_fetch_array($sql)) {
             var actHeatingTime = $.trim(encodeURI($("#actHeatingTime").val()));
             var HeatingTime = $.trim(encodeURI($("#HeatingTime").val()));
 
-
             let SwabInputs = document.querySelectorAll('input[id="SwabMin"], input[id="SwabMax"]');
             let arrSwab = [];
             SwabInputs.forEach((textbox) => {
@@ -715,7 +591,6 @@ while ($row = mysqli_fetch_array($sql)) {
             var SwabMax = $.trim(encodeURI($("#SwabMax").val()));
             var actSwabHandleFixture = $.trim(encodeURI($("#actSwabHandleFixture").val()));
             var SwabHandleFixture = $.trim(encodeURI($("#SwabHandleFixture").val()));
-
 
             let FixtureInputs = document.querySelectorAll('input[id="FixtureMin"], input[id="FixtureMax"]');
             let arrFixture = [];
@@ -737,7 +612,6 @@ while ($row = mysqli_fetch_array($sql)) {
             var fd = new FormData();
             fd.append('pick', pick);
             fd.append('status', status);
-
             fd.append('workorder', workorder);
             fd.append('date', date);
             fd.append('time', time);
@@ -756,25 +630,18 @@ while ($row = mysqli_fetch_array($sql)) {
             fd.append('handleTreeMaterialNum', handleTreeMaterialNum);
             fd.append('texwipeLogo', texwipeLogo);
             fd.append('remarksInprocess', remarksInprocess);
-
-
             fd.append('arrTemp', arrTemp);
             fd.append('actTempUpnLow', actTempUpnLow);
             fd.append('TempUpnLow', TempUpnLow);
-
             fd.append('arrHeat', arrHeat);
             fd.append('actHeatingTime', actHeatingTime);
             fd.append('HeatingTime', HeatingTime);
-
             fd.append('arrSwab', arrSwab);
             fd.append('actSwabHandleFixture', actSwabHandleFixture);
             fd.append('SwabHandleFixture', SwabHandleFixture);
-
             fd.append('arrFixture', arrFixture);
             fd.append('actFixtureClosingTime', actFixtureClosingTime);
             fd.append('FixtureClosingTime', FixtureClosingTime);
-
-
             fd.append('productionStats', productionStats);
             fd.append('remarksProduction', remarksProduction);
             fd.append('visualInpection', visualInpection);
@@ -782,9 +649,9 @@ while ($row = mysqli_fetch_array($sql)) {
             fd.append('resistanceInpection', resistanceInpection);
             fd.append('remarksResistance', remarksResistance);
 
-            for (let pair of fd.entries()) {
-                console.log(pair[0] + ": " + pair[1]);
-            }
+            // for (let pair of fd.entries()) {
+            //     console.log(pair[0] + ": " + pair[1]);
+            // }
 
             $.ajax({
                 url: "../pages/codes/admin_control.php",
@@ -793,8 +660,6 @@ while ($row = mysqli_fetch_array($sql)) {
                 contentType: false,
                 type: 'POST',
                 success: function(result) {
-
-                    // alert(result);
                     if ($.trim(result) != 0) {
                         $.notify("Account Created Successfully ", "success");
                         setTimeout(function() {
@@ -813,7 +678,6 @@ while ($row = mysqli_fetch_array($sql)) {
             var cuttingforce2 = document.getElementsByClassName("cuttingforce2");
             var cuttingforce3 = document.getElementsByClassName("cuttingforce3");
             var cuttingforcevalidation = document.getElementsByClassName("cuttingforcevalidation");
-
 
             cuttingforcevalidation.textContent = "Out of specs";
         }
