@@ -319,17 +319,17 @@
 </div>
 
 <script>
-    // Log selected year from Thermal Bonding dropdown
-    document.getElementById('year-thermal').addEventListener('change', function() {
-        const selectedYear = this.value;
-        console.log('Selected year from Thermal Bonding:', selectedYear);
-    });
+  // Log selected year from Thermal Bonding dropdown
+  document.getElementById('year-thermal').addEventListener('change', function() {
+    const selectedYear = this.value;
+    console.log('Selected year from Thermal Bonding:', selectedYear);
+  });
 
-    // Log selected year from Swab Assembly dropdown
-    document.getElementById('year-swab').addEventListener('change', function() {
-        const selectedYear = this.value;
-        console.log('Selected year from Swab Assembly:', selectedYear);
-    });
+  // Log selected year from Swab Assembly dropdown
+  document.getElementById('year-swab').addEventListener('change', function() {
+    const selectedYear = this.value;
+    console.log('Selected year from Swab Assembly:', selectedYear);
+  });
 </script>
 
 <script>
@@ -679,11 +679,10 @@
   });
 
   $(document).on('click', '#createExcel', function() {
-    var selectedOption = $("#yearSelected option:selected");
-    var yearSelected = $.trim(selectedOption.text());
+    var yearSelected = $.trim($("#year-thermal").val() || $("#year-swab").val());
 
-    if (yearSelected == "Choose Year") {
-      $.notify("Please select Year", "error");
+    if (yearSelected == "Choose Year" || !yearSelected) {
+      $.notify("Please select a Year", "error");
       return;
     }
 
