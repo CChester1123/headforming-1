@@ -2,7 +2,6 @@
 <?php include 'includes/header.php'; ?>
 
 <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
@@ -15,9 +14,8 @@
             <li><a type="button" class="btn btn-info fa fa-plus-square createProduct" data-toggle="modal" data-target="#CreateModal"> Add Products </a></li>
           </ol>
         </div>
-
       </div>
-    </div><!-- /.container-fluid -->
+    </div>
   </section>
 
   <!-- Main content -->
@@ -29,7 +27,6 @@
             <div class="card-header">
               <h3 class="card-title">All Products</h3>
             </div>
-            <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -40,6 +37,7 @@
                     <th style="text-align:center;">Status</th>
                   </tr>
                 </thead>
+
                 <tbody>
                   <?php
                   $sql = $user->getProduct();
@@ -52,12 +50,9 @@
                       <td style="text-align:center;"><?php echo htmlentities($row['productname']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['productDesc']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['status']); ?></td>
-
                     </tr>
                   <?php } ?>
-
                 </tbody>
-
               </table>
             </div>
           </div>
@@ -76,9 +71,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      
       <div class="modal-body">
         <div class="card-body">
-
           <div class="form-group">
             <label> Department</label>
             <select id="deptType" class="form-control">
@@ -87,20 +82,19 @@
               <option value="Swab Assembly">Swab Assembly</option>
             </select>
           </div>
-
         </div>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-primary createAccount" id="createProduct">Create</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">Cancel</button>
-
       </div>
     </div>
   </div>
 </div>
 
-
 <?php include 'includes/footer.php'; ?>
+
 <script>
   var id = "";
   $(document).on('click', '.btnEdit', function() {

@@ -6,9 +6,7 @@ include 'includes/header.php';
 $sql = $user->ViewEditProduct($prod_id);
 while ($row = mysqli_fetch_array($sql)) {
 ?>
-
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -23,7 +21,7 @@ while ($row = mysqli_fetch_array($sql)) {
             <?php } ?>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
 
     <!-- Main content -->
@@ -32,7 +30,6 @@ while ($row = mysqli_fetch_array($sql)) {
         <div class="row">
           <div class="col-12">
             <div class="card">
-              <!-- /.card-header -->
               <div class="card-body">
                 <div class="form-group">
                   <div class="row">
@@ -40,10 +37,12 @@ while ($row = mysqli_fetch_array($sql)) {
                       <label>Product Name</label>
                       <input type="text" class="form-control" id="product" placeholder="Enter Product Name" value="<?php echo $row['productname']; ?>" readonly disabled>
                     </div>
+
                     <div class="col-sm">
                       <label>Product Description</label>
                       <input type="text" class="form-control" id="productDesc" placeholder="Enter Product Description" value="<?php echo $row['productDesc']; ?>" readonly disabled>
                     </div>
+
                     <div class="col-sm" style="margin-top: 0px;">
                       <label for="deptType"><?php echo htmlspecialchars($row['department']); ?></label>
                       <select class="form-control" id="status" value="<?php echo $row['status']; ?>" readonly disabled>
@@ -68,15 +67,14 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="card-header" style="background-color: #111E6C; color: white;">
                 <h3 class="card-title">RAW MATERIAL </h3>
               </div>
-              <!-- /.card-header -->
               <div class="card-body">
-
                 <div class="form-group">
                   <div class="row">
                     <div class="col-sm">
                       <label>Handle</label>
                       <input type="text" class="form-control" id="handle" placeholder="Enter Handle" value="<?php echo $row['handle']; ?>" readonly disabled>
                     </div>
+
                     <div class="col-sm">
                       <label>Substrate</label>
                       <input type="text" class="form-control" id="subtrate" placeholder="Enter Substrate" value="<?php echo $row['substrate']; ?>" readonly disabled>
@@ -111,11 +109,11 @@ while ($row = mysqli_fetch_array($sql)) {
                       <label>Substrate Material Lot Number</label>
                       <input type="text" class="form-control" id="substrateLotNum" placeholder="Enter Substrate Material Lot Number" value="<?php echo $row['substrateMatLotNum']; ?>" readonly disabled>
                     </div>
+
                     <div class="col-sm">
                       <label>Handle Tree Material Lot Number</label>
                       <input type="text" class="form-control" id="handleTreeMaterialNum" placeholder="Enter Tree Material Number" value="<?php echo $row['handleTreeMatLotNum']; ?>" readonly disabled>
                     </div>
-
                   </div>
                 </div>
 
@@ -132,7 +130,6 @@ while ($row = mysqli_fetch_array($sql)) {
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -590,10 +587,7 @@ while ($row = mysqli_fetch_array($sql)) {
                   </div>
                 </div>
               </div>
-
             </div>
-
-
           </div>';
             } else if ($deptType == "Thermal Bonding") {
               echo '<div class="card">
@@ -733,14 +727,10 @@ while ($row = mysqli_fetch_array($sql)) {
                   </div>
                 </div>
               </div> 
-
             </div>
-
-
           </div>';
             }
             ?>
-
           </div>
         </div>
       </div>
@@ -1129,6 +1119,7 @@ while ($row = mysqli_fetch_array($sql)) {
                       <div class="col-sm-4">
                         <label style="margin-left: 20px;">No. of Tips per HT</label>
                       </div>
+
                       <div class="col-sm">
                         <input type="number" class="form-control" id="noHandleperHT" placeholder="Enter Handles" value="<?php echo htmlspecialchars($user->value1actual($row['noofsample'])); ?>" readonly disabled>
                       </div>
@@ -1137,7 +1128,6 @@ while ($row = mysqli_fetch_array($sql)) {
 
                   <div class="form-group">
                     <div class="row">
-
                       <div class="col-sm">
                         <input type="text" list="employees" name="pulltest" class="form-control emp_id" id="pulltestdesc"
                           value="<?php echo htmlspecialchars($user->value1actual($row['pulltestdesc'])); ?>" readonly disabled>
@@ -1153,18 +1143,21 @@ while ($row = mysqli_fetch_array($sql)) {
                             <div class="col-sm-2">
                               Min
                             </div>
+
                             <div class="col-sm-9">
                               <input type="text" class="form-control" id="pulltest" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['pullTest'])); ?>" readonly disabled>
                             </div>
                           </div>
                         </div>
                       </div>
+
                       <div class="col-sm">
                         <div class="container">
                           <div class="row">
                             <div class="col-sm-2">
                               Max
                             </div>
+
                             <div class="col-sm-9">
                               <input type="text" class="form-control" id="pulltest" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['pullTest'])); ?>" readonly disabled>
                             </div>
@@ -1179,12 +1172,14 @@ while ($row = mysqli_fetch_array($sql)) {
                       <div class="col-sm">
                         <label style="margin-left: 20px;">Swab Head Pulling</label>
                       </div>
+
                       <div class="col-sm">
                         <div class="container">
                           <div class="row">
                             <div class="col-sm-2">
                               Min
                             </div>
+
                             <div class="col-sm-9">
                               <select class="form-control" id="swabheadpulling" value="<?php echo htmlspecialchars($user->value1actual($row['swabheadpullingRange'])); ?>" readonly disabled>
                                 <option value="N/A" <?php echo ($user->value1actual($row['swabheadpullingRange']) == 'N/A') ? 'selected' : ''; ?>>N/A</option>
@@ -1194,12 +1189,14 @@ while ($row = mysqli_fetch_array($sql)) {
                           </div>
                         </div>
                       </div>
+
                       <div class="col-sm">
                         <div class="container">
                           <div class="row">
                             <div class="col-sm-2">
                               Max
                             </div>
+
                             <div class="col-sm-9">
                               <select class="form-control" id="swabheadpulling" value="<?php echo htmlspecialchars($user->value2actual($row['swabheadpullingRange'])); ?>" readonly disabled>
                                 <option value="N/A" <?php echo ($user->value2actual($row['swabheadpullingRange']) == 'N/A') ? 'selected' : ''; ?>>N/A</option>
@@ -1217,12 +1214,14 @@ while ($row = mysqli_fetch_array($sql)) {
                       <div class="col-sm">
                         <label style="margin-left: 20px;">Swab Head Popping</label>
                       </div>
+
                       <div class="col-sm">
                         <div class="container">
                           <div class="row">
                             <div class="col-sm-2">
                               Min
                             </div>
+
                             <div class="col-sm-9">
                               <select class="form-control" id="swabheadpopping" value="<?php echo htmlspecialchars($user->value1actual($row['swabheadpoppingRange'])); ?>" readonly disabled>
                                 <option value="N/A" <?php echo ($user->value1actual($row['swabheadpoppingRange']) == 'N/A') ? 'selected' : ''; ?>>N/A</option>
@@ -1232,12 +1231,14 @@ while ($row = mysqli_fetch_array($sql)) {
                           </div>
                         </div>
                       </div>
+
                       <div class="col-sm">
                         <div class="container">
                           <div class="row">
                             <div class="col-sm-2">
                               Max
                             </div>
+
                             <div class="col-sm-9">
                               <select class="form-control" id="swabheadpopping" value="<?php echo htmlspecialchars($user->value2actual($row['swabheadpoppingRange'])); ?>" readonly disabled>
                                 <option value="N/A" <?php echo ($user->value2actual($row['swabheadpoppingRange']) == 'N/A') ? 'selected' : ''; ?>>N/A</option>
@@ -1249,7 +1250,6 @@ while ($row = mysqli_fetch_array($sql)) {
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -1258,29 +1258,20 @@ while ($row = mysqli_fetch_array($sql)) {
       </div>
     </section>
 
-
-
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
-
-          </div>
-
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <!-- <li><a type="button" class="btn btn-primary mr-1 fas fa-check-circle btnSave"> Save </a></li> -->
               <li><a type="button" class="btn btn-danger mr-1 fas far fa-arrow-alt-circle-left btnBack"> Back </a></li>
             </ol>
           </div>
-
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
   </div>
-
 <?php } ?>
-
 
 <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -1297,12 +1288,13 @@ while ($row = mysqli_fetch_array($sql)) {
         <button type="button" class="btn btn-primary" id="dataSubmitDelete">Yes</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
       </div>
-
     </div>
   </div>
 </div>
 </div>
+
 <?php include 'includes/footer.php'; ?>
+
 <script>
   $(document).on('click', '.btnBack', function() {
     window.location.href = "products2";

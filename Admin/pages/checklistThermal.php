@@ -8,6 +8,7 @@ $department = $_GET['department'];
 if ($type == "" || $prod_id == "") {
     header("Location: checklist");
 }
+
 include 'includes/header.php';
 $sql = $user->ViewEditProduct($prod_id);
 while ($row = mysqli_fetch_array($sql)) {

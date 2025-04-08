@@ -6,7 +6,6 @@ include 'includes/header.php';
 $sql = $user->ViewEditProduct($prod_id);
 while ($row = mysqli_fetch_array($sql)) {
 ?>
-
   <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
