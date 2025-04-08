@@ -599,7 +599,7 @@
           $.notify("Excel file generated successfully", "success");
           setTimeout(function() {
             window.location.href = `${url}?yearSelected=${yearSelected}&deptSelected=${deptSelected}`;
-            $("#excelSwabList").modal("hide");
+            $("#excelList").modal("hide");
           }, 2000);
         } else {
           $.notify("Error encountered while generating Excel. Please contact your administrator", "error");
