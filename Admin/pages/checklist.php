@@ -206,9 +206,12 @@
         </div>
       </div>
     </div>
-    <ol class="float-sm-right">
-      <a type="button" class="btn btn-info fa fa-plus-square excelBtn"> Report</a>
-    </ol>
+
+    <?php if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') { ?>
+      <ol class="float-sm-right">
+        <a type="button" class="btn btn-info fa fa-plus-square excelBtn"> Report</a>
+      </ol>
+    <?php   } ?>
   </section>
 </div>
 
@@ -598,6 +601,7 @@
         if ($.trim(result) != 0) {
           $.notify("Excel file generated successfully", "success");
           setTimeout(function() {
+            $("#year-thermal, #year-swab").val("");
             window.location.href = `${url}?yearSelected=${yearSelected}&deptSelected=${deptSelected}`;
             $("#excelList").modal("hide");
           }, 2000);
