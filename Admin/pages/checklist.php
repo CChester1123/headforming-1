@@ -248,8 +248,8 @@
           <div class="form-group">
             <label>Classification</label>
             <select id="departmentYear" class="form-control" onchange="updateYearList()">
-              <option value="Head Forming" selected>Head Forming</option>
-              <option value="Thermal Bonding">Thermal Bonding</option>
+              <!-- <option value="Head Forming" selected>Head Forming</option> -->
+              <option value="Thermal Bonding" selected>Thermal Bonding</option>
               <option value="Swab Assembly">Swab Assembly</option>
             </select>
           </div>
@@ -679,35 +679,75 @@
   });
 
   $(document).on('click', '#createExcel', function() {
+    // Get the yearSelected value from either the year-thermal or year-swab field
     var yearSelected = $.trim($("#year-thermal").val() || $("#year-swab").val());
+    var deptSelected = $.trim($("#departmentYear").val());
 
+    console.log('Department Selected:', deptSelected);
+    console.log('Year Selected:', yearSelected);
+
+    // If no year is selected
     if (yearSelected == "Choose Year" || !yearSelected) {
       $.notify("Please select a Year", "error");
       return;
     }
 
-    $.ajax({
-      url: 'export2.php',
-      method: 'GET',
-      data: {
-        yearSelected: yearSelected
-      },
-      success: function(result) {
-        if ($.trim(result) != 0) {
-          $.notify("Excel file generated successfully", "success");
-          setTimeout(function() {
-            window.location.href = 'export2.php?yearSelected=' + yearSelected;
-            $("#excelList").modal("hide");
-          }, 2000);
-        } else {
-          $.notify("Error encountered while generating Excel. Please contact your administrator", "error");
+    // Check if the year is selected from the "year-thermal" field and department is "thermalb"
+    if ($("#year-thermal").val() && deptSelected == 'Thermal Bonding') {
+      // Perform AJAX for thermal department
+      $.ajax({
+        url: 'export2.php',
+        method: 'GET',
+        data: {
+          yearSelected: yearSelected
+        },
+        success: function(result) {
+          if ($.trim(result) != 0) {
+            $.notify("Excel file generated successfully", "success");
+            setTimeout(function() {
+              window.location.href = 'export2.php?yearSelected=' + yearSelected;
+              $("#excelSwabList").modal("hide");
+            }, 2000);
+          } else {
+            $.notify("Error encountered while generating Excel. Please contact your administrator", "error");
+          }
+        },
+        error: function() {
+          $.notify("An error occurred. Please try again later", "error");
         }
-      },
-      error: function() {
-        $.notify("An error occurred. Please try again later", "error");
-      }
-    });
+      });
+    }
+    
+    else if ($("#year-swab").val() && deptSelected == 'Swab Assembly') {
+      
+      $.ajax({
+        url: 'export3.php',
+        method: 'GET',
+        data: {
+          yearSelected: yearSelected
+        },
+        success: function(result) {
+          if ($.trim(result) != 0) {
+            $.notify("Excel file generated successfully", "success");
+            setTimeout(function() {
+              window.location.href = 'export3.php?yearSelected=' + yearSelected;
+              $("#excelSwabList").modal("hide");
+            }, 2000);
+          } else {
+            $.notify("Error encountered while generating Excel. Please contact your administrator", "error");
+          }
+        },
+        error: function() {
+          $.notify("An error occurred. Please try again later", "error");
+        }
+      });
+    } else {
+      
+      $.notify("Invalid combination of year and department", "error");
+    }
   });
+
+
 
   $(document).on('click', '#createSwabExcel', function() {
     var selectedOption = $("#yearSelectedSwab option:selected");
