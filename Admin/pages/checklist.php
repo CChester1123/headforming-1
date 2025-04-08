@@ -246,14 +246,14 @@
                   $years[] = $year;
                 }
               }
-              
+
               foreach ($years as $year) { ?>
                 <option>
                   <?php echo $year; ?>
                 </option>
               <?php } ?>
             </select>
-            
+
             <select id="year-swab" class="form-control year-select" style="display: none;">
               <option value="" selected>Choose Item Code</option>
               <?php
@@ -265,14 +265,14 @@
                   $years[] = $year;
                 }
               }
-              
+
               foreach ($years as $year) { ?>
                 <option>
                   <?php echo $year; ?>
                 </option>
               <?php } ?>
             </select>
-            
+
             <select id="year-default" class="form-control year-select" style="display: none;">
               <option value="">No data for this department</option>
             </select>
@@ -505,12 +505,12 @@
   function updateYearList() {
     const selectedDept = document.getElementById('departmentYear').value;
     const yearSelects = document.querySelectorAll('.year-select');
-    
+
     yearSelects.forEach(select => {
       select.style.display = 'none';
       select.selectedIndex = 0;
     });
-    
+
     if (selectedDept === 'Thermal Bonding') {
       document.getElementById('year-thermal').style.display = 'block';
     } else if (selectedDept === 'Swab Assembly') {
@@ -520,7 +520,7 @@
     }
   }
   document.addEventListener('DOMContentLoaded', updateYearList);
-  
+
   // Function to filter FG PART NO. based on the selected department
   function filterPartNo() {
     const selectedDepartment = document.getElementById("department").value;
@@ -584,72 +584,43 @@
   });
 
   $(document).on('click', '#createExcel', function() {
-    // Get the yearSelected value from either the year-thermal or year-swab field
     var yearSelected = $.trim($("#year-thermal").val() || $("#year-swab").val());
     var deptSelected = $.trim($("#departmentYear").val());
 
-    console.log('Department Selected:', deptSelected);
-    console.log('Year Selected:', yearSelected);
-
-    // If no year is selected
-    if (yearSelected == "Choose Year" || !yearSelected) {
+    if (!yearSelected || yearSelected == "Choose Year") {
       $.notify("Please select a Year", "error");
       return;
     }
 
-    // Check if the year is selected from the "year-thermal" field and department is "thermalb"
-    if ($("#year-thermal").val() && deptSelected == 'Thermal Bonding') {
-      // Perform AJAX for thermal department
-      $.ajax({
-        url: 'export2.php',
-        method: 'GET',
-        data: {
-          yearSelected: yearSelected
-        },
-        success: function(result) {
-          if ($.trim(result) != 0) {
-            $.notify("Excel file generated successfully", "success");
-            setTimeout(function() {
-              window.location.href = 'export2.php?yearSelected=' + yearSelected;
-              $("#excelSwabList").modal("hide");
-            }, 2000);
-          } else {
-            $.notify("Error encountered while generating Excel. Please contact your administrator", "error");
-          }
-        },
-        error: function() {
-          $.notify("An error occurred. Please try again later", "error");
-        }
-      });
-    }
-    
-    else if ($("#year-swab").val() && deptSelected == 'Swab Assembly') {
-      
-      $.ajax({
-        url: 'export3.php',
-        method: 'GET',
-        data: {
-          yearSelected: yearSelected
-        },
-        success: function(result) {
-          if ($.trim(result) != 0) {
-            $.notify("Excel file generated successfully", "success");
-            setTimeout(function() {
-              window.location.href = 'export3.php?yearSelected=' + yearSelected;
-              $("#excelSwabList").modal("hide");
-            }, 2000);
-          } else {
-            $.notify("Error encountered while generating Excel. Please contact your administrator", "error");
-          }
-        },
-        error: function() {
-          $.notify("An error occurred. Please try again later", "error");
-        }
-      });
-    } else {
-      
+    var url = (deptSelected == 'Thermal Bonding' && $("#year-thermal").val()) ||
+      (deptSelected == 'Swab Assembly' && $("#year-swab").val()) ? 'data2.php' : null;
+
+    if (!url) {
       $.notify("Invalid combination of year and department", "error");
+      return;
     }
+
+    $.ajax({
+      url: url,
+      method: 'GET',
+      data: {
+        yearSelected: yearSelected
+      },
+      success: function(result) {
+        if ($.trim(result) != 0) {
+          $.notify("Excel file generated successfully", "success");
+          setTimeout(function() {
+            window.location.href = `${url}?yearSelected=${yearSelected}&deptSelected=${deptSelected}`;
+            $("#excelSwabList").modal("hide");
+          }, 2000);
+        } else {
+          $.notify("Error encountered while generating Excel. Please contact your administrator", "error");
+        }
+      },
+      error: function() {
+        $.notify("An error occurred. Please try again later", "error");
+      }
+    });
   });
 
   $(document).on('click', '#createProduct', function() {
