@@ -271,7 +271,8 @@ while ($row = mysqli_fetch_array($sql)) {
                                         <div class="row">
                                             <div class="col-sm-2">
                                                 <label style="color: red; margin-left: 20px;">Note: For Assembled swabs, 5 tips only.While TX730 (14 tips each slots<br>
-                                                    of crimping jig) will be checked</label>
+                                                    of crimping jig) will be checked
+                                                </label>
                                             </div>
                                         </div>
 
