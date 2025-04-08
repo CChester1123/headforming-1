@@ -54,11 +54,11 @@ if ($deptSelected == 'Thermal Bonding') {
                 <td> <?php echo $row["actFixtureClosingTime"]; ?> </td>
                 <td> <?php echo $row["FixtureClosingTime"]; ?> </td>
             </tr>
-        <?php endforeach;
+        <?php
+        endforeach;
         header("Content-Disposition: Attachment; Filename = Thermal Bonding ($yearSelected).xls");
         ?>
     </table>
-
 <?php
 } elseif ($deptSelected == 'Swab Assembly') {
 ?>
@@ -100,11 +100,11 @@ if ($deptSelected == 'Thermal Bonding') {
                 <td> <?php echo $pullTestingSamples[4]; ?> </td>
                 <td> <?php echo $row["remarksPullTesting"]; ?> </td>
             </tr>
-        <?php endforeach;
+        <?php
+        endforeach;
         header("Content-Disposition: Attachment; Filename = Swab Assembly ($yearSelected).xls");
         ?>
     </table>
-
 <?php
 }
 ?>

@@ -4,7 +4,6 @@ $deptType = $_GET['deptType'];
 ?>
 
 <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
@@ -18,7 +17,7 @@ $deptType = $_GET['deptType'];
           <?php } ?>
         </div>
       </div>
-    </div><!-- /.container-fluid -->
+    </div>
   </section>
 
   <!-- Main content -->
@@ -27,7 +26,6 @@ $deptType = $_GET['deptType'];
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <!-- /.card-header -->
             <div class="card-body">
               <div class="form-group">
                 <div class="row">
@@ -36,6 +34,7 @@ $deptType = $_GET['deptType'];
                     <input type="text" class="form-control" id="product" placeholder="Enter Product Name">
                     <input type="text" class="form-control" id="deptType" value="<?php echo htmlspecialchars($deptType); ?>" readonly hidden>
                   </div>
+
                   <div class="col-sm">
                     <label>Product Description</label>
                     <input type="text" class="form-control" id="productDesc" placeholder="Enter Product Description">
@@ -57,15 +56,14 @@ $deptType = $_GET['deptType'];
             <div class="card-header" style="background-color: #111E6C; color: white;">
               <h3 class="card-title">RAW MATERIAL </h3>
             </div>
-            <!-- /.card-header -->
             <div class="card-body">
-
               <div class="form-group">
                 <div class="row">
                   <div class="col-sm">
                     <label>Handle</label>
                     <input type="text" class="form-control" id="handle" placeholder="Enter Handle">
                   </div>
+                  
                   <div class="col-sm">
                     <label>Substrate</label>
                     <input type="text" class="form-control" id="subtrate" placeholder="Enter Substrate">
@@ -101,12 +99,12 @@ $deptType = $_GET['deptType'];
                     <input type="text" class="form-control" id="substrateLotNum" placeholder="Enter Substrate Material Lot Number" value="<?php //echo $row['substrateLotNum']; 
                                                                                                                                           ?>">
                   </div>
+
                   <div class="col-sm">
                     <label>Handle Tree Material Lot Number</label>
                     <input type="text" class="form-control" id="handleTreeMaterialNum" placeholder="Enter Tree Material Number" value="<?php //echo $row['handleTreeMaterialNum']; 
                                                                                                                                         ?>">
                   </div>
-
                 </div>
               </div>
 
@@ -125,7 +123,6 @@ $deptType = $_GET['deptType'];
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -724,14 +721,10 @@ $deptType = $_GET['deptType'];
                   </div>
                 </div>
               </div> 
-
             </div>
-
-
           </div>';
           }
           ?>
-
         </div>
       </div>
     </div>
@@ -1127,32 +1120,29 @@ $deptType = $_GET['deptType'];
                         <option value="Pull Test" selected> Pull Test </option>
                         <option value="Seal Strength"> Seal Strength </option>
                         <datalist>
-
-
-
-                          <!--   <select list="" name="pulltest" class="form-control emp_id" id="pulltestdesc" >
-                                     <option value="Pull Test"  selected> Pull Test </option>
-                                    <option value="Seal Strength"  > Seal Strength </option>        
-                                </select> -->
                     </div>
+
                     <div class="col-sm">
                       <div class="container">
                         <div class="row">
                           <div class="col-sm-2">
                             Min
                           </div>
+
                           <div class="col-sm-9">
                             <input type="text" class="form-control" id="pulltest" placeholder="Enter Minimum">
                           </div>
                         </div>
                       </div>
                     </div>
+
                     <div class="col-sm">
                       <div class="container">
                         <div class="row">
                           <div class="col-sm-2">
                             Max
                           </div>
+
                           <div class="col-sm-9">
                             <input type="text" class="form-control" id="pulltest" placeholder="Enter Maximum">
                           </div>
@@ -1167,12 +1157,14 @@ $deptType = $_GET['deptType'];
                     <div class="col-sm">
                       <label style="margin-left: 20px;">Swab Head Pulling</label>
                     </div>
+
                     <div class="col-sm">
                       <div class="container">
                         <div class="row">
                           <div class="col-sm-2">
                             Min
                           </div>
+
                           <div class="col-sm-9">
                             <select class="form-control" id="swabheadpulling">
                               <option value="N/A">N/A</option>
@@ -1182,12 +1174,14 @@ $deptType = $_GET['deptType'];
                         </div>
                       </div>
                     </div>
+
                     <div class="col-sm">
                       <div class="container">
                         <div class="row">
                           <div class="col-sm-2">
                             Max
                           </div>
+
                           <div class="col-sm-9">
                             <select class="form-control" id="swabheadpulling">
                               <option value="N/A">N/A</option>
@@ -1205,12 +1199,14 @@ $deptType = $_GET['deptType'];
                     <div class="col-sm">
                       <label style="margin-left: 20px;">Swab Head Popping</label>
                     </div>
+
                     <div class="col-sm">
                       <div class="container">
                         <div class="row">
                           <div class="col-sm-2">
                             Min
                           </div>
+
                           <div class="col-sm-9">
                             <select class="form-control" id="swabheadpopping">
                               <option value="N/A">N/A</option>
@@ -1220,12 +1216,14 @@ $deptType = $_GET['deptType'];
                         </div>
                       </div>
                     </div>
+
                     <div class="col-sm">
                       <div class="container">
                         <div class="row">
                           <div class="col-sm-2">
                             Max
                           </div>
+
                           <div class="col-sm-9">
                             <select class="form-control" id="swabheadpopping">
                               <option value="N/A">N/A</option>
@@ -1237,7 +1235,6 @@ $deptType = $_GET['deptType'];
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -1246,24 +1243,17 @@ $deptType = $_GET['deptType'];
     </div>
   </section>
 
-
-
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
-        <div class="col-sm-6">
-
-        </div>
-
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li><a type="button" class="btn btn-primary mr-1 fas fa-check-circle btnSave"> Save </a></li>
             <li><a type="button" class="btn btn-danger mr-1 fas far fa-arrow-alt-circle-left btnBack"> Back </a></li>
           </ol>
         </div>
-
       </div>
-    </div><!-- /.container-fluid -->
+    </div>
   </section>
 </div>
 
@@ -1288,8 +1278,8 @@ $deptType = $_GET['deptType'];
 </div>
 </div>
 
-
 <?php include 'includes/footer.php'; ?>
+
 <script>
   $(document).on('click', '.btnBack', function() {
     window.location.href = "products2";
@@ -1301,26 +1291,23 @@ $deptType = $_GET['deptType'];
 
   $(document).on('click', '#dataSubmitDelete', function() {
     $("#dataSubmitDelete").attr("disabled", true);
-    var pick = '6';
 
+    var pick = '6';
+    var status = "Active";
     var product = $.trim(encodeURI($("#product").val()));
     var productDesc = $.trim(encodeURI($("#productDesc").val()));
     var handle = $.trim(encodeURI($("#handle").val()));
     var subtrate = $.trim(encodeURI($("#subtrate").val()));
     var pulltestdesc = $.trim(encodeURI($("#pulltestdesc").val()));
-    var status = "Active";
 
-    var department = $.trim($("#deptType").val()); // Use only $.trim, no need for encodeURI
-
+    var department = $.trim($("#deptType").val());
     if (department === "Head Forming") {
       department = "Head Forming";
     } else if (department === "Swab Assembly") {
-      department = "Swab Assembly"; // Assign department as "Swab" if that's the selected value
+      department = "Swab Assembly";
     } else {
       department = "Thermal Bonding";
     }
-
-    console.log("asd " + department);
 
     let cuttingforceText = document.querySelectorAll('input[id="cuttingforce"]');
     let arrcuttingforce = [];
@@ -1421,9 +1408,6 @@ $deptType = $_GET['deptType'];
       arrpulltest.push(element.value);
     });
 
-
-    // alert(arrpulltest);
-
     let swabheadpullingSelects = document.querySelectorAll('select[id="swabheadpulling"]');
     let arrswabheadpulling = [];
     swabheadpullingSelects.forEach((select) => {
@@ -1435,7 +1419,6 @@ $deptType = $_GET['deptType'];
     swabheadpoppingSelects.forEach((select) => {
       arrswabheadpopping.push(select.value);
     });
-
 
     let substrateDimensionText = document.querySelectorAll('input[id="substrateDimention"]');
     let substrateDimensionforce = [];
@@ -1511,36 +1494,26 @@ $deptType = $_GET['deptType'];
     var handleTreeMaterialNum = $.trim(encodeURI($("#handleTreeMaterialNum").val()));
     var machineTreeMatType = $.trim(encodeURI($("#machineTreeMatType").val()));
     var substrateType = $.trim(encodeURI($("#substrateType").val()));
-    // if(product == "" ||     productDesc == "" ||    handle == "" ||    subtrate == ""  ){
-    //     $.notify("Fields Found Empty","error");                           
-    //     $("#dataSubmitDelete").attr("disabled", false);
-    // } else {
-
 
     var fd = new FormData();
     fd.append('pick', pick);
-
     fd.append('arrCheckbox', arrCheckbox);
     fd.append('moldopenspeed', moldopenspeed);
     fd.append('arrwatertemp', arrwatertemp);
     fd.append('arrairpressure', arrairpressure);
     fd.append('arrupperheatertemp', arrupperheatertemp);
     fd.append('arrlowerheatertemp', arrlowerheatertemp);
-
     fd.append('arrheaterTempUpnLow', arrheaterTempUpnLow);
     fd.append('arrheaterSwabHandleFixture', arrheaterSwabHandleFixture);
     fd.append('arrfixtureClosingTime', arrfixtureClosingTime);
     fd.append('department', department);
-
     fd.append('arrheatingTime', arrheatingTime);
-
     fd.append('product', product);
     fd.append('productDesc', productDesc);
     fd.append('handle', handle);
     fd.append('subtrate', subtrate);
     fd.append('pulltestdesc', pulltestdesc);
     fd.append('status', status);
-
     fd.append('arrcuttingforce', arrcuttingforce);
     fd.append('arrsealingtime', arrsealingtime);
     fd.append('arrcuttingspeed', arrcuttingspeed);
@@ -1549,7 +1522,6 @@ $deptType = $_GET['deptType'];
     fd.append('arrsealingposition', arrsealingposition);
     fd.append('arruppermoldtemp', arruppermoldtemp);
     fd.append('arrlowermoldtemp', arrlowermoldtemp);
-
     fd.append('arrtotalLength', arrtotalLength);
     fd.append('arrswabheadlength', arrswabheadlength);
     fd.append('arrswabheadwidth', arrswabheadwidth);
@@ -1557,30 +1529,22 @@ $deptType = $_GET['deptType'];
     fd.append('arrswabhandlewidth', arrswabhandlewidth);
     fd.append('arrswabhandlethickness', arrswabhandlethickness);
     fd.append('arrswabhandlediameter', arrswabhandlediameter);
-
     fd.append('pulltestingMin', pulltestingMin);
     fd.append('noHandleperHT', noHandleperHT);
     fd.append('arrpulltest', arrpulltest);
     fd.append('arrswabheadpulling', arrswabheadpulling);
     fd.append('arrswabheadpopping', arrswabheadpopping);
-
     fd.append('substrateDimensionforce', substrateDimensionforce);
     fd.append('pullSeatTestforce', pullSeatTestforce);
-
     fd.append('handleColor', handleColor);
     fd.append('substrateLotNum', substrateLotNum);
     fd.append('handleTreeMaterialNum', handleTreeMaterialNum);
     fd.append('machineTreeMatType', machineTreeMatType);
     fd.append('substrateType', substrateType);
 
-
-
-    for (let pair of fd.entries()) {
-      console.log(pair[0] + ": " + pair[1]);
-    }
-
-
-
+    // for (let pair of fd.entries()) {
+    //   console.log(pair[0] + ": " + pair[1]);
+    // }
 
     $.ajax({
       url: "../pages/codes/admin_control.php",
@@ -1601,8 +1565,5 @@ $deptType = $_GET['deptType'];
         }
       }
     });
-    // }
-
-
   });
 </script>
