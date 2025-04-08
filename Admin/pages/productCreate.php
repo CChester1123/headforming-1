@@ -63,7 +63,7 @@ $deptType = $_GET['deptType'];
                     <label>Handle</label>
                     <input type="text" class="form-control" id="handle" placeholder="Enter Handle">
                   </div>
-                  
+
                   <div class="col-sm">
                     <label>Substrate</label>
                     <input type="text" class="form-control" id="subtrate" placeholder="Enter Substrate">
@@ -1553,7 +1553,6 @@ $deptType = $_GET['deptType'];
       contentType: false,
       type: 'POST',
       success: function(result) {
-        // alert(result);
         if ($.trim(result) == 1) {
           $.notify("Account Created Successfully ", "success");
           setTimeout(function() {

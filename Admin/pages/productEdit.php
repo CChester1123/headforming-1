@@ -8,7 +8,6 @@ while ($row = mysqli_fetch_array($sql)) {
 ?>
 
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -23,7 +22,7 @@ while ($row = mysqli_fetch_array($sql)) {
             <?php } ?>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
 
     <!-- Main content -->
@@ -32,7 +31,6 @@ while ($row = mysqli_fetch_array($sql)) {
         <div class="row">
           <div class="col-12">
             <div class="card">
-              <!-- /.card-header -->
               <div class="card-body">
                 <div class="form-group">
                   <div class="row">
@@ -69,15 +67,14 @@ while ($row = mysqli_fetch_array($sql)) {
               <div class="card-header" style="background-color: #111E6C; color: white;">
                 <h3 class="card-title">RAW MATERIAL </h3>
               </div>
-              <!-- /.card-header -->
               <div class="card-body">
-
                 <div class="form-group">
                   <div class="row">
                     <div class="col-sm">
                       <label>Handle</label>
                       <input type="text" class="form-control" id="handle" placeholder="Enter Handle" value="<?php echo $row['handle']; ?>">
                     </div>
+
                     <div class="col-sm">
                       <label>Substrate</label>
                       <input type="text" class="form-control" id="subtrate" placeholder="Enter Substrate" value="<?php echo $row['substrate']; ?>">
@@ -112,11 +109,11 @@ while ($row = mysqli_fetch_array($sql)) {
                       <label>Substrate Material Lot Number</label>
                       <input type="text" class="form-control" id="substrateLotNum" placeholder="Enter Substrate Material Lot Number" value="<?php echo $row['substrateMatLotNum']; ?>">
                     </div>
+
                     <div class="col-sm">
                       <label>Handle Tree Material Lot Number</label>
                       <input type="text" class="form-control" id="handleTreeMaterialNum" placeholder="Enter Tree Material Number" value="<?php echo $row['handleTreeMatLotNum']; ?>">
                     </div>
-
                   </div>
                 </div>
 
@@ -133,7 +130,6 @@ while ($row = mysqli_fetch_array($sql)) {
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -591,10 +587,7 @@ while ($row = mysqli_fetch_array($sql)) {
                   </div>
                 </div>
               </div>
-
             </div>
-
-
           </div>';
             } else if ($deptType == "Thermal Bonding") {
               echo '<div class="card">
@@ -734,14 +727,10 @@ while ($row = mysqli_fetch_array($sql)) {
                   </div>
                 </div>
               </div> 
-
             </div>
-
-
           </div>';
             }
             ?>
-
           </div>
         </div>
       </div>
@@ -1129,6 +1118,7 @@ while ($row = mysqli_fetch_array($sql)) {
                       <div class="col-sm-4">
                         <label style="margin-left: 20px;">No. of Tips per HT</label>
                       </div>
+
                       <div class="col-sm">
                         <input type="number" class="form-control" id="noHandleperHT" placeholder="Enter Handles" value="<?php echo htmlspecialchars($user->value1actual($row['noofsample'])); ?>">
                       </div>
@@ -1137,7 +1127,6 @@ while ($row = mysqli_fetch_array($sql)) {
 
                   <div class="form-group">
                     <div class="row">
-
                       <div class="col-sm">
                         <input type="text" list="employees" name="pulltest" class="form-control emp_id" id="pulltestdesc"
                           value="<?php echo htmlspecialchars($user->value1actual($row['pulltestdesc'])); ?>">
@@ -1153,18 +1142,21 @@ while ($row = mysqli_fetch_array($sql)) {
                             <div class="col-sm-2">
                               Min
                             </div>
+
                             <div class="col-sm-9">
                               <input type="text" class="form-control" id="pulltest" placeholder="Enter Minimum" value="<?php echo htmlspecialchars($user->value1actual($row['pullTest'])); ?>">
                             </div>
                           </div>
                         </div>
                       </div>
+
                       <div class="col-sm">
                         <div class="container">
                           <div class="row">
                             <div class="col-sm-2">
                               Max
                             </div>
+
                             <div class="col-sm-9">
                               <input type="text" class="form-control" id="pulltest" placeholder="Enter Maximum" value="<?php echo htmlspecialchars($user->value2actual($row['pullTest'])); ?>">
                             </div>
@@ -1179,12 +1171,14 @@ while ($row = mysqli_fetch_array($sql)) {
                       <div class="col-sm">
                         <label style="margin-left: 20px;">Swab Head Pulling</label>
                       </div>
+
                       <div class="col-sm">
                         <div class="container">
                           <div class="row">
                             <div class="col-sm-2">
                               Min
                             </div>
+
                             <div class="col-sm-9">
                               <select class="form-control" id="swabheadpulling" value="<?php echo htmlspecialchars($user->value1actual($row['swabheadpullingRange'])); ?>">
                                 <option value="N/A" <?php echo ($user->value1actual($row['swabheadpullingRange']) == 'N/A') ? 'selected' : ''; ?>>N/A</option>
@@ -1194,12 +1188,14 @@ while ($row = mysqli_fetch_array($sql)) {
                           </div>
                         </div>
                       </div>
+
                       <div class="col-sm">
                         <div class="container">
                           <div class="row">
                             <div class="col-sm-2">
                               Max
                             </div>
+
                             <div class="col-sm-9">
                               <select class="form-control" id="swabheadpulling" value="<?php echo htmlspecialchars($user->value2actual($row['swabheadpullingRange'])); ?>">
                                 <option value="N/A" <?php echo ($user->value2actual($row['swabheadpullingRange']) == 'N/A') ? 'selected' : ''; ?>>N/A</option>
@@ -1217,12 +1213,14 @@ while ($row = mysqli_fetch_array($sql)) {
                       <div class="col-sm">
                         <label style="margin-left: 20px;">Swab Head Popping</label>
                       </div>
+
                       <div class="col-sm">
                         <div class="container">
                           <div class="row">
                             <div class="col-sm-2">
                               Min
                             </div>
+
                             <div class="col-sm-9">
                               <select class="form-control" id="swabheadpopping" value="<?php echo htmlspecialchars($user->value1actual($row['swabheadpoppingRange'])); ?>">
                                 <option value="N/A" <?php echo ($user->value1actual($row['swabheadpoppingRange']) == 'N/A') ? 'selected' : ''; ?>>N/A</option>
@@ -1232,12 +1230,14 @@ while ($row = mysqli_fetch_array($sql)) {
                           </div>
                         </div>
                       </div>
+
                       <div class="col-sm">
                         <div class="container">
                           <div class="row">
                             <div class="col-sm-2">
                               Max
                             </div>
+
                             <div class="col-sm-9">
                               <select class="form-control" id="swabheadpopping" value="<?php echo htmlspecialchars($user->value2actual($row['swabheadpoppingRange'])); ?>">
                                 <option value="N/A" <?php echo ($user->value2actual($row['swabheadpoppingRange']) == 'N/A') ? 'selected' : ''; ?>>N/A</option>
@@ -1249,7 +1249,6 @@ while ($row = mysqli_fetch_array($sql)) {
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -1258,29 +1257,20 @@ while ($row = mysqli_fetch_array($sql)) {
       </div>
     </section>
 
-
-
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
-
-          </div>
-
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li><a type="button" class="btn btn-primary mr-1 fas fa-check-circle btnSave"> Save </a></li>
               <li><a type="button" class="btn btn-danger mr-1 fas far fa-arrow-alt-circle-left btnBack"> Back </a></li>
             </ol>
           </div>
-
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
   </div>
-
 <?php } ?>
-
 
 <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -1297,12 +1287,13 @@ while ($row = mysqli_fetch_array($sql)) {
         <button type="button" class="btn btn-primary" id="dataSubmitDelete">Yes</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
       </div>
-
     </div>
   </div>
 </div>
 </div>
+
 <?php include 'includes/footer.php'; ?>
+
 <script>
   $(document).on('click', '.btnBack', function() {
     window.location.href = "products2";
@@ -1314,23 +1305,21 @@ while ($row = mysqli_fetch_array($sql)) {
 
   $(document).on('click', '#dataSubmitDelete', function() {
     $("#dataSubmitDelete").attr("disabled", true);
+
     var pick = '7';
-
     var prod_id = $.trim(encodeURI($("#prod_id").val()));
-
     var product = $.trim(encodeURI($("#product").val()));
     var productDesc = $.trim(encodeURI($("#productDesc").val()));
     var handle = $.trim(encodeURI($("#handle").val()));
     var subtrate = $.trim(encodeURI($("#subtrate").val()));
     var pulltestdesc = $.trim(encodeURI($("#pulltestdesc").val()));
-
     var status = $.trim(encodeURI($("#status").val()));
 
-    var department = $.trim($("#deptType").val()); // Use only $.trim, no need for encodeURI
+    var department = $.trim($("#deptType").val());
     if (department === "Head Forming") {
       department = "Head Forming";
     } else if (department === "Swab Assembly") {
-      department = "Swab Assembly"; // Assign department as "Swab" if that's the selected value
+      department = "Swab Assembly";
     } else {
       department = "Thermal Bonding";
     }
@@ -1434,9 +1423,6 @@ while ($row = mysqli_fetch_array($sql)) {
       arrpulltest.push(element.value);
     });
 
-
-    // alert(arrpulltest);
-
     let swabheadpullingSelects = document.querySelectorAll('select[id="swabheadpulling"]');
     let arrswabheadpulling = [];
     swabheadpullingSelects.forEach((select) => {
@@ -1448,7 +1434,6 @@ while ($row = mysqli_fetch_array($sql)) {
     swabheadpoppingSelects.forEach((select) => {
       arrswabheadpopping.push(select.value);
     });
-
 
     let substrateDimensionText = document.querySelectorAll('input[id="substrateDimention"]');
     let substrateDimensionforce = [];
@@ -1524,38 +1509,27 @@ while ($row = mysqli_fetch_array($sql)) {
     var handleTreeMaterialNum = $.trim(encodeURI($("#handleTreeMaterialNum").val()));
     var machineTreeMatType = $.trim(encodeURI($("#machineTreeMatType").val()));
     var substrateType = $.trim(encodeURI($("#substrateType").val()));
-    // if(product == "" ||     productDesc == "" ||    handle == "" ||    subtrate == ""  ){
-    //     $.notify("Fields Found Empty","error");                           
-    //     $("#dataSubmitDelete").attr("disabled", false);
-    // } else {
-
 
     var fd = new FormData();
     fd.append('pick', pick);
     fd.append('prod_id', prod_id);
-
     fd.append('arrCheckbox', arrCheckbox);
     fd.append('moldopenspeed', moldopenspeed);
     fd.append('arrwatertemp', arrwatertemp);
     fd.append('arrairpressure', arrairpressure);
     fd.append('arrupperheatertemp', arrupperheatertemp);
     fd.append('arrlowerheatertemp', arrlowerheatertemp);
-
     fd.append('arrheaterTempUpnLow', arrheaterTempUpnLow);
     fd.append('arrheaterSwabHandleFixture', arrheaterSwabHandleFixture);
     fd.append('arrfixtureClosingTime', arrfixtureClosingTime);
     fd.append('department', department);
-
     fd.append('arrheatingTime', arrheatingTime);
-
-
     fd.append('product', product);
     fd.append('productDesc', productDesc);
     fd.append('handle', handle);
     fd.append('subtrate', subtrate);
     fd.append('pulltestdesc', pulltestdesc);
     fd.append('status', status);
-
     fd.append('arrcuttingforce', arrcuttingforce);
     fd.append('arrsealingtime', arrsealingtime);
     fd.append('arrcuttingspeed', arrcuttingspeed);
@@ -1564,7 +1538,6 @@ while ($row = mysqli_fetch_array($sql)) {
     fd.append('arrsealingposition', arrsealingposition);
     fd.append('arruppermoldtemp', arruppermoldtemp);
     fd.append('arrlowermoldtemp', arrlowermoldtemp);
-
     fd.append('arrtotalLength', arrtotalLength);
     fd.append('arrswabheadlength', arrswabheadlength);
     fd.append('arrswabheadwidth', arrswabheadwidth);
@@ -1572,30 +1545,22 @@ while ($row = mysqli_fetch_array($sql)) {
     fd.append('arrswabhandlewidth', arrswabhandlewidth);
     fd.append('arrswabhandlethickness', arrswabhandlethickness);
     fd.append('arrswabhandlediameter', arrswabhandlediameter);
-
     fd.append('pulltestingMin', pulltestingMin);
     fd.append('noHandleperHT', noHandleperHT);
     fd.append('arrpulltest', arrpulltest);
     fd.append('arrswabheadpulling', arrswabheadpulling);
     fd.append('arrswabheadpopping', arrswabheadpopping);
-
     fd.append('substrateDimensionforce', substrateDimensionforce);
     fd.append('pullSeatTestforce', pullSeatTestforce);
-
     fd.append('handleColor', handleColor);
     fd.append('substrateLotNum', substrateLotNum);
     fd.append('handleTreeMaterialNum', handleTreeMaterialNum);
     fd.append('machineTreeMatType', machineTreeMatType);
     fd.append('substrateType', substrateType);
 
-
-
-    for (let pair of fd.entries()) {
-      console.log(pair[0] + ": " + pair[1]);
-    }
-
-
-
+    // for (let pair of fd.entries()) {
+    //   console.log(pair[0] + ": " + pair[1]);
+    // }
 
     $.ajax({
       url: "../pages/codes/admin_control.php",
@@ -1604,7 +1569,6 @@ while ($row = mysqli_fetch_array($sql)) {
       contentType: false,
       type: 'POST',
       success: function(result) {
-        // alert(result);
         if ($.trim(result) == 1) {
           $.notify("Account Created Successfully ", "success");
           setTimeout(function() {
@@ -1616,8 +1580,5 @@ while ($row = mysqli_fetch_array($sql)) {
         }
       }
     });
-    // }
-
-
   });
 </script>
