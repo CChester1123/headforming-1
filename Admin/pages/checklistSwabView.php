@@ -31,7 +31,7 @@ while ($row = mysqli_fetch_array($sql)) {
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header" style="background-color:rgb(0, 4, 255); color: white;">
-                                <h3 class="card-title" style="font-weight: bold;"> AUDIT LIST </h3>
+                                <h3 class="card-title" style="font-weight: bold;">AUDIT LIST</h3>
                             </div>
                             <div class="card-body">
 
@@ -181,7 +181,7 @@ while ($row = mysqli_fetch_array($sql)) {
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header" style="background-color:rgb(0, 4, 255); color: white;">
-                                <h3 class="card-title" style="font-weight: bold;">In-Process Audit</h3>
+                                <h3 class="card-title" style="font-weight: bold;">IN-PROCESS AUDIT</h3>
                             </div>
 
                             <div class="card-body">
@@ -257,7 +257,7 @@ while ($row = mysqli_fetch_array($sql)) {
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header" style="background-color:rgb(0, 4, 255); color: white;">
-                                <h3 class="card-title" style="font-weight: bold;"> FUNCTIONALITY </h3>
+                                <h3 class="card-title" style="font-weight: bold;">FUNCTIONALITY</h3>
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
