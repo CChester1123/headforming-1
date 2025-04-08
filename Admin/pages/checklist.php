@@ -204,9 +204,6 @@
               </table>
             </div>
           </div>
-          <ol class="float-sm-right">
-            <a type="button" class="btn btn-info fa fa-plus-square excelSwabBtn"> Swab Report</a>
-          </ol>
         </div>
       </div>
     </div>
@@ -227,24 +224,6 @@
         <div class="card-body">
           <label>Do you want to generate a Report?</label>
 
-          <!-- <div class="form-group">
-            <select id="yearSelected" class="form-control">
-              <option value="" selected>Choose Year</option>
-              <?php
-              // Query distinct years
-              $sql = $user->selectYear();
-              $years = [];
-              while ($list = mysqli_fetch_array($sql)) {
-                $year = date('Y', strtotime($list['date']));
-                if (!in_array($year, $years)) {
-                  $years[] = $year;
-                  echo "<option value='" . base64_encode($list['id']) . "' data-department='" . $list['date'] . "'>$year</option>";
-                }
-              }
-              ?>
-            </select>
-          </div> -->
-
           <div class="form-group">
             <label>Classification</label>
             <select id="departmentYear" class="form-control" onchange="updateYearList()">
@@ -256,142 +235,53 @@
 
           <div class="form-group">
             <label>Select Year</label>
-
-            <!-- Thermal Bonding Year List -->
             <select id="year-thermal" class="form-control year-select" style="display: none;">
               <option value="" selected>Choose Item Code</option>
               <?php
-              // Collect years in an array
               $years = [];
               $sql = $user->yearThermalList();
               while ($list = mysqli_fetch_array($sql)) {
                 $year = date('Y', strtotime($list['date']));
                 if (!in_array($year, $years)) {
-                  $years[] = $year; // Add year if it's not already in the array
+                  $years[] = $year;
                 }
               }
-
-              // Display years
+              
               foreach ($years as $year) { ?>
                 <option>
-                  <?php echo $year; ?> <!-- Display only the unique year -->
+                  <?php echo $year; ?>
                 </option>
               <?php } ?>
             </select>
-
-            <!-- Swab Assembly Year List -->
+            
             <select id="year-swab" class="form-control year-select" style="display: none;">
               <option value="" selected>Choose Item Code</option>
               <?php
-              // Collect years in an array
               $years = [];
               $sql = $user->yearSwabList();
               while ($list = mysqli_fetch_array($sql)) {
                 $year = date('Y', strtotime($list['date']));
                 if (!in_array($year, $years)) {
-                  $years[] = $year; // Add year if it's not already in the array
+                  $years[] = $year;
                 }
               }
-
-              // Display years
+              
               foreach ($years as $year) { ?>
                 <option>
-                  <?php echo $year; ?> <!-- Display only the unique year -->
+                  <?php echo $year; ?>
                 </option>
               <?php } ?>
             </select>
-
-            <!-- Default fallback -->
+            
             <select id="year-default" class="form-control year-select" style="display: none;">
               <option value="">No data for this department</option>
             </select>
           </div>
 
-
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="createExcel">Yes</button>
-        <button type="button" class="btn btn-Danger" data-dismiss="modal">Cancel</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  // Log selected year from Thermal Bonding dropdown
-  document.getElementById('year-thermal').addEventListener('change', function() {
-    const selectedYear = this.value;
-    console.log('Selected year from Thermal Bonding:', selectedYear);
-  });
-
-  // Log selected year from Swab Assembly dropdown
-  document.getElementById('year-swab').addEventListener('change', function() {
-    const selectedYear = this.value;
-    console.log('Selected year from Swab Assembly:', selectedYear);
-  });
-</script>
-
-<script>
-  function updateYearList() {
-    const selectedDept = document.getElementById('departmentYear').value;
-    const yearSelects = document.querySelectorAll('.year-select');
-
-    // Hide all year select elements and reset them to default option
-    yearSelects.forEach(select => {
-      select.style.display = 'none';
-      select.selectedIndex = 0; // Reset to first option (usually "Choose Item Code")
-    });
-
-    // Show the appropriate year select
-    if (selectedDept === 'Thermal Bonding') {
-      document.getElementById('year-thermal').style.display = 'block';
-    } else if (selectedDept === 'Swab Assembly') {
-      document.getElementById('year-swab').style.display = 'block';
-    } else {
-      document.getElementById('year-default').style.display = 'block';
-    }
-  }
-
-  // Initialize on page load
-  document.addEventListener('DOMContentLoaded', updateYearList);
-</script>
-
-<div class="modal fade" id="excelSwabList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="card-body">
-          <label>Do you want to generate a Report?</label>
-
-          <div class="form-group">
-            <select id="yearSelectedSwab" class="form-control">
-              <option value="" selected>Choose Year</option>
-              <?php
-              // Query distinct years
-              $sql = $user->selectYearSwab();
-              $years = [];
-              while ($list = mysqli_fetch_array($sql)) {
-                $year = date('Y', strtotime($list['date']));
-                if (!in_array($year, $years)) {
-                  $years[] = $year;
-                  echo "<option value='" . base64_encode($list['id']) . "' data-department='" . $list['date'] . "'>$year</option>";
-                }
-              }
-              ?>
-            </select>
-          </div>
-
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="createSwabExcel">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">Cancel</button>
       </div>
     </div>
@@ -612,6 +502,25 @@
 
 <?php include 'includes/footer.php'; ?>
 <script>
+  function updateYearList() {
+    const selectedDept = document.getElementById('departmentYear').value;
+    const yearSelects = document.querySelectorAll('.year-select');
+    
+    yearSelects.forEach(select => {
+      select.style.display = 'none';
+      select.selectedIndex = 0;
+    });
+    
+    if (selectedDept === 'Thermal Bonding') {
+      document.getElementById('year-thermal').style.display = 'block';
+    } else if (selectedDept === 'Swab Assembly') {
+      document.getElementById('year-swab').style.display = 'block';
+    } else {
+      document.getElementById('year-default').style.display = 'block';
+    }
+  }
+  document.addEventListener('DOMContentLoaded', updateYearList);
+  
   // Function to filter FG PART NO. based on the selected department
   function filterPartNo() {
     const selectedDepartment = document.getElementById("department").value;
@@ -672,10 +581,6 @@
 
   $(document).on('click', '.excelBtn', function() {
     $("#excelList").modal("show");
-  });
-
-  $(document).on('click', '.excelSwabBtn', function() {
-    $("#excelSwabList").modal("show");
   });
 
   $(document).on('click', '#createExcel', function() {
@@ -745,40 +650,6 @@
       
       $.notify("Invalid combination of year and department", "error");
     }
-  });
-
-
-
-  $(document).on('click', '#createSwabExcel', function() {
-    var selectedOption = $("#yearSelectedSwab option:selected");
-    var yearSelected = $.trim(selectedOption.text());
-
-    if (yearSelected == "Choose Year") {
-      $.notify("Please select Year", "error");
-      return;
-    }
-
-    $.ajax({
-      url: 'export3.php',
-      method: 'GET',
-      data: {
-        yearSelected: yearSelected
-      },
-      success: function(result) {
-        if ($.trim(result) != 0) {
-          $.notify("Excel file generated successfully", "success");
-          setTimeout(function() {
-            window.location.href = 'export3.php?yearSelected=' + yearSelected;
-            $("#excelSwabList").modal("hide");
-          }, 2000);
-        } else {
-          $.notify("Error encountered while generating Excel. Please contact your administrator", "error");
-        }
-      },
-      error: function() {
-        $.notify("An error occurred. Please try again later", "error");
-      }
-    });
   });
 
   $(document).on('click', '#createProduct', function() {

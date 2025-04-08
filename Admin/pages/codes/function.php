@@ -213,18 +213,6 @@ class admin_creation
 		return $result;
 	}
 
-	public function	selectYearSwab()
-	{
-		$result = mysqli_query($this->dbh, "SELECT * FROM headforming.tbl_swabassembly");
-		return $result;
-	}
-
-	// public function selectPartNo()
-	// {
-	// 	$result = mysqli_query($this->dbh, "SELECT id, productname, department FROM headforming.tbl_products2 WHERE status = 'Active' AND department = 'Head Forming'");
-	// 	return $result;
-	// }
-
 	public function selectPartNumber($partNo)
 	{
 		$result = mysqli_query($this->dbh, "SELECT  * from tbl_products WHERE id = '$partNo'");
