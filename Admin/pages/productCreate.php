@@ -1247,6 +1247,8 @@ $deptType = $_GET['deptType'];
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
+        </div>
+        <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li><a type="button" class="btn btn-primary mr-1 fas fa-check-circle btnSave"> Save </a></li>
             <li><a type="button" class="btn btn-danger mr-1 fas far fa-arrow-alt-circle-left btnBack"> Back </a></li>
