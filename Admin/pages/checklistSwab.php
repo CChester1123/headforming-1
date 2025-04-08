@@ -386,14 +386,12 @@ while ($row = mysqli_fetch_array($sql)) {
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-
                 <div class="col-sm-12">
                     <ol class="breadcrumb float-sm-right">
                         <li><a type="button" class="btn btn-primary mr-1 fas fa-check-circle btnSave"> Submit </a></li>
                         <li><a type="button" class="btn btn-danger mr-1 fas far fa-arrow-alt-circle-left btnBack"> Back </a></li>
                     </ol>
                 </div>
-
             </div>
         </div>
     </section>
