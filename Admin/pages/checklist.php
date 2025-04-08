@@ -101,15 +101,13 @@
             <div class="card-body">
               <table id="example3" class="table table-bordered table-striped">
                 <thead>
-                  <tr>
-                    <th style="text-align:center;">Action</th>
-                    <th style="text-align:center;">Date</th>
-                    <th style="text-align:center;">Auditor</th>
-                    <th style="text-align:center;">Work Order</th>
-                    <th style="text-align:center;">Audit Type</th>
-                    <th style="text-align:center;">Product Number</th>
-                    <th style="text-align:center;">Status</th>
-                  <tr>
+                  <th style="text-align:center;">Action</th>
+                  <th style="text-align:center;">Date</th>
+                  <th style="text-align:center;">Auditor</th>
+                  <th style="text-align:center;">Work Order</th>
+                  <th style="text-align:center;">Audit Type</th>
+                  <th style="text-align:center;">Product Number</th>
+                  <th style="text-align:center;">Status</th>
                 </thead>
 
                 <tbody>
@@ -157,15 +155,13 @@
             <div class="card-body">
               <table id="example4" class="table table-bordered table-striped">
                 <thead>
-                  <tr>
-                    <th style="text-align:center;">Action</th>
-                    <th style="text-align:center;">Date</th>
-                    <th style="text-align:center;">Auditor</th>
-                    <th style="text-align:center;">Work Order</th>
-                    <th style="text-align:center;">Audit Type</th>
-                    <th style="text-align:center;">Product Number</th>
-                    <th style="text-align:center;">Status</th>
-                  <tr>
+                  <th style="text-align:center;">Action</th>
+                  <th style="text-align:center;">Date</th>
+                  <th style="text-align:center;">Auditor</th>
+                  <th style="text-align:center;">Work Order</th>
+                  <th style="text-align:center;">Audit Type</th>
+                  <th style="text-align:center;">Product Number</th>
+                  <th style="text-align:center;">Status</th>
                 </thead>
 
                 <tbody>
