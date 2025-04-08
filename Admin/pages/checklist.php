@@ -6,6 +6,7 @@
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
+        
         <div class="col-sm-6">
           <h1 style="font-weight: bold;">CHECKLIST</h1>
         </div>
@@ -17,8 +18,9 @@
             </ol>
           </div>
         <?php   } ?>
+
       </div>
-    </div><!-- /.container-fluid -->
+    </div>
   </section>
 
   <!-- Main content -->
@@ -96,10 +98,11 @@
           </div>
 
           <div class="card">
+
             <div class="card-header">
               <h3 class="card-title">Thermal Bonding</h3>
             </div>
-            <!-- /.card-header -->
+            
             <div class="card-body">
               <table id="example3" class="table table-bordered table-striped">
                 <thead>
@@ -111,9 +114,9 @@
                     <th style="text-align:center;">Audit Type</th>
                     <th style="text-align:center;">Product Number</th>
                     <th style="text-align:center;">Status</th>
-                    <!-- <th style="text-align:center;">Maintenance Status</th>         -->
-                    <!-- <th style="text-align:center;">Team Lead Status</th>  </tr> -->
+                  <tr>
                 </thead>
+
                 <tbody>
                   <?php
                   if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
@@ -136,6 +139,7 @@
                         <?php }
                         } ?>
                       </td>
+
                       <td style="text-align:center;"><?php echo htmlentities($row['date']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['InspectedBY']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['workorder']); ?></td>
@@ -143,18 +147,24 @@
                       <td style="text-align:center;"><?php echo htmlentities($row['product']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['status']); ?></td>
                     </tr>
+
                   <?php } ?>
+
                 </tbody>
+
               </table>
+
             </div>
           </div>
         </div>
 
         <div class="col-12">
           <div class="card">
+
             <div class="card-header">
               <h3 class="card-title">Swab Assembly</h3>
             </div>
+
             <div class="card-body">
               <table id="example4" class="table table-bordered table-striped">
                 <thead>
@@ -166,7 +176,9 @@
                     <th style="text-align:center;">Audit Type</th>
                     <th style="text-align:center;">Product Number</th>
                     <th style="text-align:center;">Status</th>
+                  <tr>
                 </thead>
+
                 <tbody>
                   <?php
                   if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') {
@@ -189,6 +201,7 @@
                         <?php }
                         } ?>
                       </td>
+
                       <td style="text-align:center;"><?php echo htmlentities($row['date']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['InspectedBY']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['workorder']); ?></td>
@@ -196,33 +209,39 @@
                       <td style="text-align:center;"><?php echo htmlentities($row['product']); ?></td>
                       <td style="text-align:center;"><?php echo htmlentities($row['status']); ?></td>
                     </tr>
+
                   <?php } ?>
+
                 </tbody>
+
               </table>
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <ol class="float-sm-right">
       <a type="button" class="btn btn-info fa fa-plus-square excelBtn"> Report</a>
     </ol>
+
   </section>
 </div>
 
 <div class="modal fade" id="excelList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
         <div class="card-body">
           <label>Do you want to generate a Report?</label>
-
           <div class="form-group">
             <label>Classification</label>
             <select id="departmentYear" class="form-control" onchange="updateYearList()">
@@ -279,10 +298,12 @@
 
         </div>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="createExcel">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">Cancel</button>
       </div>
+
     </div>
   </div>
 </div>
@@ -290,12 +311,14 @@
 <div class="modal fade" id="createList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
         <div class="card-body">
 
@@ -333,11 +356,12 @@
 
         </div>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-primary createAccount" id="createProduct">Create</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">Cancel</button>
-
       </div>
+
     </div>
   </div>
 </div>
@@ -347,22 +371,25 @@
 <div class="modal fade" id="duplicateList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
         <div class="card-body">
           Do you want to create a duplicate copy?
         </div>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-primary createAccount" id="duplicateBtn">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
-
       </div>
+
     </div>
   </div>
 </div>
@@ -370,22 +397,25 @@
 <div class="modal fade" id="duplicateList2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
         <div class="card-body">
           Do you want to create a duplicate copy?
         </div>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-primary createAccount" id="duplicateBtn2">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
-
       </div>
+
     </div>
   </div>
 </div>
@@ -393,21 +423,25 @@
 <div class="modal fade" id="duplicateList3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
         <div class="card-body">
           Do you want to create a duplicate copy?
         </div>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-primary createAccount" id="duplicateBtn3">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
       </div>
+
     </div>
   </div>
 </div>
@@ -416,22 +450,25 @@
 <div class="modal fade" id="deleteList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
         <div class="card-body">
           Do you want to create a delete copy?
         </div>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-primary createAccount" id="deleteBtn">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
-
       </div>
+
     </div>
   </div>
 </div>
@@ -439,21 +476,25 @@
 <div class="modal fade" id="deleteList2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
         <div class="card-body">
           Do you want to create a delete copy?
         </div>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-primary createAccount" id="deleteBtn2">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
       </div>
+
     </div>
   </div>
 </div>
@@ -461,21 +502,25 @@
 <div class="modal fade" id="deleteList3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">System Message </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
         <div class="card-body">
           Do you want to create a delete copy?
         </div>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-primary createAccount" id="deleteBtn3">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
       </div>
+
     </div>
   </div>
 </div>
@@ -520,7 +565,6 @@
         }
       }
     });
-
     // Reset the selected value of the FG PART NO. dropdown if it doesn't match the department
     const selectedPartNo = document.getElementById("partNo");
     if (selectedPartNo.value !== "" && selectedPartNo.querySelector(`option[value="${selectedPartNo.value}"]`).getAttribute("data-department") !== selectedDepartment) {
@@ -552,7 +596,6 @@
       filterPartNo();
     }
   }
-
   // Initial call to filter FG PART NO. based on the default department
   filterPartNo();
 
@@ -739,7 +782,6 @@
   });
 
   $(document).on('click', '#deleteBtn', function() {
-    // alert(id);
     var pick = "16";
     var fd = new FormData();
     fd.append('pick', pick);
@@ -751,7 +793,6 @@
       contentType: false,
       type: 'POST',
       success: function(result) {
-        // alert(result);
         if ($.trim(result) != 0) {
           $.notify("Checklist Delete Successfully  ", "success");
           setTimeout(function() {
@@ -766,7 +807,6 @@
   });
 
   $(document).on('click', '#deleteBtn2', function() {
-    // alert(id);
     var pick = "20";
     var fd = new FormData();
     fd.append('pick', pick);
@@ -778,7 +818,6 @@
       contentType: false,
       type: 'POST',
       success: function(result) {
-        // alert(result);
         if ($.trim(result) != 0) {
           $.notify("Checklist Delete Successfully  ", "success");
           setTimeout(function() {
@@ -793,7 +832,6 @@
   });
 
   $(document).on('click', '#deleteBtn3', function() {
-    // alert(id);
     var pick = "24";
     var fd = new FormData();
     fd.append('pick', pick);
@@ -805,7 +843,6 @@
       contentType: false,
       type: 'POST',
       success: function(result) {
-        // alert(result);
         if ($.trim(result) != 0) {
           $.notify("Checklist Delete Successfully  ", "success");
           setTimeout(function() {
