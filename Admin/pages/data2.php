@@ -1,5 +1,4 @@
 <?php
-header("Content-Type: application/vnd.ms-excel");
 require 'config2.php';
 
 $yearSelected = $_GET['yearSelected'];
@@ -56,6 +55,7 @@ if ($deptSelected == 'Thermal Bonding') {
             </tr>
         <?php
         endforeach;
+        header("Content-Type: application/vnd.ms-excel");
         header("Content-Disposition: Attachment; Filename = Thermal Bonding ($yearSelected).xls");
         ?>
     </table>
@@ -102,6 +102,7 @@ if ($deptSelected == 'Thermal Bonding') {
             </tr>
         <?php
         endforeach;
+        header("Content-Type: application/vnd.ms-excel");
         header("Content-Disposition: Attachment; Filename = Swab Assembly ($yearSelected).xls");
         ?>
     </table>
