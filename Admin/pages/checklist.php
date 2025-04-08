@@ -148,9 +148,6 @@
               </table>
             </div>
           </div>
-          <ol class="float-sm-right">
-            <a type="button" class="btn btn-info fa fa-plus-square excelBtn"> Thermal Report</a>
-          </ol>
         </div>
 
         <div class="col-12">
@@ -207,8 +204,10 @@
         </div>
       </div>
     </div>
+    <ol class="float-sm-right">
+      <a type="button" class="btn btn-info fa fa-plus-square excelBtn"> Report</a>
+    </ol>
   </section>
-
 </div>
 
 <div class="modal fade" id="excelList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -357,8 +356,6 @@
       <div class="modal-body">
         <div class="card-body">
           Do you want to create a duplicate copy?
-
-
         </div>
       </div>
       <div class="modal-footer">
@@ -382,8 +379,6 @@
       <div class="modal-body">
         <div class="card-body">
           Do you want to create a duplicate copy?
-
-
         </div>
       </div>
       <div class="modal-footer">
@@ -407,22 +402,16 @@
       <div class="modal-body">
         <div class="card-body">
           Do you want to create a duplicate copy?
-
-
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary createAccount" id="duplicateBtn3">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
-
       </div>
     </div>
   </div>
 </div>
 </div>
-
-
-
 
 <div class="modal fade" id="deleteList" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -436,8 +425,6 @@
       <div class="modal-body">
         <div class="card-body">
           Do you want to create a delete copy?
-
-
         </div>
       </div>
       <div class="modal-footer">
@@ -461,14 +448,11 @@
       <div class="modal-body">
         <div class="card-body">
           Do you want to create a delete copy?
-
-
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary createAccount" id="deleteBtn2">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
-
       </div>
     </div>
   </div>
@@ -486,14 +470,11 @@
       <div class="modal-body">
         <div class="card-body">
           Do you want to create a delete copy?
-
-
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary createAccount" id="deleteBtn3">Yes</button>
         <button type="button" class="btn btn-Danger" data-dismiss="modal">No</button>
-
       </div>
     </div>
   </div>
