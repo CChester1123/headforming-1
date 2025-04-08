@@ -421,7 +421,9 @@ while ($row = mysqli_fetch_array($sql)) {
                                         <div class="col-sm">
                                             <label style="color: red; margin-left: 30px;"> NOTE:</label><br>
                                             <label style="color: red; margin-left: 100px;">Process Inspection:<br>
-                                                Any non conformance found requires immediate correction of process, quarantine of affected lot and follow non-conforming SOP.</label><br><br>
+                                                Any non conformance found requires immediate correction of process, quarantine of affected lot and follow non-conforming SOP.
+                                            </label><br><br>
+
                                             <label style="color: red; margin-left: 100px;">Process and Visual Inspection of Product for each Operator: <br>
                                                 QA shall conduct verification if found one (1) reject during visual inspection for each operator. Operator shall do 100% re inspection if found another one (1) similar reject. QA will then verify the re worked products as well as finished goods (if there is any). Follow Non–conforming SOP if reject are still found.
                                             </label><br>
