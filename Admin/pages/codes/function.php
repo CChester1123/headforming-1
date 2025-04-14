@@ -710,6 +710,7 @@ WHERE id = '$checklistId';
     `pulltestingMin`, 
     `pulltestingSample`, 
     `remarksPullTesting`, 
+	`enterNA`, 
     `productionStats`, 
     `remarksProduction`, 
     `status`
@@ -740,6 +741,7 @@ SELECT
     pulltestingMin, 
     pulltestingSample, 
     remarksPullTesting, 
+	enterNA, 
     productionStats, 
     remarksProduction, 
     status
