@@ -320,7 +320,7 @@
               $sql = $user->selectPartNo();
               while ($list = mysqli_fetch_array($sql)) { ?>
                 <option value="<?php echo base64_encode($list['id']); ?>" data-department="<?php echo $list['department']; ?>">
-                  <?php echo $list['department']; ?> - <?php echo $list['productname']; ?>
+                  <?php echo $list['productname']; ?>
                 </option>
               <?php } ?>
             </select>
