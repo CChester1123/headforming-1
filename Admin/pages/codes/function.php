@@ -97,7 +97,6 @@ class admin_creation
 		}
 	}
 
-
 	public function getAdminAccount()
 	{
 		$result = mysqli_query($this->dbh, "SELECT * FROM headforming.tbl_users WHERE status = 'Active' ORDER BY id DESC ");
@@ -140,7 +139,6 @@ class admin_creation
 
 	public function createProduct($product, $productDesc, $handle, $subtrate, $pulltestdesc, $status, $arrcuttingforce, $arrsealingtime, $arrcuttingspeed, $arrapproachingposition, $arrsealingpositionspeed, $arrsealingposition, $arruppermoldtemp, $arrlowermoldtemp, $arrtotalLength, $arrswabheadlength, $arrswabheadwidth, $arrswabheadthickness, $arrswabhandlewidth, $arrswabhandlethickness, $arrswabhandlediameter, $arrpulltest, $arrswabheadpulling, $arrswabheadpopping, $substrateDimensionforce, $pullSeatTestforce, $pulltestingMin, $noHandleperHT, $handleColor, $substrateLotNum, $handleTreeMaterialNum, $machineTreeMatType, $substrateType, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arrheaterTempUpnLow, $arrheaterSwabHandleFixture, $arrfixtureClosingTime, $department, $arrheatingTime)
 	{
-
 		$confirm = mysqli_query($this->dbh, "SELECT * FROM headforming.tbl_products2 WHERE productname = '$product'");
 		$count_row = $confirm->num_rows;
 
@@ -185,7 +183,8 @@ class admin_creation
 	public function editProduct($prod_id, $product, $productDesc, $handle, $subtrate, $pulltestdesc, $status, $arrcuttingforce, $arrsealingtime, $arrcuttingspeed, $arrapproachingposition, $arrsealingpositionspeed, $arrsealingposition, $arruppermoldtemp, $arrlowermoldtemp, $arrtotalLength, $arrswabheadlength, $arrswabheadwidth, $arrswabheadthickness, $arrswabhandlewidth, $arrswabhandlethickness, $arrswabhandlediameter, $arrpulltest, $arrswabheadpulling, $arrswabheadpopping, $substrateDimensionforce, $pullSeatTestforce, $pulltestingMin, $noHandleperHT, $handleColor, $substrateLotNum, $handleTreeMaterialNum, $machineTreeMatType, $substrateType, $arrCheckbox, $moldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arrheaterTempUpnLow, $arrheaterSwabHandleFixture, $arrfixtureClosingTime, $department, $arrheatingTime)
 	{
 
-		$result = mysqli_query($this->dbh, "UPDATE `headforming`.`tbl_products2` SET `productname` = '$product', `productDesc` = '$productDesc', `status` = '$status', `handle` = '$handle', `substrate` = '$subtrate', `handleTreeColor` = '$handleColor', `substrateMatLotNum` = '$substrateLotNum', `handleTreeMatLotNum` = '$handleTreeMaterialNum', `handleTreeMatType` = '$machineTreeMatType', `substrateMatType` = '$substrateType', `pulltestingMin` = '$pulltestingMin', `cuttingforceRange` = '$arrcuttingforce', `sealingtimeRange` = '$arrsealingtime', `cuttingspeedRange` = '$arrcuttingspeed', `approachingpositionRange` = '$arrapproachingposition', `sealingpositionspeedRange` = '$arrsealingpositionspeed', `sealingpositionRange` = '$arrsealingposition', `mode` = '$arrCheckbox', `moldopenspeedRange` = '$moldopenspeed', `watertempRange` = '$arrwatertemp', `airpressureRange` = '$arrairpressure', `upperheattempRange` = '$arrupperheatertemp', `lowerheattempRange` = '$arrlowerheatertemp', `uppermoldtempRange` = '$arruppermoldtemp', `lowermoldtempRange` = '$arrlowermoldtemp', `totallengthRange` = '$arrtotalLength', `swabheadlengthRange` = '$arrswabheadlength', `swabheadwidthRange` = '$arrswabheadwidth', `swabheadthicknessRange` = '$arrswabheadthickness', `swabhandlewidthRange` = '$arrswabhandlewidth', `swabhandlethicknessRange` = '$arrswabhandlethickness', `swabheaddiameterRange` = '$arrswabhandlediameter', `swabdimensionspecsRange` = '$substrateDimensionforce', `pull/sealstrengthspecsRange` = '$pullSeatTestforce', `noofsample` = '$noHandleperHT', `pullTest` = '$arrpulltest', `swabheadpullingRange` = '$arrswabheadpulling', `swabheadpoppingRange` = '$arrswabheadpopping', `pulltestdesc` = '$pulltestdesc', `heaterTempUpnLowRange` = '$arrheaterTempUpnLow', `heatingTimeRange` = '$arrheatingTime', `heaterSwabHandleFixtureRange` = '$arrheaterSwabHandleFixture', `fixtureClosingTimeRange` = '$arrfixtureClosingTime', `department` = '$department' WHERE id = '$prod_id';");
+		$result = mysqli_query($this->dbh, "UPDATE `headforming`.`tbl_products2` SET `productname` = '$product', `productDesc` = '$productDesc', `status` = '$status', `handle` = '$handle', `substrate` = '$subtrate', `handleTreeColor` = '$handleColor', `substrateMatLotNum` = '$substrateLotNum', `handleTreeMatLotNum` = '$handleTreeMaterialNum', `handleTreeMatType` = '$machineTreeMatType', `substrateMatType` = '$substrateType', `pulltestingMin` = '$pulltestingMin', `cuttingforceRange` = '$arrcuttingforce', `sealingtimeRange` = '$arrsealingtime', `cuttingspeedRange` = '$arrcuttingspeed', `approachingpositionRange` = '$arrapproachingposition', `sealingpositionspeedRange` = '$arrsealingpositionspeed', `sealingpositionRange` = '$arrsealingposition', `mode` = '$arrCheckbox', `moldopenspeedRange` = '$moldopenspeed', `watertempRange` = '$arrwatertemp', `airpressureRange` = '$arrairpressure', `upperheattempRange` = '$arrupperheatertemp', `lowerheattempRange` = '$arrlowerheatertemp', `uppermoldtempRange` = '$arruppermoldtemp', `lowermoldtempRange` = '$arrlowermoldtemp', `totallengthRange` = '$arrtotalLength', `swabheadlengthRange` = '$arrswabheadlength', `swabheadwidthRange` = '$arrswabheadwidth', `swabheadthicknessRange` = '$arrswabheadthickness', `swabhandlewidthRange` = '$arrswabhandlewidth', `swabhandlethicknessRange` = '$arrswabhandlethickness', `swabheaddiameterRange` = '$arrswabhandlediameter', `swabdimensionspecsRange` = '$substrateDimensionforce', `pull/sealstrengthspecsRange` = '$pullSeatTestforce', `noofsample` = '$noHandleperHT', `pullTest` = '$arrpulltest', `swabheadpullingRange` = '$arrswabheadpulling', `swabheadpoppingRange` = '$arrswabheadpopping', `pulltestdesc` = '$pulltestdesc', `heaterTempUpnLowRange` = '$arrheaterTempUpnLow', `heatingTimeRange` = '$arrheatingTime', `heaterSwabHandleFixtureRange` = '$arrheaterSwabHandleFixture', `fixtureClosingTimeRange` = '$arrfixtureClosingTime', `department` = '$department' WHERE id = '$prod_id'");
+
 		return $result;
 	}
 
@@ -275,7 +274,6 @@ class admin_creation
 		$data[55] = $user_data['maxHeatingTank'];
 		$data[56] = $user_data['minCoolingWater'];
 		$data[57] = $user_data['maxCoolingWater'];
-
 		$data[58] = $user_data['minTotalLength'];
 		$data[59] = $user_data['maxTotalLength'];
 		$data[60] = $user_data['minSwabHeadLength'];
@@ -290,7 +288,6 @@ class admin_creation
 		$data[69] = $user_data['maxSwabHeadThickness2'];
 		$data[70] = $user_data['minSwabHeadDiameter'];
 		$data[71] = $user_data['maxSwabHeadDiameter'];
-
 		$data[72] = $user_data['noHandleperHT'];
 		$data[73] = $user_data['minPullTest'];
 		$data[74] = $user_data['maxPullTest'];
@@ -307,7 +304,8 @@ class admin_creation
 
 	public function createCheckList($workorder, $date, $productDesc, $machineNo, $product, $type, $handle, $machinetobeused, $substrate, $operation, $maintenance, $preinstallremarks, $arrcuttingforce, $arrsealingtime, $arrcuttingspeed, $arrapproachingposition, $arrsealingpositionspeed, $arrsealingposition, $arrMode, $arrmoldopenspeed, $arrwatertemp, $arrairpressure, $arrupperheatertemp, $arrlowerheatertemp, $arruppermoldtemp, $arrlowermoldtemp, $arrtotalLength, $arrswabheadlength, $arrswabheadwidth, $arrswabheadthickness, $arrswabhandlewidth, $arrswabhandlethickness, $arrswabhandlediameter, $noHandleperHT, $visualInpection, $arractualDataLoop, $selectedoption, $shotproductionremarks, $InspectedBY, $acknowledge, $maintenancecheced, $status, $arrpulltest, $setUpNUmber, $template, $trans_num, $handleColor, $handleTreeMaterialNum, $machineTreeMatType, $substrateType, $substrateDimensionforce, $visualInspection, $shotRemarks, $pullSeatTestforce, $substrateLotNum, $pulltestdesc)
 	{
-		$result = mysqli_query($this->dbh, "INSERT INTO tbl_checklist (workorder,date,productDesc,machineNo,product,type,handle,machinetobeused,substrate,operation,maintenance,preinstallremarks,arrcuttingforce,arrsealingtime,arrcuttingspeed,arrapproachingposition,arrsealingpositionspeed,arrsealingposition,arrMode,arrmoldopenspeed,arrwatertemp,arrairpressure,arrupperheatertemp,arrlowerheatertemp,arruppermoldtemp,arrlowermoldtemp,arrtotalLength,arrswabheadlength,arrswabheadwidth,arrswabheadthickness,arrswabhandlewidth,arrswabhandlethickness,arrswabhandlediameter,noHandleperHT,visualInpection,arractualDataLoop,selectedoption,shotproductionremarks,InspectedBY,acknowledge,maintenancecheced,status,pulltest,setUpNUmber,template,trans_num,handleColor,handleTreeMaterialNum,machineTreeMatType,substrateType,substrateDimention,visualInspection,shotRemarks,pullSeatTest,substrateLotNum) VALUES ('$workorder','$date','$productDesc','$machineNo','$product','$type','$handle','$machinetobeused','$substrate','$operation','$maintenance','$preinstallremarks','$arrcuttingforce','$arrsealingtime','$arrcuttingspeed','$arrapproachingposition','$arrsealingpositionspeed','$arrsealingposition','$arrMode','$arrmoldopenspeed','$arrwatertemp','$arrairpressure','$arrupperheatertemp','$arrlowerheatertemp','$arruppermoldtemp','$arrlowermoldtemp','$arrtotalLength','$arrswabheadlength','$arrswabheadwidth','$arrswabheadthickness','$arrswabhandlewidth','$arrswabhandlethickness','$arrswabhandlediameter','$noHandleperHT','$visualInpection','$arractualDataLoop','$selectedoption','$shotproductionremarks','$InspectedBY','$acknowledge','$maintenancecheced','$status','$pulltestdesc','$setUpNUmber','$template', '$trans_num', '$handleColor','$handleTreeMaterialNum' ,'$machineTreeMatType' ,'$substrateType' ,'$substrateDimensionforce','$visualInspection','$shotRemarks','$pullSeatTestforce','$substrateLotNum' ) ");
+		$result = mysqli_query($this->dbh, "INSERT INTO tbl_checklist (workorder,date,productDesc,machineNo,product,type,handle,machinetobeused,substrate,operation,maintenance,preinstallremarks,arrcuttingforce,arrsealingtime,arrcuttingspeed,arrapproachingposition,arrsealingpositionspeed,arrsealingposition,arrMode,arrmoldopenspeed,arrwatertemp,arrairpressure,arrupperheatertemp,arrlowerheatertemp,arruppermoldtemp,arrlowermoldtemp,arrtotalLength,arrswabheadlength,arrswabheadwidth,arrswabheadthickness,arrswabhandlewidth,arrswabhandlethickness,arrswabhandlediameter,noHandleperHT,visualInpection,arractualDataLoop,selectedoption,shotproductionremarks,InspectedBY,acknowledge,maintenancecheced,status,pulltest,setUpNUmber,template,trans_num,handleColor,handleTreeMaterialNum,machineTreeMatType,substrateType,substrateDimention,visualInspection,shotRemarks,pullSeatTest,substrateLotNum) VALUES ('$workorder','$date','$productDesc','$machineNo','$product','$type','$handle','$machinetobeused','$substrate','$operation','$maintenance','$preinstallremarks','$arrcuttingforce','$arrsealingtime','$arrcuttingspeed','$arrapproachingposition','$arrsealingpositionspeed','$arrsealingposition','$arrMode','$arrmoldopenspeed','$arrwatertemp','$arrairpressure','$arrupperheatertemp','$arrlowerheatertemp','$arruppermoldtemp','$arrlowermoldtemp','$arrtotalLength','$arrswabheadlength','$arrswabheadwidth','$arrswabheadthickness','$arrswabhandlewidth','$arrswabhandlethickness','$arrswabhandlediameter','$noHandleperHT','$visualInpection','$arractualDataLoop','$selectedoption','$shotproductionremarks','$InspectedBY','$acknowledge','$maintenancecheced','$status','$pulltestdesc','$setUpNUmber','$template', '$trans_num', '$handleColor','$handleTreeMaterialNum' ,'$machineTreeMatType' ,'$substrateType' ,'$substrateDimensionforce','$visualInspection','$shotRemarks','$pullSeatTestforce','$substrateLotNum' )");
+
 		return $result;
 	}
 
@@ -370,8 +368,8 @@ SET
     shotRemarks = '$shotRemarks',
      pullSeatTest ='$pullSeatTestforce',
     substrateLotNum ='$substrateLotNum'
-WHERE id = '$checklistId';
-    ");
+WHERE id = '$checklistId'");
+
 		return $result;
 	}
 
@@ -444,7 +442,6 @@ WHERE id = '$checklistId';
 			return "<p style='color:red; text-align:center'>Out of specs, create change notice</p>";
 		}
 	}
-
 
 	public function checkValidation2($value1, $value2, $value3, $value4, $value5, $value6, $value7)
 	{
@@ -660,13 +657,10 @@ WHERE id = '$checklistId';
 	public function DuplicateCheckList($transID)
 	{
 		$result = mysqli_query($this->dbh, "INSERT INTO headforming.tbl_checklist (workorder, productDesc, machineNo,product,type,handle,machinetobeused,substrate,operation,maintenance,preinstallremarks,arrcuttingforce,arrsealingtime,arrcuttingspeed,arrapproachingposition,arrsealingpositionspeed,arrsealingposition,arrMode,arrmoldopenspeed,arrwatertemp,arrairpressure,arrupperheatertemp,arrlowerheatertemp,arruppermoldtemp,arrlowermoldtemp,arrtotalLength,arrswabheadlength,arrswabheadwidth,arrswabheadthickness,arrswabhandlewidth,arrswabhandlethickness,arrswabhandlediameter,noHandleperHT,visualInpection,arractualDataLoop,shotproductionremarks,InspectedBY,acknowledge,maintenancecheced,status_maintenance,status_TL,selectedoption,pulltest,setUpNUmber,template,trans_num)
- 					
- 					SELECT workorder, productDesc, machineNo,product,type,handle,machinetobeused,substrate,operation,maintenance,preinstallremarks,arrcuttingforce,arrsealingtime,arrcuttingspeed,arrapproachingposition,arrsealingpositionspeed,arrsealingposition,arrMode,arrmoldopenspeed,arrwatertemp,arrairpressure,arrupperheatertemp,arrlowerheatertemp,arruppermoldtemp,arrlowermoldtemp,arrtotalLength,arrswabheadlength,arrswabheadwidth,arrswabheadthickness,arrswabhandlewidth,arrswabhandlethickness,arrswabhandlediameter,noHandleperHT,visualInpection,arractualDataLoop,shotproductionremarks,InspectedBY,acknowledge,maintenancecheced,status_maintenance,status_TL,selectedoption,pulltest,setUpNUmber + 1,template,trans_num FROM headforming.tbl_checklist WHERE id = '$transID'");
-
+		
+		SELECT workorder, productDesc, machineNo,product,type,handle,machinetobeused,substrate,operation,maintenance,preinstallremarks,arrcuttingforce,arrsealingtime,arrcuttingspeed,arrapproachingposition,arrsealingpositionspeed,arrsealingposition,arrMode,arrmoldopenspeed,arrwatertemp,arrairpressure,arrupperheatertemp,arrlowerheatertemp,arruppermoldtemp,arrlowermoldtemp,arrtotalLength,arrswabheadlength,arrswabheadwidth,arrswabheadthickness,arrswabhandlewidth,arrswabhandlethickness,arrswabhandlediameter,noHandleperHT,visualInpection,arractualDataLoop,shotproductionremarks,InspectedBY,acknowledge,maintenancecheced,status_maintenance,status_TL,selectedoption,pulltest,setUpNUmber + 1,template,trans_num FROM headforming.tbl_checklist WHERE id = '$transID'");
 
 		mysqli_query($this->dbh, "UPDATE headforming.tbl_checklist SET count = '1'  WHERE id = '$transID'");
-
-
 
 		return $result;
 	}
@@ -677,85 +671,17 @@ WHERE id = '$checklistId';
 		
 		SELECT workorder, date, time, shift, operatorName, teamLead, machineNo, product, type, InspectedBY, maintenancecheced, handle, substrate, handleTreeColor, substrateLotNum, handleTreeMaterialNum, texwipeLogo, remarksInprocess, TempUpnLowRange, actTempUpnLow, TempUpnLow, HeatingTimeRange, actHeatingTime, HeatingTime, SwabHandleFixtureRange, actSwabHandleFixture, SwabHandleFixture, FixtureClosingTimeRange, actFixtureClosingTime, FixtureClosingTime, productionStats, remarksProduction, visualInpection, remarksVisual, resistanceInpection, remarksResistance, status FROM headforming.tbl_thermalbonding WHERE id = '$transID'");
 
-
-
 		return $result;
 	}
 
 	public function DuplicateCheckList3($transID)
 	{
-		$result = mysqli_query($this->dbh, "INSERT INTO `headforming`.`tbl_swabassembly` ( 
-    `workorder`, 
-    `date`, 
-    `time`, 
-    `shift`, 
-    `operatorName`, 
-    `teamLead`, 
-    `machineNo`, 
-    `product`, 
-    `type`, 
-    `InspectedBY`, 
-    `maintenancecheced`, 
-    `handle`, 
-    `substrate`, 
-    `handleTreeColor`, 
-    `substrateLotNum`, 
-    `handleTreeMaterialNum`, 
-    `texwipeLogo`, 
-    `remarksInprocess`, 
-    `visualInpection`, 
-    `remarksVisual`, 
-    `manualHeadPulling`, 
-    `remarksManualHeadPulling`, 
-    `pulltestingMin`, 
-    `pulltestingSample`, 
-    `remarksPullTesting`, 
-	`enterNA`, 
-    `productionStats`, 
-    `remarksProduction`, 
-    `status`
-)
-SELECT 
-    workorder, 
-    date, 
-    time, 
-    shift, 
-    operatorName, 
-    teamLead, 
-    machineNo, 
-    product, 
-    type, 
-    InspectedBY, 
-    maintenancecheced, 
-    handle, 
-    substrate, 
-    handleTreeColor, 
-    substrateLotNum, 
-    handleTreeMaterialNum, 
-    texwipeLogo, 
-    remarksInprocess, 
-    visualInpection, 
-    remarksVisual, 
-    manualHeadPulling, 
-    remarksManualHeadPulling, 
-    pulltestingMin, 
-    pulltestingSample, 
-    remarksPullTesting, 
-	enterNA, 
-    productionStats, 
-    remarksProduction, 
-    status
-FROM 
-    headforming.tbl_swabassembly 
-WHERE 
-    id = '$transID';
-");
-
-
+		$result = mysqli_query($this->dbh, "INSERT INTO `headforming`.`tbl_swabassembly` ( `workorder`, `date`, `time`, `shift`, `operatorName`, `teamLead`, `machineNo`, `product`, `type`, `InspectedBY`, `maintenancecheced`, `handle`, `substrate`, `handleTreeColor`, `substrateLotNum`, `handleTreeMaterialNum`, `texwipeLogo`, `remarksInprocess`, `visualInpection`, `remarksVisual`, `manualHeadPulling`, `remarksManualHeadPulling`, `pulltestingMin`, `pulltestingSample`, `remarksPullTesting`, `enterNA`, `productionStats`, `remarksProduction`, `status` )
+		
+		SELECT workorder, date, time, shift, operatorName, teamLead, machineNo, product, type, InspectedBY, maintenancecheced, handle, substrate, handleTreeColor, substrateLotNum, handleTreeMaterialNum, texwipeLogo, remarksInprocess, visualInpection, remarksVisual, manualHeadPulling, remarksManualHeadPulling, pulltestingMin, pulltestingSample, remarksPullTesting, enterNA, productionStats, remarksProduction, status FROM headforming.tbl_swabassembly WHERE id = '$transID'");
 
 		return $result;
 	}
-
 
 	public function DeleteCheckList($transID)
 	{
@@ -821,9 +747,7 @@ SET
     `productionStats` = '$productionStats',
     `remarksProduction` = '$remarksProduction',
     `status` = '$status'
-WHERE `id` = '$prod_id';  -- Modify this WHERE clause based on how you identify the record(s) to update
-
-");
+WHERE `id` = '$prod_id'");
 
 		return $result;
 	}
