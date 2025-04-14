@@ -246,6 +246,8 @@
                 }
               }
 
+              sort($years);
+
               foreach ($years as $year) { ?>
                 <option>
                   <?php echo $year; ?>
@@ -264,6 +266,8 @@
                   $years[] = $year;
                 }
               }
+
+              sort($years);
 
               foreach ($years as $year) { ?>
                 <option>
