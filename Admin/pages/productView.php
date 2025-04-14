@@ -392,7 +392,6 @@ while ($row = mysqli_fetch_array($sql)) {
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
 

@@ -359,7 +359,6 @@ while ($row = mysqli_fetch_array($sql)) {
         </section>
 
         <script>
-            // Function to apply styling based on value
             function applyStyle(elementId, value) {
                 var element = document.getElementById(elementId);
                 if (value.toLowerCase() === 'passed') {
@@ -367,8 +366,8 @@ while ($row = mysqli_fetch_array($sql)) {
                 } else if (value.toLowerCase() === 'failed') {
                     element.style.backgroundColor = 'red';
                 }
-                element.style.color = 'white'; // Optional: Change text color to white for contrast
-                element.style.fontWeight = 'bold'; // Make the text bold
+                element.style.color = 'white';
+                element.style.fontWeight = 'bold';
             }
 
             // Apply styles based on the PHP values
@@ -705,9 +704,9 @@ while ($row = mysqli_fetch_array($sql)) {
             fd.append('resistanceInpection', resistanceInpection);
             fd.append('remarksResistance', remarksResistance);
 
-            for (let pair of fd.entries()) {
-                console.log(pair[0] + ": " + pair[1]);
-            }
+            // for (let pair of fd.entries()) {
+            //     console.log(pair[0] + ": " + pair[1]);
+            // }
 
             $.ajax({
                 url: "../pages/codes/admin_control.php",

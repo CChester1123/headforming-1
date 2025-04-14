@@ -579,7 +579,6 @@ $deptType = $_GET['deptType'];
                   </div>
                 </div>
               </div>
-
             </div>
 
           </div>';
@@ -735,9 +734,7 @@ $deptType = $_GET['deptType'];
       <div class="row">
         <div class="col-12">
           <?php
-          // Check if deptType is equal to "headforming"
           if ($deptType === 'Head Forming') {
-            // Display the HTML block
             echo '
     <div class="card">
         <div class="card-header" style="background-color: #111E6C; color: white;">

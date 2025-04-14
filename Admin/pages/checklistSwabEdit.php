@@ -315,21 +315,18 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 </div>
 
                                                 <script>
-                                                    // Get the value from the input field
                                                     var remarksPullTestingValue = "<?php echo $row['remarksPullTesting']; ?>";
 
-                                                    // Get the input element
                                                     var inputElementRemarksPullTesting = document.getElementById('remarksPullTesting');
 
-                                                    // Change the color and font weight based on the value
                                                     if (remarksPullTestingValue.toLowerCase() === 'passed') {
                                                         inputElementRemarksPullTesting.style.backgroundColor = 'green';
-                                                        inputElementRemarksPullTesting.style.color = 'white'; // Optional: Change text color to white for contrast
-                                                        inputElementRemarksPullTesting.style.fontWeight = 'bold'; // Make the text bold
+                                                        inputElementRemarksPullTesting.style.color = 'white';
+                                                        inputElementRemarksPullTesting.style.fontWeight = 'bold';
                                                     } else if (remarksPullTestingValue.toLowerCase() === 'failed') {
                                                         inputElementRemarksPullTesting.style.backgroundColor = 'red';
-                                                        inputElementRemarksPullTesting.style.color = 'white'; // Optional: Change text color to white for contrast
-                                                        inputElementRemarksPullTesting.style.fontWeight = 'bold'; // Make the text bold
+                                                        inputElementRemarksPullTesting.style.color = 'white';
+                                                        inputElementRemarksPullTesting.style.fontWeight = 'bold';
                                                     }
                                                 </script>
                                             </div>
@@ -388,7 +385,7 @@ while ($row = mysqli_fetch_array($sql)) {
                                             <label style="color: red; margin-left: 100px;">Process Inspection:<br>
                                                 Any non conformance found requires immediate correction of process, quarantine of affected lot and follow non-conforming SOP.
                                             </label><br><br>
-                                            
+
                                             <label style="color: red; margin-left: 100px;">Process and Visual Inspection of Product for each Operator:<br>
                                                 QA shall conduct verification if found one (1) reject during visual inspection for each operator. Operator shall do 100% re inspection<br>
                                                 if found another one (1) similar reject. QA will then verify the re worked products as well as finished goods (if there is any). Follow<br>

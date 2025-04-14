@@ -350,7 +350,6 @@ while ($row = mysqli_fetch_array($sql)) {
         </section>
 
         <script>
-            // Function to apply styling based on value
             function applyStyle(elementId, value) {
                 var element = document.getElementById(elementId);
                 if (value.toLowerCase() === 'passed') {
@@ -362,7 +361,6 @@ while ($row = mysqli_fetch_array($sql)) {
                 element.style.fontWeight = 'bold';
             }
 
-            // Apply styles based on the PHP values
             applyStyle('TempUpnLow', "<?php echo $row['TempUpnLow']; ?>");
             applyStyle('HeatingTime', "<?php echo $row['HeatingTime']; ?>");
             applyStyle('SwabHandleFixture', "<?php echo $row['SwabHandleFixture']; ?>");

@@ -326,18 +326,16 @@ while ($row = mysqli_fetch_array($sql)) {
                                                 </div>
 
                                                 <script>
-                                                    // Get the input element
                                                     var remarksInput = document.getElementById('remarksPullTesting');
-
-                                                    // Check the value and change background color, text color, and bold text
+                                                    
                                                     if (remarksInput.value.toLowerCase() === 'passed') {
                                                         remarksInput.style.backgroundColor = 'green';
-                                                        remarksInput.style.color = 'white'; // Set text color to white
-                                                        remarksInput.style.fontWeight = 'bold'; // Set text to bold
+                                                        remarksInput.style.color = 'white';
+                                                        remarksInput.style.fontWeight = 'bold';
                                                     } else if (remarksInput.value.toLowerCase() === 'failed') {
                                                         remarksInput.style.backgroundColor = 'red';
-                                                        remarksInput.style.color = 'white'; // Set text color to white
-                                                        remarksInput.style.fontWeight = 'bold'; // Set text to bold
+                                                        remarksInput.style.color = 'white';
+                                                        remarksInput.style.fontWeight = 'bold';
                                                     }
                                                 </script>
                                             </div>
