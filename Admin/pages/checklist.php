@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 style="font-weight: bold;">CHECKLIST</h1>
+          <h1 style="font-weight: bold;">CHECKLIST123</h1>
         </div>
 
         <?php if ($_SESSION['account_type'] == 'QA' || $_SESSION['account_type'] == 'Admin' || $_SESSION['account_type'] == 'QA Manager') { ?>
@@ -25,13 +25,13 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <div class="card" style="display: none;"> <!-- Hide Temporarily -->
+          <div class="card">
             <div class="card-header">
               <h3 class="card-title">All Accounts</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="example5" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th style="text-align:center;">Action</th>
