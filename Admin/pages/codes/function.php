@@ -12,11 +12,12 @@ define('DB_NAME', 'headforming');
 
 class admin_creation
 {
+	protected $dbh; // ✅ Declare the property
 	// database conncections
 	public function __construct()
 	{
-		$con = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-		$this->dbh = $con;
+		$this->dbh = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+		
 		// Check connection
 		if (mysqli_connect_errno()) {
 			echo "Failed to connect to MySQL: " . mysqli_connect_error();

@@ -73,7 +73,7 @@
                             <td style="text-align:center;"><?php echo (htmlentities($row['status_TL']) == '' ? 'Pending' : $row['status_TL']);?></td>
                         </tr>
                     <?php } ?>
-              
+                    <?php } ?>
                   </tbody>
                   
                 </table>

@@ -506,9 +506,11 @@
     </div>
   </div>
 </div>
-</div>
+
+
 
 <?php include 'includes/footer.php'; ?>
+</div>
 <script>
   // Function to filter FG PART NO. based on the selected department
   function filterPartNo() {
@@ -855,3 +857,4 @@
     });
   });
 </script>
+
